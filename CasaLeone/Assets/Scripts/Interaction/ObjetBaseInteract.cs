@@ -6,16 +6,19 @@ public class ObjetBaseInteract :  MonoBehaviour,IInteract
 	[SerializeField] private GameObject pressE;
 	[SerializeField] private GameObject endPosition;
 	[SerializeField] private GameObject startPosition;
+	[SerializeField] private QTESysteme qteSysteme;
 
 	[SerializeField] private float speedAnim;
 
 	private void Start()
 	{
 		pressE.transform.position = startPosition.transform.position;
+		qteSysteme =  qteSysteme.GetComponent<QTESysteme>();
 	}
 	public void Interact()
 	{
 		Debug.Log("ObjetBaseInteract");
+		qteSysteme.StartSequence();
 	}
 
 	private void OnTriggerStay(Collider other)
