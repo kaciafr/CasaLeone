@@ -16,6 +16,7 @@ public class UiQte : MonoBehaviour
 	[SerializeField] private QTESysteme qteSysteme;
 	[SerializeField] private Transform arrowContainer;
 	[SerializeField] private GameObject arrowPrefab;
+	[SerializeField] private AngoisseBar angoisseBar;
 
 	private void Start()
 	{
@@ -47,6 +48,7 @@ public class UiQte : MonoBehaviour
 	private void UpdateArrow(int index)
 	{
 		arrows[index].transform.DOJump(Vector3.up, 5f,1,1);
+		angoisseBar.RemoveAnguish(0.1f);
 	}
 
 	private void LoseUI()
@@ -54,6 +56,7 @@ public class UiQte : MonoBehaviour
 		foreach (Transform child in arrowContainer)
 			Destroy(child.gameObject);
 		arrows.Clear();
+		angoisseBar.AddAnguish(0.4f);
 	}
 
 	private void WinUI()
