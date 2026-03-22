@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class QTESysteme : MonoBehaviour
 {
@@ -13,8 +16,15 @@ public class QTESysteme : MonoBehaviour
 	}
 
 	[SerializeField] private List<QTEKey> sequence = new List<QTEKey>();
-	[SerializeField] private float maxDelay = 5;
+	[SerializeField] private float TimerDelay = 5;
+	[SerializeField] private int maxSequence = 5;
+	[SerializeField] private int minSequence = 5;
 	[SerializeField] private PlayerInput playerInput;
+
+	public Action<List<QTEKey>> QTESequence;
+	public Action<int> KeyPressed;
+	public Action onLose;
+	public Action onSuccess;
 
 	private float delay;
 	private int currentIndex = 0;
@@ -26,60 +36,54 @@ public class QTESysteme : MonoBehaviour
 		playerInput.SwitchCurrentActionMap("QTE");
 		GenerateSequence();
 		isStarted = true;
-		delay = maxDelay;
+		delay = TimerDelay;
 		currentIndex = 0;
-
-		DebugSequence();
 	}
 
 	private void Update()
 	{
 		if (!isStarted) return;
-
+		
 		delay -= Time.deltaTime;
-
+		
 		if (delay <= 0)
-		{
 			Lose();
-		}
 	}
 
 	void GenerateSequence()
 	{
 		sequence.Clear();
-
-		for (int i = 0; i < 4; i++)
+		
+		int randS = Random.Range(minSequence, maxSequence);
+		for (int i = 0; i < randS; i++)
 		{
 			int rand = Random.Range(0, 4);
 			sequence.Add((QTEKey)rand);
 		}
+			QTESequence?.Invoke(sequence);
 	}
 
 	public void UpKey(InputAction.CallbackContext ctx)
 	{
 		if (!ctx.performed) return;
-		Debug.Log($"Up Key");
 		HandleInput(QTEKey.Up);
 	}
 
 	public void DownKey(InputAction.CallbackContext ctx)
 	{
 		if (!ctx.performed) return;
-		Debug.Log("DownKey");
 		HandleInput(QTEKey.Down);
 	}
 
 	public void LeftKey(InputAction.CallbackContext ctx)
 	{
 		if (!ctx.performed) return;
-		Debug.Log("Left Key");
 		HandleInput(QTEKey.Left);
 	}
 
 	public void RightKey(InputAction.CallbackContext ctx)
 	{
 		if (!ctx.performed) return;
-		Debug.Log("RightKey");
 		HandleInput(QTEKey.Right);
 	}
 
@@ -89,8 +93,7 @@ public class QTESysteme : MonoBehaviour
 
 		if (sequence[currentIndex] == input)
 		{
-			Debug.Log("Correct: " + input);
-
+			KeyPressed?.Invoke(currentIndex);
 			currentIndex++;
 
 			if (currentIndex >= sequence.Count)
@@ -110,6 +113,7 @@ public class QTESysteme : MonoBehaviour
 		isStarted = false;
 		playerInput.SwitchCurrentActionMap("Player");
 		Debug.Log("SUCCESS");
+		onSuccess?.Invoke();
 	}
 
 	void Lose()
@@ -117,17 +121,6 @@ public class QTESysteme : MonoBehaviour
 		isStarted = false;
 		playerInput.SwitchCurrentActionMap("Player");
 		Debug.Log("FAILED");
-	}
-
-	void DebugSequence()
-	{
-		string seq = "";
-
-		foreach (var key in sequence)
-		{
-			seq += key + " ";
-		}
-
-		Debug.Log("Sequence: " + seq);
+		onLose?.Invoke();
 	}
 }

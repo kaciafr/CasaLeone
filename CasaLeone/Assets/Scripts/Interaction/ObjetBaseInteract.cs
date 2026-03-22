@@ -18,7 +18,13 @@ public class ObjetBaseInteract :  MonoBehaviour,IInteract
 	public void Interact()
 	{
 		Debug.Log("ObjetBaseInteract");
+		pressE.SetActive(false);
 		qteSysteme.StartSequence();
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		pressE.SetActive(true);
 	}
 
 	private void OnTriggerStay(Collider other)

@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 6182122040477376129}
   - component: {fileID: 8714211667217110689}
   - component: {fileID: 7329413206935413787}
+  - component: {fileID: 7537177274810782568}
   m_Layer: 0
   m_Name: ObjectInteractable
   m_TagString: Untagged
@@ -362,8 +363,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8448248, y: 1.449527, z: 1}
-  m_Center: {x: -0.021770686, y: 0.22476311, z: 0}
+  m_Size: {x: 1.8448248, y: 1.0598351, z: 2.6959221}
+  m_Center: {x: -0.021770686, y: 0.4196103, z: -0.8479604}
 --- !u!54 &8714211667217110689
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -406,4 +407,22 @@ MonoBehaviour:
   pressE: {fileID: 1980578759535116939}
   endPosition: {fileID: 4745643750110022444}
   startPosition: {fileID: 2489460981842057223}
-  speedAnim: 2
+  qteSysteme: {fileID: 7537177274810782568}
+  speedAnim: 1
+--- !u!114 &7537177274810782568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186244948672501582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9616559f5422b4fa983ddb308f9b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QTESysteme
+  sequence: 
+  TimerDelay: 5
+  maxSequence: 10
+  minSequence: 3
+  playerInput: {fileID: 0}
