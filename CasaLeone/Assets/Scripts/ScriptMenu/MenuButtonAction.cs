@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MenuButtonAction : MonoBehaviour
@@ -19,7 +20,7 @@ public class MenuButtonAction : MonoBehaviour
     void Start()
     {
         closedPos = optionContainerGO.transform.localPosition;
-        openPos = closedPos + new Vector3(0, 0, 0); 
+        openPos = closedPos + new Vector3(-300, 0, 0); 
     }
 
     void Update()
@@ -30,6 +31,11 @@ public class MenuButtonAction : MonoBehaviour
             target,
             Time.deltaTime * speed
         );
+        
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            OpenOptions();
+        }
     }
 
     public void OpenOptions()
