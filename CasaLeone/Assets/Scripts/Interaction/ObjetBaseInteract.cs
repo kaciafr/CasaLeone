@@ -1,14 +1,20 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
 public class ObjetBaseInteract :  MonoBehaviour,IInteract
 {
+	[Header("References")]
+	[SerializeField] private Transform objectTransform;
 	[SerializeField] private GameObject pressE;
 	[SerializeField] private GameObject endPosition;
 	[SerializeField] private GameObject startPosition;
 	[SerializeField] private QTESysteme qteSysteme;
+	[SerializeField] private TransformeUiQte UiLocQte;
 
 	[SerializeField] private float speedAnim;
+
+	public Action<Transform> UILoc;
 
 	private void Start()
 	{
@@ -19,6 +25,7 @@ public class ObjetBaseInteract :  MonoBehaviour,IInteract
 	{
 		Debug.Log("ObjetBaseInteract");
 		pressE.SetActive(false);
+		UiLocQte.UiTransform(objectTransform);
 		qteSysteme.StartSequence();
 	}
 

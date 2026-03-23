@@ -261,7 +261,6 @@ GameObject:
   - component: {fileID: 6182122040477376129}
   - component: {fileID: 8714211667217110689}
   - component: {fileID: 7329413206935413787}
-  - component: {fileID: 7537177274810782568}
   m_Layer: 0
   m_Name: ObjectInteractable
   m_TagString: Untagged
@@ -404,25 +403,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b8cef50338a004da9c5067549f8f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetBaseInteract
+  objectTransform: {fileID: 8567069578926403418}
   pressE: {fileID: 1980578759535116939}
   endPosition: {fileID: 4745643750110022444}
   startPosition: {fileID: 2489460981842057223}
-  qteSysteme: {fileID: 7537177274810782568}
+  qteSysteme: {fileID: 0}
+  UiLocQte: {fileID: 0}
   speedAnim: 1
---- !u!114 &7537177274810782568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6186244948672501582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de9616559f5422b4fa983ddb308f9b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QTESysteme
-  sequence: 
-  TimerDelay: 5
-  maxSequence: 10
-  minSequence: 3
-  playerInput: {fileID: 0}

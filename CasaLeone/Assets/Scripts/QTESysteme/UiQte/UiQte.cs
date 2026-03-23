@@ -13,21 +13,30 @@ public class UiQte : MonoBehaviour
 	private List<Image> arrows = new List<Image>();
 	
 	[Header("References")]
+	[SerializeField] private Image timerBar;
+	[SerializeField] private GameObject timerBars;
 	[SerializeField] private QTESysteme qteSysteme;
 	[SerializeField] private Transform arrowContainer;
 	[SerializeField] private GameObject arrowPrefab;
 	[SerializeField] private AngoisseBar angoisseBar;
+	[SerializeField] private GameObject endPosition;
+	
 
 	private void Start()
 	{
+		timerBars.SetActive(false);
 		qteSysteme.QTESequence += GenereteArrow;
 		qteSysteme.KeyPressed += UpdateArrow;
 		qteSysteme.onLose += LoseUI;
 		qteSysteme.onSuccess += WinUI;
+		qteSysteme.Timer += Timers;
 	}
+
 
 	private void GenereteArrow(List<QTESysteme.QTEKey> sequence)
 	{
+		timerBars.SetActive(true);
+
 		Debug.Log("Generete arrow");
 		foreach (Transform child in arrowContainer)
 			Destroy(child.gameObject);
@@ -47,7 +56,7 @@ public class UiQte : MonoBehaviour
 
 	private void UpdateArrow(int index)
 	{
-		arrows[index].transform.DOJump(Vector3.up, 5f,1,1);
+		arrows[index].transform.DOMove(endPosition.transform.position, 1f);
 		angoisseBar.RemoveAnguish(0.1f);
 	}
 
@@ -56,6 +65,8 @@ public class UiQte : MonoBehaviour
 		foreach (Transform child in arrowContainer)
 			Destroy(child.gameObject);
 		arrows.Clear();
+		timerBars.SetActive(false);
+
 		angoisseBar.AddAnguish(0.4f);
 	}
 
@@ -63,9 +74,16 @@ public class UiQte : MonoBehaviour
 	{
 		foreach (Transform child in arrowContainer)
 			Destroy(child.gameObject);
+		timerBars.SetActive(false);
 		arrows.Clear();
 		
-	} 
+	}
+	private void Timers(float time)
+	{
+		float ration = time /qteSysteme.TimerDelay;
+		timerBar.fillAmount = ration ;
+	}
+	
 	Sprite GetSprite (QTESysteme.QTEKey key)
 	{
 		switch (key)

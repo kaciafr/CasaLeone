@@ -16,35 +16,44 @@ public class QTESysteme : MonoBehaviour
 	}
 
 	[SerializeField] private List<QTEKey> sequence = new List<QTEKey>();
-	[SerializeField] private float TimerDelay = 5;
+	public float TimerDelay;
 	[SerializeField] private int maxSequence = 5;
 	[SerializeField] private int minSequence = 5;
+	[SerializeField] private int round = 2;
 	[SerializeField] private PlayerInput playerInput;
 
 	public Action<List<QTEKey>> QTESequence;
 	public Action<int> KeyPressed;
+	public Action<float> Timer;
 	public Action onLose;
 	public Action onSuccess;
+	private int currentRound;
 
-	private float delay;
+	[HideInInspector] public float delay;
 	private int currentIndex = 0;
 	private bool isStarted = false;
 	
-
 	public void StartSequence()
 	{
-		playerInput.SwitchCurrentActionMap("QTE");
+		currentRound = round;
 		GenerateSequence();
 		isStarted = true;
 		delay = TimerDelay;
 		currentIndex = 0;
 	}
 
+	private void Round()
+	{
+		GenerateSequence();
+		currentIndex = 0;
+		
+	}
 	private void Update()
 	{
 		if (!isStarted) return;
 		
 		delay -= Time.deltaTime;
+		Timer?.Invoke(delay);
 		
 		if (delay <= 0)
 			Lose();
@@ -52,6 +61,7 @@ public class QTESysteme : MonoBehaviour
 
 	void GenerateSequence()
 	{
+		playerInput.SwitchCurrentActionMap("QTE");
 		sequence.Clear();
 		
 		int randS = Random.Range(minSequence, maxSequence);
@@ -98,13 +108,24 @@ public class QTESysteme : MonoBehaviour
 
 			if (currentIndex >= sequence.Count)
 			{
-				Success();
+				Manche();
 			}
 		}
 		else
 		{
 			Debug.Log("Wrong: " + input);
 			Lose();
+		}
+	}
+
+	private void Manche()
+	{
+		if(currentRound <= 0)
+			Success();
+		else
+		{
+			Round();
+			currentRound--;
 		}
 	}
 
