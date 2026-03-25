@@ -15,8 +15,6 @@ namespace DefaultNamespace
         
         public  LayerMask GroundLayer;
         public float GroundDetectionRayLength = 0.5f;
-        public float HeadDetectionRayLength = 0.5f;
-        [Range(0f,1f)]public float HeadWidht = 0.75f;
         
 
 

@@ -21,8 +21,6 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 128
-  GroundDetectionRayLength: 0.5
-  HeadDetectionRayLength: 0.5
-  HeadWidht: 0.75
+  GroundDetectionRayLength: 0.1
   GravityValue: -30
   MaxFallSpeed: -20
