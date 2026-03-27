@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
+  m_Name: Node2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Le cheval
+  portrait: {fileID: 7746087475763397894, guid: c630167db29047e4b8d4b15f096ef44c, type: 3}
+  spritePrefabs:
+  - {fileID: 3617768499353555942, guid: 2765bda43ab529940b3a302a70596b97, type: 3}
+  - {fileID: 1313854033679877024, guid: df12026970297de418589c3f11f5cd67, type: 3}
+  choices: []
+  nextNode: {fileID: 0}
+  endsConversation: 1

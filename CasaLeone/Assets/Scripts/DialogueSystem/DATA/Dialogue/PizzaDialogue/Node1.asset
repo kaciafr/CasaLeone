@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
+  m_Name: Node1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Le cheval
+  portrait: {fileID: -1807107612636077101, guid: da15d2031ffd9974cb808f8357abc85a, type: 3}
+  spritePrefabs:
+  - {fileID: 3617768499353555942, guid: 2765bda43ab529940b3a302a70596b97, type: 3}
+  - {fileID: 7102933628013858717, guid: 6b5438df4d9764e4890353546d78f829, type: 3}
+  choices:
+  - choiceSpritePrefabs:
+    - {fileID: 6708378358363443644, guid: f8432dadb59a1eb438b5db19abf564d7, type: 3}
+    nextNode: {fileID: 11400000, guid: cd6e12fb57c441e40be33065d63bef6b, type: 2}
+    requiredCondition: {fileID: 11400000, guid: e768be0937701a94f8e96ecf727ba065, type: 2}
+    requiresCondition: 1
+    conditionID: Pizza
+  nextNode: {fileID: 0}
+  endsConversation: 0

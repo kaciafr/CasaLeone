@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
+  m_Name: Node2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  speakerName: Le chat bizarre
+  portrait: {fileID: 2956199382271386867, guid: 6f4df23673ebc26468c00d5b194fddc6, type: 3}
+  spritePrefabs:
+  - {fileID: 207423290135396278, guid: 6a8553a55982c28418c7317ae960d693, type: 3}
+  - {fileID: 1313854033679877024, guid: df12026970297de418589c3f11f5cd67, type: 3}
+  choices: []
+  nextNode: {fileID: 0}
+  endsConversation: 1
