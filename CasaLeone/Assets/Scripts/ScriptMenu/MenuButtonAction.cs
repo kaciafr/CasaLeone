@@ -10,7 +10,7 @@ public class MenuButtonAction : MonoBehaviour
 
     private float slideSpeed = 0.5f;
     private float optionSpeed = 3f;
-    private float sunSpeed = 0.3f;
+    private float sunSpeed = 0.2f;
     private bool isOptionOpen = false;
 
     private Vector3 closedPos;
