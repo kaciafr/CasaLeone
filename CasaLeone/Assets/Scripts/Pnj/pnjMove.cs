@@ -13,7 +13,7 @@ public class pnjMove : MonoBehaviour
     {
         Waiting,
         Command,
-        Order,
+        Timer,
         Check,
         Exit
     }
@@ -24,18 +24,19 @@ public class pnjMove : MonoBehaviour
     public Transform target;
     [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private PhaseSysteme nextPhase;
     [SerializeField] private AllPlace place;
+    [SerializeField] private menuOfTheRestaurant menu;
     [Header("Settings")]
     [SerializeField] private float updateSpeed = 0.1f;
-    [SerializeField] private float minTime;
-    [SerializeField] private float maxTime;
+    [SerializeField] private float whaitingTime;
+    public List<string> whatTheyWhant;
 
     public Action<GameObject> PlayerisSit;
     
-    private float time;
+    private float delayTime;
     private bool isCommanding = false;
     private bool hasArrived = false;
+    private bool takeTheOrder = false;
 
     private void Awake()
     {
@@ -45,7 +46,7 @@ public class pnjMove : MonoBehaviour
 
     private void Start()
     {
-        
+        delayTime = whaitingTime;
     }
     private void Update()
     {
@@ -57,17 +58,18 @@ public class pnjMove : MonoBehaviour
             case cycle.Command:
                 Command();
                 break;
-            /*case cycle.Order:
-                Order();
+            case cycle.Timer:
+                Timer();
                 break;
-            case cycle.Check:
+           /* case cycle.Check:
                 EatAndLeave();
-                break;
+                break;*/
             case cycle.Exit:
                 Exit();
-                break;*/
+                break;
         }
     }
+
 
 
     private void Waiting()
@@ -89,6 +91,29 @@ public class pnjMove : MonoBehaviour
     }
     private void Command()
     {
-        
+        if (!takeTheOrder)
+        {
+            takeTheOrder =  true;
+            menu.StartTakeOrder(this);
+        }
+    }
+    private void Timer()
+    {
+        delayTime -=Time.deltaTime;
+        if (delayTime <= 0)
+        {
+            logic = cycle.Exit;
+        }
+    }
+    private void Exit()
+    {
+        if (hasArrived)
+        {
+            Transform t = place.Leave(player);
+            target = t;
+            agent.SetDestination(t.position);
+            Debug.Log("je me casse d'ici ! ");
+            hasArrived = false;
+        }
     }
 }

@@ -15,10 +15,10 @@ public class pnjIN : MonoBehaviour
 		Debug.Log("un poil chiant");
 	}
 
-	public void Leave()
+	public void Leave(GameObject pnj)
 	{
+		currentPNJ = pnj;
 		canGoIn = true;
-		currentPNJ = null;
 	}
 }
 
