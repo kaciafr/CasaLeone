@@ -18,6 +18,7 @@ public class pnjIN : MonoBehaviour
 	public void Leave(GameObject pnj)
 	{
 		currentPNJ = pnj;
+		currentPNJ = null;
 		canGoIn = true;
 	}
 }

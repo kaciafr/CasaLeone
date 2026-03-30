@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class QTESysteme : MonoBehaviour
 {
+	[SerializeField] private Inventory playerInventory;
+	public Ingrediente winGift;
 	public enum QTEKey
 	{
 		Up,
@@ -17,6 +19,7 @@ public class QTESysteme : MonoBehaviour
 
 	[SerializeField] private List<QTEKey> sequence = new List<QTEKey>();
 	public float TimerDelay;
+	public bool qteStart = false;
 	[SerializeField] private int maxSequence = 5;
 	[SerializeField] private int minSequence = 5;
 	[SerializeField] private int round = 2;
@@ -27,8 +30,8 @@ public class QTESysteme : MonoBehaviour
 	public Action<float> Timer;
 	public Action onLose;
 	public Action onSuccess;
+	
 	private int currentRound;
-
 	[HideInInspector] public float delay;
 	private int currentIndex = 0;
 	private bool isStarted = false;
@@ -61,6 +64,7 @@ public class QTESysteme : MonoBehaviour
 
 	void GenerateSequence()
 	{
+		qteStart = true;
 		playerInput.SwitchCurrentActionMap("QTE");
 		sequence.Clear();
 		
@@ -131,14 +135,17 @@ public class QTESysteme : MonoBehaviour
 
 	void Success()
 	{
+		qteStart = false;
 		isStarted = false;
 		playerInput.SwitchCurrentActionMap("Player");
 		Debug.Log("SUCCESS");
 		onSuccess?.Invoke();
+		playerInventory.AddIngrediente(winGift);
 	}
 
 	void Lose()
 	{
+		qteStart = false;
 		isStarted = false;
 		playerInput.SwitchCurrentActionMap("Player");
 		Debug.Log("FAILED");

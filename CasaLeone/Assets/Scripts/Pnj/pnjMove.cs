@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class pnjMove : MonoBehaviour
+public class pnjMove : MonoBehaviour,IInteract
 {
     public enum cycle
     {
@@ -20,22 +20,27 @@ public class pnjMove : MonoBehaviour
     public cycle logic;
     
     [Header("References")]
-    
     public Transform target;
     [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private AllPlace place;
     [SerializeField] private menuOfTheRestaurant menu;
+    [SerializeField] private ListMove moveAtTheList;
+    [SerializeField] private Inventory playerInventory;
     [Header("Settings")]
     [SerializeField] private float updateSpeed = 0.1f;
     [SerializeField] private float whaitingTime;
-    public List<string> whatTheyWhant;
-
+    
+    public Ingrediente whatTheyWhant;
+    
     public Action<GameObject> PlayerisSit;
+    public Action<pnjMove> ClientWhantTakeOrder;
+    public Action<pnjMove> ClientWhait;
+    public Action<pnjMove> ClientLeave;
     
     private float delayTime;
     private bool isCommanding = false;
-    private bool hasArrived = false;
+    private bool hasArrived;
     private bool takeTheOrder = false;
 
     private void Awake()
@@ -61,9 +66,6 @@ public class pnjMove : MonoBehaviour
             case cycle.Timer:
                 Timer();
                 break;
-           /* case cycle.Check:
-                EatAndLeave();
-                break;*/
             case cycle.Exit:
                 Exit();
                 break;
@@ -93,13 +95,14 @@ public class pnjMove : MonoBehaviour
     {
         if (!takeTheOrder)
         {
-            takeTheOrder =  true;
+            ClientWhantTakeOrder?.Invoke(this);
             menu.StartTakeOrder(this);
         }
     }
     private void Timer()
     {
         delayTime -=Time.deltaTime;
+        ClientWhait?.Invoke(this);
         if (delayTime <= 0)
         {
             logic = cycle.Exit;
@@ -107,13 +110,32 @@ public class pnjMove : MonoBehaviour
     }
     private void Exit()
     {
-        if (hasArrived)
+        Transform t = place.Leave(player);
+        target = t;
+        agent.SetDestination(target.position);
+        hasArrived = false;
+        ClientLeave?.Invoke(this);
+    }
+
+    public void Interact()
+    {
+        takeTheOrder =  true;
+
+        if (logic == cycle.Timer)
         {
-            Transform t = place.Leave(player);
-            target = t;
-            agent.SetDestination(t.position);
-            Debug.Log("je me casse d'ici ! ");
-            hasArrived = false;
+            foreach (var ingrediente in playerInventory.ingredientes)
+            {
+                if (ingrediente == whatTheyWhant)
+                {
+                    playerInventory.RemoveIngrediente(ingrediente);
+                    moveAtTheList.Remove(ingrediente);
+                    logic = cycle.Exit;
+                }
+            }
         }
+    }
+
+    public void EndInteraction()
+    {
     }
 }

@@ -33,7 +33,6 @@ public class AllPlace : MonoBehaviour
 				return exit.transform;
 			}
 		}
-
-		return null;
+		return exit.transform;
 	}
 }
