@@ -12,6 +12,7 @@ public class pnjMove : MonoBehaviour,IInteract
     public enum cycle
     {
         Waiting,
+        Reflexion,
         Command,
         Timer,
         Check,
@@ -27,21 +28,32 @@ public class pnjMove : MonoBehaviour,IInteract
     [SerializeField] private menuOfTheRestaurant menu;
     [SerializeField] private ListMove moveAtTheList;
     [SerializeField] private Inventory playerInventory;
+    
     [Header("Settings")]
     [SerializeField] private float updateSpeed = 0.1f;
     [SerializeField] private float whaitingTime;
+    [SerializeField] private float reflexionTime;
+    [SerializeField] private float eatTime;
     
     public Ingrediente whatTheyWhant;
-    
     public Action<GameObject> PlayerisSit;
     public Action<pnjMove> ClientWhantTakeOrder;
+    public Action<pnjMove> PlayerTakeOrder;
     public Action<pnjMove> ClientWhait;
+    public Action<pnjMove> PlayerGiveTheOrder;
+    public Action<pnjMove> ClientWhantTheCheck;
+    public Action<pnjMove> PlayerTakeTheCheck;
     public Action<pnjMove> ClientLeave;
     
     private float delayTime;
-    private bool isCommanding = false;
-    private bool hasArrived;
+    private float delayTimes;
+    private float delayeatTimes;
+    private bool isCommanding = true;
+    private bool hasArrived = true;
+    private bool isEating = true;
+    private bool whantLeave = true;
     private bool takeTheOrder = false;
+    public pnjIN mySeat;
 
     private void Awake()
     {
@@ -52,6 +64,8 @@ public class pnjMove : MonoBehaviour,IInteract
     private void Start()
     {
         delayTime = whaitingTime;
+        delayTimes = reflexionTime;
+        delayeatTimes = eatTime;
     }
     private void Update()
     {
@@ -60,26 +74,30 @@ public class pnjMove : MonoBehaviour,IInteract
             case cycle.Waiting:
                 Waiting();
                 break;
+            case cycle.Reflexion:
+                Reflexion();
+                break;
             case cycle.Command:
                 Command();
                 break;
             case cycle.Timer:
                 Timer();
                 break;
+            case cycle.Check:
+                Check();
+                break;
             case cycle.Exit:
                 Exit();
                 break;
         }
     }
-
-
-
     private void Waiting()
     {
         if (target == place.outSide.transform)
         {
             Transform t = place.FindPlace(player);
             target = t;
+            mySeat = t.GetComponent<pnjIN>();
             agent.SetDestination(t.position);
         }
         
@@ -88,38 +106,61 @@ public class pnjMove : MonoBehaviour,IInteract
            agent.velocity.magnitude > 0.5f)
         {
             PlayerisSit?.Invoke(player);
-            logic = cycle.Command;
+            logic =  cycle.Reflexion;
+        }
+    }
+    private void Reflexion()
+    {
+        delayTimes-=Time.deltaTime;
+        if (delayTimes < 0 && isCommanding)
+        {
+            isCommanding = false;
+            ClientWhantTakeOrder?.Invoke(this);
         }
     }
     private void Command()
     {
-        if (!takeTheOrder)
-        {
-            ClientWhantTakeOrder?.Invoke(this);
-            menu.StartTakeOrder(this);
-        }
+        menu.StartTakeOrder(this);
     }
     private void Timer()
     {
-        delayTime -=Time.deltaTime;
-        ClientWhait?.Invoke(this);
-        if (delayTime <= 0)
+            delayTime -= Time.deltaTime;
+            ClientWhait?.Invoke(this);
+            if (delayTime <= 0)
+            {
+                logic = cycle.Exit;
+                //Add Anguish
+            }
+    }
+    private void Check()
+    {
+        delayeatTimes -= Time.deltaTime;
+        if (delayeatTimes < 0 && isEating)
         {
-            logic = cycle.Exit;
+            ClientWhantTheCheck?.Invoke(this);
+            isEating = false;
         }
     }
     private void Exit()
     {
-        Transform t = place.Leave(player);
-        target = t;
-        agent.SetDestination(target.position);
-        hasArrived = false;
-        ClientLeave?.Invoke(this);
+        if (hasArrived)
+        {
+            Leave();
+            target = place.exit.transform;
+            agent.SetDestination(target.position);
+            hasArrived = false;
+            ClientLeave?.Invoke(this);
+        }
     }
 
     public void Interact()
     {
-        takeTheOrder =  true;
+        if (logic == cycle.Reflexion)
+        {
+            takeTheOrder =  true;
+            PlayerTakeOrder?.Invoke(this);
+            logic = cycle.Command;
+        }
 
         if (logic == cycle.Timer)
         {
@@ -127,11 +168,25 @@ public class pnjMove : MonoBehaviour,IInteract
             {
                 if (ingrediente == whatTheyWhant)
                 {
+                    PlayerGiveTheOrder?.Invoke(this);
                     playerInventory.RemoveIngrediente(ingrediente);
                     moveAtTheList.Remove(ingrediente);
-                    logic = cycle.Exit;
+                    logic = cycle.Check;
                 }
             }
+        }
+
+        if (logic==cycle.Check)
+        {
+            PlayerTakeTheCheck?.Invoke(this);
+            logic = cycle.Exit;
+        }
+    }
+    void Leave()
+    {
+        if (mySeat != null)
+        {
+            mySeat.Leave();
         }
     }
 

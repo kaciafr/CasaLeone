@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AllPlace : MonoBehaviour
 {
-	public List<GameObject> tablePlaces;
+	public List<GameObject> tablePlaces = new List<GameObject>();
 	public GameObject outSide;
 	public GameObject exit;
 	public Transform FindPlace(GameObject pnj)
@@ -22,17 +22,5 @@ public class AllPlace : MonoBehaviour
 		}
 		return outSide.transform;
 	}
-	public Transform Leave(GameObject pnj)
-	{
-		foreach (var leave in tablePlaces)
-		{
-			var place = leave.GetComponent<pnjIN>();
-			if (!place.canGoIn)
-			{
-				place.Leave(pnj);
-				return exit.transform;
-			}
-		}
-		return exit.transform;
-	}
+	
 }
