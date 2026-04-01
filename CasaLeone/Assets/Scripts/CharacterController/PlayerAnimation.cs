@@ -6,6 +6,8 @@ public class PlayerAnimation : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rb2D;
     private PlayerMovement _playerMovement;
+    [SerializeField] private InputManager _input; 
+
     
     private void Awake()
     {
@@ -20,6 +22,6 @@ public class PlayerAnimation : MonoBehaviour
         if (speed < 0.5f) speed = 0f; 
         _animator.SetFloat("Speed", speed);
         _animator.SetBool("IsGrounded", _playerMovement.IsGroundedState);
-        _animator.SetBool("IsRunning", InputManager.isRunning);
+        _animator.SetBool("IsRunning", _input.IsRunning);
     }
 }

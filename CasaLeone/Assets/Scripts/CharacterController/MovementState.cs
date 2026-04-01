@@ -1,7 +1,6 @@
 using UnityEngine;
 
-namespace DefaultNamespace
-{
+
     [CreateAssetMenu( menuName = "PlayerMovement ")]
     public class MovementState : ScriptableObject
     {
@@ -25,4 +24,3 @@ namespace DefaultNamespace
         public float MaxFallSpeed = -20f;   
 
     }
-}

@@ -1,34 +1,41 @@
 using System.Collections;
 using UnityEngine;
 
-namespace DefaultNamespace
-{
+
     public class PlayerMovement : MonoBehaviour
     {
+        
         public MovementState movementState;
-        [SerializeField] private Collider2D _feetCol;
-        [SerializeField] private Collider2D _bodyCol;
-        private Rigidbody2D _rb2D;
+        [SerializeField] private Collider2D feetCol;
+        [SerializeField] private Collider2D bodyCol;
+        private Rigidbody2D rb2D;
+        [SerializeField] private InputManager _input; 
 
-        private Vector2 _moveVelocity;
+
+        private Vector2 moveVelocity;
         private bool isFacingRight = true;
 
-        private RaycastHit2D _groundHit;
-        private bool _isGrounded;
-        public bool IsGroundedState => _isGrounded;
+        private RaycastHit2D groundHit;
+        private bool isGrounded;
+        public bool IsGroundedState => isGrounded;
 
-        private bool _isDropping = false;
-        private Collider2D _currentPlatformCollider; 
+        
+        private bool isDropping = false;
+        private Collider2D currentPlatformCollider; 
+
+        
+        
 
         private void Awake()
         {
-            _rb2D = GetComponent<Rigidbody2D>();
-            _rb2D.gravityScale = 0f;
+            rb2D = GetComponent<Rigidbody2D>();
+            rb2D.gravityScale = 0f;
+            Turn(true);
         }
 
         private void Update()
         {
-            if (InputManager.isDroppingThisFrame && _currentPlatformCollider != null)
+            if (_input.IsDroppingThisFrame  && currentPlatformCollider != null)
                 StartCoroutine(DropThroughPlatform());
         }
 
@@ -37,10 +44,10 @@ namespace DefaultNamespace
             CollisionCheck();
             Gravity();
 
-            if (_isGrounded)
-                Move(movementState.GroundAcceleration, movementState.GroundDeceleration, InputManager.Movement);
+            if (isGrounded)
+                Move(movementState.GroundAcceleration, movementState.GroundDeceleration, _input.Movement);
             else
-                Move(movementState.AirAcceleration, movementState.AirDeceleration, InputManager.Movement);
+                Move(movementState.AirAcceleration, movementState.AirDeceleration, _input.Movement);
         }
 
         #region Movement
@@ -52,16 +59,16 @@ namespace DefaultNamespace
                 TurnCheck(moveInput);
 
                 Vector2 targetVelocity = new Vector2(moveInput.x, 0f) *
-                    (InputManager.isRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed);
+                    (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed);
 
-                _moveVelocity = Vector2.Lerp(_moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+                moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
             }
             else
             {
-                _moveVelocity = Vector2.Lerp(_moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+                moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
             }
 
-            _rb2D.linearVelocity = new Vector2(_moveVelocity.x, _rb2D.linearVelocity.y);
+            rb2D.linearVelocity = new Vector2(moveVelocity.x, rb2D.linearVelocity.y);
         }
 
         private void TurnCheck(Vector2 moveInput)
@@ -86,23 +93,23 @@ namespace DefaultNamespace
 
         private void CollisionCheck()
         {
-            if (_isDropping)
+            if (isDropping)
             {
-                _isGrounded = false;
-                _currentPlatformCollider = null;
+                isGrounded = false;
+                currentPlatformCollider = null;
                 return;
             }
 
-            Vector2 boxCastOrigin = new Vector2(_feetCol.bounds.center.x, _feetCol.bounds.min.y);
-            Vector2 boxCastSize   = new Vector2(_feetCol.bounds.size.x, movementState.GroundDetectionRayLength);
+            Vector2 boxCastOrigin = new Vector2(feetCol.bounds.center.x, feetCol.bounds.min.y);
+            Vector2 boxCastSize   = new Vector2(feetCol.bounds.size.x, movementState.GroundDetectionRayLength);
 
            
-            _groundHit  = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down,
+            groundHit  = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down,
                 movementState.GroundDetectionRayLength, movementState.GroundLayer);
-            _isGrounded = _groundHit.collider != null;
+            isGrounded = groundHit.collider != null;
 
            
-            _currentPlatformCollider = null;
+            currentPlatformCollider = null;
             RaycastHit2D[] hits = Physics2D.BoxCastAll(
                 boxCastOrigin, boxCastSize, 0f, Vector2.down, movementState.GroundDetectionRayLength);
 
@@ -110,8 +117,8 @@ namespace DefaultNamespace
             {
                 if (hit.collider.CompareTag("Platform"))
                 {
-                    _currentPlatformCollider = hit.collider;
-                    _isGrounded = true; 
+                    currentPlatformCollider = hit.collider;
+                    isGrounded = true; 
                     break;
                 }
             }
@@ -119,18 +126,18 @@ namespace DefaultNamespace
 
         private void Gravity()
         {
-            if (_isGrounded && !_isDropping)
+            if (isGrounded && !isDropping) 
             {
-                _rb2D.linearVelocity = new Vector2(_rb2D.linearVelocity.x, 0f);
+                rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, 0f);
                 return;
             }
 
             float newY = Mathf.Max(
-                _rb2D.linearVelocity.y + movementState.GravityValue * Time.fixedDeltaTime,
+                rb2D.linearVelocity.y + movementState.GravityValue * Time.fixedDeltaTime,
                 movementState.MaxFallSpeed
             );
 
-            _rb2D.linearVelocity = new Vector2(_rb2D.linearVelocity.x, newY);
+            rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, newY);
         }
 
         #endregion
@@ -139,17 +146,22 @@ namespace DefaultNamespace
 
         private IEnumerator DropThroughPlatform()
         {
-            _isDropping = true;
-
-            Collider2D platformCollider = _currentPlatformCollider;
-            platformCollider.enabled = false;
-
+            isDropping = true;
+            
+            bodyCol.enabled = false;
+            feetCol.enabled = false;
+            
             yield return new WaitForSeconds(0.4f);
 
-            platformCollider.enabled = true;
-            _isDropping = false;
+            bodyCol.enabled = true;
+            feetCol.enabled = true;
+            
+            isDropping = false;
         }
 
         #endregion
+        
+     
+
+        
     }
-}
