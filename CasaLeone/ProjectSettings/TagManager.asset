@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - PNJ
+  - Undefined
+  - Stairs
   layers:
   - Default
   - TransparentFX

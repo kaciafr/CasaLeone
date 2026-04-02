@@ -14,7 +14,9 @@ using UnityEngine;
         
         public  LayerMask GroundLayer;
         public float GroundDetectionRayLength = 0.5f;
-        
+        public float stepRayLength = 0.5f;
+        public float stepHeight = 0.5f;
+        public float stepSmooth = 0.5f;
 
 
         public bool DebugShowIsGrounded { get; set; }
