@@ -17,7 +17,7 @@ public class WaveProfile
     public float delayBetweenClients;
     public float delayBetweenGroups;
 
-    [Header("Comportement client, cool si on choppe et multiplie les setting des pnj")]
+    [Header("Comportement client")]
     public float patience;
     public float eatSpeed;
 }

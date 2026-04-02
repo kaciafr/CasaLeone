@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [Header("Profils (0 = pressés, 1 = nombreux)")]
+    [Header("Profils de vague (0 = pressés, 1 = nombreux)")]
     public WaveProfile[] profiles = new WaveProfile[2];
 
-    [Header("Clients disponibles")]
-    public ClientEntry[] clientEntries;
+    [Header("Types de clients (un asset par type)")]
+    public ClientTypeSO[] clientTypes;
 
+    [Header("Spawn")]
     public Transform spawnPoint;
     public float waitBetweenWaves = 5f;
 
@@ -19,11 +20,19 @@ public class WaveSpawner : MonoBehaviour
     private const string BEST_WAVE_KEY = "BestWave";
     private List<GameObject> activeClients = new List<GameObject>();
 
+    // ─────────────────────────────────────────────
+    //  Démarrage
+    // ─────────────────────────────────────────────
+
     void Start()
     {
         BestWave = PlayerPrefs.GetInt(BEST_WAVE_KEY, 0);
         StartCoroutine(RunWaves());
     }
+
+    // ─────────────────────────────────────────────
+    //  Boucle principale
+    // ─────────────────────────────────────────────
 
     IEnumerator RunWaves()
     {
@@ -38,7 +47,7 @@ public class WaveSpawner : MonoBehaviour
                 PlayerPrefs.Save();
             }
 
-            WaveProfile profile = profiles[(CurrentWave - 1) % 2];
+            WaveProfile profile = profiles[(CurrentWave - 1) % profiles.Length];
             Debug.Log($"Vague {CurrentWave} — {profile.label}");
 
             yield return StartCoroutine(SpawnWave(profile));
@@ -49,20 +58,34 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    // ─────────────────────────────────────────────
+    //  Spawn d'une vague
+    // ─────────────────────────────────────────────
+
     IEnumerator SpawnWave(WaveProfile profile)
     {
         int groupCount = Random.Range(profile.minGroups, profile.maxGroups + 1);
 
         for (int g = 0; g < groupCount; g++)
         {
+            // Tire un type UNE FOIS pour tout le groupe → groupe homogène
+            ClientTypeSO groupType = PickRandomClientType();
+
+            if (groupType == null)
+            {
+                Debug.LogWarning("WaveSpawner : aucun type de client disponible.");
+                yield break;
+            }
+
             int clientsInGroup = Random.Range(
                 profile.minClientsPerGroup,
                 profile.maxClientsPerGroup + 1
             );
 
+
             for (int c = 0; c < clientsInGroup; c++)
             {
-                SpawnClient(profile);
+                SpawnClient(profile, groupType);
                 yield return new WaitForSeconds(profile.delayBetweenClients);
             }
 
@@ -70,14 +93,15 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    void SpawnClient(WaveProfile profile)
+    // ─────────────────────────────────────────────
+    //  Spawn d'un client individuel
+    // ─────────────────────────────────────────────
+
+    void SpawnClient(WaveProfile profile, ClientTypeSO clientType)
     {
-        GameObject prefab = PickRandomClient();
-        if (prefab == null)
-        {
-            Debug.LogWarning("WaveSpawner : aucun prefab valide dans clientEntries.");
-            return;
-        }
+        // Choisit une variante aléatoire parmi celles du type
+        GameObject prefab = clientType.PickRandomVariant();
+        
 
         GameObject client = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
 
@@ -89,34 +113,42 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de ClientBehavior.");
+            Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de PnjTest.");
         }
 
         activeClients.Add(client);
     }
 
-    GameObject PickRandomClient()
+    // ─────────────────────────────────────────────
+    //  Tirage aléatoire d'un type (par poids)
+    // ─────────────────────────────────────────────
+
+    ClientTypeSO PickRandomClientType()
     {
-        if (clientEntries == null || clientEntries.Length == 0) return null;
+        if (clientTypes == null || clientTypes.Length == 0) return null;
 
         float total = 0f;
-        foreach (var e in clientEntries)
-            if (e.prefab != null) total += e.weight;
+        foreach (var ct in clientTypes)
+            if (ct != null) total += ct.weight;
 
         if (total <= 0f) return null;
 
         float roll = Random.Range(0f, total);
         float cumul = 0f;
 
-        foreach (var e in clientEntries)
+        foreach (var ct in clientTypes)
         {
-            if (e.prefab == null) continue;
-            cumul += e.weight;
-            if (roll <= cumul) return e.prefab;
+            if (ct == null) continue;
+            cumul += ct.weight;
+            if (roll <= cumul) return ct;
         }
 
-        return clientEntries[clientEntries.Length - 1].prefab;
+        return clientTypes[clientTypes.Length - 1];
     }
+
+    // ─────────────────────────────────────────────
+    //  Utilitaires
+    // ─────────────────────────────────────────────
 
     bool AllClientsGone()
     {
@@ -129,5 +161,6 @@ public class WaveSpawner : MonoBehaviour
     {
         PlayerPrefs.DeleteKey(BEST_WAVE_KEY);
         BestWave = 0;
+        Debug.Log("Best Wave réinitialisé.");
     }
 }
