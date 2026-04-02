@@ -3,7 +3,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class ListMove : MonoBehaviour
+public class ListMove: Singleton<ListMove>
 {
 	[SerializeField] private GameObject Uibutton;
 	[SerializeField] private GameObject listOfEat;
@@ -19,7 +19,6 @@ public class ListMove : MonoBehaviour
 	private int pasta = 0;
 
 	private bool flipFlop = true;
-
 	public void ButtonClick()
 	{
 		flipFlop = !flipFlop;

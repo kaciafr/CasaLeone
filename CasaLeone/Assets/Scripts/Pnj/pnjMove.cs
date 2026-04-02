@@ -20,13 +20,14 @@ public class pnjMove : MonoBehaviour,IInteract
     }
     public cycle logic;
     
+    AllPlace place;
+    ListMove moveAtTheList;
+    menuOfTheRestaurant menu;
+    
     [Header("References")]
     public Transform target;
     [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private AllPlace place;
-    [SerializeField] private menuOfTheRestaurant menu;
-    [SerializeField] private ListMove moveAtTheList;
     [SerializeField] private Inventory playerInventory;
     
     [Header("Settings")]
@@ -59,6 +60,10 @@ public class pnjMove : MonoBehaviour,IInteract
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
+        place = AllPlace.Instance;
+        moveAtTheList = ListMove.Instance;
+        menu = menuOfTheRestaurant.Instance;
+        
     }
 
     private void Start()
@@ -66,6 +71,7 @@ public class pnjMove : MonoBehaviour,IInteract
         delayTime = whaitingTime;
         delayTimes = reflexionTime;
         delayeatTimes = eatTime;
+        target = place.outSide.transform;
     }
     private void Update()
     {
@@ -100,7 +106,6 @@ public class pnjMove : MonoBehaviour,IInteract
             mySeat = t.GetComponent<pnjIN>();
             agent.SetDestination(t.position);
         }
-        
         if(target.transform != place.outSide.transform && 
            agent.remainingDistance < agent.stoppingDistance &&
            agent.velocity.magnitude > 0.5f)

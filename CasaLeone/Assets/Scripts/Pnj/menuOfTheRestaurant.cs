@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class menuOfTheRestaurant :  MonoBehaviour
+public class menuOfTheRestaurant : Singleton<menuOfTheRestaurant>
 {
 	//[SerializeField]private string[] plats = { "un Steak", "des Pâtes", " une Salade" };
 	[SerializeField] private List<Ingrediente> plats;
@@ -11,7 +11,6 @@ public class menuOfTheRestaurant :  MonoBehaviour
 	public Action<menuOfTheRestaurant> menu;
 	public int rand;
 	private pnjMove currentClient;
-	
 	public void StartTakeOrder(pnjMove pnj)
 	{
 		currentClient = pnj;
