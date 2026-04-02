@@ -67,7 +67,6 @@ public class PnjTest : MonoBehaviour
 
     void OnGUI()
     {
-        // Affiche l'état au-dessus du PNJ en world space (debug visuel)
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 2f);
         if (screenPos.z > 0)
         {

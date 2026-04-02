@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [Header("Profils (0 = pressés, 1 = détendus)")]
+    [Header("Profils (0 = pressés, 1 = nombreux)")]
     public WaveProfile[] profiles = new WaveProfile[2];
 
     [Header("Clients disponibles")]
     public ClientEntry[] clientEntries;
 
-    [Header("Spawner")]
     public Transform spawnPoint;
     public float waitBetweenWaves = 5f;
 
