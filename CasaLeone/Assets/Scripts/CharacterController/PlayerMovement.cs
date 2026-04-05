@@ -11,11 +11,10 @@ using UnityEngine;
         [SerializeField] private Collider2D bodyCol;
         private Rigidbody2D rb2D;
         [SerializeField] private InputManager _input;
-        private bool isClimbingStairs = false;
-        public bool CanClimb { get; set; } = false;
+        //private bool isClimbingStairs = false;
+        //public bool CanClimb { get; set; } = false;
 
-        public Transform[] points;
-        public float  duration; 
+        //public float  duration; 
 
 
 
@@ -57,7 +56,7 @@ using UnityEngine;
             else
                 Move(movementState.AirAcceleration, movementState.AirDeceleration, _input.Movement);
             
-            if (_input.IsInteracting && CanClimb) SlideStairs();
+            //if (_input.IsInteracting && CanClimb) SlideStairs();
             //ClimbUp();
 
         }
@@ -180,7 +179,7 @@ using UnityEngine;
                 Vector2.up,
                 10f,                        
                 movementState.GroundLayer
-            );
+            );:
 
             if (hit.collider == null) return;
             float targetY = hit.collider.bounds.max.y + feetCol.bounds.extents.y + 0.5f;
@@ -189,7 +188,7 @@ using UnityEngine;
             rb2D.linearVelocity = Vector2.zero; 
         }*/
 
-        private void SlideStairs()
+        /*private void SlideStairs()
         {
             Vector3[] waypoints = new Vector3[points.Length];
             for (int i = 0; i < points.Length; i++)
@@ -208,7 +207,7 @@ using UnityEngine;
 
             seq.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0.3f)
                 .SetEase(Ease.InSine));
-        }
+        }*/
         
         
      

@@ -8,16 +8,12 @@ public class InputManager : MonoBehaviour
     public bool IsInteracting { get; private set; }
     public bool IsDroppingThisFrame { get; private set; }
     
-    public bool isActivateStairs { get; private set; }
-    public bool isDeactivateStairs { get; private set; }
 
 
     private InputAction _moveAction;
     private InputAction _runAction;
     private InputAction _interactAction;
     private InputAction _dropAction;
-    private InputAction _climbStairsActionActivate;
-    private InputAction _climbStairsActionDeactivate;
 
 
     private void Awake()
@@ -27,8 +23,6 @@ public class InputManager : MonoBehaviour
         _runAction      = playerInput.actions["Run"];
         _interactAction = playerInput.actions["Interact"];
         _dropAction     = playerInput.actions["Drop"];
-        _climbStairsActionActivate = playerInput.actions["StairsClimbActivate"];
-        _climbStairsActionDeactivate = playerInput.actions["StairsClimbDeactivate"];
 
     }
 
@@ -38,7 +32,6 @@ public class InputManager : MonoBehaviour
         IsRunning           = _runAction.IsPressed();
         IsInteracting       = _interactAction.IsPressed();
         IsDroppingThisFrame = _dropAction.WasPressedThisFrame();
-        isActivateStairs    = _climbStairsActionActivate.IsPressed();
-        isDeactivateStairs  = _climbStairsActionDeactivate.IsPressed();
+        
     }
 }
