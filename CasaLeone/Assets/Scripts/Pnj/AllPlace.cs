@@ -13,7 +13,7 @@ public class AllPlace : Singleton<AllPlace>
 	{
 		foreach (var canGo in tablePlaces)
 		{
-			var place = canGo.GetComponent<pnjIN>();
+			var place = canGo.GetComponent<PnjIn>();
 			if (place.canGoIn)
 			{
 				place.Reserve(pnj);

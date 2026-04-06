@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AngoisseBar : MonoBehaviour
+public class AngoisseBar : Singleton<AngoisseBar>
 {
 	[SerializeField] private GameObject anguishBar;
 	[SerializeField] private Image anguishBarImage;
@@ -25,6 +25,7 @@ public class AngoisseBar : MonoBehaviour
 	{
 		DammageBarImage.fillAmount += add;
 		anguishBarImage.fillAmount += add;
+		
 	}
 
 	public void RemoveAnguish(float remove)

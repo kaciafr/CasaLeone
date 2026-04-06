@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory: Singleton<Inventory>
 {
     public List<Ingrediente> ingredientes = new List<Ingrediente>();
 

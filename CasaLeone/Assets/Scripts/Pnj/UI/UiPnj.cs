@@ -1,10 +1,11 @@
 using DG.Tweening;
+using Pnj;
 using UnityEngine;
 
 public class UiPnj : MonoBehaviour
 {
 	[Header("References")]
-	[SerializeField] private pnjMove pnj;
+	[SerializeField] private PnjMove pnj;
 
 	[Header("UI Elements")] 
 	[SerializeField] private GameObject whantOrder;
@@ -28,24 +29,24 @@ public class UiPnj : MonoBehaviour
 		
 		whaitOrder.SetActive(false);
 	}
-	private void OrderUI(pnjMove obj)
+	private void OrderUI(PnjMove obj)
 	{
 		whantOrder.transform.DOScale(0.05f, 0.4f);
 	}
-	private void TakeOrderUI(pnjMove obj)
+	private void TakeOrderUI(PnjMove obj)
 	{
 		whantOrder.SetActive(false);
 	}
 	
-	private void WhaitOrder(pnjMove obj)
+	private void WhaitOrder(PnjMove obj)
 	{
 		whaitOrder.SetActive(true);
 	}
-	private void GiveTheOrder(pnjMove obj)
+	private void GiveTheOrder(PnjMove obj)
 	{
 		whaitOrder.SetActive(false);
 	}
-	private void CheckUI(pnjMove obj)
+	private void CheckUI(PnjMove obj)
 	{
 		if (isActived)
 		{
@@ -56,7 +57,7 @@ public class UiPnj : MonoBehaviour
 			checkUI.transform.DOScale(0.1f, 0.4f);
 		}
 	}
-	private void TakeTheCheck(pnjMove obj)
+	private void TakeTheCheck(PnjMove obj)
 	{
 		checkUI.transform.DOScale(0, 0.4f);
 	}

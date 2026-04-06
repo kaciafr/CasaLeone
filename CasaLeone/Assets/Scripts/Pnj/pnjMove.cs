@@ -1,201 +1,209 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
-public class pnjMove : MonoBehaviour,IInteract
+namespace Pnj
 {
-    public enum cycle
+    public class PnjMove : MonoBehaviour,IInteract
     {
-        Waiting,
-        Reflexion,
-        Command,
-        Timer,
-        Check,
-        Exit
-    }
-    public cycle logic;
-    
-    AllPlace place;
-    ListMove moveAtTheList;
-    menuOfTheRestaurant menu;
-    
-    [Header("References")]
-    public Transform target;
-    [SerializeField] private GameObject player;
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Inventory playerInventory;
-    
-    [Header("Settings")]
-    [SerializeField] private float updateSpeed = 0.1f;
-    [SerializeField] private float whaitingTime;
-    [SerializeField] private float reflexionTime;
-    [SerializeField] private float eatTime;
-    
-    public Ingrediente whatTheyWhant;
-    public Action<GameObject> PlayerisSit;
-    public Action<pnjMove> ClientWhantTakeOrder;
-    public Action<pnjMove> PlayerTakeOrder;
-    public Action<pnjMove> ClientWhait;
-    public Action<pnjMove> PlayerGiveTheOrder;
-    public Action<pnjMove> ClientWhantTheCheck;
-    public Action<pnjMove> PlayerTakeTheCheck;
-    public Action<pnjMove> ClientLeave;
-    
-    private float delayTime;
-    private float delayTimes;
-    private float delayeatTimes;
-    private bool isCommanding = true;
-    private bool hasArrived = true;
-    private bool isEating = true;
-    private bool whantLeave = true;
-    private bool takeTheOrder = false;
-    public pnjIN mySeat;
+        public enum Cycle
+        {
+            Waiting,
+            Reflexion,
+            Command,
+            Timer,
+            Check,
+            Exit
+        }
+        public Cycle logic;
 
-    private void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        place = AllPlace.Instance;
-        moveAtTheList = ListMove.Instance;
-        menu = menuOfTheRestaurant.Instance;
+        private AllPlace place;
+        private ListMove moveAtTheList;
+        private MenuOfTheRestaurant menu;
+        private AngoisseBar angoisseBar;
+        private Inventory playerInventory;
+    
+        [Header("References")]
+        public Transform target;
+        [SerializeField] private GameObject player;
+        [SerializeField] private NavMeshAgent agent;
+    
+        [Header("Settings")]
+        [SerializeField] private float updateSpeed = 0.1f;
+        [SerializeField] private float reflexionTime;
+        public float whaitingTime;
+        public float eatTime;
+    
+        public Ingrediente whatTheyWhant;
+        public Action<GameObject> PlayerisSit;
+        public Action<PnjMove> ClientWhantTakeOrder;
+        public Action<PnjMove> PlayerTakeOrder;
+        public Action<PnjMove> ClientWhait;
+        public Action<PnjMove> PlayerGiveTheOrder;
+        public Action<PnjMove> ClientWhantTheCheck;
+        public Action<PnjMove> PlayerTakeTheCheck;
+        public Action<PnjMove> ClientLeave;
+    
+        private float delayTime;
+        private float delayTimes;
+        private float delayeatTimes;
+        private bool isCommanding = true;
+        private bool hasArrived = true;
+        private bool isEating = true;
+        private bool whantLeave = true;
+        private bool takeTheOrder = false;
+        public PnjIn mySeat;
+
+        private void Awake()
+        {
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            place = AllPlace.Instance;
+            moveAtTheList = ListMove.Instance;
+            menu = MenuOfTheRestaurant.Instance;
+            playerInventory = Inventory.Instance;
         
-    }
+        }
 
-    private void Start()
-    {
-        delayTime = whaitingTime;
-        delayTimes = reflexionTime;
-        delayeatTimes = eatTime;
-        target = place.outSide.transform;
-    }
-    private void Update()
-    {
-        switch (logic)
+        private void Start()
         {
-            case cycle.Waiting:
-                Waiting();
-                break;
-            case cycle.Reflexion:
-                Reflexion();
-                break;
-            case cycle.Command:
-                Command();
-                break;
-            case cycle.Timer:
-                Timer();
-                break;
-            case cycle.Check:
-                Check();
-                break;
-            case cycle.Exit:
-                Exit();
-                break;
+            delayTime = whaitingTime;
+            delayTimes = reflexionTime;
+            delayeatTimes = eatTime;
+            target = place.outSide.transform;
         }
-    }
-    private void Waiting()
-    {
-        if (target == place.outSide.transform)
+        private void Update()
         {
-            Transform t = place.FindPlace(player);
-            target = t;
-            mySeat = t.GetComponent<pnjIN>();
-            agent.SetDestination(t.position);
+            switch (logic)
+            {
+                case Cycle.Waiting:
+                    Waiting();
+                    break;
+                case Cycle.Reflexion:
+                    Reflexion();
+                    break;
+                case Cycle.Command:
+                    Command();
+                    break;
+                case Cycle.Timer:
+                    Timer();
+                    break;
+                case Cycle.Check:
+                    Check();
+                    break;
+                case Cycle.Exit:
+                    Exit();
+                    break;
+            }
         }
-        if(target.transform != place.outSide.transform && 
-           agent.remainingDistance < agent.stoppingDistance &&
-           agent.velocity.magnitude > 0.5f)
+        private void Waiting()
         {
-            PlayerisSit?.Invoke(player);
-            logic =  cycle.Reflexion;
+            if (target == place.outSide.transform)
+            {
+                Transform t = place.FindPlace(player);
+                target = t;
+                mySeat = t.GetComponent<PnjIn>();
+                agent.SetDestination(t.position);
+            }
+        
+            if(target.transform != place.outSide.transform && 
+               agent.remainingDistance < agent.stoppingDistance &&
+               agent.velocity.magnitude > 0.5f)
+            {
+                PlayerisSit?.Invoke(player);
+                logic =  Cycle.Reflexion;
+            }
         }
-    }
-    private void Reflexion()
-    {
-        delayTimes-=Time.deltaTime;
-        if (delayTimes < 0 && isCommanding)
+        private void Reflexion()
         {
-            isCommanding = false;
-            ClientWhantTakeOrder?.Invoke(this);
+            delayTimes-=Time.deltaTime;
+            if (delayTimes < 0 && isCommanding)
+            {
+                isCommanding = false;
+                ClientWhantTakeOrder?.Invoke(this);
+            }
         }
-    }
-    private void Command()
-    {
-        menu.StartTakeOrder(this);
-    }
-    private void Timer()
-    {
+        private void Command()
+        {
+            menu.StartTakeOrder(this);
+        }
+        private void Timer()
+        {
             delayTime -= Time.deltaTime;
             ClientWhait?.Invoke(this);
             if (delayTime <= 0)
             {
-                logic = cycle.Exit;
-                //Add Anguish
+                logic = Cycle.Exit;
+                angoisseBar.AddAnguish(5f);
             }
-    }
-    private void Check()
-    {
-        delayeatTimes -= Time.deltaTime;
-        if (delayeatTimes < 0 && isEating)
-        {
-            ClientWhantTheCheck?.Invoke(this);
-            isEating = false;
         }
-    }
-    private void Exit()
-    {
-        if (hasArrived)
+        private void Check()
         {
-            Leave();
-            target = place.exit.transform;
-            agent.SetDestination(target.position);
-            hasArrived = false;
-            ClientLeave?.Invoke(this);
-        }
-    }
-
-    public void Interact()
-    {
-        if (logic == cycle.Reflexion)
-        {
-            takeTheOrder =  true;
-            PlayerTakeOrder?.Invoke(this);
-            logic = cycle.Command;
-        }
-
-        if (logic == cycle.Timer)
-        {
-            foreach (var ingrediente in playerInventory.ingredientes)
+            delayeatTimes -= Time.deltaTime;
+            if (delayeatTimes < 0 && isEating)
             {
-                if (ingrediente == whatTheyWhant)
+                ClientWhantTheCheck?.Invoke(this);
+                isEating = false;
+                angoisseBar.RemoveAnguish(2f);
+            }
+        }
+        private void Exit()
+        {
+            if (hasArrived)
+            {
+                Leave();
+                target = place.exit.transform;
+                agent.SetDestination(target.position);
+                hasArrived = false;
+                ClientLeave?.Invoke(this);
+            }
+
+            if (agent.remainingDistance < agent.stoppingDistance && agent.velocity.magnitude > 0.5f )
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        public void Interact()
+        {
+            if (logic == Cycle.Reflexion)
+            {
+                takeTheOrder =  true;
+                PlayerTakeOrder?.Invoke(this);
+                logic = Cycle.Command;
+            }
+
+            if (logic == Cycle.Timer)
+            {
+                foreach (var ingrediente in playerInventory.ingredientes)
                 {
-                    PlayerGiveTheOrder?.Invoke(this);
-                    playerInventory.RemoveIngrediente(ingrediente);
-                    moveAtTheList.Remove(ingrediente);
-                    logic = cycle.Check;
+                    if (ingrediente == whatTheyWhant)
+                    {
+                        PlayerGiveTheOrder?.Invoke(this);
+                        playerInventory.RemoveIngrediente(ingrediente);
+                        moveAtTheList.Remove(ingrediente); // event
+                        logic = Cycle.Check;
+                    }
                 }
             }
+
+            if (logic==Cycle.Check)
+            {
+                PlayerTakeTheCheck?.Invoke(this);
+                logic = Cycle.Exit;
+            }
         }
 
-        if (logic==cycle.Check)
+        private void Leave()
         {
-            PlayerTakeTheCheck?.Invoke(this);
-            logic = cycle.Exit;
+            if (mySeat != null)
+            {
+                mySeat.Leave();
+            }
         }
-    }
-    void Leave()
-    {
-        if (mySeat != null)
-        {
-            mySeat.Leave();
-        }
-    }
 
-    public void EndInteraction()
-    {
+        public void EndInteraction()
+        {
+        }
     }
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9192807054403646779}
   - component: {fileID: 6938733475138693428}
-  - component: {fileID: 5547630391310161467}
   - component: {fileID: 8750233445936520613}
   m_Layer: 0
   m_Name: GameManager
@@ -52,29 +51,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1830fe2834109b34fa3e11c7b715f984, type: 2}
   list: {fileID: 0}
   rand: 0
---- !u!114 &5547630391310161467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2274639415577918347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df2fd63fb82426409e9d79c02446d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RoundMeca
-  pnjSpawn:
-  - {fileID: 3175802198374922146, guid: 3eb706f7f1e130a41a013c45c59358f8, type: 3}
-  - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}
-  - {fileID: 389137463812056816, guid: 80259b1ba6614434a84da0d26c260fcd, type: 3}
-  - {fileID: 8393712228223779219, guid: ff4b92fd90301d548ab9584a3f8bd557, type: 3}
-  - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
-  - {fileID: 6861045478193374001, guid: 6e5c8c1e8d9ce724e88719eda70b76b2, type: 3}
-  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
-  - {fileID: 1535800320798254241, guid: f32db3aa819c15c4f8a9e647183470b8, type: 3}
-  spawnPos: {fileID: 0}
-  maxClientInTheRestaurant: 7
 --- !u!114 &8750233445936520613
 MonoBehaviour:
   m_ObjectHideFlags: 0

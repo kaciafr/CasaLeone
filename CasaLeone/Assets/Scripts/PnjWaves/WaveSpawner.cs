@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Pnj;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -105,11 +106,11 @@ public class WaveSpawner : MonoBehaviour
 
         GameObject client = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
 
-        PnjTest cb = client.GetComponent<PnjTest>();
+        PnjMove cb = client.GetComponent<PnjMove>();
         if (cb != null)
         {
-            cb.patience = profile.patience;
-            cb.eatSpeed = profile.eatSpeed;
+            cb.whaitingTime = profile.patience;
+            cb.eatTime = profile.eatSpeed;
         }
         else
         {

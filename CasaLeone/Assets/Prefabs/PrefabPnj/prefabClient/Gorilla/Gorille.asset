@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f661e129bb24746ad09ad9e913c4778, type: 3}
-  m_Name: Dog
+  m_Name: Gorille
   m_EditorClassIdentifier: Assembly-CSharp::ClientTypeSO
-  type: 0
-  label: 
+  type: 4
   weight: 1
-  variants: []
+  variants:
+  - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}

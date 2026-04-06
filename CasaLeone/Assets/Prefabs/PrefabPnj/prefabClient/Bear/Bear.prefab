@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 3477194369061405705}
   - component: {fileID: 78781428575645158}
   m_Layer: 0
-  m_Name: Souris
+  m_Name: Bear
   m_TagString: PNJ
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

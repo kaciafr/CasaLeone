@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 8810081219563964389}
   - component: {fileID: 3700612729663001403}
   m_Layer: 0
-  m_Name: Loup
+  m_Name: Eagle
   m_TagString: PNJ
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

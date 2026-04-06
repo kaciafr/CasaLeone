@@ -1,20 +1,20 @@
 using System;
 using UnityEngine;
 
-public class pnjIN : MonoBehaviour
+public class PnjIn : MonoBehaviour
 {
 	public bool canGoIn;
-	private GameObject currentPNJ;
+	private GameObject currentPnj;
 	public void Reserve(GameObject pnj)
 	{
 		canGoIn = false;
-		currentPNJ = pnj;
+		currentPnj = pnj;
 		Debug.Log(pnj);
 	}
 
 	public void Leave()
 	{
-		currentPNJ = null;
+		currentPnj = null;
 		canGoIn = true;
 	}
 }
