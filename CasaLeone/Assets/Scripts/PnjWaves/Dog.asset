@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Dog
   m_EditorClassIdentifier: Assembly-CSharp::ClientTypeSO
   type: 0
-  label: 
   weight: 1
-  variants: []
+  variants:
+  - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}

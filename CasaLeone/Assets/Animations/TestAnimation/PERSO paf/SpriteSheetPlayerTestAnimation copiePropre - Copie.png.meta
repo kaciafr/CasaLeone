@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: c3709ed30b104314eac7bdfaaab349d4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1355
+        width: 295
+        height: 678
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09ee645911d3e94f9a1c23cd6f9c41f
+      internalID: -257223263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_2
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1360
+        width: 299
+        height: 673
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6212ce5cd09789b47b1a2808e758460d
+      internalID: -1914458482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 677
+        width: 293
+        height: 679
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e3d5b01cdeee84a820902212ea0f99
+      internalID: 260268568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_10
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 687
+        width: 306
+        height: 673
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3923b9e2c9d0ebd46a862954d966d541
+      internalID: 707304616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_11
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 692
+        width: 303
+        height: 672
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332753151dadca4439f02fef7ef12f6c
+      internalID: -6218850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 295
+        height: 676
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586a3b758173190499ac8649ff3ec991
+      internalID: -1706931437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_18
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 299
+        height: 676
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695bb608d5590194b838ca48494a0b17
+      internalID: 1746732648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_19
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 5
+        width: 311
+        height: 675
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d8c530895211a4caf8e0cfb216c36d
+      internalID: 1517954908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: dabfdc9df1b10c34db9eda50520ef702
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1421.0,"y":2033.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_0: -257223263
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_1: -1099963157
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_10: 707304616
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_11: -6218850
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_12: 1739141534
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_13: 939978240
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_14: 173983884
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_15: -1163535129
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_16: -1706931437
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_17: -506326963
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_18: 1746732648
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_19: 1517954908
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_2: -1914458482
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_20: 1817864344
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_21: 748686846
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_22: -531076358
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_23: 1923316684
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_24: 1011082129
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_25: -157535385
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_26: 233956597
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_3: -1797597391
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_4: -872341828
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_5: 828533712
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_6: -161129989
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_7: 2069570620
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_8: 260268568
+      SpriteSheetPlayerTestAnimation copiePropre - Copie_9: 73498191
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
