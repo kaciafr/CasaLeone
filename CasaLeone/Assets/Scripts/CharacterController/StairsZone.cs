@@ -1,44 +1,51 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class ClimbZone : MonoBehaviour
+public class StairsZone : MonoBehaviour
 {
-    [Header("Feedback")]
     [SerializeField] private GameObject climbFeedBack;
 
-    [Header("Settings")]
     [SerializeField] private Transform[] points;
     [SerializeField] private float duration = 0.2f;
 
-    [Header("Players")]
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
-    [Header("Inputs")]
     [SerializeField] private InputManager inputPlayer1;
     [SerializeField] private InputManager inputPlayer2;
 
+    public float rotationoffset =-45 ; 
+
     private readonly Vector3 _targetScale = new Vector3(0.5f, 0.5f, 0.5f);
-    private bool _canClimb = false;
+    
+    private bool _player1InZone = false;
+    private bool _player2InZone = false;
     private bool _isClimbing = false;
 
     private void Update()
     {
-        if (_canClimb && !_isClimbing)
-        {
-            if (inputPlayer1 != null && inputPlayer1.IsInteracting)
-                SlideStairs(player1);
+        if (_isClimbing) return;
 
-            if (inputPlayer2 != null && inputPlayer2.IsInteracting)
-                SlideStairs(player2);
-        }
+        if (_player1InZone && inputPlayer1 != null && inputPlayer1.IsInteracting)
+            SlideStairs(player1);
+
+        if (_player2InZone && inputPlayer2 != null && inputPlayer2.IsInteracting)
+            SlideStairs(player2);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!IsPlayer(other)) return;
 
-        _canClimb = true;
+
+        if (IsSpecificPlayer(other, player1)) 
+        {
+            _player1InZone = true;
+        }
+        if (IsSpecificPlayer(other, player2)) 
+        {
+            _player2InZone = true;
+        }
 
         if (climbFeedBack == null) return;
 
@@ -48,11 +55,15 @@ public class ClimbZone : MonoBehaviour
         climbFeedBack.transform.DOScale(_targetScale, 0.5f).SetEase(Ease.OutBack);
     }
 
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!IsPlayer(other)) return;
 
-        _canClimb = false;
+        if (IsSpecificPlayer(other, player1)) _player1InZone = false;
+        if (IsSpecificPlayer(other, player2)) _player2InZone = false;
+
+        if (_player1InZone || _player2InZone) return;
 
         if (climbFeedBack == null) return;
 
@@ -87,7 +98,7 @@ public class ClimbZone : MonoBehaviour
         Sequence stairsSeq = DOTween.Sequence();
 
         stairsSeq.Append(player.transform
-            .DORotate(new Vector3(0f, 0f, 45f), 0.3f)
+            .DORotate(new Vector3(0f, 0f, rotationoffset), 0.3f)
             .SetEase(Ease.OutSine));
 
         stairsSeq.Append(player.transform
@@ -108,4 +119,18 @@ public class ClimbZone : MonoBehaviour
                (other.transform.parent != null &&
                 other.transform.parent.CompareTag("Player"));
     }
+
+    private bool IsSpecificPlayer(Collider2D other, GameObject player)
+    {
+        if (player == null) return false;
+    
+        Transform current = other.transform;
+        while (current != null)
+        {
+            if (current.gameObject == player) return true;
+            current = current.parent;
+        }
+        return false;
+    }
+
 }
