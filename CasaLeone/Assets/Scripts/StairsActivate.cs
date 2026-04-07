@@ -1,20 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace DefaultNamespace
+public class StairsActivate : MonoBehaviour
 {
-    using UnityEngine;
-
-    public class StairsActivate : MonoBehaviour
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            Debug.Log("ENTER : " + collision.gameObject.name);
-        }
+        Debug.Log("ENTER : " + collision.gameObject.name);
+    }
 
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            Debug.Log("STAY : " + collision.gameObject.name);
-        }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("STAY : " + collision.gameObject.name);
     }
 }

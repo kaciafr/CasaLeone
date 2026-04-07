@@ -1,8 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Ingrediente", menuName = "Scriptable Objects/Ingrediente")]
-public class Ingrediente : ScriptableObject
+namespace ListForEat
 {
-	public int ID;
-	public string name;
+	[CreateAssetMenu(fileName = "Ingrediente", menuName = "Scriptable Objects/Ingrediente")]
+	public class Ingrediente : ScriptableObject
+	{
+		public int ID;
+		public string name;
+	}
 }

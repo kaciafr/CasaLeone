@@ -1,8 +1,11 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "Condition Database", menuName = "Dialogue/Condition Database")]
-public class ConditionDatabase : ScriptableObject
+namespace DialogueSystem.DATA
 {
-    public List<DialogueCondition> conditions = new List<DialogueCondition>();
+    [CreateAssetMenu(fileName = "Condition Database", menuName = "Dialogue/Condition Database")]
+    public class ConditionDatabase : ScriptableObject
+    {
+        public List<DialogueCondition> conditions = new List<DialogueCondition>();
+    }
 }

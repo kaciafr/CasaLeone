@@ -1,8 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Condition", menuName = "Dialogue/Condition")]
-public class DialogueCondition : ScriptableObject
+namespace DialogueSystem.DATA
 {
-    public string conditionID;
-    public string description;
+    [CreateAssetMenu(fileName = "New Condition", menuName = "Dialogue/Condition")]
+    public class DialogueCondition : ScriptableObject
+    {
+        public string conditionID;
+        public string description;
+    }
 }

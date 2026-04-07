@@ -1,48 +1,53 @@
+using DialogueSystem.DATA;
+using DialogueSystem.Runtime;
 using UnityEngine;
 
-public class NPCTriggerDialogue : MonoBehaviour
+namespace DialogueSystem
 {
-    private DialogueTrigger dialogueTrigger;
-    private bool playerInRange;
-
-    [Header("Servir")]
-    public string requiredConditionID = "";
-    public bool resetConditionAfter = true;
-
-    void Start()
+    public class NPCTriggerDialogue : MonoBehaviour
     {
-        dialogueTrigger = GetComponent<DialogueTrigger>();
-    }
+        private DialogueTrigger dialogueTrigger;
+        private bool playerInRange;
 
-    void Update()
-    {
-        if (!playerInRange) return;
-        if (!Input.GetKeyDown(KeyCode.E)) return;
+        [Header("Servir")]
+        public string requiredConditionID = "";
+        public bool resetConditionAfter = true;
 
-        DialogueConversation conv = dialogueTrigger.conversation;
-        if (conv == null) return;
-
-        if (!conv.canRepeat && ConditionManager.CheckCondition(conv.conversationID + "_done"))
-            return;
-
-        DialogueManager.Instance.StartConversation(conv, requiredConditionID, OnThisConversationEnded);
-    }
-
-    void OnThisConversationEnded()
-    {
-        if (resetConditionAfter && requiredConditionID != "")
+        void Start()
         {
-            ConditionManager.SetCondition(requiredConditionID, false);
+            dialogueTrigger = GetComponent<DialogueTrigger>();
         }
-    }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player")) playerInRange = true;
-    }
+        void Update()
+        {
+            if (!playerInRange) return;
+            if (!Input.GetKeyDown(KeyCode.E)) return;
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player")) playerInRange = false;
+            DialogueConversation conv = dialogueTrigger.conversation;
+            if (conv == null) return;
+
+            if (!conv.canRepeat && ConditionManager.CheckCondition(conv.conversationID + "_done"))
+                return;
+
+            DialogueManager.Instance.StartConversation(conv, requiredConditionID, OnThisConversationEnded);
+        }
+
+        void OnThisConversationEnded()
+        {
+            if (resetConditionAfter && requiredConditionID != "")
+            {
+                ConditionManager.SetCondition(requiredConditionID, false);
+            }
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player")) playerInRange = true;
+        }
+
+        void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player")) playerInRange = false;
+        }
     }
 }

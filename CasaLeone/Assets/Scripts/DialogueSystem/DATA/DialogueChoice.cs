@@ -1,15 +1,18 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-[System.Serializable]
-public class DialogueChoice
+namespace DialogueSystem.DATA
 {
-    public List<GameObject> choiceSpritePrefabs;
+    [System.Serializable]
+    public class DialogueChoice
+    {
+        public List<GameObject> choiceSpritePrefabs;
     
-    public DialogueNode nextNode;
-    public DialogueCondition requiredCondition;
+        public DialogueNode nextNode;
+        public DialogueCondition requiredCondition;
 
-    [Header("Optional Condition")]
-    public bool requiresCondition;
-    public string conditionID;
+        [Header("Optional Condition")]
+        public bool requiresCondition;
+        public string conditionID;
+    }
 }

@@ -1,13 +1,17 @@
 using UnityEngine;
-public class DestroyTriangle : MonoBehaviour
+
+namespace DialogueSystem.DATA.QuestCondition
 {
-    private string conditionID = "Pizza";
- 
-    void OnTriggerEnter2D(Collider2D other)
+    public class DestroyTriangle : MonoBehaviour
     {
-        if (!other.CompareTag("Player")) return;
+        private string conditionID = "Pizza";
  
-        ConditionManager.SetCondition("Pizza", true);
-        Destroy(gameObject);
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return;
+ 
+            ConditionManager.SetCondition("Pizza", true);
+            Destroy(gameObject);
+        }
     }
 }

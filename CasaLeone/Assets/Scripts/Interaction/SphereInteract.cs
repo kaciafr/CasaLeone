@@ -1,34 +1,37 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SphereInteract : MonoBehaviour
+namespace Interaction
 {
-	private IInteract current;
-
-	public void OnInteractInput(InputAction.CallbackContext context)
+	public class SphereInteract : MonoBehaviour
 	{
-		if (current != null && context.performed)
-		{
-			current.Interact();
-		}
-	}
+		private IInteract current;
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.TryGetComponent(out IInteract interactable))
+		public void OnInteractInput(InputAction.CallbackContext context)
 		{
-			current = interactable;
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		if (other.TryGetComponent(out IInteract interactable))
-		{
-			if (current == interactable)
+			if (current != null && context.performed)
 			{
-				current.EndInteraction();
-				current = null;
+				current.Interact();
+			}
+		}
+
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.TryGetComponent(out IInteract interactable))
+			{
+				current = interactable;
+			}
+		}
+
+		private void OnTriggerExit(Collider other)
+		{
+			if (other.TryGetComponent(out IInteract interactable))
+			{
+				if (current == interactable)
+				{
+					current.EndInteraction();
+					current = null;
+				}
 			}
 		}
 	}

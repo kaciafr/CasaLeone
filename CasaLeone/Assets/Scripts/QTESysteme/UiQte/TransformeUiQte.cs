@@ -1,14 +1,15 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TransformeUiQte : MonoBehaviour
+namespace QTESysteme.UiQte
 {
-	[SerializeField] private GameObject UiLoc;
-
-	public void UiTransform(Transform obj)
+	public class TransformeUiQte : MonoBehaviour
 	{
-		UiLoc.transform.position = obj.position;
-		Debug.Log("JE SUIS LA");
+		[SerializeField] private GameObject UiLoc;
+
+		public void UiTransform(Transform obj)
+		{
+			UiLoc.transform.position = obj.position;
+			Debug.Log("JE SUIS LA");
+		}
 	}
 }

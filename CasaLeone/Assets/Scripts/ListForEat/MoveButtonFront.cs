@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
+using Item;
 using UnityEngine;
 
+namespace ListForEat
+{
     public class MoveButtonFront : MonoBehaviour
     {
         [System.Serializable]
@@ -19,6 +21,8 @@ using UnityEngine;
         
         private Dictionary<RectTransform, Vector2> initialPositions = new Dictionary<RectTransform, Vector2>();
         public Action<MoveButtonFront> OnClick;
+
+        [SerializeField] private InfoList checkInfo;
 
         void Start()
         {
@@ -38,6 +42,7 @@ using UnityEngine;
                     OnClick?.Invoke(this);
                     item.button.SetAsLastSibling();
                     item.panel.SetActive(true);
+                    checkInfo.ClosesInfo();
                 }
                 else
                 {
@@ -47,5 +52,6 @@ using UnityEngine;
             }
         }
     }
+}
 
 

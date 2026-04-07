@@ -1,36 +1,39 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AngoisseBar : Singleton<AngoisseBar>
+namespace AngoisseBar
 {
-	[SerializeField] private GameObject anguishBar;
-	[SerializeField] private Image anguishBarImage;
-	[SerializeField] private Image DammageBarImage;
-
-	private void Start()
+	public class AngoisseBar : Singleton<AngoisseBar>
 	{
-		anguishBarImage.fillAmount = 0;
-		DammageBarImage.fillAmount = 0;
-	}
+		[SerializeField] private GameObject anguishBar;
+		[SerializeField] private Image anguishBarImage;
+		[SerializeField] private Image DammageBarImage;
 
-	private void Update()
-	{
-		if (anguishBarImage.fillAmount <= DammageBarImage.fillAmount)
+		private void Start()
 		{
-			DammageBarImage.fillAmount = Mathf.Lerp(DammageBarImage.fillAmount,anguishBarImage.fillAmount, 0.05f);
+			anguishBarImage.fillAmount = 0;
+			DammageBarImage.fillAmount = 0;
 		}
-	}
 
-	public void AddAnguish(float add)
-	{
-		DammageBarImage.fillAmount += add;
-		anguishBarImage.fillAmount += add;
+		private void Update()
+		{
+			if (anguishBarImage.fillAmount <= DammageBarImage.fillAmount)
+			{
+				DammageBarImage.fillAmount = Mathf.Lerp(DammageBarImage.fillAmount,anguishBarImage.fillAmount, 0.05f);
+			}
+		}
+
+		public void AddAnguish(float add)
+		{
+			DammageBarImage.fillAmount += add;
+			anguishBarImage.fillAmount += add;
 		
-	}
+		}
 
-	public void RemoveAnguish(float remove)
-	{
-		anguishBarImage.fillAmount -= remove;
-	}
+		public void RemoveAnguish(float remove)
+		{
+			anguishBarImage.fillAmount -= remove;
+		}
 
+	}
 }

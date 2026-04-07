@@ -1,84 +1,88 @@
-using UnityEngine;
 using System;
+using DialogueSystem.DATA;
+using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
+namespace DialogueSystem.Runtime
 {
-    public static DialogueManager Instance;
-
-    private DialogueNode currentNode;
-    private DialogueConversation currentConversation;
-    private Action onEndedCallback;
-
-    private string requiredConditionID = "";
-
-    public DialogueUI dialogueUI;
-
-    private void Awake()
+    public class DialogueManager : MonoBehaviour
     {
-        if (Instance == null)
-            Instance = this;
-    }
+        public static DialogueManager Instance;
 
-    public void StartConversation(DialogueConversation conversation)
-    {
-        StartConversation(conversation, "", null);
-    }
+        private DialogueNode currentNode;
+        private DialogueConversation currentConversation;
+        private Action onEndedCallback;
 
-    public void StartConversation(DialogueConversation conversation, string conditionID, Action onEnded)
-    {
-        currentConversation = conversation;
-        currentNode = conversation.startingNode;
-        onEndedCallback = onEnded;
-        requiredConditionID = conditionID;
+        private string requiredConditionID = "";
 
-        dialogueUI.ShowUI();
-        DisplayNode(currentNode);
-    }
+        public DialogueUI dialogueUI;
 
-    void DisplayNode(DialogueNode node)
-    {
-        dialogueUI.Display(node, requiredConditionID);
-    }
-
-    public void SelectChoice(DialogueChoice choice)
-    {
-        if (choice.nextNode != null)
+        private void Awake()
         {
-            currentNode = choice.nextNode;
+            if (Instance == null)
+                Instance = this;
+        }
+
+        public void StartConversation(DialogueConversation conversation)
+        {
+            StartConversation(conversation, "", null);
+        }
+
+        public void StartConversation(DialogueConversation conversation, string conditionID, Action onEnded)
+        {
+            currentConversation = conversation;
+            currentNode = conversation.startingNode;
+            onEndedCallback = onEnded;
+            requiredConditionID = conditionID;
+
+            dialogueUI.ShowUI();
             DisplayNode(currentNode);
         }
-        else
+
+        void DisplayNode(DialogueNode node)
         {
-            EndConversation();
+            dialogueUI.Display(node, requiredConditionID);
         }
-    }
 
-    public void Next()
-    {
-        if (currentNode.nextNode != null)
+        public void SelectChoice(DialogueChoice choice)
         {
-            currentNode = currentNode.nextNode;
-            DisplayNode(currentNode);
+            if (choice.nextNode != null)
+            {
+                currentNode = choice.nextNode;
+                DisplayNode(currentNode);
+            }
+            else
+            {
+                EndConversation();
+            }
         }
-        else
+
+        public void Next()
         {
-            EndConversation();
+            if (currentNode.nextNode != null)
+            {
+                currentNode = currentNode.nextNode;
+                DisplayNode(currentNode);
+            }
+            else
+            {
+                EndConversation();
+            }
         }
-    }
 
-    void EndConversation()
-    {
-        if (currentConversation != null && !currentConversation.canRepeat)
-            ConditionManager.SetCondition(currentConversation.conversationID + "_done", true);
+        void EndConversation()
+        {
+            if (currentConversation != null && !currentConversation.canRepeat)
+                ConditionManager.SetCondition(currentConversation.conversationID + "_done", true);
 
-        dialogueUI.HideUI();
+            dialogueUI.HideUI();
 
-        Action callback = onEndedCallback;
-        currentConversation = null;
-        currentNode = null;
-        onEndedCallback = null;
-        requiredConditionID = "";
+            Action callback = onEndedCallback;
+            currentConversation = null;
+            currentNode = null;
+            onEndedCallback = null;
+            requiredConditionID = "";
 
-        callback?.Invoke();
+            callback?.Invoke();
+        }
     }
 }

@@ -1,21 +1,23 @@
-using System;
 using UnityEngine;
 
-public class PnjIn : MonoBehaviour
+namespace Pnj
 {
-	public bool canGoIn;
-	private GameObject currentPnj;
-	public void Reserve(GameObject pnj)
+	public class PnjIn : MonoBehaviour
 	{
-		canGoIn = false;
-		currentPnj = pnj;
-		Debug.Log(pnj);
-	}
+		public bool canGoIn;
+		private GameObject currentPnj;
+		public void Reserve(GameObject pnj)
+		{
+			canGoIn = false;
+			currentPnj = pnj;
+			Debug.Log(pnj);
+		}
 
-	public void Leave()
-	{
-		currentPnj = null;
-		canGoIn = true;
+		public void Leave()
+		{
+			currentPnj = null;
+			canGoIn = true;
+		}
 	}
 }
 

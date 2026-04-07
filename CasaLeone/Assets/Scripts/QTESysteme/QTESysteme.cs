@@ -1,154 +1,157 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using ListForEat;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-public class QTESysteme : MonoBehaviour
+namespace QTESysteme
 {
-	[SerializeField] private Inventory playerInventory;
-	public Ingrediente winGift;
-	public enum QTEKey
+	public class QTESysteme : MonoBehaviour
 	{
-		Up,
-		Down,
-		Left,
-		Right
-	}
-
-	[SerializeField] private List<QTEKey> sequence = new List<QTEKey>();
-	public float TimerDelay;
-	public bool qteStart = false;
-	[SerializeField] private int maxSequence = 5;
-	[SerializeField] private int minSequence = 5;
-	[SerializeField] private int round = 2;
-	[SerializeField] private PlayerInput playerInput;
-
-	public Action<List<QTEKey>> QTESequence;
-	public Action<int> KeyPressed;
-	public Action<float> Timer;
-	public Action onLose;
-	public Action onSuccess;
-	
-	private int currentRound;
-	[HideInInspector] public float delay;
-	private int currentIndex = 0;
-	private bool isStarted = false;
-	
-	public void StartSequence()
-	{
-		currentRound = round;
-		GenerateSequence();
-		isStarted = true;
-		delay = TimerDelay;
-		currentIndex = 0;
-	}
-
-	private void Round()
-	{
-		GenerateSequence();
-		currentIndex = 0;
-		
-	}
-	private void Update()
-	{
-		if (!isStarted) return;
-		
-		delay -= Time.deltaTime;
-		Timer?.Invoke(delay);
-		
-		if (delay <= 0)
-			Lose();
-	}
-
-	void GenerateSequence()
-	{
-		qteStart = true;
-		playerInput.SwitchCurrentActionMap("QTE");
-		sequence.Clear();
-		
-		int randS = Random.Range(minSequence, maxSequence);
-		for (int i = 0; i < randS; i++)
+		[SerializeField] private Inventory.Inventory playerInventory;
+		public Ingrediente winGift;
+		public enum QTEKey
 		{
-			int rand = Random.Range(0, 4);
-			sequence.Add((QTEKey)rand);
+			Up,
+			Down,
+			Left,
+			Right
 		}
-			QTESequence?.Invoke(sequence);
-	}
 
-	public void UpKey(InputAction.CallbackContext ctx)
-	{
-		if (!ctx.performed) return;
-		HandleInput(QTEKey.Up);
-	}
+		[SerializeField] private List<QTEKey> sequence = new List<QTEKey>();
+		public float TimerDelay;
+		public bool qteStart = false;
+		[SerializeField] private int maxSequence = 5;
+		[SerializeField] private int minSequence = 5;
+		[SerializeField] private int round = 2;
+		[SerializeField] private PlayerInput playerInput;
 
-	public void DownKey(InputAction.CallbackContext ctx)
-	{
-		if (!ctx.performed) return;
-		HandleInput(QTEKey.Down);
-	}
-
-	public void LeftKey(InputAction.CallbackContext ctx)
-	{
-		if (!ctx.performed) return;
-		HandleInput(QTEKey.Left);
-	}
-
-	public void RightKey(InputAction.CallbackContext ctx)
-	{
-		if (!ctx.performed) return;
-		HandleInput(QTEKey.Right);
-	}
-
-	void HandleInput(QTEKey input)
-	{
-		if (!isStarted) return;
-
-		if (sequence[currentIndex] == input)
+		public Action<List<QTEKey>> QTESequence;
+		public Action<int> KeyPressed;
+		public Action<float> Timer;
+		public Action onLose;
+		public Action onSuccess;
+	
+		private int currentRound;
+		[HideInInspector] public float delay;
+		private int currentIndex = 0;
+		private bool isStarted = false;
+	
+		public void StartSequence()
 		{
-			KeyPressed?.Invoke(currentIndex);
-			currentIndex++;
+			currentRound = round;
+			GenerateSequence();
+			isStarted = true;
+			delay = TimerDelay;
+			currentIndex = 0;
+		}
 
-			if (currentIndex >= sequence.Count)
+		private void Round()
+		{
+			GenerateSequence();
+			currentIndex = 0;
+		
+		}
+		private void Update()
+		{
+			if (!isStarted) return;
+		
+			delay -= Time.deltaTime;
+			Timer?.Invoke(delay);
+		
+			if (delay <= 0)
+				Lose();
+		}
+
+		void GenerateSequence()
+		{
+			qteStart = true;
+			playerInput.SwitchCurrentActionMap("QTE");
+			sequence.Clear();
+		
+			int randS = Random.Range(minSequence, maxSequence);
+			for (int i = 0; i < randS; i++)
 			{
-				Manche();
+				int rand = Random.Range(0, 4);
+				sequence.Add((QTEKey)rand);
+			}
+			QTESequence?.Invoke(sequence);
+		}
+
+		public void UpKey(InputAction.CallbackContext ctx)
+		{
+			if (!ctx.performed) return;
+			HandleInput(QTEKey.Up);
+		}
+
+		public void DownKey(InputAction.CallbackContext ctx)
+		{
+			if (!ctx.performed) return;
+			HandleInput(QTEKey.Down);
+		}
+
+		public void LeftKey(InputAction.CallbackContext ctx)
+		{
+			if (!ctx.performed) return;
+			HandleInput(QTEKey.Left);
+		}
+
+		public void RightKey(InputAction.CallbackContext ctx)
+		{
+			if (!ctx.performed) return;
+			HandleInput(QTEKey.Right);
+		}
+
+		void HandleInput(QTEKey input)
+		{
+			if (!isStarted) return;
+
+			if (sequence[currentIndex] == input)
+			{
+				KeyPressed?.Invoke(currentIndex);
+				currentIndex++;
+
+				if (currentIndex >= sequence.Count)
+				{
+					Manche();
+				}
+			}
+			else
+			{
+				Debug.Log("Wrong: " + input);
+				Lose();
 			}
 		}
-		else
+
+		private void Manche()
 		{
-			Debug.Log("Wrong: " + input);
-			Lose();
+			if(currentRound <= 0)
+				Success();
+			else
+			{
+				Round();
+				currentRound--;
+			}
 		}
-	}
 
-	private void Manche()
-	{
-		if(currentRound <= 0)
-			Success();
-		else
+		void Success()
 		{
-			Round();
-			currentRound--;
+			qteStart = false;
+			isStarted = false;
+			playerInput.SwitchCurrentActionMap("Player");
+			Debug.Log("SUCCESS");
+			onSuccess?.Invoke();
+			playerInventory.AddIngrediente(winGift);
 		}
-	}
 
-	void Success()
-	{
-		qteStart = false;
-		isStarted = false;
-		playerInput.SwitchCurrentActionMap("Player");
-		Debug.Log("SUCCESS");
-		onSuccess?.Invoke();
-		playerInventory.AddIngrediente(winGift);
-	}
-
-	void Lose()
-	{
-		qteStart = false;
-		isStarted = false;
-		playerInput.SwitchCurrentActionMap("Player");
-		Debug.Log("FAILED");
-		onLose?.Invoke();
+		void Lose()
+		{
+			qteStart = false;
+			isStarted = false;
+			playerInput.SwitchCurrentActionMap("Player");
+			Debug.Log("FAILED");
+			onLose?.Invoke();
+		}
 	}
 }

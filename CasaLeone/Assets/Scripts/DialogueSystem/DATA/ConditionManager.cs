@@ -1,21 +1,24 @@
 using System.Collections.Generic;
 
-public static class ConditionManager
+namespace DialogueSystem.DATA
 {
-    private static Dictionary<string, bool> states = new Dictionary<string, bool>();
-
-    public static void SetCondition(string id, bool value)
+    public static class ConditionManager
     {
-        states[id] = value;
-    }
+        private static Dictionary<string, bool> states = new Dictionary<string, bool>();
 
-    public static bool CheckCondition(string id)
-    {
-        return states.ContainsKey(id) && states[id];
-    }
+        public static void SetCondition(string id, bool value)
+        {
+            states[id] = value;
+        }
 
-    public static void Clear()
-    {
-        states.Clear();
+        public static bool CheckCondition(string id)
+        {
+            return states.ContainsKey(id) && states[id];
+        }
+
+        public static void Clear()
+        {
+            states.Clear();
+        }
     }
 }

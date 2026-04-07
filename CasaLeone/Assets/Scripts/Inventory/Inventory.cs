@@ -1,23 +1,25 @@
-using System;
 using System.Collections.Generic;
-using UnityEngine;
+using ListForEat;
 
-public class Inventory: Singleton<Inventory>
+namespace Inventory
 {
-    public List<Ingrediente> ingredientes = new List<Ingrediente>();
-
-    private void Start()
+    public class Inventory: Singleton<Inventory>
     {
-        ingredientes.Clear();
-    }
+        public List<Ingrediente> ingredientes = new List<Ingrediente>();
 
-    public void AddIngrediente(Ingrediente ingrediente)
-    {
-        ingredientes.Add(ingrediente);
-    }
+        private void Start()
+        {
+            ingredientes.Clear();
+        }
 
-    public void RemoveIngrediente(Ingrediente ingrediente)
-    {
-        ingredientes.Remove(ingrediente);
+        public void AddIngrediente(Ingrediente ingrediente)
+        {
+            ingredientes.Add(ingrediente);
+        }
+
+        public void RemoveIngrediente(Ingrediente ingrediente)
+        {
+            ingredientes.Remove(ingrediente);
+        }
     }
 }

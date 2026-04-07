@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class GetCanavis : MonoBehaviour
+namespace DialogueSystem.DATA.QuestCondition
 {
-    private string conditionID = "CatNap";
- 
-    void OnTriggerEnter2D(Collider2D other)
+    public class GetCanavis : MonoBehaviour
     {
-        if (!other.CompareTag("Player")) return;
+        private string conditionID = "CatNap";
  
-        ConditionManager.SetCondition(conditionID, true);
-        Destroy(gameObject);
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return;
+ 
+            ConditionManager.SetCondition(conditionID, true);
+            Destroy(gameObject);
+        }
     }
 }

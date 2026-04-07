@@ -1,4 +1,6 @@
 using System;
+using Interaction;
+using ListForEat;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,8 +22,8 @@ namespace Pnj
         private AllPlace place;
         private ListMove moveAtTheList;
         private MenuOfTheRestaurant menu;
-        private AngoisseBar angoisseBar;
-        private Inventory playerInventory;
+        private AngoisseBar.AngoisseBar angoisseBar;
+        private Inventory.Inventory playerInventory;
     
         [Header("References")]
         public Transform target;
@@ -61,7 +63,7 @@ namespace Pnj
             place = AllPlace.Instance;
             moveAtTheList = ListMove.Instance;
             menu = MenuOfTheRestaurant.Instance;
-            playerInventory = Inventory.Instance;
+            playerInventory = Inventory.Inventory.Instance;
         
         }
 

@@ -1,36 +1,38 @@
-using System;
-using System.Collections.Generic;
+using ListForEat;
 using UnityEngine;
 
-public class SelectedFoodQTE : MonoBehaviour
+namespace QTESysteme
 {
-	[SerializeField] private GameObject pizzaButton;
-	[SerializeField] private GameObject pastaButton;
-	[SerializeField] private GameObject saladeButton;
+	public class SelectedFoodQTE : MonoBehaviour
+	{
+		[SerializeField] private GameObject pizzaButton;
+		[SerializeField] private GameObject pastaButton;
+		[SerializeField] private GameObject saladeButton;
 	
-	[SerializeField] private QTESysteme qteSysteme;
-	[SerializeField] private Ingrediente firstSave;
+		[SerializeField] private QTESysteme qteSysteme;
+		[SerializeField] private Ingrediente firstSave;
 
-	private void Start()
-	{
-		qteSysteme.winGift = firstSave;
-	}
+		private void Start()
+		{
+			qteSysteme.winGift = firstSave;
+		}
 
-	public void Pizza(Ingrediente ingrediente)
-	{
-		if (!qteSysteme.qteStart)
-			qteSysteme.winGift = ingrediente;
-	}
+		public void Pizza(Ingrediente ingrediente)
+		{
+			if (!qteSysteme.qteStart)
+				qteSysteme.winGift = ingrediente;
+		}
 
-	public void Pasta(Ingrediente ingrediente)
-	{
-		if (!qteSysteme.qteStart)
-			qteSysteme.winGift = ingrediente;
-	}
+		public void Pasta(Ingrediente ingrediente)
+		{
+			if (!qteSysteme.qteStart)
+				qteSysteme.winGift = ingrediente;
+		}
 
-	public void Salade(Ingrediente ingrediente)
-	{
-		if (!qteSysteme.qteStart)
-			qteSysteme.winGift = ingrediente;
+		public void Salade(Ingrediente ingrediente)
+		{
+			if (!qteSysteme.qteStart)
+				qteSysteme.winGift = ingrediente;
+		}
 	}
 }

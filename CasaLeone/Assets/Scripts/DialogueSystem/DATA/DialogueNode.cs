@@ -1,22 +1,25 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Dialogue Node", menuName = "Dialogue/Dialogue Node")]
-public class DialogueNode : ScriptableObject
+namespace DialogueSystem.DATA
 {
-    [Header("Speaker")]
-    public string speakerName;
-    public Sprite portrait;
+    [CreateAssetMenu(fileName = "New Dialogue Node", menuName = "Dialogue/Dialogue Node")]
+    public class DialogueNode : ScriptableObject
+    {
+        [Header("Speaker")]
+        public string speakerName;
+        public Sprite portrait;
 
-    [Header("Sprite Sequence")]
+        [Header("Sprite Sequence")]
  
-    public List<GameObject> spritePrefabs;
+        public List<GameObject> spritePrefabs;
 
-    [Header("Choices")]
-    public List<DialogueChoice> choices;
+        [Header("Choices")]
+        public List<DialogueChoice> choices;
 
-    [Header("Auto Next (if no choices)")]
-    public DialogueNode nextNode;
+        [Header("Auto Next (if no choices)")]
+        public DialogueNode nextNode;
 
-    public bool endsConversation;
+        public bool endsConversation;
+    }
 }

@@ -1,7 +1,8 @@
-using UnityEngine;
-
-public interface IInteract
+namespace Interaction
 {
-    void Interact();
-    void EndInteraction();
+    public interface IInteract
+    {
+        void Interact();
+        void EndInteraction();
+    }
 }

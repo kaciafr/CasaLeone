@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-
+namespace CharacterController
+{
     public class PlayerMovement : MonoBehaviour
     {
         
@@ -59,7 +60,7 @@ using UnityEngine;
                 TurnCheck(moveInput);
 
                 Vector2 targetVelocity = new Vector2(moveInput.x, 0f) *
-                    (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed);
+                                         (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed);
 
                 moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
             }
@@ -165,3 +166,4 @@ using UnityEngine;
 
         
     }
+}

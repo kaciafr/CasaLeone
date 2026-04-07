@@ -1,6 +1,7 @@
 using UnityEngine;
 
-
+namespace CharacterController
+{
     [CreateAssetMenu( menuName = "PlayerMovement ")]
     public class MovementState : ScriptableObject
     {
@@ -24,3 +25,4 @@ using UnityEngine;
         public float MaxFallSpeed = -20f;   
 
     }
+}

@@ -1,11 +1,15 @@
+using DialogueSystem.DATA;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+namespace DialogueSystem.Runtime
 {
-    public DialogueConversation conversation;
-
-    public void TriggerDialogue()
+    public class DialogueTrigger : MonoBehaviour
     {
-        DialogueManager.Instance.StartConversation(conversation);
+        public DialogueConversation conversation;
+
+        public void TriggerDialogue()
+        {
+            DialogueManager.Instance.StartConversation(conversation);
+        }
     }
 }

@@ -1,52 +1,56 @@
 using System;
 using DG.Tweening;
+using QTESysteme.UiQte;
 using UnityEngine;
 
-public class ObjetBaseInteract :  MonoBehaviour,IInteract
+namespace Interaction
 {
-	[Header("References")]
-	[SerializeField] private Transform objectTransform;
-	[SerializeField] private GameObject pressE;
-	[SerializeField] private GameObject endPosition;
-	[SerializeField] private GameObject startPosition;
-	[SerializeField] private QTESysteme qteSysteme;
-	[SerializeField] private TransformeUiQte UiLocQte;
-
-	[SerializeField] private float speedAnim;
-
-	public Action<Transform> UILoc;
-
-	private void Start()
+	public class ObjetBaseInteract :  MonoBehaviour,IInteract
 	{
-		pressE.transform.position = startPosition.transform.position;
-		qteSysteme =  qteSysteme.GetComponent<QTESysteme>();
-	}
-	public void Interact()
-	{
-		Debug.Log("ObjetBaseInteract");
-		pressE.SetActive(false);
-		UiLocQte.UiTransform(objectTransform);
-		qteSysteme.StartSequence();
-	}
+		[Header("References")]
+		[SerializeField] private Transform objectTransform;
+		[SerializeField] private GameObject pressE;
+		[SerializeField] private GameObject endPosition;
+		[SerializeField] private GameObject startPosition;
+		[SerializeField] private QTESysteme.QTESysteme qteSysteme;
+		[SerializeField] private TransformeUiQte UiLocQte;
 
-	private void OnTriggerEnter(Collider other)
-	{
-		pressE.SetActive(true);
-	}
+		[SerializeField] private float speedAnim;
 
-	private void OnTriggerStay(Collider other)
-	{
-		pressE.transform.DOMove(endPosition.transform.position, speedAnim);
-	}
+		public Action<Transform> UILoc;
 
-	private void OnTriggerExit(Collider other)
-	{
-		pressE.transform.DOMove(startPosition.transform.position, speedAnim);
-	}
+		private void Start()
+		{
+			pressE.transform.position = startPosition.transform.position;
+			qteSysteme =  qteSysteme.GetComponent<QTESysteme.QTESysteme>();
+		}
+		public void Interact()
+		{
+			Debug.Log("ObjetBaseInteract");
+			pressE.SetActive(false);
+			UiLocQte.UiTransform(objectTransform);
+			qteSysteme.StartSequence();
+		}
 
-	public void EndInteraction()
-	{
+		private void OnTriggerEnter(Collider other)
+		{
+			pressE.SetActive(true);
+		}
+
+		private void OnTriggerStay(Collider other)
+		{
+			pressE.transform.DOMove(endPosition.transform.position, speedAnim);
+		}
+
+		private void OnTriggerExit(Collider other)
+		{
+			pressE.transform.DOMove(startPosition.transform.position, speedAnim);
+		}
+
+		public void EndInteraction()
+		{
 		
-	}
+		}
 	
+	}
 }

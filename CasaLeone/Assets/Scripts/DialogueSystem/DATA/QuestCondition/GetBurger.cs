@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class GetBurger : MonoBehaviour
+namespace DialogueSystem.DATA.QuestCondition
 {
-    private string conditionID = "Burger";
- 
-    void OnTriggerEnter2D(Collider2D other)
+    public class GetBurger : MonoBehaviour
     {
-        if (!other.CompareTag("Player")) return;
+        private string conditionID = "Burger";
  
-        ConditionManager.SetCondition("Burger", true);
-        Destroy(gameObject);
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return;
+ 
+            ConditionManager.SetCondition("Burger", true);
+            Destroy(gameObject);
+        }
     }
 }

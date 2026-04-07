@@ -1,18 +1,21 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class WaveUI : MonoBehaviour
+namespace PnjWaves
 {
-    public WaveSpawner spawner;
-    public TextMeshProUGUI currentWaveText;
-    public TextMeshProUGUI bestWaveText;
-
-    void Update()
+    public class WaveUI : MonoBehaviour
     {
-        if (currentWaveText != null)
-            currentWaveText.text = $"Vague {spawner.CurrentWave}";
+        public WaveSpawner spawner;
+        public TextMeshProUGUI currentWaveText;
+        public TextMeshProUGUI bestWaveText;
 
-        if (bestWaveText != null)
-            bestWaveText.text = $"Meilleur : {spawner.BestWave}";
+        void Update()
+        {
+            if (currentWaveText != null)
+                currentWaveText.text = $"Vague {spawner.CurrentWave}";
+
+            if (bestWaveText != null)
+                bestWaveText.text = $"Meilleur : {spawner.BestWave}";
+        }
     }
 }
