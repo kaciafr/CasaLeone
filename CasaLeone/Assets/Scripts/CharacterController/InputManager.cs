@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace CharacterController
-{
     public class InputManager : MonoBehaviour
     {
         public Vector2 Movement { get; private set; }

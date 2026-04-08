@@ -1,177 +1,179 @@
 using System.Collections;
+using CharacterController;
 using DG.Tweening;
 using UnityEngine;
 
-namespace CharacterController
+
+public class PlayerMovement : MonoBehaviour
 {
-    public class PlayerMovement : MonoBehaviour
+
+    public MovementState movementState;
+    [SerializeField] private Collider2D feetCol;
+    [SerializeField] private Collider2D bodyCol;
+    private Rigidbody2D rb2D;
+
+    [SerializeField] private InputManager _input;
+    //private bool isClimbingStairs = false;
+    //public bool CanClimb { get; set; } = false;
+
+    //public float  duration; 
+
+
+
+    private Vector2 moveVelocity;
+    private bool isFacingRight = true;
+
+    private RaycastHit2D groundHit;
+    private bool isGrounded;
+    public bool IsGroundedState => isGrounded;
+
+
+    private bool isDropping = false;
+    private Collider2D currentPlatformCollider;
+
+    private float stepHeight = 0.35f;
+    private float stepCheckDist = 0.15f;
+
+
+    private void Awake()
     {
-        
-        public MovementState movementState;
-        [SerializeField] private Collider2D feetCol;
-        [SerializeField] private Collider2D bodyCol;
-        private Rigidbody2D rb2D;
-        [SerializeField] private InputManager _input;
-        //private bool isClimbingStairs = false;
-        //public bool CanClimb { get; set; } = false;
+        rb2D = GetComponent<Rigidbody2D>();
+        rb2D.gravityScale = 0f;
+        Turn(true);
+    }
 
-        //public float  duration; 
+    private void Update()
+    {
+        if (_input.IsDroppingThisFrame && currentPlatformCollider != null)
+            StartCoroutine(DropThroughPlatform());
+    }
 
+    private void FixedUpdate()
+    {
+        CollisionCheck();
+        Gravity();
 
+        if (isGrounded)
+            Move(movementState.GroundAcceleration, movementState.GroundDeceleration, _input.Movement);
+        else
+            Move(movementState.AirAcceleration, movementState.AirDeceleration, _input.Movement);
 
-        private Vector2 moveVelocity;
-        private bool isFacingRight = true;
+        //if (_input.IsInteracting && CanClimb) SlideStairs();
+        //ClimbUp();
 
-        private RaycastHit2D groundHit;
-        private bool isGrounded;
-        public bool IsGroundedState => isGrounded;
+    }
 
-        
-        private bool isDropping = false;
-        private Collider2D currentPlatformCollider; 
+    #region Movement
 
-        private float stepHeight = 0.35f;   
-        private float stepCheckDist = 0.15f; 
-        
-
-        private void Awake()
+    private void Move(float acceleration, float deceleration, Vector2 moveInput)
+    {
+        if (moveInput != Vector2.zero)
         {
-            rb2D = GetComponent<Rigidbody2D>();
-            rb2D.gravityScale = 0f;
+            TurnCheck(moveInput);
+
+            Vector2 targetVelocity = new Vector2(moveInput.x, 0f) *
+                                     (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed);
+
+            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+        }
+        else
+        {
+            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+        }
+
+        rb2D.linearVelocity = new Vector2(moveVelocity.x, rb2D.linearVelocity.y);
+    }
+
+    public void TurnCheck(Vector2 moveInput)
+    {
+        if (isFacingRight && moveInput.x < 0)
+            Turn(false);
+        else if (!isFacingRight && moveInput.x > 0)
             Turn(true);
-        }
+    }
 
-        private void Update()
+    public void Turn(bool turnRight)
+    {
+        isFacingRight = turnRight;
+        Vector3 scale = transform.localScale;
+        scale.x = turnRight ? -Mathf.Abs(scale.x) : Mathf.Abs(scale.x);
+        transform.localScale = scale;
+    }
+
+    #endregion
+
+    #region Collision & Gravity
+
+    private void CollisionCheck()
+    {
+        if (isDropping)
         {
-            if (_input.IsDroppingThisFrame  && currentPlatformCollider != null)
-                StartCoroutine(DropThroughPlatform());
-        }
-
-        private void FixedUpdate()
-        {
-            CollisionCheck();
-            Gravity();
-
-            if (isGrounded)
-                Move(movementState.GroundAcceleration, movementState.GroundDeceleration, _input.Movement);
-            else
-                Move(movementState.AirAcceleration, movementState.AirDeceleration, _input.Movement);
-            
-            //if (_input.IsInteracting && CanClimb) SlideStairs();
-            //ClimbUp();
-
-        }
-
-        #region Movement
-
-        private void Move(float acceleration, float deceleration, Vector2 moveInput)
-        {
-            if (moveInput != Vector2.zero)
-            {
-                TurnCheck(moveInput);
-
-                Vector2 targetVelocity = new Vector2(moveInput.x, 0f) *
-                                         (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed);
-
-                moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
-            }
-            else
-            {
-                moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
-            }
-
-            rb2D.linearVelocity = new Vector2(moveVelocity.x, rb2D.linearVelocity.y);
-        }
-
-        public  void TurnCheck(Vector2 moveInput)
-        {
-            if (isFacingRight && moveInput.x < 0)
-                Turn(false);
-            else if (!isFacingRight && moveInput.x > 0)
-                Turn(true);
-        }
-
-        public void Turn(bool turnRight)
-        {
-            isFacingRight = turnRight;
-            Vector3 scale = transform.localScale;
-            scale.x = turnRight ? -Mathf.Abs(scale.x) : Mathf.Abs(scale.x);
-            transform.localScale = scale;
-        }
-
-        #endregion
-
-        #region Collision & Gravity
-
-        private void CollisionCheck()
-        {
-            if (isDropping)
-            {
-                isGrounded = false;
-                currentPlatformCollider = null;
-                return;
-            }
-
-            Vector2 boxCastOrigin = new Vector2(feetCol.bounds.center.x, feetCol.bounds.min.y);
-            Vector2 boxCastSize   = new Vector2(feetCol.bounds.size.x, movementState.GroundDetectionRayLength);
-
-           
-            groundHit  = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down,
-                movementState.GroundDetectionRayLength, movementState.GroundLayer);
-            isGrounded = groundHit.collider != null;
-
-           
+            isGrounded = false;
             currentPlatformCollider = null;
-            RaycastHit2D[] hits = Physics2D.BoxCastAll(
-                boxCastOrigin, boxCastSize, 0f, Vector2.down, movementState.GroundDetectionRayLength);
+            return;
+        }
 
-            foreach (RaycastHit2D hit in hits)
+        Vector2 boxCastOrigin = new Vector2(feetCol.bounds.center.x, feetCol.bounds.min.y);
+        Vector2 boxCastSize = new Vector2(feetCol.bounds.size.x, movementState.GroundDetectionRayLength);
+
+
+        groundHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down,
+            movementState.GroundDetectionRayLength, movementState.GroundLayer);
+        isGrounded = groundHit.collider != null;
+
+
+        currentPlatformCollider = null;
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(
+            boxCastOrigin, boxCastSize, 0f, Vector2.down, movementState.GroundDetectionRayLength);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.CompareTag("Platform"))
             {
-                if (hit.collider.CompareTag("Platform"))
-                {
-                    currentPlatformCollider = hit.collider;
-                    isGrounded = true; 
-                    break;
-                }
+                currentPlatformCollider = hit.collider;
+                isGrounded = true;
+                break;
             }
         }
+    }
 
-        private void Gravity()
+    private void Gravity()
+    {
+        if (isGrounded && !isDropping)
         {
-            if (isGrounded && !isDropping) 
-            {
-                rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, 0f);
-                return;
-            }
-
-            float newY = Mathf.Max(
-                rb2D.linearVelocity.y + movementState.GravityValue * Time.fixedDeltaTime,
-                movementState.MaxFallSpeed
-            );
-
-            rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, newY);
+            rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, 0f);
+            return;
         }
 
-        #endregion
+        float newY = Mathf.Max(
+            rb2D.linearVelocity.y + movementState.GravityValue * Time.fixedDeltaTime,
+            movementState.MaxFallSpeed
+        );
 
-        #region Drop Through Platform
+        rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, newY);
+    }
 
-        private IEnumerator DropThroughPlatform()
-        {
-            isDropping = true;
-            
-            bodyCol.enabled = false;
-            feetCol.enabled = false;
-            
-            yield return new WaitForSeconds(0.4f);
+    #endregion
 
-            bodyCol.enabled = true;
-            feetCol.enabled = true;
-            
-            isDropping = false;
-        }
+    #region Drop Through Platform
 
-        #endregion
+    private IEnumerator DropThroughPlatform()
+    {
+        isDropping = true;
+
+        bodyCol.enabled = false;
+        feetCol.enabled = false;
+
+        yield return new WaitForSeconds(0.4f);
+
+        bodyCol.enabled = true;
+        feetCol.enabled = true;
+
+        isDropping = false;
+    }
+}
+
+#endregion
 
         /*private void ClimbUp()
         {
@@ -214,4 +216,4 @@ namespace CharacterController
      
 
         
-    }
+    
