@@ -20,9 +20,10 @@ namespace Sound
         {
             if (other.CompareTag("Player"))
             {
-                SoundManager.Instance.StopMusic(0f);  
+                SoundManager.Instance.StopMusic(0.5f);  
             }
         }
+
 
     }
 }

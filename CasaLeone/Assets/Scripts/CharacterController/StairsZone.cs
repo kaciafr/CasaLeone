@@ -81,12 +81,7 @@ public class StairsZone : MonoBehaviour
 
     private void SlideStairs(GameObject player)
     {
-        if (points == null || points.Length == 0)
-        {
-            Debug.LogWarning("[ClimbZone] Aucun point défini !");
-            return;
-        }
-
+        if (points == null || points.Length == 0) return;
         if (player == null) return;
 
         _isClimbing = true;
@@ -95,23 +90,25 @@ public class StairsZone : MonoBehaviour
         for (int i = 0; i < points.Length; i++)
             waypoints[i] = points[i].position;
 
+        Vector3 direction = waypoints[waypoints.Length - 1] - waypoints[0];
+
+        PlayerMovement pm = player.GetComponent<PlayerMovement>();
+        if (pm != null)
+        {
+            bool goingRight = direction.x > 0f;
+            pm.Turn(goingRight);
+        }
+
         Sequence stairsSeq = DOTween.Sequence();
 
         stairsSeq.Append(player.transform
-            .DORotate(new Vector3(0f, 0f, rotationoffset), 0.3f)
-            .SetEase(Ease.OutSine));
-
-        stairsSeq.Append(player.transform
-            .DOPath(waypoints, duration, PathType.CatmullRom)
-            .SetEase(Ease.InOutSine)
+            .DOPath(waypoints, duration, PathType.Linear)
+            .SetEase(Ease.Linear)
             .SetOptions(false));
-
-        stairsSeq.Append(player.transform
-            .DORotate(Vector3.zero, 0.3f)
-            .SetEase(Ease.InSine));
 
         stairsSeq.OnComplete(() => _isClimbing = false);
     }
+
 
     private bool IsPlayer(Collider2D other)
     {
@@ -134,3 +131,7 @@ public class StairsZone : MonoBehaviour
     }
 
 }
+
+// TO DO Test avec FindObeject by name  
+// 2 Tag different Player 1 / Player2 
+// 

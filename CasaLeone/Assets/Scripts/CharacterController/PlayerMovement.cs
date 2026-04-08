@@ -82,7 +82,7 @@ using UnityEngine;
             rb2D.linearVelocity = new Vector2(moveVelocity.x, rb2D.linearVelocity.y);
         }
 
-        private void TurnCheck(Vector2 moveInput)
+        public  void TurnCheck(Vector2 moveInput)
         {
             if (isFacingRight && moveInput.x < 0)
                 Turn(false);
@@ -90,7 +90,7 @@ using UnityEngine;
                 Turn(true);
         }
 
-        private void Turn(bool turnRight)
+        public void Turn(bool turnRight)
         {
             isFacingRight = turnRight;
             Vector3 scale = transform.localScale;

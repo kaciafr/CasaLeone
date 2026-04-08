@@ -149,10 +149,7 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = targetVolume;
     }
 
-    public void StopMusic(float fadeDuration = 1f)
-    {
-        StartCoroutine(FadeMusicOut(fadeDuration));
-    }
+  
 
     private IEnumerator FadeMusicOut(float duration)
     {
@@ -183,10 +180,17 @@ public class SoundManager : MonoBehaviour
         sfxVolume = value;
     }
     
-    public void StopMusicImmediate()
+    public void StopMusic(float fadeDuration = 1f)
     {
-        StopAllCoroutines();  
-        musicSource.Stop();
-        musicSource.clip = null;
+        StopAllCoroutines(); 
+
+        if (fadeDuration <= 0f)
+        {
+            musicSource.Stop();
+            musicSource.clip = null;
+            return;
+        }
+
+        StartCoroutine(FadeMusicOut(fadeDuration));
     }
 }
