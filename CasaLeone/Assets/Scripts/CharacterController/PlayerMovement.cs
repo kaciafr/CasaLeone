@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 namespace CharacterController
@@ -10,7 +11,12 @@ namespace CharacterController
         [SerializeField] private Collider2D feetCol;
         [SerializeField] private Collider2D bodyCol;
         private Rigidbody2D rb2D;
-        [SerializeField] private InputManager _input; 
+        [SerializeField] private InputManager _input;
+        //private bool isClimbingStairs = false;
+        //public bool CanClimb { get; set; } = false;
+
+        //public float  duration; 
+
 
 
         private Vector2 moveVelocity;
@@ -24,7 +30,8 @@ namespace CharacterController
         private bool isDropping = false;
         private Collider2D currentPlatformCollider; 
 
-        
+        private float stepHeight = 0.35f;   
+        private float stepCheckDist = 0.15f; 
         
 
         private void Awake()
@@ -49,6 +56,10 @@ namespace CharacterController
                 Move(movementState.GroundAcceleration, movementState.GroundDeceleration, _input.Movement);
             else
                 Move(movementState.AirAcceleration, movementState.AirDeceleration, _input.Movement);
+            
+            //if (_input.IsInteracting && CanClimb) SlideStairs();
+            //ClimbUp();
+
         }
 
         #region Movement
@@ -72,7 +83,7 @@ namespace CharacterController
             rb2D.linearVelocity = new Vector2(moveVelocity.x, rb2D.linearVelocity.y);
         }
 
-        private void TurnCheck(Vector2 moveInput)
+        public  void TurnCheck(Vector2 moveInput)
         {
             if (isFacingRight && moveInput.x < 0)
                 Turn(false);
@@ -80,7 +91,7 @@ namespace CharacterController
                 Turn(true);
         }
 
-        private void Turn(bool turnRight)
+        public void Turn(bool turnRight)
         {
             isFacingRight = turnRight;
             Vector3 scale = transform.localScale;
@@ -161,9 +172,46 @@ namespace CharacterController
         }
 
         #endregion
+
+        /*private void ClimbUp()
+        {
+            RaycastHit2D hit = Physics2D.Raycast(
+                feetCol.bounds.center,
+                Vector2.up,
+                10f,                        
+                movementState.GroundLayer
+            );:
+
+            if (hit.collider == null) return;
+            float targetY = hit.collider.bounds.max.y + feetCol.bounds.extents.y + 0.5f;
+            transform.position = new Vector2(transform.position.x, targetY);
+
+            rb2D.linearVelocity = Vector2.zero; 
+        }*/
+
+        /*private void SlideStairs()
+        {
+            Vector3[] waypoints = new Vector3[points.Length];
+            for (int i = 0; i < points.Length; i++)
+                waypoints[i] = points[i].position;
+
+            Sequence seq = DOTween.Sequence();
+            
+            
+
+            seq.Append(transform.DORotate(new Vector3(0f, 0f, 45f), 0.3f)
+                .SetEase(Ease.OutSine));
+
+            seq.Append(transform.DOPath(waypoints, duration, PathType.CatmullRom)
+                .SetEase(Ease.InOutSine)
+                .SetOptions(false));
+
+            seq.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0.3f)
+                .SetEase(Ease.InSine));
+        }*/
+        
         
      
 
         
     }
-}

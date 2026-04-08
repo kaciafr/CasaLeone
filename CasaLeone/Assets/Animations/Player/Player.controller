@@ -66,7 +66,7 @@ AnimatorStateMachine:
     m_Position: {x: 100, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1782389219044854599}
-    m_Position: {x: 160, y: 290, z: 0}
+    m_Position: {x: 160, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 109711891493327032}
     m_Position: {x: 460, y: 300, z: 0}
@@ -130,6 +130,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: IsGrounded
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: IsStairs
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

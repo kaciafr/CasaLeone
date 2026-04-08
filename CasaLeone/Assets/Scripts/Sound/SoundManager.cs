@@ -1,51 +1,196 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Sound
+public class SoundManager : MonoBehaviour
 {
-   public enum SoundType
-   {
-      Background,
-      FootStep,
-      PropsCook 
-   }
-   [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
-   public class SoundManager : MonoBehaviour
-   {
-      [SerializeField] private SoundList[] soundsList;
-      private static SoundManager instance;
-      private AudioSource audioSource;
+    public static SoundManager Instance;
 
-      private void Awake()
-      {
-         instance = this; 
-      }
-      private void Start()
-      {
-         audioSource = GetComponent<AudioSource>();
-      }
-      public static void PlaySound(SoundType soundType, float volume = 1.0f)
-      {
-         AudioClip[] clips = instance.soundsList[(int)soundType].Sounds;
-         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
-         instance.audioSource.PlayOneShot(randomClip, volume);
-      }
-      private void OnEnable()
-      {
-         string[] names = Enum.GetNames(typeof(SoundType));
-         Array.Resize(ref soundsList, names.Length);
-         for (int i = 0; i < soundsList.Length; i++)
-         {
-            soundsList[i].name = names[i];
-         }
-      }
-      [System.Serializable]
-      public struct SoundList
-      {
-         [HideInInspector] public string name; 
-         public AudioClip[] Sounds
-         { get => sounds; }
-         [SerializeField]private AudioClip[] sounds;
-      }
-   }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            InitDictionaries();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    [Header(" Volumes")]
+    [Range(0f, 1f)] public float masterVolume = 1f;
+    [Range(0f, 1f)] public float musicVolume = 1f;
+    [Range(0f, 1f)] public float sfxVolume = 1f;
+
+
+    [Header("Sources Audio")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
+
+
+    [Header(" Tous les SFX")]
+    [SerializeField] private SoundItem[] sounds;
+
+    [Header(" Toutes les Musiques")]
+    [SerializeField] private MusicItem[] musics;
+
+
+    private Dictionary<SoundType, SoundItem> soundDict;
+    private Dictionary<MusicType, MusicItem> musicDict;
+
+    private void InitDictionaries()
+    {
+ 
+
+        soundDict = new Dictionary<SoundType, SoundItem>();
+        foreach (SoundItem sound in sounds)
+        {
+            if (!soundDict.ContainsKey(sound.type))
+            {
+                soundDict.Add(sound.type, sound);
+            }
+            else
+            {
+                Debug.LogWarning("SoundType en double : " + sound.type);
+            }
+        }
+
+        musicDict = new Dictionary<MusicType, MusicItem>();
+        foreach (MusicItem music in musics)
+        {
+            if (!musicDict.ContainsKey(music.type))
+            {
+                musicDict.Add(music.type, music);
+            }
+            else
+            {
+                Debug.LogWarning("MusicType en double : " + music.type);
+            }
+        }
+    }
+
+   
+    public void PlaySFX(SoundType type)
+    {
+        if (!soundDict.ContainsKey(type))
+        {
+            Debug.LogWarning("Son pas trouvé : " + type);
+            return;
+        }
+
+        SoundItem sound = soundDict[type];
+
+        if (sound.clips == null || sound.clips.Length == 0) return;
+
+        AudioClip clip = sound.clips[Random.Range(0, sound.clips.Length)];
+
+        sfxSource.pitch = Random.Range(sound.minPitch, sound.maxPitch);
+
+        sfxSource.PlayOneShot(clip, sound.volume * sfxVolume * masterVolume);
+
+        sfxSource.pitch = 1f;
+    }
+
+
+    public void PlayMusic(MusicType type)
+    {
+        if (!musicDict.ContainsKey(type))
+        {
+            Debug.LogWarning("Musique pas trouvée : " + type);
+            return;
+        }
+
+        MusicItem music = musicDict[type];
+
+        if (musicSource.clip == music.clip) return;
+
+        musicSource.clip = music.clip;
+        musicSource.volume = music.volume * musicVolume * masterVolume;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void PlayMusicWithFade(MusicType type, float fadeDuration = 1f)
+    {
+        if (!musicDict.ContainsKey(type)) return;
+
+        MusicItem music = musicDict[type];
+
+        if (musicSource.clip == music.clip) return;
+
+        StartCoroutine(FadeMusic(music, fadeDuration));
+    }
+
+    private IEnumerator FadeMusic(MusicItem newMusic, float duration)
+    {
+        float startVolume = musicSource.volume;
+
+        while (musicSource.volume > 0f)
+        {
+            musicSource.volume -= startVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.clip = newMusic.clip;
+        musicSource.Play();
+
+        float targetVolume = newMusic.volume * musicVolume * masterVolume;
+        while (musicSource.volume < targetVolume)
+        {
+            musicSource.volume += targetVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+
+        musicSource.volume = targetVolume;
+    }
+
+  
+
+    private IEnumerator FadeMusicOut(float duration)
+    {
+        float startVolume = musicSource.volume;
+        while (musicSource.volume > 0f)
+        {
+            musicSource.volume -= startVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+        musicSource.Stop();
+        musicSource.clip = null;
+    }
+    
+    public void SetMasterVolume(float value)
+    {
+        masterVolume = value;
+        musicSource.volume = musicVolume * masterVolume;
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        musicVolume = value;
+        musicSource.volume = musicVolume * masterVolume;
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        sfxVolume = value;
+    }
+    
+    public void StopMusic(float fadeDuration = 1f)
+    {
+        StopAllCoroutines(); 
+
+        if (fadeDuration <= 0f)
+        {
+            musicSource.Stop();
+            musicSource.clip = null;
+            return;
+        }
+
+        StartCoroutine(FadeMusicOut(fadeDuration));
+    }
 }
