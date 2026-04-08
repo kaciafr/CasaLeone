@@ -12,11 +12,6 @@ namespace QTESysteme
 		[SerializeField] private QTESysteme qteSysteme;
 		[SerializeField] private Ingrediente firstSave;
 
-		private void Start()
-		{
-			qteSysteme.winGift = firstSave;
-		}
-
 		public void Pizza(Ingrediente ingrediente)
 		{
 			if (!qteSysteme.qteStart)

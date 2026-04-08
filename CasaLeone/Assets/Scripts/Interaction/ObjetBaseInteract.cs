@@ -14,6 +14,8 @@ namespace Interaction
 		[SerializeField] private GameObject startPosition;
 		[SerializeField] private QTESysteme.QTESysteme qteSysteme;
 		[SerializeField] private TransformeUiQte UiLocQte;
+		
+		
 
 		[SerializeField] private float speedAnim;
 
@@ -29,9 +31,9 @@ namespace Interaction
 			Debug.Log("ObjetBaseInteract");
 			pressE.SetActive(false);
 			UiLocQte.UiTransform(objectTransform);
+			
 			qteSysteme.StartSequence();
 		}
-
 		private void OnTriggerEnter(Collider other)
 		{
 			pressE.SetActive(true);

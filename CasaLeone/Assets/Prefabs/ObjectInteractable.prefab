@@ -409,4 +409,7 @@ MonoBehaviour:
   startPosition: {fileID: 2489460981842057223}
   qteSysteme: {fileID: 0}
   UiLocQte: {fileID: 0}
+  pizza: {fileID: 0}
+  salade: {fileID: 0}
+  pates: {fileID: 0}
   speedAnim: 1

@@ -30,6 +30,7 @@ namespace QTESysteme
 		public Action<List<QTEKey>> QTESequence;
 		public Action<int> KeyPressed;
 		public Action<float> Timer;
+		public Action<QTESysteme> ChooseFoods;
 		public Action onLose;
 		public Action onSuccess;
 	
@@ -41,11 +42,17 @@ namespace QTESysteme
 		public void StartSequence()
 		{
 			currentRound = round;
-			GenerateSequence();
 			isStarted = true;
 			delay = TimerDelay;
 			currentIndex = 0;
+			GenerateSequence();
 		}
+
+		private void ChooseFood(SelectedFoodQTE food)
+		{
+			
+		}
+		
 
 		private void Round()
 		{
@@ -67,7 +74,7 @@ namespace QTESysteme
 		void GenerateSequence()
 		{
 			qteStart = true;
-			playerInput.SwitchCurrentActionMap("QTE");
+			
 			sequence.Clear();
 		
 			int randS = Random.Range(minSequence, maxSequence);
@@ -143,6 +150,7 @@ namespace QTESysteme
 			Debug.Log("SUCCESS");
 			onSuccess?.Invoke();
 			playerInventory.AddIngrediente(winGift);
+			winGift = null;
 		}
 
 		void Lose()

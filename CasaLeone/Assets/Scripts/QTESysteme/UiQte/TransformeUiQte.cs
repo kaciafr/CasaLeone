@@ -9,7 +9,6 @@ namespace QTESysteme.UiQte
 		public void UiTransform(Transform obj)
 		{
 			UiLoc.transform.position = obj.position;
-			Debug.Log("JE SUIS LA");
 		}
 	}
 }

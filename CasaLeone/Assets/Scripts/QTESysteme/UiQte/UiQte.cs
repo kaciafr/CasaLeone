@@ -22,6 +22,12 @@ namespace QTESysteme.UiQte
 		[SerializeField] private GameObject arrowPrefab;
 		[SerializeField] private AngoisseBar.AngoisseBar angoisseBar;
 		[SerializeField] private GameObject endPosition;
+		
+		
+		[Header("FoodToChoose")]
+		[SerializeField] private GameObject pizza;
+		[SerializeField] private GameObject salade;
+		[SerializeField] private GameObject pates;
 	
 
 		private void Start()
@@ -32,8 +38,12 @@ namespace QTESysteme.UiQte
 			qteSysteme.onLose += LoseUI;
 			qteSysteme.onSuccess += WinUI;
 			qteSysteme.Timer += Timers;
+			
+			pizza.SetActive(false);
+			salade.SetActive(false);
+			pates.SetActive(false);
 		}
-
+		
 
 		private void GenereteArrow(List<QTESysteme.QTEKey> sequence)
 		{
