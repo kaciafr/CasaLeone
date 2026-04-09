@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c3709ed30b104314eac7bdfaaab349d4
+guid: a74e918ca0a62514fb55b20971fc2386
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,11 +97,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_0
+      name: PlayerTestIdle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1355
+        x: 152
+        y: 873
+        width: 295
+        height: 683
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b107e8c1385aa94180b147d27502a25
+      internalID: -1707430610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestIdle_2
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 873
+        width: 295
+        height: 681
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b6b9be9b5f41f4ca4b6470edd7fc18
+      internalID: -551264867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestIdle_4
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 873
+        width: 295
+        height: 677
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80417b1c0e517dd4aa09456b150ed288
+      internalID: -119804661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestIdle_6
+      rect:
+        serializedVersion: 2
+        x: 2006
+        y: 873
+        width: 295
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746e48a100bb97748bff93cd115c54ef
+      internalID: -1859912790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestIdle_20
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 71
+        width: 295
+        height: 675
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91800570ccb81c47a59bd66887a33ac
+      internalID: -1796646697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerTestIdle_22
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 71
         width: 295
         height: 678
       alignment: 0
@@ -112,41 +222,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e09ee645911d3e94f9a1c23cd6f9c41f
-      internalID: -257223263
+      spriteID: 7c812a36e867556488a258fda2b1386f
+      internalID: 1815578095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_2
+      name: PlayerTestIdle_24
       rect:
         serializedVersion: 2
-        x: 369
-        y: 1360
-        width: 299
-        height: 673
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6212ce5cd09789b47b1a2808e758460d
-      internalID: -1914458482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 677
-        width: 293
+        x: 1388
+        y: 71
+        width: 295
         height: 679
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -156,118 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7e3d5b01cdeee84a820902212ea0f99
-      internalID: 260268568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_10
-      rect:
-        serializedVersion: 2
-        x: 371
-        y: 687
-        width: 306
-        height: 673
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3923b9e2c9d0ebd46a862954d966d541
-      internalID: 707304616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_11
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 692
-        width: 303
-        height: 672
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 332753151dadca4439f02fef7ef12f6c
-      internalID: -6218850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 295
-        height: 676
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 586a3b758173190499ac8649ff3ec991
-      internalID: -1706931437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_18
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 0
-        width: 299
-        height: 676
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 695bb608d5590194b838ca48494a0b17
-      internalID: 1746732648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheetPlayerTestAnimation copiePropre - Copie_19
-      rect:
-        serializedVersion: 2
-        x: 735
-        y: 5
-        width: 311
-        height: 675
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2d8c530895211a4caf8e0cfb216c36d
-      internalID: 1517954908
+      spriteID: 57bb8ca8d49352846aac9cb606349bee
+      internalID: 506536130
       vertices: []
       indices: 
       edges: []
@@ -276,7 +254,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dabfdc9df1b10c34db9eda50520ef702
+    spriteID: 07fde8f58c006d847ba4e658e4da77d2
     internalID: 0
     vertices: []
     indices: 
@@ -286,35 +264,43 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1421.0,"y":2033.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_0: -257223263
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_1: -1099963157
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_10: 707304616
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_11: -6218850
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_12: 1739141534
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_13: 939978240
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_14: 173983884
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_15: -1163535129
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_16: -1706931437
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_17: -506326963
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_18: 1746732648
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_19: 1517954908
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_2: -1914458482
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_20: 1817864344
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_21: 748686846
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_22: -531076358
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_23: 1923316684
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_24: 1011082129
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_25: -157535385
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_26: 233956597
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_3: -1797597391
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_4: -872341828
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_5: 828533712
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_6: -161129989
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_7: 2069570620
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_8: 260268568
-      SpriteSheetPlayerTestAnimation copiePropre - Copie_9: 73498191
+      PlayerTestIdle_0: -1707430610
+      PlayerTestIdle_1: 12041023
+      PlayerTestIdle_10: -760321660
+      PlayerTestIdle_11: -63291390
+      PlayerTestIdle_12: 1694244111
+      PlayerTestIdle_13: -1858685469
+      PlayerTestIdle_14: 1226994141
+      PlayerTestIdle_15: -1480504331
+      PlayerTestIdle_16: 565001038
+      PlayerTestIdle_17: 1362709293
+      PlayerTestIdle_18: -318875420
+      PlayerTestIdle_19: -1114163552
+      PlayerTestIdle_2: -551264867
+      PlayerTestIdle_20: -1796646697
+      PlayerTestIdle_21: -1872615956
+      PlayerTestIdle_22: 1815578095
+      PlayerTestIdle_23: 338431081
+      PlayerTestIdle_24: 506536130
+      PlayerTestIdle_25: 1383423319
+      PlayerTestIdle_26: -1991864169
+      PlayerTestIdle_27: -1828222476
+      PlayerTestIdle_28: -819413650
+      PlayerTestIdle_29: 1720029405
+      PlayerTestIdle_3: -436050583
+      PlayerTestIdle_30: 1271493240
+      PlayerTestIdle_31: -1649348897
+      PlayerTestIdle_32: -1502125855
+      PlayerTestIdle_33: -1052330752
+      PlayerTestIdle_34: 514884519
+      PlayerTestIdle_4: -119804661
+      PlayerTestIdle_5: 1698196340
+      PlayerTestIdle_6: -1859912790
+      PlayerTestIdle_7: 692957432
+      PlayerTestIdle_8: 1575225177
+      PlayerTestIdle_9: -951589600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
