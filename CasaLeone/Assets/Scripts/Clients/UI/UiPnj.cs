@@ -1,12 +1,12 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Pnj.UI
+namespace Clients.UI
 {
 	public class UiPnj : MonoBehaviour
 	{
 		[Header("References")]
-		[SerializeField] private PnjMove pnj;
+		[SerializeField] private ClientMovement client;
 
 		[Header("UI Elements")] 
 		[SerializeField] private GameObject whantOrder;
@@ -16,12 +16,12 @@ namespace Pnj.UI
 
 		private void Start()
 		{
-			pnj.ClientWhantTakeOrder += OrderUI;
-			pnj.PlayerTakeOrder +=TakeOrderUI;
-			pnj.ClientWhantTheCheck += CheckUI;
-			pnj.PlayerTakeTheCheck += TakeTheCheck;
-			pnj.ClientWhait += WhaitOrder;
-			pnj.PlayerGiveTheOrder += GiveTheOrder;
+			client.ClientWhantTakeOrder += OrderUI;
+			client.PlayerTakeOrder +=TakeOrderUI;
+			client.ClientWhantTheCheck += CheckUI;
+			client.PlayerTakeTheCheck += TakeTheCheck;
+			client.ClientWhait += WhaitOrder;
+			client.PlayerGiveTheOrder += GiveTheOrder;
 		
 		
 			whantOrder.transform.DOScale(0, 0.2f);
@@ -30,24 +30,24 @@ namespace Pnj.UI
 		
 			whaitOrder.SetActive(false);
 		}
-		private void OrderUI(PnjMove obj)
+		private void OrderUI(ClientMovement obj)
 		{
 			whantOrder.transform.DOScale(0.05f, 0.4f);
 		}
-		private void TakeOrderUI(PnjMove obj)
+		private void TakeOrderUI(ClientMovement obj)
 		{
 			whantOrder.SetActive(false);
 		}
 	
-		private void WhaitOrder(PnjMove obj)
+		private void WhaitOrder(ClientMovement obj)
 		{
 			whaitOrder.SetActive(true);
 		}
-		private void GiveTheOrder(PnjMove obj)
+		private void GiveTheOrder(ClientMovement obj)
 		{
 			whaitOrder.SetActive(false);
 		}
-		private void CheckUI(PnjMove obj)
+		private void CheckUI(ClientMovement obj)
 		{
 			if (isActived)
 			{
@@ -58,7 +58,7 @@ namespace Pnj.UI
 				checkUI.transform.DOScale(0.1f, 0.4f);
 			}
 		}
-		private void TakeTheCheck(PnjMove obj)
+		private void TakeTheCheck(ClientMovement obj)
 		{
 			checkUI.transform.DOScale(0, 0.4f);
 		}

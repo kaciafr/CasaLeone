@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using ListForEat;
-using UnityEngine;
 
-namespace Inventory
+namespace Inventories
 {
     public class Inventory: Singleton<Inventory>
     {

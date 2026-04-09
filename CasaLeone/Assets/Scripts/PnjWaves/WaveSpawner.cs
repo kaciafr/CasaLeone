@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Pnj;
+using Clients;
 using UnityEngine;
 
 namespace PnjWaves
@@ -108,7 +108,7 @@ namespace PnjWaves
 
             GameObject client = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
 
-            PnjMove cb = client.GetComponent<PnjMove>();
+            ClientMovement cb = client.GetComponent<ClientMovement>();
             if (cb != null)
             {
                 cb.whaitingTime = profile.patience;

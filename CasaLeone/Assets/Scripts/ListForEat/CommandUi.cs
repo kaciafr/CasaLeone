@@ -1,16 +1,16 @@
-using Pnj;
+using Clients;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CommandUi : MonoBehaviour
 {
-	public PnjMove pnjMove;
+	public ClientMovement clientMovement;
 	public Image iconPNJ;
 	public Image order;
 
-	public void Init(PnjMove clientType)
+	public void Init(ClientMovement clientType)
 	{
-		pnjMove = clientType;
+		clientMovement = clientType;
 		iconPNJ.sprite = clientType.clientData.clientSprite;
 		order.sprite = clientType.whatTheyWhant.icon;
 	}

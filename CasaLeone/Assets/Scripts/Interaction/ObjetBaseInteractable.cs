@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Interaction
 {
-	public class ObjetBaseInteract :  MonoBehaviour,IInteract
+	public class ObjetBaseInteractable :  MonoBehaviour,IInteractable
 	{
 		[Header("References")]
 		[SerializeField] private Transform objectTransform;

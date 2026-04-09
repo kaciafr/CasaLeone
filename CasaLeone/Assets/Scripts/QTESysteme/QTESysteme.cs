@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Inventories;
 using ListForEat;
 using TestCharacterMovement;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace QTESysteme
 {
 	public class QTESysteme : MonoBehaviour
 	{
-		[SerializeField] private Inventory.Inventory playerInventory;
+		[SerializeField] private Inventory playerInventory;
 		public Ingrediente winGift;
 		public enum QTEKey
 		{

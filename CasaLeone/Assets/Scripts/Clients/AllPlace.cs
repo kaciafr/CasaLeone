@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pnj
+namespace Clients
 {
 	public class AllPlace : Singleton<AllPlace>
 	{
@@ -13,8 +13,8 @@ namespace Pnj
 		{
 			foreach (var canGo in tablePlaces)
 			{
-				var place = canGo.GetComponent<PnjIn>();
-				if (place.canGoIn)
+				var place = canGo.GetComponent<ClientSeat>();
+				if (place.IsFree)
 				{
 					place.Reserve(pnj);
 					return canGo.transform;

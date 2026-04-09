@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using Clients;
 using DG.Tweening;
-using Pnj;
 using PnjWaves;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +14,7 @@ public class ListOfCommand :Singleton<ListOfCommand>
 
 	private ClientTypeSO client;
 
-	public void UpdateVisuel(PnjMove clientType)
+	public void UpdateVisuel(ClientMovement clientType)
 	{
 		GameObject listCloned = Instantiate(listPrefab, containt);
 		CommandUi ui = listCloned.GetComponent<CommandUi>();
@@ -23,9 +23,9 @@ public class ListOfCommand :Singleton<ListOfCommand>
 		commandUis.Add(ui);
 	}
 
-	public void Remove(PnjMove clientType)
+	public void Remove(ClientMovement clientType)
 	{
-		CommandUi removed = commandUis.Find(x =>x.pnjMove.clientData ==  clientType.clientData);
+		CommandUi removed = commandUis.Find(x =>x.clientMovement.clientData ==  clientType.clientData);
 		commandUis.Remove(removed);
 		Destroy(removed.gameObject);
 	}

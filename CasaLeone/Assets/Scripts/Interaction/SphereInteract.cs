@@ -5,7 +5,7 @@ namespace Interaction
 {
 	public class SphereInteract : MonoBehaviour
 	{
-		private IInteract current;
+		private IInteractable current;
 
 		public void OnInteractInput(InputAction.CallbackContext context)
 		{
@@ -17,7 +17,7 @@ namespace Interaction
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if (other.TryGetComponent(out IInteract interactable))
+			if (other.TryGetComponent(out IInteractable interactable))
 			{
 				current = interactable;
 			}
@@ -25,7 +25,7 @@ namespace Interaction
 
 		private void OnTriggerExit(Collider other)
 		{
-			if (other.TryGetComponent(out IInteract interactable))
+			if (other.TryGetComponent(out IInteractable interactable))
 			{
 				if (current == interactable)
 				{

@@ -1,29 +1,32 @@
 using System;
+using Clients.States;
 using Interaction;
+using Inventories;
 using ListForEat;
 using PnjWaves;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Pnj
+namespace Clients
 {
-    public class PnjMove : MonoBehaviour,IInteract
+    public enum EClientState
     {
-        public enum Cycle
-        {
-            Waiting,
-            Reflexion,
-            Command,
-            Timer,
-            Check,
-            Exit
-        }
-        public Cycle logic;
+        Waiting,
+        Reflexion,
+        Command,
+        Timer,
+        Check,
+        Exit
+    }
+    
+    public class ClientMovement : MonoBehaviour,IInteractable
+    {
+        public EClientState logic;
 
         private AllPlace place;
-        private MenuOfTheRestaurant menu;
+        private Restaurant menu;
         private AngoisseBar.AngoisseBar angoisseBar;
-        private Inventory.Inventory playerInventory;
+        private Inventory playerInventory;
         private ListOfCommand listOfCommand;
     
         [Header("References")]
@@ -40,13 +43,13 @@ namespace Pnj
     
         public Ingrediente whatTheyWhant;
         public Action<GameObject> PlayerisSit;
-        public Action<PnjMove> ClientWhantTakeOrder;
-        public Action<PnjMove> PlayerTakeOrder;
-        public Action<PnjMove> ClientWhait;
-        public Action<PnjMove> PlayerGiveTheOrder;
-        public Action<PnjMove> ClientWhantTheCheck;
-        public Action<PnjMove> PlayerTakeTheCheck;
-        public Action<PnjMove> ClientLeave;
+        public Action<ClientMovement> ClientWhantTakeOrder;
+        public Action<ClientMovement> PlayerTakeOrder;
+        public Action<ClientMovement> ClientWhait;
+        public Action<ClientMovement> PlayerGiveTheOrder;
+        public Action<ClientMovement> ClientWhantTheCheck;
+        public Action<ClientMovement> PlayerTakeTheCheck;
+        public Action<ClientMovement> ClientLeave;
     
         private float delayTime;
         private float delayTimes;
@@ -56,17 +59,17 @@ namespace Pnj
         private bool isEating = true;
         private bool whantLeave = true;
         private bool takeTheOrder = false;
-        public PnjIn mySeat;
+        public ClientSeat mySeat;
 
+        public ClientController Controller { get; private set; }
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             place = AllPlace.Instance;
-            menu = MenuOfTheRestaurant.Instance;
-            playerInventory = Inventory.Inventory.Instance;
+            menu = Restaurant.Instance;
+            playerInventory = Inventory.Instance;
             listOfCommand = ListOfCommand.Instance;
-        
         }
 
         private void Start()
@@ -76,57 +79,29 @@ namespace Pnj
             delayeatTimes = eatTime;
             target = place.outSide.transform;
         }
-        private void Update()
+
+
+        public void ClearDestination()
         {
-            switch (logic)
-            {
-                case Cycle.Waiting:
-                    Waiting();
-                    break;
-                case Cycle.Reflexion:
-                    Reflexion();
-                    break;
-                case Cycle.Command:
-                    Command();
-                    break;
-                case Cycle.Timer:
-                    Timer();
-                    break;
-                case Cycle.Check:
-                    Check();
-                    break;
-                case Cycle.Exit:
-                    Exit();
-                    break;
-            }
+            agent.destination = transform.position;
         }
-        private void Waiting()
-        {
-            if (target == place.outSide.transform)
-            {
-                Transform t = place.FindPlace(player);
-                target = t;
-                mySeat = t.GetComponent<PnjIn>();
-                agent.SetDestination(t.position);
-            }
         
-            if(target.transform != place.outSide.transform && 
-               agent.remainingDistance < agent.stoppingDistance &&
-               agent.velocity.magnitude > 0.5f)
-            {
-                PlayerisSit?.Invoke(player);
-                logic =  Cycle.Reflexion;
-            }
-        }
-        private void Reflexion()
+        public void SetDestination(Transform destination)
         {
-            delayTimes-=Time.deltaTime;
-            if (delayTimes < 0 && isCommanding)
-            {
-                isCommanding = false;
-                ClientWhantTakeOrder?.Invoke(this);
-            }
+            SetDestination(destination.position);
         }
+
+        public void SetDestination(Vector3 destination)
+        {
+            agent.SetDestination(destination);
+        }
+
+        public bool HasArrived()
+        {
+            return agent.remainingDistance <= agent.stoppingDistance;
+        }
+        
+        
         private void Command()
         {
             menu.StartTakeOrder(this);
@@ -138,7 +113,7 @@ namespace Pnj
             ClientWhait?.Invoke(this);
             if (delayTime <= 0)
             {
-                logic = Cycle.Exit;
+                logic = EClientState.Exit;
                 angoisseBar.AddAnguish(5f);
             }
         }
@@ -171,15 +146,15 @@ namespace Pnj
 
         public void Interact()
         {
-            if (logic == Cycle.Reflexion)
+            if (logic == EClientState.Reflexion)
             {
                 takeTheOrder =  true;
                 PlayerTakeOrder?.Invoke(this);
                 
-                logic = Cycle.Command;
+                logic = EClientState.Command;
             }
 
-            if (logic == Cycle.Timer)
+            if (logic == EClientState.Timer)
             {
                 foreach (var ingrediente in playerInventory.ingredientes)
                 {
@@ -188,15 +163,15 @@ namespace Pnj
                         PlayerGiveTheOrder?.Invoke(this);
                         playerInventory.RemoveIngrediente(ingrediente);
                         listOfCommand.Remove(this);
-                        logic = Cycle.Check;
+                        logic = EClientState.Check;
                     }
                 }
             }
 
-            if (logic==Cycle.Check)
+            if (logic==EClientState.Check)
             {
                 PlayerTakeTheCheck?.Invoke(this);
-                logic = Cycle.Exit;
+                logic = EClientState.Exit;
             }
         }
 
