@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Chien
   m_EditorClassIdentifier: Assembly-CSharp::ClientTypeSO
   type: 0
+  clientSprite: {fileID: 21300000, guid: ccfff73103878e64e8b38869f75b12f0, type: 3}
   weight: 1
   variants:
   - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ListForEat;
+using TestCharacterMovement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -26,6 +27,7 @@ namespace QTESysteme
 		[SerializeField] private int minSequence = 5;
 		[SerializeField] private int round = 2;
 		[SerializeField] private PlayerInput playerInput;
+		[SerializeField] private TestPlayerController player;
 
 		public Action<List<QTEKey>> QTESequence;
 		public Action<int> KeyPressed;
@@ -33,6 +35,7 @@ namespace QTESysteme
 		public Action<QTESysteme> ChooseFoods;
 		public Action onLose;
 		public Action onSuccess;
+		public Action<Ingrediente> showFood;
 	
 		private int currentRound;
 		[HideInInspector] public float delay;
@@ -41,18 +44,14 @@ namespace QTESysteme
 	
 		public void StartSequence()
 		{
+			playerInput.SwitchCurrentActionMap("UI");
+			player.enabled = false;
 			currentRound = round;
-			isStarted = true;
+			
 			delay = TimerDelay;
 			currentIndex = 0;
-			GenerateSequence();
+			showFood?.Invoke(winGift);
 		}
-
-		private void ChooseFood(SelectedFoodQTE food)
-		{
-			
-		}
-		
 
 		private void Round()
 		{
@@ -71,10 +70,16 @@ namespace QTESysteme
 				Lose();
 		}
 
-		void GenerateSequence()
+		public void GenerateSequence()
 		{
+			isStarted = true;
+			if (winGift == null)
+			{
+				return;
+			}
 			qteStart = true;
 			
+			playerInput.SwitchCurrentActionMap("QTE");
 			sequence.Clear();
 		
 			int randS = Random.Range(minSequence, maxSequence);
@@ -146,6 +151,7 @@ namespace QTESysteme
 		{
 			qteStart = false;
 			isStarted = false;
+			player.enabled = true;
 			playerInput.SwitchCurrentActionMap("Player");
 			Debug.Log("SUCCESS");
 			onSuccess?.Invoke();
@@ -157,7 +163,9 @@ namespace QTESysteme
 		{
 			qteStart = false;
 			isStarted = false;
+			player.enabled = true;
 			playerInput.SwitchCurrentActionMap("Player");
+			winGift = null;
 			Debug.Log("FAILED");
 			onLose?.Invoke();
 		}

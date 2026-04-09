@@ -5,29 +5,16 @@ namespace QTESysteme
 {
 	public class SelectedFoodQTE : MonoBehaviour
 	{
-		[SerializeField] private GameObject pizzaButton;
-		[SerializeField] private GameObject pastaButton;
-		[SerializeField] private GameObject saladeButton;
-	
 		[SerializeField] private QTESysteme qteSysteme;
 		[SerializeField] private Ingrediente firstSave;
 
-		public void Pizza(Ingrediente ingrediente)
+		public void ChooseFood(Ingrediente ingrediente)
 		{
 			if (!qteSysteme.qteStart)
+			{
 				qteSysteme.winGift = ingrediente;
-		}
-
-		public void Pasta(Ingrediente ingrediente)
-		{
-			if (!qteSysteme.qteStart)
-				qteSysteme.winGift = ingrediente;
-		}
-
-		public void Salade(Ingrediente ingrediente)
-		{
-			if (!qteSysteme.qteStart)
-				qteSysteme.winGift = ingrediente;
+				qteSysteme.GenerateSequence();
+			}
 		}
 	}
 }

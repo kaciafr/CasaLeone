@@ -6,6 +6,7 @@ namespace ListForEat
 	public class Ingrediente : ScriptableObject
 	{
 		public int ID;
+		public Sprite icon;
 		public string name;
 	}
 }

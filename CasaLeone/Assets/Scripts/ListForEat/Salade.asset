@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Salade
   m_EditorClassIdentifier: Assembly-CSharp::Ingrediente
   ID: 1
-  name: 
+  icon: {fileID: 21300000, guid: 7629d9d668e38354994b36607c6e126d, type: 3}
+  name: Salade

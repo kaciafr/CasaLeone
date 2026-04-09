@@ -1,3 +1,5 @@
+using ListForEat;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -5,59 +7,57 @@ using UnityEngine.UI;
 
 public class NavigationUi :  MonoBehaviour
 {
+	[SerializeField] private QTESysteme.QTESysteme qteSysteme;
 	int index = 0;
-	public GameObject[] buttons;
-
+	public GameObject[] ingredientesSelected;
+	public Ingrediente[] ingredientesData;
+	
 	private void Start()
 	{
-		foreach (GameObject button in buttons)
-		{
-			button.SetActive(false);
-		}
+		index = 0;
+		if (ingredientesSelected != null && ingredientesSelected.Length > 0)
+			SelectButton();
 	}
-	
-	public void Navigate(InputAction.CallbackContext context)
+	public void MoveRight(InputAction.CallbackContext context)
 	{
-		Vector2 input = context.ReadValue<Vector2>();
-
-		if (input.x > 0)
-		{
-			MoveRight();
-		}
-		else if (input.x < 0)
-		{
-			MoveLeft();
-		}
-	}
-
-	void MoveRight()
-	{
+		if (!context.started) return;
 		index++;
-		if (index >= buttons.Length)
+		if (index >= ingredientesSelected.Length)
+		{
 			index = 0;
-		Debug.Log("aaaaaaaaaaaaaaaaaa");
+		}
+		Debug.Log(ingredientesSelected[index].name);
 		SelectButton();
 	}
 
-	void MoveLeft()
+	public void MoveLeft(InputAction.CallbackContext context)
 	{
+		if (!context.started) return;
 		index--;
-		if (index < 0)
-			index = buttons.Length - 1;
-		Debug.Log("dddddddddddddd");
+		if (index <0)
+		{
+			index = ingredientesSelected.Length - 1;
+			//index = 3;
+		}
+			
+		Debug.Log(ingredientesSelected[index].name);
 		SelectButton();
 	}
 
 	public void OnSubmit(InputAction.CallbackContext context)
 	{
-		if (context.started)
+		if (!context.started) return;
+		if (index >= ingredientesData.Length || ingredientesData[index] == null)
 		{
-			buttons[index].GetComponent<Button>().onClick.Invoke();
+			Debug.LogError($"ingredientesData[{index}] manquant !");
+			return;
 		}
+		qteSysteme.winGift = ingredientesData[index];
+		ingredientesSelected[index]?.GetComponent<Button>()?.onClick.Invoke();
 	}
 	private void SelectButton()
 	{
-		EventSystem.current.SetSelectedGameObject(buttons[index]);
+		EventSystem.current.SetSelectedGameObject(ingredientesSelected[index]);
 	}
 	
 }

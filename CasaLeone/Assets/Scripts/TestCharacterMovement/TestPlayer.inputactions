@@ -84,7 +84,7 @@
                 {
                     "name": "",
                     "id": "6704e808-f176-44c1-bfa5-3bd4a925df24",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -133,24 +133,6 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "NavigationUI",
-                    "type": "Value",
-                    "id": "27e506e2-564f-41c1-8e00-5538d7d8eda6",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Validate",
-                    "type": "Button",
-                    "id": "5c27e081-4056-4c4a-9cca-0d3bde0f5ebd",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -197,10 +179,54 @@
                     "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "1f668267-2562-41ac-8366-6c9c8d5ab72d",
+            "actions": [
+                {
+                    "name": "NavigationUI",
+                    "type": "Value",
+                    "id": "f62818a9-b86b-49a3-88b4-f686f4578f3e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 },
                 {
+                    "name": "Validate",
+                    "type": "Button",
+                    "id": "52b6a402-e4ff-4faa-851f-2243ef9bc230",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "580573e9-3a40-42b8-be6f-2e374f50eab7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "ed532dd2-8e96-42ed-a6d8-be6e655615ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "2D Vector",
-                    "id": "aec4523d-915f-4689-abce-3f72ce1c4463",
+                    "id": "d67feb3f-6ec9-47ad-b60e-92bac1f592c5",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -211,7 +237,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "bea4b7e7-ebd4-4998-999a-b375c1adad7e",
+                    "id": "e9c964ab-ca58-40b9-8ea4-c191f59b7c92",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -222,7 +248,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "42267cce-2437-4986-936e-a8f5ca5e1a4b",
+                    "id": "06530997-f3e8-4add-ab57-9d30c7c7cd7e",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -233,7 +259,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "56290691-6d78-4bd7-8057-aff6b8874945",
+                    "id": "d8a6c968-917c-4bf6-bbcb-c954f48b2bfb",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
@@ -244,7 +270,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "492f2481-34a9-448a-b458-e316f9450928",
+                    "id": "3b36e213-52d1-49b4-9611-5aa991694fc4",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -255,12 +281,34 @@
                 },
                 {
                     "name": "",
-                    "id": "75316bc9-2a8c-4a93-bde9-d932d0bfa7e6",
+                    "id": "1a447311-a8dc-4fb1-bc3b-467f68a1014a",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Validate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f49177bd-4110-43de-add8-766e02307a31",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b819490-d91f-41e8-a056-ef973264b09a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

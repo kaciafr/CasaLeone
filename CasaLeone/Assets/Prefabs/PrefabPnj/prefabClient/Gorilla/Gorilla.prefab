@@ -258,12 +258,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::pnjMove
   logic: 0
   target: {fileID: 0}
+  clientData: {fileID: 11400000, guid: 3dc5eb89fd97f9f44a4eb3e08612a165, type: 2}
   player: {fileID: 3786077069403723191}
   agent: {fileID: 28528579419952385}
-  playerInventory: {fileID: 3932413530587930080, guid: 9c7ab4cb1528b14438f8cc3b02e0ebba, type: 3}
   updateSpeed: 0.1
-  whaitingTime: 360
   reflexionTime: 2
+  whaitingTime: 360
   eatTime: 2
   whatTheyWhant: {fileID: 0}
   mySeat: {fileID: 0}
@@ -358,7 +358,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.33, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7149644431514508638}
@@ -412,8 +412,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 427aaa6a724a37e4e9281cbc960290ee, type: 3}
-  m_Color: {r: 0.09025192, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e8364830d5d107143a63f3e7f65a9eaa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

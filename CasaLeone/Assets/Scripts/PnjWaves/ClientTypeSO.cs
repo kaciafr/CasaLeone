@@ -8,7 +8,10 @@ namespace PnjWaves
     public class ClientTypeSO : ScriptableObject
     {
         public ClientType type;
-
+        
+        [Header("Client")]
+        public Sprite clientSprite;
+        
         [Header("+ c ho, + il apparait souvent")]
         public float weight = 1f;
 

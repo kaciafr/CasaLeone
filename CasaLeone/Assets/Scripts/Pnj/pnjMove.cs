@@ -1,6 +1,7 @@
 using System;
 using Interaction;
 using ListForEat;
+using PnjWaves;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,16 +21,17 @@ namespace Pnj
         public Cycle logic;
 
         private AllPlace place;
-        private ListMove moveAtTheList;
         private MenuOfTheRestaurant menu;
         private AngoisseBar.AngoisseBar angoisseBar;
         private Inventory.Inventory playerInventory;
+        private ListOfCommand listOfCommand;
     
         [Header("References")]
         public Transform target;
+        public ClientTypeSO clientData;
         [SerializeField] private GameObject player;
         [SerializeField] private NavMeshAgent agent;
-    
+        
         [Header("Settings")]
         [SerializeField] private float updateSpeed = 0.1f;
         [SerializeField] private float reflexionTime;
@@ -61,9 +63,9 @@ namespace Pnj
             agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             place = AllPlace.Instance;
-            moveAtTheList = ListMove.Instance;
             menu = MenuOfTheRestaurant.Instance;
             playerInventory = Inventory.Inventory.Instance;
+            listOfCommand = ListOfCommand.Instance;
         
         }
 
@@ -128,6 +130,7 @@ namespace Pnj
         private void Command()
         {
             menu.StartTakeOrder(this);
+            listOfCommand.UpdateVisuel(this);
         }
         private void Timer()
         {
@@ -172,6 +175,7 @@ namespace Pnj
             {
                 takeTheOrder =  true;
                 PlayerTakeOrder?.Invoke(this);
+                
                 logic = Cycle.Command;
             }
 
@@ -183,7 +187,6 @@ namespace Pnj
                     {
                         PlayerGiveTheOrder?.Invoke(this);
                         playerInventory.RemoveIngrediente(ingrediente);
-                        moveAtTheList.Remove(ingrediente); // event
                         logic = Cycle.Check;
                     }
                 }

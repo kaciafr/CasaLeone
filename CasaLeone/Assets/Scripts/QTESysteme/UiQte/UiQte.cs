@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using ListForEat;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
@@ -33,20 +34,45 @@ namespace QTESysteme.UiQte
 		private void Start()
 		{
 			timerBars.SetActive(false);
+			pizza.SetActive(false);
+			salade.SetActive(false);
+			pates.SetActive(false);
+		}
+
+		private void OnEnable()
+		{
 			qteSysteme.QTESequence += GenereteArrow;
 			qteSysteme.KeyPressed += UpdateArrow;
 			qteSysteme.onLose += LoseUI;
 			qteSysteme.onSuccess += WinUI;
 			qteSysteme.Timer += Timers;
-			
-			pizza.SetActive(false);
-			salade.SetActive(false);
-			pates.SetActive(false);
+			qteSysteme.showFood += ChooseFood;
 		}
-		
+		private void OnDisable()
+		{
+			qteSysteme.QTESequence -= GenereteArrow;
+			qteSysteme.KeyPressed -= UpdateArrow;
+			qteSysteme.onLose -= LoseUI;
+			qteSysteme.onSuccess -= WinUI;
+			qteSysteme.Timer -= Timers;
+			qteSysteme.showFood -= ChooseFood;
+		}
+
+		private void ChooseFood(Ingrediente food)
+		{
+			Debug.Log("ChooseFood");
+			pizza.SetActive(true);
+			salade.SetActive(true);
+			pates.SetActive(true);
+		}
+
 
 		private void GenereteArrow(List<QTESysteme.QTEKey> sequence)
 		{
+			pizza.SetActive(false);
+			salade.SetActive(false);
+			pates.SetActive(false);
+			
 			timerBars.SetActive(true);
 
 			Debug.Log("Generete arrow");

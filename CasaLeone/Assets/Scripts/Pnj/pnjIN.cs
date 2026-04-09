@@ -10,7 +10,6 @@ namespace Pnj
 		{
 			canGoIn = false;
 			currentPnj = pnj;
-			Debug.Log(pnj);
 		}
 
 		public void Leave()

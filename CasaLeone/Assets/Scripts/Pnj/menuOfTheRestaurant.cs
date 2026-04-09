@@ -10,7 +10,6 @@ namespace Pnj
 	{
 		//[SerializeField]private string[] plats = { "un Steak", "des Pâtes", " une Salade" };
 		[SerializeField] private List<Ingrediente> plats;
-		[SerializeField] private ListMove list;
 		public Action<MenuOfTheRestaurant> Menu;
 		public int rand;
 		private PnjMove currentClient;
@@ -27,7 +26,6 @@ namespace Pnj
 			Debug.Log($"{currentClient} voudrait {plats[rand]} !");
 			currentClient.whatTheyWhant = plats[rand];
 			currentClient.logic = PnjMove.Cycle.Timer;
-			list.UpdateList(rand);
 		}
 	}
 }
