@@ -187,6 +187,7 @@ namespace Pnj
                     {
                         PlayerGiveTheOrder?.Invoke(this);
                         playerInventory.RemoveIngrediente(ingrediente);
+                        listOfCommand.Remove(this);
                         logic = Cycle.Check;
                     }
                 }
