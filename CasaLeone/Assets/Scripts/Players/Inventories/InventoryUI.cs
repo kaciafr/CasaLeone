@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using ListForEat;
+using Restaurants;
 using UnityEngine;
 
-namespace Inventories
+namespace Players.Inventories
 {
 	public class InventoryUI : MonoBehaviour
 	{
@@ -13,17 +13,17 @@ namespace Inventories
 
 		private void OnEnable()
 		{
-			inventory.TheOrder += AddUi;
-			inventory.GiveOrder += RemoveUi;
+			inventory.OnDishAdded += AddUi;
+			inventory.OnDishRemoved += RemoveUi;
 		}
 
 		private void OnDisable()
 		{
-			inventory.TheOrder -= AddUi;
-			inventory.GiveOrder -= RemoveUi;
+			inventory.OnDishAdded -= AddUi;
+			inventory.OnDishRemoved -= RemoveUi;
 		}
 
-		private void AddUi(Ingrediente obj)
+		private void AddUi(Dish obj)
 		{
 			GameObject item = Instantiate(itemPrefab, itemContainer);
 			ItemUI image = item.GetComponent<ItemUI>();
@@ -32,7 +32,7 @@ namespace Inventories
 			items.Add(image);
 		}
 
-		private void RemoveUi(Ingrediente obj)
+		private void RemoveUi(Dish obj)
 		{
 			ItemUI uiToRemove = items.Find(x => x.data.ID == obj.ID);
 			Debug.Log(uiToRemove.data.name);

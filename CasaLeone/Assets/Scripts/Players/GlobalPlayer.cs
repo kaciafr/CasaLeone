@@ -1,6 +1,8 @@
-using Inventories;
-using ListForEat;
+using Players.Inventories;
+using Restaurants;
+using Restaurants.UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Players
 {
@@ -8,32 +10,21 @@ namespace Players
 	{
 		[field: SerializeField]
 		public Inventory Inventory { get; private set; }
-		[field: SerializeField]
-		public AngoisseBar.AngoisseBar AngoisseBar { get; private set; }
 
 		private void Start()
 		{
 			Inventory = new Inventory();
 		}
 
-		public void AddDishClent(Ingrediente dish)
+		public void AddDishClent(Dish dish)
 		{
 			Inventory.AddDish(dish);
 		}
-		public void RemoveDishClient(Ingrediente dish)
+		public void RemoveDishClient(Dish dish)
 		{
 			Inventory.RemoveDish(dish);
 		}
 
-		public void AddAnguidh(float add)
-		{
-			AngoisseBar.AddAnguish(add);
-		}
-		public void RemoveAnguidh(float remove)
-		{
-			AngoisseBar.RemoveAnguish(remove);
-		}
-		
 		
 	}
 }

@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Interaction
+namespace Players.Interaction
 {
 	public class SphereInteract : MonoBehaviour
 	{
 		private IInteractable current;
 
+		[SerializeField] 
+		private GlobalPlayer globalPlayer;
+		
 		public void OnInteractInput(InputAction.CallbackContext context)
 		{
 			if (current != null && context.performed)
 			{
-				current.Interact();
+				current.Interact(globalPlayer);
 			}
 		}
 

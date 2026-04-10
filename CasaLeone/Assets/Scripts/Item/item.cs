@@ -1,4 +1,5 @@
-using Interaction;
+using Players;
+using Players.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ namespace Item
 		{
 			itemPrefab.SetActive(false);
 		}
-		public void Interact()
+		public void Interact(GlobalPlayer globalPlayer)
 		{
 			itemPrefab.SetActive(true);
 			itemList.UpdateList(itemData);

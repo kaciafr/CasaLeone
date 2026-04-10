@@ -1,14 +1,14 @@
-using ListForEat;
+using Restaurants;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Inventories
+namespace Players.Inventories
 {
     public class ItemUI : MonoBehaviour
     {
-        public Ingrediente data;
+        public Dish data;
 
-        public void Init(Ingrediente obj)
+        public void Init(Dish obj)
         {
             data = obj;
             GetComponent<Image>().sprite = obj.icon;

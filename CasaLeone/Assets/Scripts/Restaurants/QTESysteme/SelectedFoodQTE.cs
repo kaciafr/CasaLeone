@@ -1,18 +1,17 @@
-using ListForEat;
 using UnityEngine;
 
-namespace QTESysteme
+namespace Restaurants.QTESysteme
 {
 	public class SelectedFoodQTE : MonoBehaviour
 	{
 		[SerializeField] private QTESysteme qteSysteme;
-		[SerializeField] private Ingrediente firstSave;
+		[SerializeField] private Dish firstSave;
 
-		public void ChooseFood(Ingrediente ingrediente)
+		public void ChooseFood(Dish Dish)
 		{
 			if (!qteSysteme.qteStart)
 			{
-				qteSysteme.winGift = ingrediente;
+				qteSysteme.winGift = Dish;
 				qteSysteme.GenerateSequence();
 			}
 		}

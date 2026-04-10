@@ -1,6 +1,5 @@
-using UnityEngine;
-
-
+namespace Sound
+{
     public enum  SoundType  
     {
         // Bruit du personnnage 
@@ -19,3 +18,4 @@ using UnityEngine;
         Basement,
         
     }
+}

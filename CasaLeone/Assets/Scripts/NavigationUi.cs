@@ -1,4 +1,5 @@
-using ListForEat;
+using Restaurants;
+using Restaurants.QTESysteme;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,26 +8,26 @@ using UnityEngine.UI;
 
 public class NavigationUi :  MonoBehaviour
 {
-	[SerializeField] private QTESysteme.QTESysteme qteSysteme;
+	[SerializeField] private QTESysteme qteSysteme;
 	int index = 0;
-	public GameObject[] ingredientesSelected;
-	public Ingrediente[] ingredientesData;
+	public GameObject[] DishsSelected;
+	public Dish[] DishsData;
 	
 	private void Start()
 	{
 		index = 0;
-		if (ingredientesSelected != null && ingredientesSelected.Length > 0)
+		if (DishsSelected != null && DishsSelected.Length > 0)
 			SelectButton();
 	}
 	public void MoveRight(InputAction.CallbackContext context)
 	{
 		if (!context.started) return;
 		index++;
-		if (index >= ingredientesSelected.Length)
+		if (index >= DishsSelected.Length)
 		{
 			index = 0;
 		}
-		Debug.Log(ingredientesSelected[index].name);
+		Debug.Log(DishsSelected[index].name);
 		SelectButton();
 	}
 
@@ -36,28 +37,28 @@ public class NavigationUi :  MonoBehaviour
 		index--;
 		if (index <0)
 		{
-			index = ingredientesSelected.Length - 1;
+			index = DishsSelected.Length - 1;
 			//index = 3;
 		}
 			
-		Debug.Log(ingredientesSelected[index].name);
+		Debug.Log(DishsSelected[index].name);
 		SelectButton();
 	}
 
 	public void OnSubmit(InputAction.CallbackContext context)
 	{
 		if (!context.started) return;
-		if (index >= ingredientesData.Length || ingredientesData[index] == null)
+		if (index >= DishsData.Length || DishsData[index] == null)
 		{
-			Debug.LogError($"ingredientesData[{index}] manquant !");
+			Debug.LogError($"DishsData[{index}] manquant !");
 			return;
 		}
-		qteSysteme.winGift = ingredientesData[index];
-		ingredientesSelected[index]?.GetComponent<Button>()?.onClick.Invoke();
+		qteSysteme.winGift = DishsData[index];
+		DishsSelected[index]?.GetComponent<Button>()?.onClick.Invoke();
 	}
 	private void SelectButton()
 	{
-		EventSystem.current.SetSelectedGameObject(ingredientesSelected[index]);
+		EventSystem.current.SetSelectedGameObject(DishsSelected[index]);
 	}
 	
 }

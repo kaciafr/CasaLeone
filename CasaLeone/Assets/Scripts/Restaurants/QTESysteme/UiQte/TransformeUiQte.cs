@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace QTESysteme.UiQte
+namespace Restaurants.QTESysteme.UiQte
 {
 	public class TransformeUiQte : MonoBehaviour
 	{

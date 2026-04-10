@@ -1,9 +1,10 @@
 using System;
 using DG.Tweening;
-using QTESysteme.UiQte;
+using Restaurants.QTESysteme;
+using Restaurants.QTESysteme.UiQte;
 using UnityEngine;
 
-namespace Interaction
+namespace Players.Interaction
 {
 	public class ObjetBaseInteractable :  MonoBehaviour,IInteractable
 	{
@@ -12,7 +13,7 @@ namespace Interaction
 		[SerializeField] private GameObject pressE;
 		[SerializeField] private GameObject endPosition;
 		[SerializeField] private GameObject startPosition;
-		[SerializeField] private QTESysteme.QTESysteme qteSysteme;
+		[SerializeField] private QTESysteme qteSysteme;
 		[SerializeField] private UiQte qteUi;
 		[SerializeField] private TransformeUiQte UiLocQte;
 		
@@ -25,9 +26,9 @@ namespace Interaction
 		private void Start()
 		{
 			pressE.transform.position = startPosition.transform.position;
-			qteSysteme =  qteSysteme.GetComponent<QTESysteme.QTESysteme>();
+			qteSysteme =  qteSysteme.GetComponent<QTESysteme>();
 		}
-		public void Interact()
+		public void Interact(GlobalPlayer globalPlayer)
 		{
 			Debug.Log("ObjetBaseInteract");
 			pressE.SetActive(false);

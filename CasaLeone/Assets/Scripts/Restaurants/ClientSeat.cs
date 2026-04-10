@@ -1,6 +1,7 @@
+using Clients;
 using UnityEngine;
 
-namespace Clients
+namespace Restaurants
 {
 	public class ClientSeat : MonoBehaviour
 	{

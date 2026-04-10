@@ -1,13 +1,14 @@
-using Inventories;
-using ListForEat;
+using Players;
+using Players.Inventories;
+using Restaurants;
 
 namespace Clients.States
 {
 	public class WaitingForFoodState : IInteractableClientState
 	{
-		public readonly Ingrediente dish;
+		public readonly Dish dish;
 
-		public WaitingForFoodState(Ingrediente dish)
+		public WaitingForFoodState(Dish dish)
 		{
 			this.dish = dish;
 		}
@@ -24,13 +25,14 @@ namespace Clients.States
 		{
 		}
 
-		public void Interact(ClientController controller)
+		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
 			//TODO passer par le player
-			var inventory = Inventory.Instance;
-			if (inventory.dish.Contains(dish))
+			Inventory inventory = globalPlayer.Inventory;
+			
+			if (inventory.Contains(dish))
 			{
-				inventory.dish.Remove(dish);
+				inventory.RemoveDish(dish);
 				EatingState eatingState = new EatingState(maxEatingTime:20);
 				controller.GoTo(eatingState);
 			}

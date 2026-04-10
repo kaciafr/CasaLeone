@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using Interaction;
+using Players;
+using Players.Interaction;
 using UnityEngine;
 
-namespace Clients
+namespace Restaurants
 {
 	public class ClientTable : MonoBehaviour, IInteractable
 	{
@@ -38,13 +38,13 @@ namespace Clients
 			return false;
 		}
 
-		public void Interact()
+		public void Interact(GlobalPlayer globalPlayer)
 		{
 			for (int i = 0; i < ClientSeats.Length; i++)
 			{
 				var seat = ClientSeats[i];
 				if (seat.Client)
-					seat.Client.Interact();
+					seat.Client.Interact(globalPlayer);
 			}
 		}
 

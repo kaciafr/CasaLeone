@@ -1,19 +1,17 @@
 using System;
 using System.Collections.Generic;
-using Inventories;
-using ListForEat;
 using Players;
 using TestCharacterMovement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-namespace QTESysteme
+namespace Restaurants.QTESysteme
 {
 	public class QTESysteme : MonoBehaviour
 	{
 		[SerializeField] private GlobalPlayer playerInventory;
-		public Ingrediente winGift;
+		public Dish winGift;
 		public enum QTEKey
 		{
 			Up,
@@ -31,13 +29,13 @@ namespace QTESysteme
 		[SerializeField] private PlayerInput playerInput;
 		[SerializeField] private TestPlayerController player;
 
-		public Action<List<QTEKey>> QTESequence;
-		public Action<int> KeyPressed;
-		public Action<float> Timer;
-		public Action<QTESysteme> ChooseFoods;
-		public Action onLose;
-		public Action onSuccess;
-		public Action<Ingrediente> showFood;
+		public event Action<List<QTEKey>> QTESequence;
+		public event Action<int> KeyPressed;
+		public event Action<float> Timer;
+		public event Action<QTESysteme> ChooseFoods;
+		public event Action onLose;
+		public event Action onSuccess;
+		public event Action<Dish> showFood;
 	
 		private int currentRound;
 		[HideInInspector] public float delay;

@@ -1,4 +1,5 @@
 using System;
+using Restaurants;
 using UnityEngine;
 
 namespace Clients.States
@@ -15,12 +16,10 @@ namespace Clients.States
 		public void Enter(ClientController controller)
 		{
 			//TODO Passer par le player
-			controller.isHappyOrNot(IsAngry);
-			
-			/*if(IsAngry)
-				AngoisseBar.AngoisseBar.Instance.AddAnguish(5f);
+			if (IsAngry)
+				Restaurant.Instance.AddOrRemoveStress(5);
 			else
-				AngoisseBar.AngoisseBar.Instance.RemoveAnguish(2f);*/
+				Restaurant.Instance.AddOrRemoveStress(-2);
 			
 			
 			controller.Movement.SetDestination(Restaurant.Instance.Exit);

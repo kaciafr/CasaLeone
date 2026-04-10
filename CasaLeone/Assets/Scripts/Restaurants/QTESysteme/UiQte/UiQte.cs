@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using DG.Tweening;
-using ListForEat;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
-namespace QTESysteme.UiQte
+namespace Restaurants.QTESysteme.UiQte
 {
 	public class UiQte : MonoBehaviour
 	{
@@ -21,7 +20,6 @@ namespace QTESysteme.UiQte
 		[SerializeField] private QTESysteme qteSysteme;
 		[SerializeField] private Transform arrowContainer;
 		[SerializeField] private GameObject arrowPrefab;
-		[SerializeField] private AngoisseBar.AngoisseBar angoisseBar;
 		[SerializeField] private GameObject endPosition;
 		
 		
@@ -58,7 +56,7 @@ namespace QTESysteme.UiQte
 			qteSysteme.showFood -= ChooseFood;
 		}
 
-		private void ChooseFood(Ingrediente food)
+		private void ChooseFood(Dish food)
 		{
 			Debug.Log("ChooseFood");
 			pizza.SetActive(true);
@@ -95,7 +93,7 @@ namespace QTESysteme.UiQte
 		private void UpdateArrow(int index)
 		{
 			arrows[index].transform.DOMove(endPosition.transform.position, 1f);
-			angoisseBar.RemoveAnguish(0.1f);
+			Restaurant.Instance.AddOrRemoveStress(-1);
 		}
 
 		private void LoseUI()
@@ -104,8 +102,8 @@ namespace QTESysteme.UiQte
 				Destroy(child.gameObject);
 			arrows.Clear();
 			timerBars.SetActive(false);
-
-			angoisseBar.AddAnguish(0.4f);
+			
+			Restaurant.Instance.AddOrRemoveStress(4);
 		}
 
 		private void WinUI()

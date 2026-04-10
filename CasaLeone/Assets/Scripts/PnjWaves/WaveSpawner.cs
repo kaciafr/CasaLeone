@@ -108,17 +108,14 @@ namespace PnjWaves
 
             GameObject client = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
 
-            ClientMovement cb = client.GetComponent<ClientMovement>();
-            if (cb != null)
+            if (client.TryGetComponent(out ClientController clientController))
             {
-                cb.whaitingTime = profile.patience;
-                cb.eatTime = profile.eatSpeed;
+                clientController.Spawn(profile);
             }
             else
             {
                 Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de PnjTest.");
             }
-
             activeClients.Add(client);
         }
 
@@ -146,7 +143,7 @@ namespace PnjWaves
                 if (roll <= cumul) return ct;
             }
 
-            return clientTypes[clientTypes.Length - 1];
+            return clientTypes[^1];
         }
 
         // ─────────────────────────────────────────────

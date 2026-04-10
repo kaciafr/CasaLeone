@@ -1,5 +1,6 @@
 using System;
-using ListForEat;
+using Players;
+using Restaurants;
 using UnityEngine;
 
 namespace Clients.States
@@ -15,7 +16,7 @@ namespace Clients.States
 		[field: SerializeField]
 		public float CurrentReflexionTime { get; private set; }
 		[field: SerializeField]
-		public Ingrediente Dish { get; private set; }
+		public Dish Dish { get; private set; }
 
 		public bool IsReady => CurrentReflexionTime >= maxReflexionTime;
 		
@@ -51,7 +52,7 @@ namespace Clients.States
 			}
 		}
 
-		public void Interact(ClientController controller)
+		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
 			if (IsReady)
 			{

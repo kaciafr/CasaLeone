@@ -1,3 +1,5 @@
+using Restaurants;
+
 namespace Clients.States
 {
 	public class GoingToSeatState : IClientState

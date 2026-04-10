@@ -1,83 +1,29 @@
 using System;
 using Clients.States;
-using Interaction;
-using Inventories;
-using ListForEat;
+using Players;
 using PnjWaves;
+using Restaurants;
+using Restaurants.UI;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Clients
 {
-    public enum EClientState
+    public class ClientMovement : MonoBehaviour
     {
-        Waiting,
-        Reflexion,
-        Command,
-        Timer,
-        Check,
-        Exit
-    }
-    
-    public class ClientMovement : MonoBehaviour,IInteractable
-    {
-        public EClientState logic;
-
-        private Restaurant menu;
-        private AngoisseBar.AngoisseBar angoisseBar;
-        private Inventory playerInventory;
-        private ListOfCommand listOfCommand;
-    
         [Header("References")]
-        public Transform target;
-        public ClientTypeSO clientData;
-        [SerializeField] private GameObject player;
-        [SerializeField] private NavMeshAgent agent;
-        
-        [Header("Settings")]
-        [SerializeField] private float updateSpeed = 0.1f;
-        [SerializeField] private float reflexionTime;
-        public float whaitingTime;
-        public float eatTime;
-    
-        public Ingrediente whatTheyWhant;
-        public Action<GameObject> PlayerisSit;
-        public Action<ClientMovement> ClientWhantTakeOrder;
-        public Action<ClientMovement> PlayerTakeOrder;
-        public Action<ClientMovement> ClientWhait;
-        public Action<ClientMovement> PlayerGiveTheOrder;
-        public Action<ClientMovement> ClientWhantTheCheck;
-        public Action<ClientMovement> PlayerTakeTheCheck;
-        public Action<ClientMovement> ClientLeave;
-    
-        private float delayTime;
-        private float delayTimes;
-        private float delayeatTimes;
-        private bool isCommanding = true;
-        private bool hasArrived = true;
-        private bool isEating = true;
-        private bool whantLeave = true;
-        private bool takeTheOrder = false;
-        public ClientSeat mySeat;
-
+        [field: SerializeField]
         public ClientController Controller { get; private set; }
+        
+        [SerializeField]
+        private NavMeshAgent agent;
+
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
-            menu = Restaurant.Instance;
-            playerInventory = Inventory.Instance;
-            listOfCommand = ListOfCommand.Instance;
         }
-
-        private void Start()
-        {
-            delayTime = whaitingTime;
-            delayTimes = reflexionTime;
-            delayeatTimes = eatTime;
-        }
-
-
+        
         public void ClearDestination()
         {
             agent.destination = transform.position;
@@ -96,67 +42,6 @@ namespace Clients
         public bool HasArrived()
         {
             return agent.remainingDistance <= agent.stoppingDistance;
-        }
-        
-        public void Leave()
-        {
-            if (mySeat != null)
-            {
-                mySeat.Leave();
-            }
-        }
-        
-        private void Exit()
-        {
-            if (hasArrived)
-            {
-                Leave();
-               // target = place.exit.transform;
-                agent.SetDestination(target.position);
-                hasArrived = false;
-                ClientLeave?.Invoke(this);
-            }
-
-            if (agent.remainingDistance < agent.stoppingDistance && agent.velocity.magnitude > 0.5f )
-            {
-                Destroy(gameObject);
-            }
-        }
-
-        public void Interact()
-        {
-            if (logic == EClientState.Reflexion)
-            {
-                takeTheOrder =  true;
-                PlayerTakeOrder?.Invoke(this);
-                
-                logic = EClientState.Command;
-            }
-
-            if (logic == EClientState.Timer)
-            {
-                foreach (var ingrediente in playerInventory.dish)
-                {
-                    if (ingrediente == whatTheyWhant)
-                    {
-                        PlayerGiveTheOrder?.Invoke(this);
-                        playerInventory.RemoveDish(ingrediente);
-                        listOfCommand.Remove(this);
-                        logic = EClientState.Check;
-                    }
-                }
-            }
-
-            if (logic==EClientState.Check)
-            {
-                PlayerTakeTheCheck?.Invoke(this);
-                logic = EClientState.Exit;
-            }
-        }
-
-
-        public void EndInteraction()
-        {
         }
     }
 }
