@@ -9,7 +9,7 @@ namespace DialogueSystem.Runtime
         public GameObject bubblePrefab;
 
         [Header("Décalage local au-dessus du NPC")]
-        public Vector3 bubbleOffset = new Vector3(1f, 2.2f, 0f);
+        public Vector3 bubbleOffset = new Vector3(1f, 1f, 0f);
 
         private WorldSpaceBubble _currentBubble;
         

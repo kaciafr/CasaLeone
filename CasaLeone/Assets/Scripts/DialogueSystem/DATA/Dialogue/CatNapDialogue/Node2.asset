@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: ah non un cube, c'est fou c'est fou...
+  dialogueText: Merci pour mes lunette, je t'en dois une belle !!
   autoAdvanceDelay: 3
   nextNode: {fileID: 0}
   conditionalBranches: []

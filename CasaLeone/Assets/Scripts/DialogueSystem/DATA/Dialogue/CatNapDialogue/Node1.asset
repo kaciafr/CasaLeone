@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: "Je suis un putain de carr\xE9 deh"
+  dialogueText: J'ai perdu mes lunettes TwT
   autoAdvanceDelay: 3
-  nextNode: {fileID: 11400000, guid: d4b0c6206bd307c4aa807d3feb755d11, type: 2}
-  conditionalBranches: []
+  nextNode: {fileID: 0}
+  conditionalBranches:
+  - conditionID: CatNap
+    branchNode: {fileID: 11400000, guid: d4b0c6206bd307c4aa807d3feb755d11, type: 2}
