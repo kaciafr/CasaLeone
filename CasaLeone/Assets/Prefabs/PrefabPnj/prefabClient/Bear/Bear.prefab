@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 2888418869068703364}
   - component: {fileID: 758287293260595986}
   - component: {fileID: 1522410516546904170}
-  - component: {fileID: 6695289989174075225}
   - component: {fileID: 3477194369061405705}
   - component: {fileID: 78781428575645158}
   m_Layer: 0
@@ -165,33 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c304c97722b21c343b547e2e5b734feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pnjMove
-  logic: 0
-  target: {fileID: 0}
-  clientData: {fileID: 11400000, guid: 19bfa11f17eac324faea8152be0a80b3, type: 2}
-  player: {fileID: 2224562426785233550}
+  <Controller>k__BackingField: {fileID: 0}
   agent: {fileID: 758287293260595986}
-  updateSpeed: 0.1
-  reflexionTime: 2
-  whaitingTime: 360
-  eatTime: 2
-  whatTheyWhant: {fileID: 0}
-  mySeat: {fileID: 0}
---- !u!114 &6695289989174075225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2224562426785233550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc670e561ed088248ab0bd19917b0464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UiPnj
-  pnj: {fileID: 1522410516546904170}
-  whantOrder: {fileID: 3270949662711628317}
-  whaitOrder: {fileID: 6831765182128013590}
-  checkUI: {fileID: 8288844008714667181}
 --- !u!54 &3477194369061405705
 Rigidbody:
   m_ObjectHideFlags: 0
