@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace AngoisseBar
 {
-	public class AngoisseBar : Singleton<AngoisseBar>
+	public class AngoisseBar: MonoBehaviour
 	{
 		[SerializeField] private GameObject anguishBar;
 		[SerializeField] private Image anguishBarImage;

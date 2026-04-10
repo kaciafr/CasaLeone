@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
 
 namespace Clients
@@ -24,4 +24,4 @@ namespace Clients
 		}
 	
 	}
-}
+}*/

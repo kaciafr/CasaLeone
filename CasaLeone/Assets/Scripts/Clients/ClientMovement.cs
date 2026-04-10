@@ -23,7 +23,6 @@ namespace Clients
     {
         public EClientState logic;
 
-        private AllPlace place;
         private Restaurant menu;
         private AngoisseBar.AngoisseBar angoisseBar;
         private Inventory playerInventory;
@@ -66,7 +65,6 @@ namespace Clients
         {
             agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
-            place = AllPlace.Instance;
             menu = Restaurant.Instance;
             playerInventory = Inventory.Instance;
             listOfCommand = ListOfCommand.Instance;
@@ -77,7 +75,6 @@ namespace Clients
             delayTime = whaitingTime;
             delayTimes = reflexionTime;
             delayeatTimes = eatTime;
-            target = place.outSide.transform;
         }
 
 
@@ -101,38 +98,20 @@ namespace Clients
             return agent.remainingDistance <= agent.stoppingDistance;
         }
         
+        public void Leave()
+        {
+            if (mySeat != null)
+            {
+                mySeat.Leave();
+            }
+        }
         
-        private void Command()
-        {
-            menu.StartTakeOrder(this);
-            listOfCommand.UpdateVisuel(this);
-        }
-        private void Timer()
-        {
-            delayTime -= Time.deltaTime;
-            ClientWhait?.Invoke(this);
-            if (delayTime <= 0)
-            {
-                logic = EClientState.Exit;
-                angoisseBar.AddAnguish(5f);
-            }
-        }
-        private void Check()
-        {
-            delayeatTimes -= Time.deltaTime;
-            if (delayeatTimes < 0 && isEating)
-            {
-                ClientWhantTheCheck?.Invoke(this);
-                isEating = false;
-                angoisseBar.RemoveAnguish(2f);
-            }
-        }
         private void Exit()
         {
             if (hasArrived)
             {
                 Leave();
-                target = place.exit.transform;
+               // target = place.exit.transform;
                 agent.SetDestination(target.position);
                 hasArrived = false;
                 ClientLeave?.Invoke(this);
@@ -156,12 +135,12 @@ namespace Clients
 
             if (logic == EClientState.Timer)
             {
-                foreach (var ingrediente in playerInventory.ingredientes)
+                foreach (var ingrediente in playerInventory.dish)
                 {
                     if (ingrediente == whatTheyWhant)
                     {
                         PlayerGiveTheOrder?.Invoke(this);
-                        playerInventory.RemoveIngrediente(ingrediente);
+                        playerInventory.RemoveDish(ingrediente);
                         listOfCommand.Remove(this);
                         logic = EClientState.Check;
                     }
@@ -175,13 +154,6 @@ namespace Clients
             }
         }
 
-        private void Leave()
-        {
-            if (mySeat != null)
-            {
-                mySeat.Leave();
-            }
-        }
 
         public void EndInteraction()
         {

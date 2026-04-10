@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Inventories;
 using ListForEat;
+using Players;
 using TestCharacterMovement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +12,7 @@ namespace QTESysteme
 {
 	public class QTESysteme : MonoBehaviour
 	{
-		[SerializeField] private Inventory playerInventory;
+		[SerializeField] private GlobalPlayer playerInventory;
 		public Ingrediente winGift;
 		public enum QTEKey
 		{
@@ -156,7 +157,7 @@ namespace QTESysteme
 			playerInput.SwitchCurrentActionMap("Player");
 			Debug.Log("SUCCESS");
 			onSuccess?.Invoke();
-			playerInventory.AddIngrediente(winGift);
+			playerInventory.AddDishClent(winGift);
 			winGift = null;
 		}
 

@@ -8,13 +8,9 @@ namespace Clients
 {
 	public class Restaurant : Singleton<Restaurant>
 	{
-		//[SerializeField]private string[] plats = { "un Steak", "des Pâtes", " une Salade" };
 		[SerializeField] 
 		private List<Ingrediente> plats;
-		
 		public Action<Restaurant> Menu;
-		
-		
 		public int rand;
 
 		[SerializeField]
@@ -24,9 +20,6 @@ namespace Clients
 		public Transform OutSide { get; private set; }
 		[field: SerializeField]
 		public Transform Exit  { get; private set; }
-
-
-
 		public bool TryFindTable(out ClientTable table)
 		{
 			foreach (ClientTable clientTable in tablePlaces)

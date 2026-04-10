@@ -23,7 +23,7 @@ namespace Clients.States
 		{
 			if (controller.Movement.HasArrived())
 			{
-				ReflexionState reflexionState = new ReflexionState(2, 5);
+				ReflexionState reflexionState = new ReflexionState(20, 60);
 				controller.GoTo(reflexionState);
 			}
 		}

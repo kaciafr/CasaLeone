@@ -15,8 +15,13 @@ namespace Clients.States
 		public void Enter(ClientController controller)
 		{
 			//TODO Passer par le player
-			if(IsAngry)
+			controller.isHappyOrNot(IsAngry);
+			
+			/*if(IsAngry)
 				AngoisseBar.AngoisseBar.Instance.AddAnguish(5f);
+			else
+				AngoisseBar.AngoisseBar.Instance.RemoveAnguish(2f);*/
+			
 			
 			controller.Movement.SetDestination(Restaurant.Instance.Exit);
 		}
