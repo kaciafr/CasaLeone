@@ -14,10 +14,10 @@ public class StairsZone : MonoBehaviour
     [SerializeField] private InputManager inputPlayer1;
     [SerializeField] private InputManager inputPlayer2;
 
-    public float rotationoffset =-45 ; 
+    public float rotationoffset = -45;
 
     private readonly Vector3 _targetScale = new Vector3(0.5f, 0.5f, 0.5f);
-    
+
     private bool _player1InZone = false;
     private bool _player2InZone = false;
     private bool _isClimbing = false;
@@ -33,19 +33,15 @@ public class StairsZone : MonoBehaviour
             SlideStairs(player2);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)      
     {
         if (!IsPlayer(other)) return;
 
-
-        if (IsSpecificPlayer(other, player1)) 
-        {
+        if (IsSpecificPlayer(other, player1))
             _player1InZone = true;
-        }
-        if (IsSpecificPlayer(other, player2)) 
-        {
+
+        if (IsSpecificPlayer(other, player2))
             _player2InZone = true;
-        }
 
         if (climbFeedBack == null) return;
 
@@ -55,8 +51,7 @@ public class StairsZone : MonoBehaviour
         climbFeedBack.transform.DOScale(_targetScale, 0.5f).SetEase(Ease.OutBack);
     }
 
-
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)       
     {
         if (!IsPlayer(other)) return;
 
@@ -109,18 +104,17 @@ public class StairsZone : MonoBehaviour
         stairsSeq.OnComplete(() => _isClimbing = false);
     }
 
-
-    private bool IsPlayer(Collider2D other)
+    private bool IsPlayer(Collider other)
     {
         return other.CompareTag("Player") ||
                (other.transform.parent != null &&
                 other.transform.parent.CompareTag("Player"));
     }
 
-    private bool IsSpecificPlayer(Collider2D other, GameObject player)
+    private bool IsSpecificPlayer(Collider other, GameObject player)
     {
         if (player == null) return false;
-    
+
         Transform current = other.transform;
         while (current != null)
         {
@@ -129,8 +123,8 @@ public class StairsZone : MonoBehaviour
         }
         return false;
     }
-
 }
+
 
 // TO DO Test avec FindObeject by name  
 // 2 Tag different Player 1 / Player2 
