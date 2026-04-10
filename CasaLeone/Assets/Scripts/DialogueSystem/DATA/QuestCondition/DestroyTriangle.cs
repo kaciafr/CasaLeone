@@ -6,7 +6,7 @@ namespace DialogueSystem.DATA.QuestCondition
     {
         private string conditionID = "Pizza";
  
-        void OnTriggerEnter2D(Collider2D other)
+        void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Player")) return;
  

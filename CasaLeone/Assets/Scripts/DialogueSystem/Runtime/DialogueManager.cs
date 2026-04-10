@@ -8,79 +8,75 @@ namespace DialogueSystem.Runtime
     {
         public static DialogueManager Instance;
 
-        private DialogueNode currentNode;
-        private DialogueConversation currentConversation;
-        private Action onEndedCallback;
+        [Header("UI 3D")]
+        public WorldSpaceDialogueUI worldSpaceUI;
 
-        private string requiredConditionID = "";
+        // Exposé pour que WorldSpaceBubble puisse skip le typewriter
+        public DialogueNode CurrentNode => _currentNode;
 
-        public DialogueUI dialogueUI;
+        // ── Privé ──────────────────────────────────────────────────────────────
+        private DialogueNode         _currentNode;
+        private DialogueConversation _currentConversation;
+        private Action               _onEndedCallback;
+        private string               _requiredConditionID = "";
 
-        private void Awake()
+        // ── Awake ──────────────────────────────────────────────────────────────
+
+        void Awake()
         {
-            if (Instance == null)
-                Instance = this;
+            if (Instance == null) Instance = this;
         }
 
-        public void StartConversation(DialogueConversation conversation)
+        // ── API publique ───────────────────────────────────────────────────────
+
+        public void StartConversation(DialogueConversation conversation, Transform npcTransform,
+                                      string conditionID = "", Action onEnded = null)
         {
-            StartConversation(conversation, "", null);
+            _currentConversation = conversation;
+            _currentNode         = conversation.startingNode;
+            _onEndedCallback     = onEnded;
+            _requiredConditionID = conditionID;
+
+            worldSpaceUI.ShowBubble(npcTransform);
+            worldSpaceUI.Display(_currentNode);
+        }
+        
+        public void PlayerAdvance()
+        {
+            bool canGoNext = worldSpaceUI.OnPlayerAdvance();
+            if (canGoNext) Next();
         }
 
-        public void StartConversation(DialogueConversation conversation, string conditionID, Action onEnded)
-        {
-            currentConversation = conversation;
-            currentNode = conversation.startingNode;
-            onEndedCallback = onEnded;
-            requiredConditionID = conditionID;
-
-            dialogueUI.ShowUI();
-            DisplayNode(currentNode);
-        }
-
-        void DisplayNode(DialogueNode node)
-        {
-            dialogueUI.Display(node, requiredConditionID);
-        }
-
-        public void SelectChoice(DialogueChoice choice)
-        {
-            if (choice.nextNode != null)
-            {
-                currentNode = choice.nextNode;
-                DisplayNode(currentNode);
-            }
-            else
-            {
-                EndConversation();
-            }
-        }
-
+        /// <summary>Passe au nœud suivant (ou termine la conversation).</summary>
         public void Next()
         {
-            if (currentNode.nextNode != null)
+            if (_currentNode.nextNode != null)
             {
-                currentNode = currentNode.nextNode;
-                DisplayNode(currentNode);
+                _currentNode = _currentNode.nextNode;
+                worldSpaceUI.Display(_currentNode);
             }
             else
             {
                 EndConversation();
             }
         }
+
+        public bool IsInConversation => worldSpaceUI.IsActive;
+
+        // ── Privé ──────────────────────────────────────────────────────────────
 
         void EndConversation()
         {
-            if (currentConversation != null && !currentConversation.canRepeat)
-                ConditionManager.SetCondition(currentConversation.conversationID + "_done", true);
+            if (_currentConversation != null && !_currentConversation.canRepeat)
+                DATA.ConditionManager.SetCondition(_currentConversation.conversationID + "_done", true);
 
-            dialogueUI.HideUI();
+            worldSpaceUI.HideBubble();
 
-            Action callback = onEndedCallback;
-            currentConversation = null;
-            currentNode = null;
-            onEndedCallback = null;
-            requiredConditionID = "";
+            Action callback      = _onEndedCallback;
+            _currentConversation = null;
+            _currentNode         = null;
+            _onEndedCallback     = null;
+            _requiredConditionID = "";
 
             callback?.Invoke();
         }

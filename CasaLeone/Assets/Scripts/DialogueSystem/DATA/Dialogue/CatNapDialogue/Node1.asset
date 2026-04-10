@@ -12,17 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  speakerName: Le chat bizarre
-  portrait: {fileID: 8657986019144674278, guid: c5a8b6dba76f2d344be52743e52b915f, type: 3}
-  spritePrefabs:
-  - {fileID: 207423290135396278, guid: 6a8553a55982c28418c7317ae960d693, type: 3}
-  - {fileID: 7102933628013858717, guid: 6b5438df4d9764e4890353546d78f829, type: 3}
-  choices:
-  - choiceSpritePrefabs:
-    - {fileID: 6708378358363443644, guid: f8432dadb59a1eb438b5db19abf564d7, type: 3}
-    nextNode: {fileID: 11400000, guid: d4b0c6206bd307c4aa807d3feb755d11, type: 2}
-    requiredCondition: {fileID: 11400000, guid: 9cbb27860f07a3b478386cbd87e96fbf, type: 2}
-    requiresCondition: 1
-    conditionID: CatNap
-  nextNode: {fileID: 0}
-  endsConversation: 0
+  dialogueText: "Je suis un putain de carr\xE9 deh"
+  autoAdvanceDelay: 3
+  nextNode: {fileID: 11400000, guid: d4b0c6206bd307c4aa807d3feb755d11, type: 2}
+  conditionalBranches: []

@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientTypeSO
   type: 3
   weight: 1
+  personality: 5
   variants:
   - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
+  impatientLines: []
+  satisfiedLines: []
+  angryLines: []
