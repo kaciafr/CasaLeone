@@ -101,8 +101,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6178390004968168582}
   - component: {fileID: 2333630288019045483}
+  - component: {fileID: 7612755447265018883}
   - component: {fileID: 2813519519393844947}
-  - component: {fileID: 1661005117658652980}
   - component: {fileID: 5971516134658860375}
   - component: {fileID: 5130363955172495558}
   m_Layer: 0
@@ -153,6 +153,21 @@ NavMeshAgent:
   m_BaseOffset: 0.49
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7612755447265018883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175802198374922146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e978798fad814ad4b110e4c5bd61d773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Clients.ClientController
+  maxBoredTime: 30
+  <Movement>k__BackingField: {fileID: 2813519519393844947}
+  <ClientData>k__BackingField: {fileID: 11400000, guid: 8dc2958abc34ba346a6834156b958cad, type: 2}
 --- !u!114 &2813519519393844947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,33 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c304c97722b21c343b547e2e5b734feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pnjMove
-  logic: 0
-  target: {fileID: 0}
-  clientData: {fileID: 11400000, guid: 8dc2958abc34ba346a6834156b958cad, type: 2}
-  player: {fileID: 3175802198374922146}
+  <Controller>k__BackingField: {fileID: 7612755447265018883}
   agent: {fileID: 2333630288019045483}
-  updateSpeed: 0.1
-  reflexionTime: 2
-  whaitingTime: 360
-  eatTime: 2
-  whatTheyWhant: {fileID: 0}
-  mySeat: {fileID: 0}
---- !u!114 &1661005117658652980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175802198374922146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc670e561ed088248ab0bd19917b0464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UiPnj
-  pnj: {fileID: 2813519519393844947}
-  whantOrder: {fileID: 4496635033675134670}
-  whaitOrder: {fileID: 6539079774742125460}
-  checkUI: {fileID: 1051919778900613159}
 --- !u!54 &5971516134658860375
 Rigidbody:
   m_ObjectHideFlags: 0

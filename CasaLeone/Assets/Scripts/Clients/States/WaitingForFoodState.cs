@@ -1,6 +1,7 @@
 using Players;
 using Players.Inventories;
 using Restaurants;
+using UnityEngine;
 
 namespace Clients.States
 {
@@ -15,6 +16,7 @@ namespace Clients.States
 
 		public void Enter(ClientController controller)
 		{
+			Debug.Log("Entering waiting for food");
 		}
 
 		public void Exit(ClientController controller)
@@ -27,7 +29,6 @@ namespace Clients.States
 
 		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
-			//TODO passer par le player
 			Inventory inventory = globalPlayer.Inventory;
 			
 			if (inventory.Contains(dish))

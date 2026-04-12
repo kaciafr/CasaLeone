@@ -187,15 +187,6 @@
             "id": "1f668267-2562-41ac-8366-6c9c8d5ab72d",
             "actions": [
                 {
-                    "name": "NavigationUI",
-                    "type": "Value",
-                    "id": "f62818a9-b86b-49a3-88b4-f686f4578f3e",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Validate",
                     "type": "Button",
                     "id": "52b6a402-e4ff-4faa-851f-2243ef9bc230",
@@ -224,61 +215,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "2D Vector",
-                    "id": "d67feb3f-6ec9-47ad-b60e-92bac1f592c5",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavigationUI",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "e9c964ab-ca58-40b9-8ea4-c191f59b7c92",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavigationUI",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "06530997-f3e8-4add-ab57-9d30c7c7cd7e",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavigationUI",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "d8a6c968-917c-4bf6-bbcb-c954f48b2bfb",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavigationUI",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "3b36e213-52d1-49b4-9611-5aa991694fc4",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavigationUI",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "",
                     "id": "1a447311-a8dc-4fb1-bc3b-467f68a1014a",

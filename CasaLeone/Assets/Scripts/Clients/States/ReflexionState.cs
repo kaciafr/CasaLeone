@@ -1,5 +1,6 @@
 using System;
 using Players;
+using Players.Inventories;
 using Restaurants;
 using UnityEngine;
 
@@ -28,6 +29,7 @@ namespace Clients.States
 		
 		public void Enter(ClientController controller)
 		{
+			Debug.Log("Entering ReflexionState");
 			Dish = Restaurant.Instance.GetRandomDish();
 			CurrentReflexionTime = 0;
 		}
@@ -41,9 +43,12 @@ namespace Clients.States
 		{
 			bool wasReady = IsReady;
 			CurrentReflexionTime += deltaTime;
-			
-			if(!wasReady && IsReady)
+
+			if (!wasReady && IsReady)
+			{
 				OnReady?.Invoke();
+				Debug.Log("ImReady");	
+			}
 			
 			if (IsReady && CurrentReflexionTime >= maxBoredTime)
 			{
@@ -54,11 +59,20 @@ namespace Clients.States
 
 		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
+			Command command =  new Command();
+			
+			command.dish = Dish;
+			command.client =  controller;
+			
+			Restaurant.Instance.AddCommand(command);
 			if (IsReady)
 			{
 				WaitingForFoodState waitingForFoodState = new WaitingForFoodState(Dish);
+				Debug.Log($"Interacting with {controller}");
 				controller.GoTo(waitingForFoodState);
 			}
 		}
+
+		
 	}
 }

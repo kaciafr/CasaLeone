@@ -256,17 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c304c97722b21c343b547e2e5b734feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pnjMove
-  logic: 0
-  target: {fileID: 0}
-  clientData: {fileID: 11400000, guid: 3dc5eb89fd97f9f44a4eb3e08612a165, type: 2}
-  player: {fileID: 3786077069403723191}
+  <Controller>k__BackingField: {fileID: 4664773851849012177}
   agent: {fileID: 28528579419952385}
-  updateSpeed: 0.1
-  reflexionTime: 2
-  whaitingTime: 360
-  eatTime: 2
-  whatTheyWhant: {fileID: 0}
-  mySeat: {fileID: 0}
 --- !u!114 &4664773851849012177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,13 +267,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3786077069403723191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc670e561ed088248ab0bd19917b0464, type: 3}
+  m_Script: {fileID: 11500000, guid: e978798fad814ad4b110e4c5bd61d773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiPnj
-  pnj: {fileID: 2649967612647691563}
-  whantOrder: {fileID: 946092717022919330}
-  whaitOrder: {fileID: 5734546876946781637}
-  checkUI: {fileID: 1425180101768354024}
+  maxBoredTime: 30
+  <Movement>k__BackingField: {fileID: 2649967612647691563}
+  <ClientData>k__BackingField: {fileID: 11400000, guid: 3dc5eb89fd97f9f44a4eb3e08612a165, type: 2}
 --- !u!54 &8986782825590913901
 Rigidbody:
   m_ObjectHideFlags: 0

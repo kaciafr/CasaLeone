@@ -1,15 +1,19 @@
 using System;
+using System.Collections;
 using Clients.States;
 using Players;
+using Players.Interaction;
 using PnjWaves;
 using Restaurants;
 using UnityEngine;
 
 namespace Clients
 {
-	public class ClientController : MonoBehaviour
+	public class ClientController : MonoBehaviour,IInteractable
 	{
 		public event Action<IClientState> OnStateChanged;
+		[SerializeField]
+		public float maxBoredTime = 5f; 
 		
 		[field: SerializeField]
 		public ClientMovement Movement { get; private set; }
@@ -21,7 +25,7 @@ namespace Clients
 		public WaveProfile WaveProfile { get; private set; }
 		
 		
-		private void Start()
+		private void Awake()
 		{
 			CurrentState = new WaitingState();
 		}
@@ -54,10 +58,10 @@ namespace Clients
 
 		public void Interact(GlobalPlayer globalPlayer)
 		{
-			
 			if(CurrentState is IInteractableClientState interactableState)
 				interactableState.Interact(this, globalPlayer);
 		}
+		
 
 		public ClientSeat GetClientSeat()
 		{

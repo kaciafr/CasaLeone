@@ -1,9 +1,5 @@
-using System;
-using Clients.States;
-using Players;
-using PnjWaves;
-using Restaurants;
-using Restaurants.UI;
+
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +11,7 @@ namespace Clients
         [field: SerializeField]
         public ClientController Controller { get; private set; }
         
+
         [SerializeField]
         private NavMeshAgent agent;
 
@@ -23,6 +20,11 @@ namespace Clients
             agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
         }
+
+        private void Start()
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
         
         public void ClearDestination()
         {
@@ -30,15 +32,14 @@ namespace Clients
         }
         
         public void SetDestination(Transform destination)
-        {
-            SetDestination(destination.position);
+        { 
+            agent.SetDestination(destination.position);
         }
 
         public void SetDestination(Vector3 destination)
         {
             agent.SetDestination(destination);
         }
-
         public bool HasArrived()
         {
             return agent.remainingDistance <= agent.stoppingDistance;

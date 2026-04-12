@@ -1,4 +1,5 @@
 using Restaurants;
+using UnityEngine;
 
 namespace Clients.States
 {
@@ -14,6 +15,7 @@ namespace Clients.States
 		public void Enter(ClientController controller)
 		{
 			controller.Movement.SetDestination(Seat.transform);
+			Debug.Log(Seat.transform.position);
 		}
 
 		public void Exit(ClientController controller)
@@ -25,7 +27,7 @@ namespace Clients.States
 		{
 			if (controller.Movement.HasArrived())
 			{
-				ReflexionState reflexionState = new ReflexionState(20, 60);
+				ReflexionState reflexionState = new ReflexionState(10, 30);
 				controller.GoTo(reflexionState);
 			}
 		}

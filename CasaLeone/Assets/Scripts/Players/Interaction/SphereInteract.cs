@@ -1,3 +1,5 @@
+using Clients;
+using Clients.States;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +14,7 @@ namespace Players.Interaction
 		
 		public void OnInteractInput(InputAction.CallbackContext context)
 		{
+			
 			if (current != null && context.performed)
 			{
 				current.Interact(globalPlayer);
@@ -32,7 +35,6 @@ namespace Players.Interaction
 			{
 				if (current == interactable)
 				{
-					current.EndInteraction();
 					current = null;
 				}
 			}

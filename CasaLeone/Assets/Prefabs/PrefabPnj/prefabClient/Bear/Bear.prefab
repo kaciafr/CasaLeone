@@ -101,9 +101,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2888418869068703364}
   - component: {fileID: 758287293260595986}
-  - component: {fileID: 1522410516546904170}
   - component: {fileID: 3477194369061405705}
   - component: {fileID: 78781428575645158}
+  - component: {fileID: -5440168994443541249}
+  - component: {fileID: 2313450107893602997}
   m_Layer: 0
   m_Name: Bear
   m_TagString: PNJ
@@ -152,20 +153,6 @@ NavMeshAgent:
   m_BaseOffset: 0.49
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1522410516546904170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2224562426785233550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c304c97722b21c343b547e2e5b734feb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::pnjMove
-  <Controller>k__BackingField: {fileID: 0}
-  agent: {fileID: 758287293260595986}
 --- !u!54 &3477194369061405705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,6 +201,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 10.576513}
   m_Center: {x: 0, y: 0, z: 0.73672986}
+--- !u!114 &-5440168994443541249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2224562426785233550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c304c97722b21c343b547e2e5b734feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Clients.ClientMovement
+  <Controller>k__BackingField: {fileID: 2313450107893602997}
+  agent: {fileID: 758287293260595986}
+--- !u!114 &2313450107893602997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2224562426785233550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e978798fad814ad4b110e4c5bd61d773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Clients.ClientController
+  maxBoredTime: 30
+  <Movement>k__BackingField: {fileID: -5440168994443541249}
+  <ClientData>k__BackingField: {fileID: 11400000, guid: 19bfa11f17eac324faea8152be0a80b3, type: 2}
 --- !u!1 &3270949662711628317
 GameObject:
   m_ObjectHideFlags: 0

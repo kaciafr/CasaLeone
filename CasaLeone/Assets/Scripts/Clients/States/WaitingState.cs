@@ -5,14 +5,16 @@ namespace Clients.States
 {
 	public class WaitingState : IClientState
 	{
-		private readonly float maxBoredTime;
+		private float maxBoredTimed;
 		
 		private float currentBoredTime;
-		private bool isBored => currentBoredTime > maxBoredTime;
+		private bool IsBored => currentBoredTime > maxBoredTimed;
 		public void Enter(ClientController controller)
 		{
 			
 			currentBoredTime = 0;
+			maxBoredTimed = controller.maxBoredTime;
+			controller.Movement.SetDestination(Restaurant.Instance.OutSide.transform.position);
 		}
 
 		public void Exit(ClientController controller)
@@ -23,20 +25,25 @@ namespace Clients.States
 		public void Update(ClientController controller, float deltaTime)
 		{
 			currentBoredTime += deltaTime;
-			
-			if (isBored)
+			//TODO Regler l'attente
+			/*if (IsBored)
 			{
 				LeavingState leavingState = new LeavingState(true);
 				controller.GoTo(leavingState);
-			}
-			
+			}*/
+
 			if (Restaurant.Instance.TryFindTable(out ClientTable table))
 			{
 				if (table.TryGetSeat(out ClientSeat seat))
 				{
+					seat.Reserve(controller);
 					GoingToSeatState state = new GoingToSeatState(seat);
 					controller.GoTo(state);
 				}
+			}
+			else
+			{
+				controller.Movement.SetDestination(Restaurant.Instance.OutSide.position);
 			}
 		}
 	}
