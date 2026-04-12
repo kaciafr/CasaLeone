@@ -60,15 +60,14 @@ namespace Clients.States
 		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
 			Command command =  new Command();
-			
 			command.dish = Dish;
 			command.client =  controller;
 			
-			Restaurant.Instance.AddCommand(command);
 			if (IsReady)
 			{
-				WaitingForFoodState waitingForFoodState = new WaitingForFoodState(Dish);
+				WaitingForFoodState waitingForFoodState = new WaitingForFoodState(command.dish);
 				Debug.Log($"Interacting with {controller}");
+				Restaurant.Instance.AddCommand(command);
 				controller.GoTo(waitingForFoodState);
 			}
 		}

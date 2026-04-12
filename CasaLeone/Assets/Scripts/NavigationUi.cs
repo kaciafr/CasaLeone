@@ -15,7 +15,7 @@ public class NavigationUi :  MonoBehaviour
 	
 	private void Start()
 	{
-		index = 0;
+		index = -1;
 		if (DishsSelected != null && DishsSelected.Length > 0)
 			SelectButton();
 	}

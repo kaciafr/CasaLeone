@@ -78,7 +78,7 @@ namespace Restaurants
 		public void AddCommand(Command command)
 		{
 			commands.Add(command);
-			OnCommandAdded?.Invoke(command);
+			//OnCommandAdded?.Invoke(command);
 		}
 
 		public void RemoveCommand(Command command)

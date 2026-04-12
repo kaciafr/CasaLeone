@@ -16,7 +16,7 @@ namespace Clients.States
 
 		public void Enter(ClientController controller)
 		{
-			Debug.Log("Entering waiting for food");
+			Debug.Log($"{controller} Veut Graille Violent");
 		}
 
 		public void Exit(ClientController controller)
@@ -30,7 +30,7 @@ namespace Clients.States
 		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
 			Inventory inventory = globalPlayer.Inventory;
-			
+			Debug.Log($"{controller} veut pas bouffer");
 			if (inventory.Contains(dish))
 			{
 				inventory.RemoveDish(dish);
