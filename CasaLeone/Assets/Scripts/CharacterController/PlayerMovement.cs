@@ -1,40 +1,45 @@
+using System;
 using System.Collections;
 using CharacterController;
 using DG.Tweening;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Singleton<PlayerMovement>
 {
     public MovementState movementState;
 
-    [SerializeField] private Collider feetCol;  
-    [SerializeField] private Collider bodyCol;  
-    private Rigidbody rb;                        
+    [SerializeField] private Collider feetCol;
+    [SerializeField] private Collider bodyCol;
+    private Rigidbody rb;
 
     [SerializeField] private InputManager _input;
 
-    private Vector3 moveVelocity;               
-    private bool isFacingRight = true;
+    private Vector3 _moveVelocity;
+    private bool _isFacingRight = true;
 
-    private RaycastHit groundHit;                
-    private bool isGrounded;
-    public bool IsGroundedState => isGrounded;
+    private RaycastHit _groundHit;
+    private bool _isGrounded;
+    public bool IsGroundedState => _isGrounded;
 
-    private bool isDropping = false;
-    private Collider currentPlatformCollider;
-    private Collider lastKnownPlatformCollider;
+    private bool _isDropping = false;
+    private Collider _currentPlatformCollider;
+    private Collider _lastKnownPlatformCollider;
+    public float multiplier = 1f;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;                   
+        rb.useGravity = false;
         Turn(true);
     }
+
+
 
     private void Update()
     {
 
-        if (_input.IsDroppingThisFrame && lastKnownPlatformCollider != null)
+        if (_input.IsDroppingThisFrame && _lastKnownPlatformCollider != null)
         {
             StartCoroutine(DropThroughPlatform());
         }
@@ -45,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         CollisionCheck();
         Gravity();
 
-        if (isGrounded)
+        if (_isGrounded)
             Move(movementState.GroundAcceleration, movementState.GroundDeceleration, _input.Movement);
         else
             Move(movementState.AirAcceleration, movementState.AirDeceleration, _input.Movement);
@@ -60,29 +65,29 @@ public class PlayerMovement : MonoBehaviour
             TurnCheck(moveInput);
 
             Vector3 targetVelocity = new Vector3(moveInput.x, 0f, 0f) *
-                                     (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed);
+                                     (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed * multiplier);
 
-            moveVelocity = Vector3.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+            _moveVelocity = Vector3.Lerp(_moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
         }
         else
         {
-            moveVelocity = Vector3.Lerp(moveVelocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
+            _moveVelocity = Vector3.Lerp(_moveVelocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
         }
 
-        rb.linearVelocity = new Vector3(moveVelocity.x, rb.linearVelocity.y, 0f); 
+        rb.linearVelocity = new Vector3(_moveVelocity.x, rb.linearVelocity.y, 0f); 
     }
 
     public void TurnCheck(Vector2 moveInput)
     {
-        if (isFacingRight && moveInput.x < 0)
+        if (_isFacingRight && moveInput.x < 0)
             Turn(false);
-        else if (!isFacingRight && moveInput.x > 0)
+        else if (!_isFacingRight && moveInput.x > 0)
             Turn(true);
     }
 
     public void Turn(bool turnRight)
     {
-        isFacingRight = turnRight;
+        _isFacingRight = turnRight;
         Vector3 scale = transform.localScale;
         scale.x = turnRight ? -Mathf.Abs(scale.x) : Mathf.Abs(scale.x);
         transform.localScale = scale;
@@ -94,27 +99,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void CollisionCheck()
     {
-        if (isDropping)
+        if (_isDropping)
         {
-            isGrounded = false;
-            currentPlatformCollider = null;
+            _isGrounded = false;
+            _currentPlatformCollider = null;
             return;
         }
 
         Vector3 boxCastOrigin = new Vector3(feetCol.bounds.center.x, feetCol.bounds.min.y, feetCol.bounds.center.z);
         Vector3 boxCastSize   = new Vector3(feetCol.bounds.size.x, movementState.GroundDetectionRayLength, feetCol.bounds.size.z);
 
-        isGrounded = Physics.BoxCast(
+        _isGrounded = Physics.BoxCast(
             boxCastOrigin,
             boxCastSize * 0.5f,            
             Vector3.down,
-            out groundHit,
+            out _groundHit,
             Quaternion.identity,
             movementState.GroundDetectionRayLength,
             movementState.GroundLayer
         );
 
-        currentPlatformCollider = null;
+        _currentPlatformCollider = null;
 
         RaycastHit[] hits = Physics.BoxCastAll(
             boxCastOrigin,
@@ -128,9 +133,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit.collider.CompareTag("Platform"))
             {
-                currentPlatformCollider = hit.collider;
-                lastKnownPlatformCollider = hit.collider;
-                isGrounded = true;
+                _currentPlatformCollider = hit.collider;
+                _lastKnownPlatformCollider = hit.collider;
+                _isGrounded = true;
                 break;
             }
         }
@@ -139,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Gravity()
     {
-        if (isGrounded && !isDropping)
+        if (_isGrounded && !_isDropping)
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z); 
             return;
@@ -160,13 +165,13 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator DropThroughPlatform()
     {
 
-        if (lastKnownPlatformCollider == null)
+        if (_lastKnownPlatformCollider == null)
         {
             yield break;
         }
 
-        Collider platformToIgnore = lastKnownPlatformCollider;
-        isDropping = true;
+        Collider platformToIgnore = _lastKnownPlatformCollider;
+        _isDropping = true;
 
 
         Physics.IgnoreCollision(bodyCol, platformToIgnore, true);
@@ -177,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
         Physics.IgnoreCollision(bodyCol, platformToIgnore, false);
         Physics.IgnoreCollision(feetCol, platformToIgnore, false);
 
-        isDropping = false;
+        _isDropping = false;
 
     }
 
