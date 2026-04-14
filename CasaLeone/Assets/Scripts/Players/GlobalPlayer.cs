@@ -11,20 +11,10 @@ namespace Players
 		[field: SerializeField]
 		public Inventory Inventory { get; private set; }
 
-		private void Start()
+		private void Awake()
 		{
 			Inventory = new Inventory();
 		}
-
-		public void AddDishClent(Dish dish)
-		{
-			Inventory.AddDish(dish);
-		}
-		public void RemoveDishClient(Dish dish)
-		{
-			Inventory.RemoveDish(dish);
-		}
-
 		
 	}
 }

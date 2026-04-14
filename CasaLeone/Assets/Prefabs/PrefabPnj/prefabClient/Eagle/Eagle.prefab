@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 7148859723656534697}
   - component: {fileID: 8810081219563964389}
   - component: {fileID: 3700612729663001403}
+  - component: {fileID: 8436905260193989008}
   m_Layer: 0
   m_Name: Eagle
   m_TagString: PNJ
@@ -503,3 +504,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 10.576513}
   m_Center: {x: 0, y: 0, z: 0.73672986}
+--- !u!114 &8436905260193989008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393712228223779219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44eee61671381845b0216b97febdc1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Clients.ClientUi
+  clientController: {fileID: 7148859723656534697}
+  clientrReflexion: {fileID: 7924476604767351731}
+  clientrTimer: {fileID: 3649058589397812553}
+  clientrCheck: {fileID: 6164076250160721844}

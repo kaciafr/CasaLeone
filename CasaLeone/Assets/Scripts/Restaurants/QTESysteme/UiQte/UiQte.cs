@@ -58,7 +58,6 @@ namespace Restaurants.QTESysteme.UiQte
 
 		private void ChooseFood(Dish food)
 		{
-			Debug.Log("ChooseFood");
 			pizza.SetActive(true);
 			salade.SetActive(true);
 			pates.SetActive(true);
@@ -73,7 +72,6 @@ namespace Restaurants.QTESysteme.UiQte
 			
 			timerBars.SetActive(true);
 
-			Debug.Log("Generete arrow");
 			foreach (Transform child in arrowContainer)
 				Destroy(child.gameObject);
 		

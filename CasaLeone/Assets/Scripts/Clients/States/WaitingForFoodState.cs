@@ -7,11 +7,13 @@ namespace Clients.States
 {
 	public class WaitingForFoodState : IInteractableClientState
 	{
+		public readonly Command commanded;
 		public readonly Dish dish;
 
-		public WaitingForFoodState(Dish dish)
+		public WaitingForFoodState(Command command,Dish dishs)
 		{
-			this.dish = dish;
+			this.commanded = command;
+			this.dish = dishs;
 		}
 
 		public void Enter(ClientController controller)
@@ -30,11 +32,12 @@ namespace Clients.States
 		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
 			Inventory inventory = globalPlayer.Inventory;
-			Debug.Log($"{controller} veut pas bouffer");
+			
 			if (inventory.Contains(dish))
 			{
 				inventory.RemoveDish(dish);
-				EatingState eatingState = new EatingState(maxEatingTime:20);
+				Restaurant.Instance.RemoveCommand(commanded);
+				EatingState eatingState = new EatingState(20);
 				controller.GoTo(eatingState);
 			}
 		}

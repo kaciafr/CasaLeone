@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Players;
+using Players.Inventories;
 using TestCharacterMovement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -41,7 +42,7 @@ namespace Restaurants.QTESysteme
 		[HideInInspector] public float delay;
 		private int currentIndex = 0;
 		private bool isStarted = false;
-	
+
 		public void StartSequence()
 		{
 			playerInput.SwitchCurrentActionMap("UI");
@@ -149,13 +150,15 @@ namespace Restaurants.QTESysteme
 
 		void Success()
 		{
+			Inventory inventory = playerInventory.Inventory;
+
 			qteStart = false;
 			isStarted = false;
 			player.enabled = true;
 			playerInput.SwitchCurrentActionMap("Player");
 			Debug.Log("SUCCESS");
 			onSuccess?.Invoke();
-			playerInventory.AddDishClent(winGift);
+			inventory.AddDish(winGift);
 			winGift = null;
 		}
 

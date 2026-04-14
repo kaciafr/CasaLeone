@@ -65,7 +65,7 @@ namespace Clients.States
 			
 			if (IsReady)
 			{
-				WaitingForFoodState waitingForFoodState = new WaitingForFoodState(command.dish);
+				WaitingForFoodState waitingForFoodState = new WaitingForFoodState(command,command.dish);
 				Debug.Log($"Interacting with {controller}");
 				Restaurant.Instance.AddCommand(command);
 				controller.GoTo(waitingForFoodState);
