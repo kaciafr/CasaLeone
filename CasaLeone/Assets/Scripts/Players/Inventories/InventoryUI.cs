@@ -22,14 +22,12 @@ namespace Players.Inventories
 
 		private void OnDisable()
 		{
-			Debug.LogError(inventory);
 			inventory.OnDishAdded -= AddUi;
 			inventory.OnDishRemoved -= RemoveUi;
 		}
 
 		public void AddUi(Dish obj)
 		{
-			Debug.LogError("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 			GameObject item = Instantiate(itemPrefab, itemContainer);
 			ItemUI image = item.GetComponent<ItemUI>();
 			image.Init(obj);
