@@ -16,7 +16,6 @@ namespace Restaurants.UI
 		private CommandUI prefab;
 		
 		private Dictionary<Command, CommandUI> commandUis;
-
 		private ClientTypeSO client;
 
 		private void Awake()
@@ -41,15 +40,29 @@ namespace Restaurants.UI
 			CommandUI ui = Instantiate(prefab, container);
 			ui.Init(command);
 			commandUis[command] = ui;
+			PlayAnimation(ui, true);
 		}
-		
 		private void RemoveCommandUI(Command command)
 		{
 			if (commandUis.Remove(command, out CommandUI ui))
 			{
-				Destroy(ui.gameObject);
+				PlayAnimation(ui,false);
 			}
 		}
+		private void PlayAnimation(CommandUI moveUI, bool show)
+		{
+			RectTransform rect = moveUI.GetComponent<RectTransform>();
 
+			if (show)
+			{
+				rect.pivot = new Vector2(0.5f, 1f);
+				rect.localScale = new Vector3(1f, 0f, 1f);
+				rect.DOScaleY(1f, 0.8f).SetEase(Ease.OutBounce);
+			}
+			else
+			{
+				rect.DOScaleY(0f, 0.4f).SetEase(Ease.InCubic).OnComplete(() => Destroy(rect.gameObject));
+			}
+		}
 	}
 }

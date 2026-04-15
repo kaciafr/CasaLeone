@@ -1,4 +1,5 @@
 using Clients.States;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Clients
@@ -30,11 +31,46 @@ namespace Clients
             clientController.OnStateChanged -= UiChanged;
         }
 
+        private ReflexionState currentReflexion;
+
         private void UiChanged(IClientState clientState)
         {
-            clientrReflexion.SetActive(clientState is ReflexionState);
-            clientrTimer.SetActive(clientState is WaitingForFoodState);
-            clientrCheck.SetActive(clientState is CheckingState);
+            if (currentReflexion != null)
+            {
+                currentReflexion.OnReady -= OnClientReady;
+                currentReflexion = null;
+            }
+
+            if (clientState is ReflexionState reflexion)
+            {
+                currentReflexion = reflexion;
+                currentReflexion.OnReady += OnClientReady;
+                clientrReflexion.SetActive(true);
+                clientrReflexion.transform.localScale = Vector3.zero; 
+            }
+            else clientrReflexion.SetActive(false);
+
+            if (clientState is WaitingForFoodState)
+            {
+                clientrTimer.SetActive(true);
+                clientrTimer.transform.localScale = Vector3.zero; 
+                clientrTimer.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
+            }
+            else clientrTimer.SetActive(false);
+
+            if (clientState is CheckingState)
+            {
+                clientrCheck.SetActive(true);
+                clientrCheck.transform.localScale = Vector3.zero; 
+                clientrCheck.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
+            }
+            else clientrCheck.SetActive(false);
+        }
+
+        private void OnClientReady()
+        {
+            clientrReflexion.transform.localScale = Vector3.zero;
+            clientrReflexion.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
         }
     }
 }

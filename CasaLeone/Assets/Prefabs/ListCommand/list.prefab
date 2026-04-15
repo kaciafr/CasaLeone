@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5329277617809526315}
   - component: {fileID: 2650999270973488029}
   - component: {fileID: 9111894851713564816}
-  - component: {fileID: -9223092797630450256}
+  - component: {fileID: 2035838761443358491}
   m_Layer: 5
   m_Name: list
   m_TagString: Untagged
@@ -91,10 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967fbbe778df0e94895ee3c5b7f530cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CommandUi
-  pnjMove: {fileID: 0}
+  clientController: {fileID: 0}
   iconPNJ: {fileID: 8642540345104609124}
   order: {fileID: 8342751650684443469}
---- !u!114 &-9223092797630450256
+--- !u!114 &2035838761443358491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,12 +103,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3475803713038246406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3ec6d44a45f134cad89299044ad17b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationList
-  listPrefab: {fileID: 0}
-  duration: 0.5
-  mooveY: 10
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &6423214442292083313
 GameObject:
   m_ObjectHideFlags: 0

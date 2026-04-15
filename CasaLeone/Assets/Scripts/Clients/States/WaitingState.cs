@@ -5,7 +5,7 @@ namespace Clients.States
 {
 	public class WaitingState : IClientState
 	{
-		private float maxBoredTimed;
+		private float maxBoredTimed = 5f;
 		
 		private float currentBoredTime;
 		private bool IsBored => currentBoredTime > maxBoredTimed;
@@ -25,12 +25,13 @@ namespace Clients.States
 		public void Update(ClientController controller, float deltaTime)
 		{
 			currentBoredTime += deltaTime;
-			//TODO Regler l'attente
-			/*if (IsBored)
+			
+			if (IsBored)
 			{
 				LeavingState leavingState = new LeavingState(true);
 				controller.GoTo(leavingState);
-			}*/
+				return;
+			}
 
 			if (Restaurant.Instance.TryFindTable(out ClientTable table))
 			{

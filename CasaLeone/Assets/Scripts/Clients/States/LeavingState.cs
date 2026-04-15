@@ -15,27 +15,23 @@ namespace Clients.States
 
 		public void Enter(ClientController controller)
 		{
+			controller.Movement.SetDestination(Restaurant.Instance.Exit);
 			if (IsAngry)
 				Restaurant.Instance.AddOrRemoveStress(5);
 			else
 				Restaurant.Instance.AddOrRemoveStress(-2);
-
-			controller.Movement.SetDestination(Restaurant.Instance.Exit);
-			
-			
 		}
 
 		public void Exit(ClientController controller)
 		{
-			controller.Despawn();
+			if(controller.Movement.HasArrived())
+				controller.Despawn();
 		}
 
 		public void Update(ClientController controller, float deltaTime)
 		{
-			
 			if (controller.Movement.HasArrived())
 				controller.GoTo(null);
-			
 		}
 	}
 }
