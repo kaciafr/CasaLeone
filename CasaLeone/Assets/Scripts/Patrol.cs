@@ -1,66 +1,69 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Patrol : MonoBehaviour
 {
-    public Transform[] waypoints;
-    private int _currentwaypointIndex = 0;
-    private readonly float _speed = 2f;
-    private readonly float _waitTime = 0f;
-    private float _waitCounter = 0f;
-    private bool _waiting = false;
-    public static PlayerMovement Instance { get; private set; }
+    public NavMeshAgent agent;
+    public float range;
+    public Transform centrePoint;
     
+    private SpriteRenderer _spriteRenderer;
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            PlayerMovement.Instance.multiplier = 0.3f;
-        }
+        agent = GetComponent<NavMeshAgent>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            PlayerMovement.Instance.multiplier = 1f;
-        }
-    }
-
 
     void Update()
     {
-        if (_waiting)
+        transform.position = new Vector3(
+            transform.position.x, 
+            transform.position.y, 
+            0f
+        );
+
+        // ===== FLIP =====
+        if (agent.velocity.x > 0.1f)
+            _spriteRenderer.flipX = false;
+        else if (agent.velocity.x < -0.1f)
+            _spriteRenderer.flipX = true; 
+
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            _waitCounter += Time.deltaTime;
-            if (_waitCounter < _waitTime)
-                return;
-            _waiting = false;
+            Vector3 point;
+            if (RandomPoint(centrePoint.position, range, out point))
+            {
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
+                agent.SetDestination(point);
+            }
+        }
+    }
+
+    bool RandomPoint(Vector3 center, float range, out Vector3 result)
+    {
+        Vector2 randomCircle = Random.insideUnitCircle * range;
+        Vector3 randomPoint = new Vector3(
+            center.x + randomCircle.x,
+            center.y + randomCircle.y,
+            0f
+        );
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+        {
+            result = new Vector3(hit.position.x, hit.position.y, 0f);
+            return true;
         }
 
-        Transform wp = waypoints[_currentwaypointIndex];
-
-        if (Vector2.Distance(transform.position, wp.position) < 0.01f)
-        {
-            transform.position = wp.position;
-            _waitCounter = 0f;
-            _waiting = true;
-            _currentwaypointIndex = (_currentwaypointIndex + 1) % waypoints.Length;
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                wp.position,
-                Time.deltaTime * _speed
-            );
-
-            Vector2 direction = (wp.position - transform.position).normalized;
-            if (direction.x < 0)
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            else
-                transform.localScale = new Vector3(1f, 1f, 1f);  // droite
-        }
+        result = Vector3.zero;
+        return false;
+        
+        
     }
 }
