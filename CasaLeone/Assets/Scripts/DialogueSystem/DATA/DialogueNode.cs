@@ -6,20 +6,36 @@ namespace DialogueSystem.DATA
     [CreateAssetMenu(fileName = "New Dialogue Node", menuName = "Dialogue/Dialogue Node")]
     public class DialogueNode : ScriptableObject
     {
-        [Header("Speaker")]
-        public string speakerName;
-        public Sprite portrait;
+        [Header("Dialogue Text")]
+        [TextArea(2, 5)]
+        public string dialogueText;
 
-        [Header("Sprite Sequence")]
- 
-        public List<GameObject> spritePrefabs;
+        public float autoAdvanceDelay = 7f;
 
-        [Header("Choices")]
-        public List<DialogueChoice> choices;
-
-        [Header("Auto Next (if no choices)")]
         public DialogueNode nextNode;
 
-        public bool endsConversation;
+        [Header("Conditions pour la suite (vide si c'est uen fin de conv)")]
+        public List<ConditionalBranch> conditionalBranches;
+
+        public DialogueNode ResolveNextNode()
+        {
+            if (conditionalBranches != null)
+                foreach (var branch in conditionalBranches)
+                    if (!string.IsNullOrEmpty(branch.conditionID) &&
+                        ConditionManager.CheckCondition(branch.conditionID))
+                        return branch.branchNode;
+
+            return nextNode;
+        }
+    }
+
+    [System.Serializable]
+    public class ConditionalBranch
+    {
+        [Tooltip("ID de la condition a verifier")]
+        public string conditionID;
+
+        [Tooltip("Node affiché si la condition est vraie. Vide = fin de conversation.")]
+        public DialogueNode branchNode;
     }
 }

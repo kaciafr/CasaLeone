@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueConversation
   conversationID: C3
   startingNode: {fileID: 11400000, guid: 2cc52647d09dd4e419ad39b553aa9845, type: 2}
-  canRepeat: 0
+  canRepeat: 1

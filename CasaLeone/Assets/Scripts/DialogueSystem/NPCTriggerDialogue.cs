@@ -6,48 +6,77 @@ namespace DialogueSystem
 {
     public class NPCTriggerDialogue : MonoBehaviour
     {
-        private DialogueTrigger dialogueTrigger;
-        private bool playerInRange;
+        private DialogueTrigger _dialogueTrigger;
+        private bool            _playerInRange;
 
-        [Header("Servir")]
-        public string requiredConditionID = "";
-        public bool resetConditionAfter = true;
+        [Header("Condition déclenchée à la fin (optionnel)")]
+        public string triggerConditionOnEnd = "";
 
         void Start()
         {
-            dialogueTrigger = GetComponent<DialogueTrigger>();
+            _dialogueTrigger = GetComponent<DialogueTrigger>();
         }
 
         void Update()
         {
-            if (!playerInRange) return;
             if (!Input.GetKeyDown(KeyCode.E)) return;
 
-            DialogueConversation conv = dialogueTrigger.conversation;
+            if (DialogueManager.Instance.IsInConversation)
+            {
+                DialogueManager.Instance.PlayerAdvance();
+                return;
+            }
+
+            if (!_playerInRange) return;
+
+            DialogueConversation conv = _dialogueTrigger?.conversation;
             if (conv == null) return;
 
             if (!conv.canRepeat && ConditionManager.CheckCondition(conv.conversationID + "_done"))
                 return;
 
-            DialogueManager.Instance.StartConversation(conv, requiredConditionID, OnThisConversationEnded);
+            StartDialogue(conv);
         }
 
-        void OnThisConversationEnded()
+        // ── Déclenchement par script externe ─────────────────────────────────
+
+        public void TriggerDialogue(DialogueConversation conversation)
         {
-            if (resetConditionAfter && requiredConditionID != "")
-            {
-                ConditionManager.SetCondition(requiredConditionID, false);
-            }
+            if (conversation == null) return;
+            if (DialogueManager.Instance.IsInConversation) return;
+            StartDialogue(conversation);
         }
+
+        public void TriggerDialogue(DialogueConversation conversation, System.Action onEnded)
+        {
+            if (conversation == null) return;
+            if (DialogueManager.Instance.IsInConversation) return;
+            DialogueManager.Instance.StartConversation(conversation, transform, "", onEnded);
+        }
+
+        // ── Privé ─────────────────────────────────────────────────────────────
+
+        void StartDialogue(DialogueConversation conversation)
+        {
+            DialogueManager.Instance.StartConversation(conversation, transform, "", OnConversationEnded);
+        }
+
+        void OnConversationEnded()
+        {
+            if (!string.IsNullOrEmpty(triggerConditionOnEnd))
+                ConditionManager.SetCondition(triggerConditionOnEnd, true);
+        }
+
+        // 3D ──────────────────────────────────────────────────────────────────
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player")) playerInRange = true;
+            if (other.CompareTag("Player")) _playerInRange = true;
         }
 
         void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Player")) playerInRange = false;
+            if (other.CompareTag("Player")) _playerInRange = false;
         }
     }
 }
