@@ -20,28 +20,24 @@ public class StairsZone : MonoBehaviour
 
     private bool _player1InZone = false;
     private bool _player2InZone = false;
-    private bool _isClimbing = false;
+    private bool _isPlayer1Climbing = false;
+    private bool _isPlayer2Climbing = false;
 
     private void Update()
     {
-        if (_isClimbing) return;
+        if (_player1InZone && !_isPlayer1Climbing && inputPlayer1 != null && inputPlayer1.IsInteracting)
+            SlideStairs(player1, true);
 
-        if (_player1InZone && inputPlayer1 != null && inputPlayer1.IsInteracting)
-            SlideStairs(player1);
-
-        if (_player2InZone && inputPlayer2 != null && inputPlayer2.IsInteracting)
-            SlideStairs(player2);
+        if (_player2InZone && !_isPlayer2Climbing && inputPlayer2 != null && inputPlayer2.IsInteracting)
+            SlideStairs(player2, false);
     }
 
-    private void OnTriggerEnter(Collider other)      
+    private void OnTriggerEnter(Collider other)
     {
         if (!IsPlayer(other)) return;
 
-        if (IsSpecificPlayer(other, player1))
-            _player1InZone = true;
-
-        if (IsSpecificPlayer(other, player2))
-            _player2InZone = true;
+        if (IsSpecificPlayer(other, player1)) _player1InZone = true;
+        if (IsSpecificPlayer(other, player2)) _player2InZone = true;
 
         if (climbFeedBack == null) return;
 
@@ -51,7 +47,7 @@ public class StairsZone : MonoBehaviour
         climbFeedBack.transform.DOScale(_targetScale, 0.5f).SetEase(Ease.OutBack);
     }
 
-    private void OnTriggerExit(Collider other)       
+    private void OnTriggerExit(Collider other)
     {
         if (!IsPlayer(other)) return;
 
@@ -74,12 +70,13 @@ public class StairsZone : MonoBehaviour
         exitSeq.OnComplete(() => climbFeedBack.SetActive(false));
     }
 
-    private void SlideStairs(GameObject player)
+    private void SlideStairs(GameObject player, bool isPlayer1)
     {
         if (points == null || points.Length == 0) return;
         if (player == null) return;
 
-        _isClimbing = true;
+        if (isPlayer1) _isPlayer1Climbing = true;
+        else           _isPlayer2Climbing = true;
 
         Vector3[] waypoints = new Vector3[points.Length];
         for (int i = 0; i < points.Length; i++)
@@ -101,7 +98,11 @@ public class StairsZone : MonoBehaviour
             .SetEase(Ease.Linear)
             .SetOptions(false));
 
-        stairsSeq.OnComplete(() => _isClimbing = false);
+        stairsSeq.OnComplete(() =>
+        {
+            if (isPlayer1) _isPlayer1Climbing = false;
+            else           _isPlayer2Climbing = false;
+        });
     }
 
     private bool IsPlayer(Collider other)
@@ -124,8 +125,3 @@ public class StairsZone : MonoBehaviour
         return false;
     }
 }
-
-
-// TO DO Test avec FindObeject by name  
-// 2 Tag different Player 1 / Player2 
-// 

@@ -4,7 +4,7 @@ using CharacterController;
 using DG.Tweening;
 using UnityEngine;
 
-public class PlayerMovement : Singleton<PlayerMovement>
+public class PlayerMovement : MonoBehaviour
 {
     public MovementState movementState;
 
@@ -26,9 +26,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
     private Collider _lastKnownPlatformCollider;
     public float multiplier = 1f;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         Turn(true);
