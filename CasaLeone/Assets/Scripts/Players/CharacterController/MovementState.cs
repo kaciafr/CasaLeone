@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Players.CharacterController
+namespace CharacterController
 {
     [CreateAssetMenu( menuName = "PlayerMovement ")]
     public class MovementState : ScriptableObject
