@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dd77202f236bc409ee45aeb3a10dad, type: 3}
   m_Name: Lunette
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  ID: 1
   icon: {fileID: 21300000, guid: 4fa04cfa9bc975e4bbcb75c2345377f7, type: 3}
   name: Lunette
   description: Voit pas de loin

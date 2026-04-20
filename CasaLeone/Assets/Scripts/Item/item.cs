@@ -14,6 +14,7 @@ namespace Item
 		[SerializeField] private GameObject itemPrefab;
 		[SerializeField] private Image icon;
 		[SerializeField] private TextMeshProUGUI description;
+		private bool seeOneTime = false;
 
 		private void Start()
 		{
@@ -21,14 +22,15 @@ namespace Item
 		}
 		public void Interact(GlobalPlayer globalPlayer)
 		{
-			itemPrefab.SetActive(true);
-			itemList.UpdateList(itemData);
-			icon.sprite = itemData.icon;
-			description.text = itemData.description;
-			Destroy(gameObject);
-		}
-		public void EndInteraction()
-		{
+			if (!seeOneTime)
+			{
+				icon.sprite = itemData.icon;
+				description.text = itemData.description;
+				itemPrefab.SetActive(true);
+				itemList.UpdateList(itemData);
+				Destroy(gameObject);
+				seeOneTime = true;
+			}
 		}
 	}
 }
