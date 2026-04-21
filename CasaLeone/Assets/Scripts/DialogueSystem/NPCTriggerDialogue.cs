@@ -67,14 +67,13 @@ namespace DialogueSystem
                 ConditionManager.SetCondition(triggerConditionOnEnd, true);
         }
 
-        // 3D ──────────────────────────────────────────────────────────────────
 
-        void OnTriggerEnter2D(Collider2D other)
+        void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player")) _playerInRange = true;
         }
 
-        void OnTriggerExit2D(Collider2D other)
+        void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Player")) _playerInRange = false;
         }
