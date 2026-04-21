@@ -2,6 +2,7 @@ using Players.Inventories;
 using Restaurants;
 using Restaurants.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 namespace Players
@@ -10,6 +11,8 @@ namespace Players
 	{
 		[field: SerializeField]
 		public Inventory Inventory { get; private set; }
+		
+		public PlayerInput playerMovement;
 
 		private void Awake()
 		{

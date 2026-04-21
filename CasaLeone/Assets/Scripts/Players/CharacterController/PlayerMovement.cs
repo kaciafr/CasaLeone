@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Collider bodyCol;
     private Rigidbody rb;
 
-    [SerializeField] private InputManager _input;
+    public InputManager _input;
 
     private Vector3 _moveVelocity;
     private bool _isFacingRight = true;
