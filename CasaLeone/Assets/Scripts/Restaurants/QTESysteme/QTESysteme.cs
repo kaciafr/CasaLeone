@@ -24,9 +24,9 @@ namespace Restaurants.QTESysteme
 		[SerializeField] private List<QTEKey> sequence = new List<QTEKey>();
 		public float TimerDelay;
 		public bool qteStart = false;
-		[SerializeField] private int maxSequence = 5;
-		[SerializeField] private int minSequence = 5;
-		[SerializeField] private int round = 2;
+		public int maxSequence = 5;
+		public int minSequence = 5;
+		public int round = 2;
 		[SerializeField] private PlayerInput playerInput;
 		[SerializeField] private TestPlayerController player;
 

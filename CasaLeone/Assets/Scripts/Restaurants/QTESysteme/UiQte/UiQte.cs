@@ -13,8 +13,12 @@ namespace Restaurants.QTESysteme.UiQte
 		[SerializeField] private Sprite leftArrow;
 		[SerializeField] private Sprite rightArrow;
 		private List<Image> arrows = new List<Image>();
-	
-		[Header("References")]
+
+		[Header("References")] [SerializeField]
+		private Vector3 lightShake;
+
+		[SerializeField] private Vector3 hightShake;
+		[SerializeField] private Vector3 madMawShake;
 		[SerializeField] private Image timerBar;
 		[SerializeField] private GameObject timerBars;
 		[SerializeField] private QTESysteme qteSysteme;
@@ -84,6 +88,23 @@ namespace Restaurants.QTESysteme.UiQte
 				arrow.sprite = GetSprite(key);
 			
 				arrows.Add(arrow);
+				
+				go.transform.DOKill();
+				var stress = Restaurant.Instance.currentStressBar;
+				
+				if (stress is LightStressState)
+				{
+					go.transform.DOShakeRotation(60,lightShake,11,7);
+				}
+				if(stress is HightStressState)
+				{
+					go.transform.DOShakeRotation(60,hightShake,21,7);
+				}
+
+				if (stress is MadMaxSStressState)
+				{
+					go.transform.DOShakeRotation(60,madMawShake,31,7);
+				}
 			}
 		
 		}

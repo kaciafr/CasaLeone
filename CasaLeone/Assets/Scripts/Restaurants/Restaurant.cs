@@ -31,10 +31,15 @@ namespace Restaurants
 		[field: SerializeField]
 		public GlobalPlayer[] Players { get; private set; }
 
-		[field: SerializeField, Range(0, MaxStress)]
-		public int Stress { get; private set; } = 0;
 
 		public ClientTable[] TablePlaces => tablePlaces;
+		
+		[field: SerializeField]
+		public QTESysteme.QTESysteme qteSysteme;
+		[field: SerializeField, Range(0, MaxStress)]
+		public int Stress { get; private set; } = 0;
+		public event Action <IStressBar> OnStressStateChanged;
+		public IStressBar currentStressBar { get; private set; }
 		
 		public bool TryFindTable(out ClientTable table)
 		{
@@ -73,6 +78,27 @@ namespace Restaurants
 			}
 			
 			OnStressChanged?.Invoke(last, Stress);
+		}
+
+		private void Start()
+		{
+			currentStressBar = new NormalState();
+		}
+
+		private void Update()
+		{
+			currentStressBar?.Update(this,Time.deltaTime);
+		}
+
+		public void StressGoTo(IStressBar stressBar)
+		{
+			currentStressBar?.Exit(this);
+			
+			currentStressBar = stressBar;
+			
+			currentStressBar?.Enter(this);
+			
+			OnStressStateChanged?.Invoke(currentStressBar);
 		}
 
 		public void AddCommand(Command command)
