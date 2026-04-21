@@ -1,14 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TicketAnimation : MonoBehaviour
 {
     public RectTransform ticket;
-    public CanvasGroup ticketCanvasGroup; 
-
-    public Vector2 posVisible = new Vector2(-600f, 400f);
-    public Vector2 posCache   = new Vector2(-600f, 800f);
+    public CanvasGroup ticketCanvasGroup;
 
     void Start()
     {
@@ -23,7 +19,6 @@ public class TicketAnimation : MonoBehaviour
 
     private void ResetTicket()
     {
-        ticket.anchoredPosition = posCache;
         ticket.localScale       = new Vector3(1f, 0f, 1f);
         ticketCanvasGroup.alpha = 0f;
     }
@@ -40,11 +35,6 @@ public class TicketAnimation : MonoBehaviour
         );
 
         seq.Append(
-            ticket.DOAnchorPos(posVisible, 0.5f)
-                .SetEase(Ease.OutCubic)
-        );
-
-        seq.Join(
             ticket.DOScaleY(1f, 1.5f)
                 .SetEase(Ease.OutExpo)
         );
@@ -68,7 +58,7 @@ public class TicketAnimation : MonoBehaviour
         );
 
         seq.Append(
-            ticket.DOAnchorPosY(posVisible.y - 8f, 0.2f)
+            ticket.DOAnchorPosY(ticket.anchoredPosition.y - 8f, 0.2f)
                 .SetEase(Ease.OutBounce)
         );
 
