@@ -7,6 +7,8 @@ namespace Clients.States
 	public class LeavingState : IClientState
 	{
 		public readonly bool IsAngry;
+		private bool isReady = true;
+		public event Action ReplicaLine;
 
 		public LeavingState(bool isAngry)
 		{
@@ -15,11 +17,16 @@ namespace Clients.States
 
 		public void Enter(ClientController controller)
 		{
+			isReady = true;
 			controller.Movement.SetDestination(Restaurant.Instance.Exit);
 			if (IsAngry)
+			{
 				Restaurant.Instance.AddOrRemoveStress(5);
+			}
 			else
+			{
 				Restaurant.Instance.AddOrRemoveStress(-2);
+			}
 		}
 
 		public void Exit(ClientController controller)
@@ -30,6 +37,12 @@ namespace Clients.States
 
 		public void Update(ClientController controller, float deltaTime)
 		{
+			if (isReady)
+			{
+				ReplicaLine?.Invoke();
+				isReady = false;
+			}
+			
 			if (controller.Movement.HasArrived())
 				controller.GoTo(null);
 		}

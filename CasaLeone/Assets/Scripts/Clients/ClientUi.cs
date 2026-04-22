@@ -1,5 +1,6 @@
 using Clients.States;
 using DG.Tweening;
+using DialogueSystem.Runtime;
 using UnityEngine;
 
 namespace Clients
@@ -8,7 +9,9 @@ namespace Clients
     {
         [Header("References")]
         [SerializeField] private ClientController clientController;
-        
+        [SerializeField] private GameObject bubblePrefab;
+        public Vector3 bubbleOffset = new Vector3(2f, 4f, 0f);
+        private WorldSpaceBubble currentBubble;
         [Header("UISettings")]
         [SerializeField] private GameObject clientrReflexion;
         [SerializeField] private GameObject clientrTimer;
@@ -29,9 +32,12 @@ namespace Clients
         private void OnDisable()
         {
             clientController.OnStateChanged -= UiChanged;
+            leavingStates.ReplicaLine -= OnClientReady;
         }
 
         private ReflexionState currentReflexion;
+        private WaitingForFoodState currentWaitingForFood;
+        private LeavingState leavingStates;
 
         private void UiChanged(IClientState clientState)
         {
@@ -50,13 +56,29 @@ namespace Clients
             }
             else clientrReflexion.SetActive(false);
 
-            if (clientState is WaitingForFoodState)
+            if (clientState is WaitingForFoodState waitingForFoodState)
             {
+                currentWaitingForFood = waitingForFoodState;
                 clientrTimer.SetActive(true);
                 clientrTimer.transform.localScale = Vector3.zero; 
                 clientrTimer.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
+                
+
+                if (currentWaitingForFood.currentTime >= 40)
+                {
+                    currentWaitingForFood.Bored -=  BoredLine; 
+                }
+                else
+                {
+                    currentWaitingForFood.Bored +=  BoredLine; 
+                }
+                
             }
-            else clientrTimer.SetActive(false);
+            else
+            {
+                currentWaitingForFood.Bored -=  BoredLine; 
+                clientrTimer.SetActive(false);
+            }
 
             if (clientState is CheckingState)
             {
@@ -65,6 +87,53 @@ namespace Clients
                 clientrCheck.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
             }
             else clientrCheck.SetActive(false);
+
+            if (clientState is LeavingState leavingState)
+            {
+                leavingStates = leavingState;
+                leavingStates.ReplicaLine += ReplicaLine;
+            }
+        }
+
+        private void BoredLine()
+        {
+            GameObject bubble = Instantiate(bubblePrefab, clientController.transform);
+            bubble.transform.localPosition = bubbleOffset;
+
+            currentBubble = bubble.GetComponent<WorldSpaceBubble>();
+
+            string line;
+
+            
+            line = clientController.ClientData.PickImpatientLine();
+            
+
+            DialogueSystem.DATA.DialogueNode node = new DialogueSystem.DATA.DialogueNode { dialogueText = line, autoAdvanceDelay = 2f };
+
+            currentBubble.Display(node);
+        }
+
+        private void ReplicaLine()
+        {
+            GameObject bubble = Instantiate(bubblePrefab, clientController.transform);
+            bubble.transform.localPosition = bubbleOffset;
+
+            currentBubble = bubble.GetComponent<WorldSpaceBubble>();
+
+            string line;
+
+            if (leavingStates.IsAngry)
+            {
+                line = clientController.ClientData.PickAngryLine();
+            }
+            else
+            {
+                line = clientController.ClientData.PickSatisfiedLine();
+            }
+
+            DialogueSystem.DATA.DialogueNode node = new DialogueSystem.DATA.DialogueNode { dialogueText = line, autoAdvanceDelay = 2f };
+
+            currentBubble.Display(node);
         }
 
         private void OnClientReady()

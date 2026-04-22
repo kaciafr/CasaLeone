@@ -426,6 +426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clients.ClientUi
   clientController: {fileID: 4469142735928905624}
+  bubblePrefab: {fileID: 3703646816659954731, guid: ba0d102fcaead0142b46fd900539213b, type: 3}
+  bubbleOffset: {x: 1, y: 1, z: 0}
   clientrReflexion: {fileID: 157954930966896219}
   clientrTimer: {fileID: 3406576468020380576}
   clientrCheck: {fileID: 2999516038075339120}
