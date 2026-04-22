@@ -36,6 +36,7 @@ namespace Clients.States
 
 		public void Exit(ClientController controller)
 		{
+			OnReady =  null;
 		}
 
 		public void Update(ClientController controller, float deltaTime)

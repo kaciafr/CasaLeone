@@ -62,21 +62,10 @@ namespace Clients
                 clientrTimer.SetActive(true);
                 clientrTimer.transform.localScale = Vector3.zero; 
                 clientrTimer.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
-                
-
-                if (currentWaitingForFood.currentTime >= 40)
-                {
-                    currentWaitingForFood.Bored -=  BoredLine; 
-                }
-                else
-                {
-                    currentWaitingForFood.Bored +=  BoredLine; 
-                }
-                
+                currentWaitingForFood.Bored +=  BoredLine; 
             }
             else
             {
-                currentWaitingForFood.Bored -=  BoredLine; 
                 clientrTimer.SetActive(false);
             }
 

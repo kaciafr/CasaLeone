@@ -43,6 +43,7 @@ namespace Clients.States
 				Bored?.Invoke();
 				Debug.LogError($"{controller} Veut Graille Violent");
 			}
+			
 			if (isBored && currentTime > maxBoredTime)
 			{
 				Restaurant.Instance.RemoveCommand(commanded);
