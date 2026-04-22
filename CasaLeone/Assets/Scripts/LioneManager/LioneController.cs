@@ -18,6 +18,8 @@ public class LioneController : MonoBehaviour
     private void Awake()
     {
         CurrentLioneState =  new WaitingLioneState();
+        SwitchLioneState(new WaitPositionState(waitPoint));
+
     } 
  
 

@@ -1,19 +1,9 @@
 namespace LioneManager.State
 {
-    public class ILioneState
+    public interface ILioneState
     {
-        public void Enter(LioneController lioneController)
-        {
-        }
-
-        public void Exit(LioneController lioneController)
-        {
-            
-        }
-
-        public void Update(LioneController lioneController, float deltaTime)
-        {
-            
-        }
+        void Enter(LioneController lioneController);
+        void Exit(LioneController lioneController);
+        void Update(LioneController lioneController, float deltaTime);
     }
 }

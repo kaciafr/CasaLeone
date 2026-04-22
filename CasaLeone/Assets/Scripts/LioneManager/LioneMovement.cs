@@ -7,27 +7,48 @@ namespace DefaultNamespace
     public class LioneMovement : MonoBehaviour
     {
         [field: SerializeField]
-        public ClientController Controller { get; private set; }
+        public LioneController Controller { get; private set; }
         private Animator animator;
         [SerializeField] private NavMeshAgent agent;
+        private float lastDirectionX = 1f; 
+
 
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
-            animator = GetComponent<Animator>();
+            agent.updateUpAxis = false;
+            animator =GetComponent<Animator>();
         }
+
 
         private void Start()
         {
             agent = GetComponent<NavMeshAgent>();
         }
 
+
         private void Update()
         {
-            bool isMoving = agent.velocity.magnitude > 0.1f;
-            animator.SetBool("isMoving", isMoving);
+            float speed = new Vector2(agent.velocity.x, agent.velocity.y).magnitude;
+            animator.SetFloat("Speed", speed, 0.1f, Time.deltaTime);
+
+            if (agent.velocity.x > 0.3f)
+            {
+                lastDirectionX = -1f;
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (agent.velocity.x < -0.3f)
+            {
+                lastDirectionX = 1f;
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
+
+
+
+
+
         
         public void ClearDestination()
         {

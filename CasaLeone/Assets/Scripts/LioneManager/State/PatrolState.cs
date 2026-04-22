@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace LioneManager.State
 {
-    public class PatrolLioneState : ILioneState
+    public class PatrolState : ILioneState
     {
         private float _patrolRadius;      
         private float _waitTimeAtPoint;   
         private float _timer;
         private bool _isWaiting;
 
-        public PatrolLioneState(float patrolRadius = 10f, float waitTimeAtPoint = 2f)
+        public PatrolState(float patrolRadius = 10f, float waitTimeAtPoint = 5f)
         {
             _patrolRadius    = patrolRadius;
             _waitTimeAtPoint = waitTimeAtPoint;
@@ -20,17 +20,17 @@ namespace LioneManager.State
             GoToRandomPoint(lioneController);
         }
 
-        public void Update(LioneController lioneController)
+        public void Update(LioneController lioneController, float deltaTime)
         {
             if (lioneController.LioneMovement.HasReachedDestination())
             {
                 if (!_isWaiting)
                 {
                     _isWaiting = true;
-                    _timer     = 0f;
+                    _timer = 0f;
                 }
 
-                _timer += Time.deltaTime;
+                _timer += deltaTime; 
 
                 if (_timer >= _waitTimeAtPoint)
                 {
@@ -39,6 +39,7 @@ namespace LioneManager.State
                 }
             }
         }
+
 
         public void Exit(LioneController lioneController)
         {
@@ -59,7 +60,8 @@ namespace LioneManager.State
         private Vector3 GetRandomNavMeshPoint(Vector3 origin, float radius)
         {
             Vector2 randomCircle = Random.insideUnitCircle * radius;
-            Vector3 randomPoint  = origin + new Vector3(randomCircle.x, 0f, randomCircle.y);
+    
+            Vector3 randomPoint = origin + new Vector3(randomCircle.x, randomCircle.y, 0f);
 
             if (UnityEngine.AI.NavMesh.SamplePosition(
                     randomPoint, 
@@ -71,5 +73,6 @@ namespace LioneManager.State
             }
             return origin;
         }
+
     }
 }
