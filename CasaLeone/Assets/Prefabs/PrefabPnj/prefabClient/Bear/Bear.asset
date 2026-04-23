@@ -18,6 +18,13 @@ MonoBehaviour:
   personality: 5
   variants:
   - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
-  impatientLines: []
-  satisfiedLines: []
-  angryLines: []
+  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
+  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
+  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
+  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
+  impatientLines:
+  - Ayoooooooooo
+  satisfiedLines:
+  - T'es un Tigre
+  angryLines:
+  - "Esp\xE9ce de FADA"

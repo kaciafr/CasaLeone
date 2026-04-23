@@ -17,7 +17,7 @@ namespace Players.Interaction
 		[SerializeField] private UiQte qteUi;
 		[SerializeField] private TransformeUiQte UiLocQte;
 		
-		
+		public GlobalPlayer currentPlayer;
 
 		[SerializeField] private float speedAnim;
 
@@ -30,7 +30,7 @@ namespace Players.Interaction
 		}
 		public void Interact(GlobalPlayer globalPlayer)
 		{
-			Debug.Log("ObjetBaseInteract");
+			currentPlayer = globalPlayer;
 			pressE.SetActive(false);
 			UiLocQte.UiTransform(objectTransform);
 			
@@ -38,6 +38,7 @@ namespace Players.Interaction
 		}
 		private void OnTriggerEnter(Collider other)
 		{
+			
 			pressE.SetActive(true);
 			qteSysteme.enabled = true;
 			qteUi.enabled = true;
@@ -50,14 +51,10 @@ namespace Players.Interaction
 
 		private void OnTriggerExit(Collider other)
 		{
+			currentPlayer = null;
 			pressE.transform.DOMove(startPosition.transform.position, speedAnim);
 			qteSysteme.enabled = false;
 			qteUi.enabled = false;
-		}
-
-		public void EndInteraction()
-		{
-		
 		}
 	
 	}

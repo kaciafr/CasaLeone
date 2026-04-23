@@ -1,11 +1,12 @@
 using System;
+using PnjWaves;
 using Restaurants;
 
 namespace Clients.States
 {
 	public class WaitingState : IClientState
 	{
-		private float maxBoredTimed = 5f;
+		private float maxBoredTimed = 600f;
 		
 		private float currentBoredTime;
 		private bool IsBored => currentBoredTime > maxBoredTimed;
@@ -33,7 +34,7 @@ namespace Clients.States
 				return;
 			}
 
-			if (Restaurant.Instance.TryFindTable(out ClientTable table))
+			if (Restaurant.Instance.TryFindTable(1,out ClientTable table, controller.ClientData))
 			{
 				if (table.TryGetSeat(out ClientSeat seat))
 				{

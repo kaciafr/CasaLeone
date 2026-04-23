@@ -15,5 +15,15 @@ MonoBehaviour:
   type: 1
   clientSprite: {fileID: 21300000, guid: e65d07544ea14bb40ab9805dde4c47a7, type: 3}
   weight: 1
+  personality: 0
   variants:
   - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
+  - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
+  - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
+  - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
+  impatientLines:
+  - Ayoooooooooo
+  satisfiedLines:
+  - T'es un Tigre
+  angryLines:
+  - "Esp\xE9ce de FADA"

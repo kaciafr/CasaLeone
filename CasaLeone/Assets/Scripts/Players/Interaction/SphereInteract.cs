@@ -13,8 +13,7 @@ namespace Players.Interaction
 		private GlobalPlayer globalPlayer;
 		
 		public void OnInteractInput(InputAction.CallbackContext context)
-		{
-			
+		{ 
 			if (current != null && context.performed)
 			{
 				current.Interact(globalPlayer);

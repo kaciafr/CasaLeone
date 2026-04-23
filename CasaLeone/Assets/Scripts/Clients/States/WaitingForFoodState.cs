@@ -1,3 +1,4 @@
+using System;
 using Players;
 using Players.Inventories;
 using Restaurants;
@@ -9,6 +10,12 @@ namespace Clients.States
 	{
 		public readonly Command commanded;
 		public readonly Dish dish;
+		private readonly float startTime = 30;
+		private readonly float maxBoredTime = 60;
+		public float currentTime;
+		public bool isBored => currentTime >= startTime;
+		public bool wasReady;
+		public event Action Bored;
 
 		public WaitingForFoodState(Command command,Dish dishs)
 		{
@@ -18,15 +25,31 @@ namespace Clients.States
 
 		public void Enter(ClientController controller)
 		{
-			Debug.Log($"{controller} Veut Graille Violent");
+			currentTime = 0;
 		}
 
 		public void Exit(ClientController controller)
 		{
+			currentTime = 0;
 		}
 
 		public void Update(ClientController controller, float deltaTime)
 		{
+			wasReady = isBored;
+			currentTime += deltaTime;
+			
+			if (!wasReady && isBored)
+			{
+				Bored?.Invoke();
+			}
+			
+			if (isBored && currentTime > maxBoredTime)
+			{
+				Restaurant.Instance.RemoveCommand(commanded);
+				Debug.LogError($"{controller} Nashave");
+				LeavingState leavingState = new LeavingState(true);
+				controller.GoTo(leavingState);
+			}
 		}
 
 		public void Interact(ClientController controller, GlobalPlayer globalPlayer)

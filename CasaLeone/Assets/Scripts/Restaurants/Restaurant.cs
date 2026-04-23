@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Clients;
 using Players;
+using PnjWaves;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -41,14 +42,16 @@ namespace Restaurants
 		public event Action <IStressBar> OnStressStateChanged;
 		public IStressBar currentStressBar { get; private set; }
 		
-		public bool TryFindTable(out ClientTable table)
+		public bool TryFindTable(int groupSize, out ClientTable table, ClientTypeSO soData)
 		{
 			for (var i = 0; i < tablePlaces.Length; i++)
 			{
-				var clientTable = tablePlaces[i];
-				if (clientTable.IsFree)
+				var t = tablePlaces[i];
+				
+
+				if (t.CanFitGroup(groupSize) && soData.type == ClientType.Bear)
 				{
-					table = clientTable;
+					table = t;
 					return true;
 				}
 			}

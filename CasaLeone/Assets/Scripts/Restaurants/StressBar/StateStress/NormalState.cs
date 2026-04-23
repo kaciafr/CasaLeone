@@ -7,7 +7,6 @@ public class NormalState : IStressBar
 
 	public void Enter(Restaurant restaurant)
 	{
-		Debug.Log("NormalState");
 		restaurant.qteSysteme.round = 1;
 	}
 

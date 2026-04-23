@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DialogueSystem.Runtime
 {
-    public class WorldSpaceDialogueUI : MonoBehaviour
+    public class WorldSpaceDialogueUI : Singleton<WorldSpaceDialogueUI>
     {
         [Header("Prefab de la bulle")]
         public GameObject bubblePrefab;

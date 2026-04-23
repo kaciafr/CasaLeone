@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Players;
+using Players.Interaction;
 using Players.Inventories;
 using TestCharacterMovement;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Restaurants.QTESysteme
 {
 	public class QTESysteme : MonoBehaviour
 	{
-		[SerializeField] private GlobalPlayer playerInventory;
+		
 		public Dish winGift;
 		public enum QTEKey
 		{
@@ -27,8 +28,8 @@ namespace Restaurants.QTESysteme
 		public int maxSequence = 5;
 		public int minSequence = 5;
 		public int round = 2;
-		[SerializeField] private PlayerInput playerInput;
-		[SerializeField] private TestPlayerController player;
+		[SerializeField] private GlobalPlayer playerInventory;
+		[SerializeField] private ObjetBaseInteractable objetBaseInteractable;
 
 		public event Action<List<QTEKey>> QTESequence;
 		public event Action<int> KeyPressed;
@@ -42,11 +43,17 @@ namespace Restaurants.QTESysteme
 		[HideInInspector] public float delay;
 		private int currentIndex = 0;
 		private bool isStarted = false;
+		public PlayerInput currentInput;
 
 		public void StartSequence()
 		{
-			playerInput.SwitchCurrentActionMap("UI");
-			player.enabled = false;
+			playerInventory = objetBaseInteractable.currentPlayer;
+			
+			PlayerInput playersInputs = playerInventory.playerMovement;
+			currentInput = playersInputs;
+
+			
+			currentInput.SwitchCurrentActionMap("UI");
 			currentRound = round;
 			
 			delay = TimerDelay;
@@ -80,7 +87,7 @@ namespace Restaurants.QTESysteme
 			}
 			qteStart = true;
 			
-			playerInput.SwitchCurrentActionMap("QTE");
+			currentInput.SwitchCurrentActionMap("QTE");
 			sequence.Clear();
 		
 			int randS = Random.Range(minSequence, maxSequence);
@@ -154,8 +161,7 @@ namespace Restaurants.QTESysteme
 
 			qteStart = false;
 			isStarted = false;
-			player.enabled = true;
-			playerInput.SwitchCurrentActionMap("Player");
+			currentInput.SwitchCurrentActionMap("Player");
 			Debug.Log("SUCCESS");
 			onSuccess?.Invoke();
 			inventory.AddDish(winGift);
@@ -166,8 +172,7 @@ namespace Restaurants.QTESysteme
 		{
 			qteStart = false;
 			isStarted = false;
-			player.enabled = true;
-			playerInput.SwitchCurrentActionMap("Player");
+			currentInput.SwitchCurrentActionMap("Player");
 			winGift = null;
 			Debug.Log("FAILED");
 			onLose?.Invoke();
