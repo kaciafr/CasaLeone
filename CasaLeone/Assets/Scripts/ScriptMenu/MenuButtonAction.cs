@@ -10,7 +10,7 @@ namespace ScriptMenu
         public GameObject restPanelGO;
         public Light sunLight;
 
-        private float slideSpeed = 0.5f;
+        private float slideSpeed = 0.3f;
         private float optionSpeed = 3f;
         private float sunSpeed = 0.2f;
         private bool isOptionOpen = false;
