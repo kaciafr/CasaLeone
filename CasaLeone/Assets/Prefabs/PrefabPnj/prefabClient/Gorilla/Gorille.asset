@@ -18,6 +18,9 @@ MonoBehaviour:
   personality: 0
   variants:
   - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
+  - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
+  - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
+  - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
   impatientLines:
   - Ayoooooooooo
   satisfiedLines:

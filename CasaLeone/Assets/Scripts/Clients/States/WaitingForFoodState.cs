@@ -10,8 +10,8 @@ namespace Clients.States
 	{
 		public readonly Command commanded;
 		public readonly Dish dish;
-		private readonly float startTime = 10;
-		private readonly float maxBoredTime = 30;
+		private readonly float startTime = 30;
+		private readonly float maxBoredTime = 60;
 		public float currentTime;
 		public bool isBored => currentTime >= startTime;
 		public bool wasReady;

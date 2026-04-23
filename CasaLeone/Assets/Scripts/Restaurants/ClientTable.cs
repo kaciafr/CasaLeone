@@ -1,5 +1,7 @@
+using Clients;
 using Players;
 using Players.Interaction;
+using PnjWaves;
 using UnityEngine;
 
 namespace Restaurants
@@ -27,7 +29,7 @@ namespace Restaurants
 		{
 			for (int i = 0; i < ClientSeats.Length; i++)
 			{
-				if (ClientSeats[i].IsFree)
+				if (ClientSeats[i].IsFree )
 				{
 					seat = ClientSeats[i];
 					return true;
@@ -48,8 +50,21 @@ namespace Restaurants
 			}
 		}
 
-		public void EndInteraction()
+		public bool CanFitGroup(int groupSize)
 		{
+			return GetFreeSeatCount() >= groupSize;
+		}
+		public int GetFreeSeatCount()
+		{
+			int count = 0;
+
+			for (int i = 0; i < ClientSeats.Length; i++)
+			{
+				if (ClientSeats[i].IsFree)
+					count++;
+			}
+
+			return count;
 		}
 	}
 }
