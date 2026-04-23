@@ -32,7 +32,6 @@ namespace Clients
         private void OnDisable()
         {
             clientController.OnStateChanged -= UiChanged;
-            leavingStates.ReplicaLine -= OnClientReady;
         }
 
         private ReflexionState currentReflexion;
@@ -46,6 +45,12 @@ namespace Clients
                 currentReflexion.OnReady -= OnClientReady;
                 currentReflexion = null;
             }
+            
+            if (currentWaitingForFood != null)
+            {
+                currentWaitingForFood.Bored -= BoredLine;
+                currentWaitingForFood = null;
+            }
 
             if (clientState is ReflexionState reflexion)
             {
@@ -55,19 +60,7 @@ namespace Clients
                 clientrReflexion.transform.localScale = Vector3.zero; 
             }
             else clientrReflexion.SetActive(false);
-
-            if (clientState is WaitingForFoodState waitingForFoodState)
-            {
-                currentWaitingForFood = waitingForFoodState;
-                clientrTimer.SetActive(true);
-                clientrTimer.transform.localScale = Vector3.zero; 
-                clientrTimer.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
-                currentWaitingForFood.Bored +=  BoredLine; 
-            }
-            else
-            {
-                clientrTimer.SetActive(false);
-            }
+            
 
             if (clientState is CheckingState)
             {
@@ -82,6 +75,21 @@ namespace Clients
                 leavingStates = leavingState;
                 leavingStates.ReplicaLine += ReplicaLine;
             }
+            
+            if (clientState is WaitingForFoodState waitingForFoodState)
+            {
+                currentWaitingForFood = waitingForFoodState;
+
+                clientrTimer.SetActive(true);
+                clientrTimer.transform.localScale = Vector3.zero;
+                clientrTimer.transform.DOScale(Vector3.one * 0.04f, 0.5f).SetEase(Ease.OutBack);
+
+                currentWaitingForFood.Bored += BoredLine;
+            }
+            else
+            {
+                clientrTimer.SetActive(false);
+            }
         }
 
         private void BoredLine()
@@ -91,15 +99,13 @@ namespace Clients
 
             currentBubble = bubble.GetComponent<WorldSpaceBubble>();
 
-            string line;
-
-            
-            line = clientController.ClientData.PickImpatientLine();
-            
+            string line = clientController.ClientData.PickImpatientLine();
 
             DialogueSystem.DATA.DialogueNode node = new DialogueSystem.DATA.DialogueNode { dialogueText = line, autoAdvanceDelay = 2f };
 
             currentBubble.Display(node);
+            
+            Destroy(bubble, 7f);
         }
 
         private void ReplicaLine()

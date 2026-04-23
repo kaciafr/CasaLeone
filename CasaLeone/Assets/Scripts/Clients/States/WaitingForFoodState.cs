@@ -10,12 +10,11 @@ namespace Clients.States
 	{
 		public readonly Command commanded;
 		public readonly Dish dish;
-		private readonly float startTime = 20;
-		private readonly float maxBoredTime = 60;
+		private readonly float startTime = 10;
+		private readonly float maxBoredTime = 30;
 		public float currentTime;
 		public bool isBored => currentTime >= startTime;
 		public bool wasReady;
-
 		public event Action Bored;
 
 		public WaitingForFoodState(Command command,Dish dishs)
@@ -31,6 +30,7 @@ namespace Clients.States
 
 		public void Exit(ClientController controller)
 		{
+			currentTime = 0;
 		}
 
 		public void Update(ClientController controller, float deltaTime)
@@ -41,7 +41,6 @@ namespace Clients.States
 			if (!wasReady && isBored)
 			{
 				Bored?.Invoke();
-				Debug.LogError($"{controller} Veut Graille Violent");
 			}
 			
 			if (isBored && currentTime > maxBoredTime)
