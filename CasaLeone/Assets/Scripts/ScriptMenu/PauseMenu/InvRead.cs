@@ -12,6 +12,11 @@ public class InvRead : MonoBehaviour
 	[SerializeField] private GameObject infoItem;
 	[SerializeField] private TextMeshProUGUI txtItem;
 	[SerializeField] private Image iconItem;
+	[SerializeField] private RectTransform infoItemRect;
+	private Vector2 hiddenPos;
+	private Vector2 visiblePos;
+	
+	
 	
 	[Header("DOMove")]
 	[SerializeField] private Transform startPosMenu;
@@ -22,15 +27,23 @@ public class InvRead : MonoBehaviour
 	private RectTransform endRect;
 	private void Awake()
 	{
-		RectTransform rect = infoItem.GetComponent<RectTransform>();
-		RectTransform startRect = startPosMenu.GetComponent<RectTransform>();
+		rect = infoItem.GetComponent<RectTransform>();
+		startRect = startPosMenu.GetComponent<RectTransform>();
+		endRect = endPosMenu.GetComponent<RectTransform>();
 		rect.anchoredPosition = startRect.anchoredPosition;
 	}
 
+
 	private void Start()
 	{
-		rect.anchoredPosition = startRect.anchoredPosition;
+		rect = infoItem.GetComponent<RectTransform>();
+    
+		hiddenPos = new Vector2(0, 0);  
+		visiblePos = new Vector2(-400, 0);   
+
+		rect.anchoredPosition = hiddenPos;
 	}
+
 
 	public void AddInvenotryItem(ItemData obj)
 	{
@@ -39,16 +52,17 @@ public class InvRead : MonoBehaviour
 		
 		slot.UpdateVisuel(obj , this);
 	}
+
 	public void OnClick(ItemData obj)
 	{
-		iconItem.sprite = obj.icon;    
+		iconItem.sprite = obj.icon;
 		txtItem.text = obj.description;
-		
-		RectTransform rect = infoItem.GetComponent<RectTransform>();
-		RectTransform startRect = startPosMenu.GetComponent<RectTransform>();
-		RectTransform endRect = endPosMenu.GetComponent<RectTransform>();
 
+		rect.DOKill();
 		rect.anchoredPosition = startRect.anchoredPosition;
 		rect.DOAnchorPos(endRect.anchoredPosition, 0.5f).SetEase(Ease.OutQuint);
 	}
+
+
+	
 }
