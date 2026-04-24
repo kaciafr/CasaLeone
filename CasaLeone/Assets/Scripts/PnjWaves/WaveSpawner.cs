@@ -22,6 +22,8 @@ namespace PnjWaves
 
         private const string BEST_WAVE_KEY = "BestWave";
         private List<GameObject> activeClients = new List<GameObject>();
+        
+        private int prochainIdGroupe = 0;
 
         // ─────────────────────────────────────────────
         //  Démarrage
@@ -67,10 +69,12 @@ namespace PnjWaves
 
         IEnumerator SpawnWave(WaveProfile profile)
         {
+            
             int groupCount = Random.Range(profile.minGroups, profile.maxGroups + 1);
 
             for (int g = 0; g < groupCount; g++)
             {
+                int idUniqueDuGroupe = prochainIdGroupe;
                 // Tire un type UNE FOIS pour tout le groupe → groupe homogène
                 ClientTypeSO groupType = PickRandomClientType();
 
@@ -80,18 +84,17 @@ namespace PnjWaves
                     yield break;
                 }
 
-                int clientsInGroup = Random.Range(
-                    profile.minClientsPerGroup,
-                    profile.maxClientsPerGroup + 1
-                );
+                int clientsInGroup = Random.Range(profile.minClientsPerGroup, profile.maxClientsPerGroup + 1);
 
 
                 for (int c = 0; c < clientsInGroup; c++)
                 {
-                    SpawnClient(profile, groupType);
+                    SpawnClient(profile, groupType, idUniqueDuGroupe );
                     yield return new WaitForSeconds(profile.delayBetweenClients);
                 }
+                
 
+                prochainIdGroupe++;
                 yield return new WaitForSeconds(profile.delayBetweenGroups);
             }
         }
@@ -100,8 +103,9 @@ namespace PnjWaves
         //  Spawn d'un client individuel
         // ─────────────────────────────────────────────
 
-        void SpawnClient(WaveProfile profile, ClientTypeSO clientType)
+        void SpawnClient(WaveProfile profile, ClientTypeSO clientType, int id)
         {
+            
             // Choisit une variante aléatoire parmi celles du type
             GameObject prefab = clientType.PickRandomVariant();
         
@@ -110,13 +114,16 @@ namespace PnjWaves
 
             if (client.TryGetComponent(out ClientController clientController))
             {
+                clientController.ClientData.idGroupe = id;
                 clientController.Spawn(profile);
             }
             else
             {
                 Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de PnjTest.");
             }
+            
             activeClients.Add(client);
+            
         }
 
         // ─────────────────────────────────────────────

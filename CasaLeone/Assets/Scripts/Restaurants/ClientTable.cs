@@ -11,10 +11,13 @@ namespace Restaurants
 		[field: SerializeField]
 		public ClientSeat[] ClientSeats { get; private set; }
 
+		public int currentIdGroupe { get; private set; } = -1;
+
 		public bool IsFree
 		{
 			get
 			{
+				if(currentIdGroupe != -1) return false;
 				for (int i = 0; i < ClientSeats.Length; i++)
 				{
 					if (ClientSeats[i] is { IsFree: false })
@@ -25,17 +28,21 @@ namespace Restaurants
 			}
 		}
 
-		public bool TryGetSeat(out ClientSeat seat)
+		public bool TryGetSeat(int idGroup,out ClientSeat seat)
 		{
-			for (int i = 0; i < ClientSeats.Length; i++)
+			if (currentIdGroupe == -1 || currentIdGroupe == idGroup)
 			{
-				if (ClientSeats[i].IsFree )
+				for (int i = 0; i < ClientSeats.Length; i++)
 				{
-					seat = ClientSeats[i];
-					return true;
+					if (ClientSeats[i].IsFree)
+					{
+						seat = ClientSeats[i];
+						currentIdGroupe = idGroup;
+						return true;
+					}
 				}
 			}
-			
+
 			seat = null;
 			return false;
 		}
@@ -50,8 +57,10 @@ namespace Restaurants
 			}
 		}
 
-		public bool CanFitGroup(int groupSize)
+		public bool CanFitGroup(int idGroup,int groupSize)
 		{
+			if(currentIdGroupe != -1&& currentIdGroupe != idGroup) return false;
+			
 			return GetFreeSeatCount() >= groupSize;
 		}
 		public int GetFreeSeatCount()
@@ -65,6 +74,21 @@ namespace Restaurants
 			}
 
 			return count;
+		}
+
+		public void CheckIfTableIsNowEmpty()
+		{
+			int occupiedCount = 0;
+			foreach (var seat in ClientSeats)
+			{
+				if (!seat.IsFree) occupiedCount++;
+			}
+
+			if (occupiedCount == 0)
+			{
+				currentIdGroupe= -1;
+				Debug.Log("La table est maintenant totalement libre.");
+			}
 		}
 	}
 }

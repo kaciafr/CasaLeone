@@ -42,14 +42,22 @@ namespace Restaurants
 		public event Action <IStressBar> OnStressStateChanged;
 		public IStressBar currentStressBar { get; private set; }
 		
-		public bool TryFindTable(int groupSize, out ClientTable table, ClientTypeSO soData)
+		public bool TryFindTable(int groupID,int groupSize, out ClientTable table)
 		{
 			for (var i = 0; i < tablePlaces.Length; i++)
 			{
 				var t = tablePlaces[i];
-				
+				if (t.currentIdGroupe == groupID && t.GetFreeSeatCount() > 0)
+				{
+					table = t;
+					return true;
+				}
+			}
 
-				if (t.CanFitGroup(groupSize) && soData.type == ClientType.Bear)
+			for (var i = 0; i < tablePlaces.Length; i++)
+			{
+				var t = tablePlaces[i];
+				if (t.currentIdGroupe==-1 && t.CanFitGroup(groupID,groupSize))
 				{
 					table = t;
 					return true;

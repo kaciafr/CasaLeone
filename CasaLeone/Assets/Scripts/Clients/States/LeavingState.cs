@@ -18,6 +18,14 @@ namespace Clients.States
 		public void Enter(ClientController controller)
 		{
 			isReady = true;
+			if (controller.currentSeat != null)
+			{
+				ClientTable table = controller.currentSeat.table;
+				controller.currentSeat.Leave(controller); 
+				table.CheckIfTableIsNowEmpty(); 
+				controller.currentSeat = null; 
+			}
+			
 			controller.Movement.SetDestination(Restaurant.Instance.Exit);
 			if (IsAngry)
 			{

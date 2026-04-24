@@ -34,10 +34,11 @@ namespace Clients.States
 				return;
 			}
 
-			if (Restaurant.Instance.TryFindTable(1,out ClientTable table, controller.ClientData))
+			if (Restaurant.Instance.TryFindTable(controller.currentId,1,out ClientTable table))
 			{
-				if (table.TryGetSeat(out ClientSeat seat))
+				if (table.TryGetSeat(controller.currentId,out ClientSeat seat))
 				{
+					controller.currentSeat = seat;
 					seat.Reserve(controller);
 					GoingToSeatState state = new GoingToSeatState(seat);
 					controller.GoTo(state);

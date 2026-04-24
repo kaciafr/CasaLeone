@@ -129,6 +129,8 @@ namespace Clients
             DialogueSystem.DATA.DialogueNode node = new DialogueSystem.DATA.DialogueNode { dialogueText = line, autoAdvanceDelay = 2f };
 
             currentBubble.Display(node);
+            
+            Destroy(bubble, 7f);
         }
 
         private void OnClientReady()

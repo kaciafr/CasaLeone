@@ -23,6 +23,12 @@ namespace Clients
 
 		public IClientState CurrentState { get; private set; }
 		public WaveProfile WaveProfile { get; private set; }
+
+		[field : SerializeField] 
+		public int currentId { get; private set; }
+		
+		[field : SerializeField] 
+		public ClientSeat currentSeat { get; set; }
 		
 		
 		private void Awake()
@@ -48,6 +54,7 @@ namespace Clients
 
 		public void Spawn(WaveProfile waveProfile)
 		{
+			currentId = ClientData.idGroupe;
 			WaveProfile = waveProfile;
 		}
 		
@@ -61,7 +68,11 @@ namespace Clients
 			if(CurrentState is IInteractableClientState interactableState)
 				interactableState.Interact(this, globalPlayer);
 		}
-		
+
+		public void ClientLeave(ClientSeat seat)
+		{
+			seat.Leave(this);
+		}
 
 		public ClientSeat GetClientSeat()
 		{

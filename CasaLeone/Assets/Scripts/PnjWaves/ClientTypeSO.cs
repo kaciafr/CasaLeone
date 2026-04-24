@@ -29,7 +29,9 @@ namespace PnjWaves
         public string[] satisfiedLines;  
         
         [Header("Répliques — en colère")]
-        public string[] angryLines;       
+        public string[] angryLines;
+        
+        public int idGroupe;
 
         public GameObject PickRandomVariant()
         {
