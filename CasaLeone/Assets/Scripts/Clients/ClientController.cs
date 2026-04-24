@@ -31,7 +31,7 @@ namespace Clients
 		public ClientSeat currentSeat { get; set; }
 		
 		
-		private void Awake()
+		private void Start()
 		{
 			CurrentState = new WaitingState();
 		}
@@ -56,6 +56,7 @@ namespace Clients
 		{
 			currentId = ClientData.idGroupe;
 			WaveProfile = waveProfile;
+			
 		}
 		
 		public void Despawn()
@@ -68,12 +69,13 @@ namespace Clients
 			if(CurrentState is IInteractableClientState interactableState)
 				interactableState.Interact(this, globalPlayer);
 		}
-
-		public void ClientLeave(ClientSeat seat)
+		
+		public void AllerA(Vector3 destination) 
 		{
-			seat.Leave(this);
+			// On récupère l'agent et on lui donne l'ordre
+			UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+			agent.SetDestination(destination);
 		}
-
 		public ClientSeat GetClientSeat()
 		{
 			ClientTable[] tables = Restaurant.Instance.TablePlaces;
@@ -89,5 +91,6 @@ namespace Clients
 
 			return null;
 		}
+
 	}
 }

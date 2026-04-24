@@ -15,7 +15,7 @@ namespace Clients.States
 			
 			currentBoredTime = 0;
 			maxBoredTimed = controller.maxBoredTime;
-			controller.Movement.SetDestination(Restaurant.Instance.OutSide.transform.position);
+			QueueManager.Instance.JoinTheQueue(controller);
 		}
 
 		public void Exit(ClientController controller)
@@ -44,10 +44,7 @@ namespace Clients.States
 					controller.GoTo(state);
 				}
 			}
-			else
-			{
-				controller.Movement.SetDestination(Restaurant.Instance.OutSide.position);
-			}
+			
 		}
 	}
 }

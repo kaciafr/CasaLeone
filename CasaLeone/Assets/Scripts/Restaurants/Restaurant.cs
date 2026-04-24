@@ -25,8 +25,6 @@ namespace Restaurants
 		private ClientTable[] tablePlaces;
 		
 		[field: SerializeField]
-		public Transform OutSide { get; private set; }
-		[field: SerializeField]
 		public Transform Exit  { get; private set; }
 		
 		[field: SerializeField]
@@ -63,7 +61,7 @@ namespace Restaurants
 					return true;
 				}
 			}
-
+			
 			table = null;
 			return false;
 		}

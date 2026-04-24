@@ -25,6 +25,7 @@ namespace Clients.States
 				table.CheckIfTableIsNowEmpty(); 
 				controller.currentSeat = null; 
 			}
+			QueueManager.Instance.NextClient();
 			
 			controller.Movement.SetDestination(Restaurant.Instance.Exit);
 			if (IsAngry)
