@@ -44,5 +44,11 @@ namespace Clients
         {
             return agent.remainingDistance <= agent.stoppingDistance;
         }
+        public void AllerA(Vector3 destination) 
+        {
+            // On récupère l'agent et on lui donne l'ordre
+            UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+            agent.SetDestination(destination);
+        }
     }
 }

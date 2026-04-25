@@ -31,8 +31,13 @@ public class QueueManager : Singleton<QueueManager>
 		
 			if (i < positionsDeLaFile.Count) 
 			{
-				clientsEnAttente[i].AllerA(positionsDeLaFile[i].position);
+				clientsEnAttente[i].Movement.AllerA(positionsDeLaFile[i].position);
 			}
 		}
+	}
+
+	public void LeaveTheQueue(ClientController client)
+	{
+		clientsEnAttente.Remove(client);
 	}
 }
