@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -22,6 +23,11 @@ public class StairsZone : MonoBehaviour
     private bool _player2InZone = false;
     private bool _isPlayer1Climbing = false;
     private bool _isPlayer2Climbing = false;
+
+    private void Start()
+    {
+        climbFeedBack.SetActive(false);
+    }
 
     private void Update()
     {
