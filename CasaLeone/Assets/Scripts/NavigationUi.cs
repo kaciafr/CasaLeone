@@ -38,7 +38,6 @@ public class NavigationUi :  MonoBehaviour
 		if (index <0)
 		{
 			index = DishsSelected.Length - 1;
-			//index = 3;
 		}
 			
 		Debug.Log(DishsSelected[index].name);
