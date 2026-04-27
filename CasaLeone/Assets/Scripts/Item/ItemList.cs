@@ -17,7 +17,7 @@ namespace Item
             slot.UpdateVisuel(item, invRead);
 
             
-            invRead.AddInvenotryItem(item);
+            invRead.AddInventoryItem(item);
         }
     }
 }

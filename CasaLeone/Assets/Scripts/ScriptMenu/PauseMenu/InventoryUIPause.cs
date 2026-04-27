@@ -7,13 +7,15 @@ public class InventoryUIPause : MonoBehaviour
     private bool IsPaused = false;
 
     [SerializeField] private GameObject PauseMenu;
-    [SerializeField] private GameObject Button;
-    [SerializeField] private RectTransform PauseMenuRect; 
+    [SerializeField] private GameObject PanelButton;
+    [SerializeField] private RectTransform PauseMenuRect;
+    [SerializeField] private InvRead InvRead;
+
 
     private void Start()
     {
         PauseMenu.SetActive(false);
-        Button.SetActive(false);
+        PanelButton.SetActive(false);
     }
 
     public void Pause()
@@ -23,19 +25,19 @@ public class InventoryUIPause : MonoBehaviour
         if (IsPaused)
         {
             PauseMenu.SetActive(true);
-            Button.SetActive(true);
+            PanelButton.SetActive(true);
             Time.timeScale = 0;
 
             PauseMenuRect.DOKill();
+            
           
         }
         else
         {
-            Button.SetActive(false);
+            PanelButton.SetActive(false);
             PauseMenu.SetActive(false);
-
-
             PauseMenuRect.DOKill();
+            InvRead.Instance.SlideButtonsIn();
         }
     }
 }

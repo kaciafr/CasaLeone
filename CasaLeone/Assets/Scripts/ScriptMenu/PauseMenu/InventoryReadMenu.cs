@@ -4,36 +4,52 @@ using UnityEngine;
 public class InventoryReadMenu : MonoBehaviour
 {
     [SerializeField] private GameObject readMenu;
-    [SerializeField] private RectTransform _rectTransformbutton;
+    [SerializeField] private RectTransform rectTransformInventory;
+    [SerializeField] private InvRead invRead;
 
-    private Vector2 _startButtonPos;
+    [Header("Positions Inventaire")]
+    [SerializeField] private float hiddenX = 800f;   
+    [SerializeField] private float visibleX = 0f;    
+    [SerializeField] private float duration = 0.5f;
 
-    private void Awake()
-    {
-        _startButtonPos = _rectTransformbutton.anchoredPosition;
-    }
+    private bool isOpen = false;
 
     private void Start()
     {
         readMenu.SetActive(false);
+        rectTransformInventory.anchoredPosition = 
+            new Vector2(hiddenX, rectTransformInventory.anchoredPosition.y);
     }
+
 
     public void ButtonClick()
     {
-        readMenu.SetActive(true);
+        if (isOpen) return;
+        isOpen = true;
 
-        _rectTransformbutton.DOKill();
-        _rectTransformbutton.DOAnchorPosX(-200f, 0.5f)
+        readMenu.SetActive(true);
+        invRead.OnInventoryOpen(); 
+
+        rectTransformInventory.DOKill();
+        rectTransformInventory
+            .DOAnchorPosX(visibleX, duration)
             .SetEase(Ease.OutBack)
-            .SetUpdate(true); 
+            .SetUpdate(true);
     }
 
+ 
     public void Other()
     {
-        _rectTransformbutton.DOKill();
-        _rectTransformbutton.DOAnchorPosX(_startButtonPos.x, 0.5f)
+        if (!isOpen) return;
+        isOpen = false;
+
+        invRead.OnInventoryClose(); 
+
+        rectTransformInventory.DOKill();
+        rectTransformInventory
+            .DOAnchorPosX(hiddenX, duration)
             .SetEase(Ease.InBack)
             .SetUpdate(true)
-            .OnComplete(() => readMenu.SetActive(false)); 
+            .OnComplete(() => readMenu.SetActive(false));
     }
 }
