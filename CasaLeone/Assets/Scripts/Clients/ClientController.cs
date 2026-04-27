@@ -29,7 +29,11 @@ namespace Clients
 		
 		[field : SerializeField] 
 		public ClientSeat currentSeat { get; set; }
-		
+
+		private void Start()
+		{
+			CurrentState = new WaitingState();
+		}
 
 		private void Update()
 		{
@@ -51,9 +55,6 @@ namespace Clients
 		{
 			currentId = ClientData.idGroupe;
 			WaveProfile = waveProfile;
-			CurrentState = new WaitingState();
-			QueueManager.Instance.JoinTheQueue(this);
-			
 		}
 		
 		public void Despawn()

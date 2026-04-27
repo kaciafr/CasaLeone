@@ -16,6 +16,9 @@ namespace Clients
         [SerializeField] private GameObject clientrReflexion;
         [SerializeField] private GameObject clientrTimer;
         [SerializeField] private GameObject clientrCheck;
+        
+        [SerializeField]
+        private float zoom = 1;
 
         private void Start()
         {
@@ -66,7 +69,7 @@ namespace Clients
             {
                 clientrCheck.SetActive(true);
                 clientrCheck.transform.localScale = Vector3.zero; 
-                clientrCheck.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
+                clientrCheck.transform.DOScale(Vector3.one*zoom, 0.5f).SetEase(Ease.OutBack);
             }
             else clientrCheck.SetActive(false);
 
@@ -82,7 +85,7 @@ namespace Clients
 
                 clientrTimer.SetActive(true);
                 clientrTimer.transform.localScale = Vector3.zero;
-                clientrTimer.transform.DOScale(Vector3.one * 0.04f, 0.5f).SetEase(Ease.OutBack);
+                clientrTimer.transform.DOScale(Vector3.one*zoom, 0.5f).SetEase(Ease.OutBack);
 
                 currentWaitingForFood.Bored += BoredLine;
             }
@@ -136,7 +139,7 @@ namespace Clients
         private void OnClientReady()
         {
             clientrReflexion.transform.localScale = Vector3.zero;
-            clientrReflexion.transform.DOScale(Vector3.one*0.04f, 0.5f).SetEase(Ease.OutBack);
+            clientrReflexion.transform.DOScale(Vector3.one*zoom, 0.5f).SetEase(Ease.OutBack);
         }
     }
 }
