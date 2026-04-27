@@ -13,12 +13,15 @@ public class LioneController : MonoBehaviour
     public ILioneState CurrentLioneState;
     public Transform waitPoint;
 
+    [SerializeField] private float patrolRadius;
+    [SerializeField] private float waitTimeAtPoint;
+
     
     
     private void Awake()
     {
-        CurrentLioneState =  new WaitingLioneState();
-        SwitchLioneState(new WaitPositionState(waitPoint));
+        CurrentLioneState =  new PatrolState();
+        SwitchLioneState(new PatrolState(patrolRadius,waitTimeAtPoint));
 
     } 
  

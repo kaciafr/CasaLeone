@@ -15,6 +15,7 @@ namespace Clients.States
 			
 			currentBoredTime = 0;
 			maxBoredTimed = controller.maxBoredTime;
+			QueueManager.Instance.JoinTheQueue(controller);
 			
 		}
 

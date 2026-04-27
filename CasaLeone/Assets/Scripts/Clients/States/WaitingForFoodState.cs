@@ -60,7 +60,7 @@ namespace Clients.States
 			{
 				inventory.RemoveDish(dish);
 				Restaurant.Instance.RemoveCommand(commanded);
-				EatingState eatingState = new EatingState(20);
+				EatingState eatingState = new EatingState(15);
 				controller.GoTo(eatingState);
 			}
 		}

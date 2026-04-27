@@ -27,7 +27,7 @@ namespace Clients.States
 		{
 			if (controller.Movement.HasArrived())
 			{
-				ReflexionState reflexionState = new ReflexionState(10, 30);
+				ReflexionState reflexionState = new ReflexionState(30, 60);
 				controller.GoTo(reflexionState);
 			}
 		}

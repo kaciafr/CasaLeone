@@ -46,7 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2239a6caef0c4e418a718e23fdcad56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restaurants.ClientSeat
+  table: {fileID: 0}
   <Client>k__BackingField: {fileID: 0}
+  reserve: 0
+  idGroupe: 0
 --- !u!65 &3078812649662861967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,7 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2239a6caef0c4e418a718e23fdcad56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restaurants.ClientSeat
+  table: {fileID: 0}
   <Client>k__BackingField: {fileID: 0}
+  reserve: 0
+  idGroupe: 0
 --- !u!65 &5411050763673538585
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -273,7 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2239a6caef0c4e418a718e23fdcad56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restaurants.ClientSeat
+  table: {fileID: 0}
   <Client>k__BackingField: {fileID: 0}
+  reserve: 0
+  idGroupe: 0
 --- !u!65 &8941113966840085558
 BoxCollider:
   m_ObjectHideFlags: 0
