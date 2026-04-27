@@ -14,6 +14,7 @@ public class InventoryUIPause : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         PauseMenu.SetActive(false);
         PanelButton.SetActive(false);
     }
@@ -26,14 +27,14 @@ public class InventoryUIPause : MonoBehaviour
         {
             PauseMenu.SetActive(true);
             PanelButton.SetActive(true);
-            Time.timeScale = 0;
+           ///TODO
+           // Time.timeScale = 0;
 
             PauseMenuRect.DOKill();
-            
-          
         }
         else
         {
+            Time.timeScale = 1;
             PanelButton.SetActive(false);
             PauseMenu.SetActive(false);
             PauseMenuRect.DOKill();

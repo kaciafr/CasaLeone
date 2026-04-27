@@ -24,7 +24,7 @@ namespace ScriptMenu
         void Start()
         {
             closedPos = optionContainerGO.transform.localPosition;
-            openPos = closedPos + new Vector3(-300, 0, 0);
+            openPos = closedPos + new Vector3(-530, 0, 0);
             lightDefaultRot = sunLight.transform.rotation;
         }
 

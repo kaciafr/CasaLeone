@@ -22,8 +22,14 @@ MonoBehaviour:
   - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}
   - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}
   impatientLines:
-  - Ayoooooooooo
+  - "J'ai h\xE2te de manger"
+  - Un poil long
   satisfiedLines:
-  - T'es un Tigre
+  - Merci beaucoup !
+  - "J\u2019ai h\xE2te de revenir."
+  - "C\u2019est excellent, merci !"
   angryLines:
-  - "Esp\xE9ce de FADA"
+  - Je ne reviendrais plus jamais ici.
+  - "Tu n'\xE9tais pas \xE0 la hauteur de mes attentes."
+  - "Franchement d\xE9\xE7u."
+  idGroupe: 13
