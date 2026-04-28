@@ -17,7 +17,7 @@ public class StairsZone : MonoBehaviour
 
     public float rotationoffset = -45;
 
-    private readonly Vector3 _targetScale = new Vector3(0.5f, 0.5f, 0.5f);
+    [SerializeField] private Vector3 _targetScale = new Vector3(1f, 1f, 1f);
 
     private bool _player1InZone = false;
     private bool _player2InZone = false;

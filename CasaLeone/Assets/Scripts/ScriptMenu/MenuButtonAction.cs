@@ -36,9 +36,7 @@ namespace ScriptMenu
                 targetPos,
                 Time.deltaTime * optionSpeed
             );
-
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
-                OpenOptions();
+            
         }
 
         public void Begin()
