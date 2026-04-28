@@ -24,7 +24,7 @@ namespace ScriptMenu
         void Start()
         {
             closedPos = optionContainerGO.transform.localPosition;
-            openPos = closedPos + new Vector3(-300, 0, 0);
+            openPos = closedPos + new Vector3(-530, 0, 0);
             lightDefaultRot = sunLight.transform.rotation;
         }
 
@@ -36,9 +36,7 @@ namespace ScriptMenu
                 targetPos,
                 Time.deltaTime * optionSpeed
             );
-
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
-                OpenOptions();
+            
         }
 
         public void Begin()

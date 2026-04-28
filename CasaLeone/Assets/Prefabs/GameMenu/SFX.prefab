@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5382211960871375409
+--- !u!1 &3694872622355167811
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,84 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6795915006164383118}
-  - component: {fileID: 6590667197647460576}
-  - component: {fileID: 4232844194229467102}
+  - component: {fileID: 4035079794829589968}
+  - component: {fileID: 6230724470589508555}
   m_Layer: 0
-  m_Name: WaveSpawner
+  m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6795915006164383118
+--- !u!4 &4035079794829589968
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382211960871375409}
+  m_GameObject: {fileID: 3694872622355167811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.15, y: 0.178, z: -0.355}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6590667197647460576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382211960871375409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a2eecf2cbd4414a1a273859de50937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
-  profiles:
-  - label: Fast
-    minGroups: 8
-    maxGroups: 20
-    minClientsPerGroup: 1
-    maxClientsPerGroup: 4
-    delayBetweenClients: 1
-    delayBetweenGroups: 2
-    patience: 60
-    eatSpeed: 5
-  - label: Nombreux
-    minGroups: 15
-    maxGroups: 30
-    minClientsPerGroup: 1
-    maxClientsPerGroup: 4
-    delayBetweenClients: 1
-    delayBetweenGroups: 2
-    patience: 120
-    eatSpeed: 15
-  clientTypes:
-  - {fileID: 11400000, guid: 8dc2958abc34ba346a6834156b958cad, type: 2}
-  - {fileID: 11400000, guid: 19bfa11f17eac324faea8152be0a80b3, type: 2}
-  - {fileID: 11400000, guid: 148673d33a751704a870feefe8388caa, type: 2}
-  - {fileID: 11400000, guid: 5f4bd38af7df6ff4ca3ef17d371ce1c8, type: 2}
-  - {fileID: 11400000, guid: 3dc5eb89fd97f9f44a4eb3e08612a165, type: 2}
-  - {fileID: 11400000, guid: 64c274ff698f599428722344765a0681, type: 2}
-  spawnPoint: {fileID: 0}
-  waitBetweenWaves: 5
-  audioSource: {fileID: 4232844194229467102}
---- !u!82 &4232844194229467102
+--- !u!82 &6230724470589508555
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382211960871375409}
+  m_GameObject: {fileID: 3694872622355167811}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6458431254846906212, guid: 66a8afcb34323b04d86e66dcd1768308, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 800aace61bdc99842a367fc44286992e, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

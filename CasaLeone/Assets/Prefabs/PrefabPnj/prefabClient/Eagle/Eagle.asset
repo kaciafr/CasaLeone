@@ -22,8 +22,15 @@ MonoBehaviour:
   - {fileID: 8393712228223779219, guid: ff4b92fd90301d548ab9584a3f8bd557, type: 3}
   - {fileID: 8393712228223779219, guid: ff4b92fd90301d548ab9584a3f8bd557, type: 3}
   impatientLines:
-  - Ayoooooooooo
+  - 'Je vais descendre les voirs en cuisine ! '
+  - Ils vont m'entendre geuler si je dois attendre encore longtemps
   satisfiedLines:
-  - T'es un Tigre
+  - "Merci j\u2019imagine, c\u2019est loin d\u2019\xEAtre parfait cependant."
+  - "Le service est \xE0 revoir mais pourquoi pas."
+  - Merci, tu peux y aller maintenant.
   angryLines:
-  - "Esp\xE9ce de FADA"
+  - "T\u2019es tellement nul, tu n'aurais pas tenu une seconde dans une prison."
+  - "Si tu me refais \xE7a je te tra\xEEne sur 200 m\xE8tres avec ma moto."
+  - "C\u2019est quoi cette bouffe l\xE0, j\u2019ai l\u2019air d\u2019un chien pour
+    toi ?"
+  idGroupe: 15

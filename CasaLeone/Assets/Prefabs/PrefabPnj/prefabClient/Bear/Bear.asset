@@ -23,8 +23,15 @@ MonoBehaviour:
   - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
   - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
   impatientLines:
-  - Ayoooooooooo
+  - Ils font quoi la, c'est trop long !?
+  - Rooooh c'est long!
   satisfiedLines:
-  - T'es un Tigre
+  - "Tu devrais prendre ma formation, je te ferai une r\xE9duc\u2019 !"
+  - "Tu es meilleur serveur que trader \xE7a c\u2019est sur."
+  - Mon coach de vie avait raison, il suffisait de traverser la rue !
   angryLines:
-  - "Esp\xE9ce de FADA"
+  - "Avant on \xE9tait respect\xE9 ! Maintenant on est pay\xE9 des cacahu\xE8tes
+    et on se tape des serveurs nul."
+  - "Je te garderai m\xEAme pas en temps que porte balais si j'\xE9tais eux."
+  - "Tu le fais expr\xE8s ou tu es juste nul ?"
+  idGroupe: 16

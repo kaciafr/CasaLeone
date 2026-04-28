@@ -16,7 +16,8 @@ namespace PnjWaves
         [Header("Spawn")]
         public Transform spawnPoint;
         public float waitBetweenWaves = 5f;
-
+        
+        [SerializeField] private AudioSource audioSource;
         public int CurrentWave { get; private set; } = 0;
         public int BestWave { get; private set; } = 0;
 
@@ -44,7 +45,7 @@ namespace PnjWaves
             while (true)
             {
                 CurrentWave++;
-
+                audioSource.Play();
                 if (CurrentWave > BestWave)
                 {
                     BestWave = CurrentWave;
@@ -58,7 +59,7 @@ namespace PnjWaves
                 yield return StartCoroutine(SpawnWave(profile));
 
                 yield return new WaitUntil(() => AllClientsGone());
-
+                audioSource.Play();
                 yield return new WaitForSeconds(waitBetweenWaves);
             }
         }
