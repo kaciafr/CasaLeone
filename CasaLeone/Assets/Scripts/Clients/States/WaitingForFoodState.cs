@@ -46,7 +46,6 @@ namespace Clients.States
 			if (isBored && currentTime > maxBoredTime)
 			{
 				Restaurant.Instance.RemoveCommand(commanded);
-				Debug.LogError($"{controller} Nashave");
 				LeavingState leavingState = new LeavingState(true);
 				controller.GoTo(leavingState);
 			}

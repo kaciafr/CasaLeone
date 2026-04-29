@@ -29,7 +29,6 @@ namespace Clients.States
 		
 		public void Enter(ClientController controller)
 		{
-			Debug.Log("Entering ReflexionState");
 			Dish = Restaurant.Instance.GetRandomDish();
 			CurrentReflexionTime = 0;
 		}
@@ -66,7 +65,6 @@ namespace Clients.States
 			if (IsReady)
 			{
 				WaitingForFoodState waitingForFoodState = new WaitingForFoodState(command,command.dish);
-				Debug.Log($"Interacting with {controller}");
 				Restaurant.Instance.AddCommand(command);
 				controller.GoTo(waitingForFoodState);
 			}

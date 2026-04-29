@@ -91,7 +91,7 @@ namespace Restaurants
 
 		private void Start()
 		{
-			currentStressBar = new NormalState();
+			StressGoTo(new NormalState());
 		}
 
 		private void Update()

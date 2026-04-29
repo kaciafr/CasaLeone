@@ -28,7 +28,6 @@ namespace Restaurants
 			if (Client != null)
 			{
 				reserve =  true;
-				Debug.Log(reserve);
 			}
 		}
 
