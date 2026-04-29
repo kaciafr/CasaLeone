@@ -26,18 +26,10 @@ public class PlayerMovement : MonoBehaviour
     private Collider _lastKnownPlatformCollider;
     public float multiplier = 1f;
     
-    public static PlayerMovement instance;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         Turn(true);
