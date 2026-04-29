@@ -33,7 +33,7 @@ namespace Restaurants.UI
             Restaurant.Instance.OnStressChanged -= UpdateBar;
         }
 
-        private void UpdateBar(int last, int current)
+        private void UpdateBar(float last, float current)
         {
             float t = current / (float)Restaurant.MaxStress;
             anguishBarImage.fillAmount = t;

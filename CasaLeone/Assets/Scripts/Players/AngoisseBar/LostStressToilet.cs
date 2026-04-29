@@ -10,7 +10,7 @@ public class LostStressToilet : MonoBehaviour
    {
       if (other.gameObject.CompareTag("Player"))
       {
-         Restaurant.Instance.AddOrRemoveStress(-1);
+         Restaurant.Instance.AddOrRemoveStress(-lostStress);
       }
    }
 }

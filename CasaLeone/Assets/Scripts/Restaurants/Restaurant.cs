@@ -11,7 +11,7 @@ namespace Restaurants
 	public class Restaurant : Singleton<Restaurant>
 	{
 		public const int MaxStress = 100;
-		public event Action<int, int> OnStressChanged;
+		public event Action<float, float> OnStressChanged;
 		public event Action<Command> OnCommandAdded; 
 		public event Action<Command> OnCommandRemoved; 
 		
@@ -36,7 +36,7 @@ namespace Restaurants
 		[field: SerializeField]
 		public QTESysteme.QTESysteme qteSysteme;
 		[field: SerializeField, Range(0, MaxStress)]
-		public int Stress { get; private set; } = 0;
+		public float Stress { get; private set; } = 0;
 		public event Action <IStressBar> OnStressStateChanged;
 		public IStressBar currentStressBar { get; private set; }
 		
@@ -73,9 +73,9 @@ namespace Restaurants
 		}
 
 
-		public void AddOrRemoveStress(int amount)
+		public void AddOrRemoveStress(float amount)
 		{
-			int last = Stress;
+			float last = Stress;
 			Stress += amount;
 
 			if (Stress < 0)
