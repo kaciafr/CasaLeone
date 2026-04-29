@@ -16,6 +16,10 @@ namespace Sound
         Cook, 
         Room, 
         Basement,
+        HighStress,
+        LitStress, 
+        MadMaxStress, 
+        NormalStress
         
     }
 }

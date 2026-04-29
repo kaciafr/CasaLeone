@@ -1,4 +1,5 @@
 using Restaurants;
+using Sound;
 using UnityEngine;
 
 public class MadMaxSStressState : IStressBar
@@ -9,6 +10,7 @@ public class MadMaxSStressState : IStressBar
 		
 		Debug.Log("MadMAx Enter");
 		restaurant.qteSysteme.round = 6;
+		SoundManager.Instance.PlayMusic(MusicType.MadMaxStress);
 	}
 
 	public void Update(Restaurant restaurant, float deltaTime)

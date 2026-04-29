@@ -1,15 +1,19 @@
 using Restaurants;
+using Sound;
 using UnityEngine;
 
 public class HightStressState : IStressBar
 {
 	private int maxHightMedium = 75;
 	private int minHightMedium = 40;
+	private SoundManager _soundManager;
 	public void Enter(Restaurant restaurant)
 	{
 		
 		Debug.Log("HightStressState Enter");
 		restaurant.qteSysteme.round = 4;
+		SoundManager.Instance.PlayMusic(MusicType.HighStress);
+		
 	}
 
 	public void Update(Restaurant restaurant, float deltaTime)

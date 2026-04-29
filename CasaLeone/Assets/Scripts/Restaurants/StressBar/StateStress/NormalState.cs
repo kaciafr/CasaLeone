@@ -1,4 +1,5 @@
 using Restaurants;
+using Sound;
 using UnityEngine;
 
 public class NormalState : IStressBar
@@ -8,6 +9,7 @@ public class NormalState : IStressBar
 	public void Enter(Restaurant restaurant)
 	{
 		restaurant.qteSysteme.round = 1;
+		SoundManager.Instance.PlayMusic(MusicType.NormalStress);
 	}
 
 	public void Update(Restaurant restaurant, float deltaTime)

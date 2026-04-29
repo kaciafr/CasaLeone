@@ -1,4 +1,5 @@
 using Restaurants;
+using Sound;
 using UnityEngine;
 
 public class LightStressState : IStressBar
@@ -10,6 +11,8 @@ public class LightStressState : IStressBar
 		
 		Debug.Log("LightStressState Enter");
 		restaurant.qteSysteme.round = 2;
+		SoundManager.Instance.PlayMusic(MusicType.HighStress);
+
 	}
 
 	public void Update(Restaurant restaurant, float deltaTime)

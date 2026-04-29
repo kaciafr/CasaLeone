@@ -75,7 +75,9 @@ namespace DialogueSystem.Runtime
         IEnumerator AutoAdvance(float delay)
         {
             yield return new WaitForSeconds(delay);
-            DialogueManager.Instance.Next();
+            if (DialogueManager.Instance != null && DialogueManager.Instance.CurrentNode != null)
+                DialogueManager.Instance.Next();
         }
+
     }
 }
