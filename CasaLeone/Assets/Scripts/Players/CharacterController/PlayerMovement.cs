@@ -25,9 +25,19 @@ public class PlayerMovement : MonoBehaviour
     private Collider _currentPlatformCollider;
     private Collider _lastKnownPlatformCollider;
     public float multiplier = 1f;
+    
+    public static PlayerMovement instance;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         Turn(true);
@@ -186,4 +196,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #endregion
+
+    public void ApplyMultiplier(float slow)
+    {
+        multiplier = slow ;
+    }
+
+    public void ResetSpeed()
+    {
+        multiplier = 1f;
+    }
 }
