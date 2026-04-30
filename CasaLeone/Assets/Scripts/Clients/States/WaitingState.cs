@@ -12,16 +12,14 @@ namespace Clients.States
 		private bool IsBored => currentBoredTime > maxBoredTimed;
 		public void Enter(ClientController controller)
 		{
-			
 			currentBoredTime = 0;
 			maxBoredTimed = controller.maxBoredTime;
 			QueueManager.Instance.JoinTheQueue(controller);
-			
 		}
 
 		public void Exit(ClientController controller)
 		{
-			
+			QueueManager.Instance.LeaveTheQueue(controller);	
 		}
 
 		public void Update(ClientController controller, float deltaTime)

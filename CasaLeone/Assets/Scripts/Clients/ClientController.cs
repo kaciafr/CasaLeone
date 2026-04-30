@@ -32,7 +32,7 @@ namespace Clients
 
 		private void Start()
 		{
-			CurrentState = new WaitingState();
+			GoTo(new WaitingState());
 		}
 
 		private void Update()
@@ -71,6 +71,8 @@ namespace Clients
 		
 		public ClientSeat GetClientSeat()
 		{
+			return currentSeat;
+			
 			ClientTable[] tables = Restaurant.Instance.TablePlaces;
 			for (int i = 0; i < tables.Length; i++)
 			{

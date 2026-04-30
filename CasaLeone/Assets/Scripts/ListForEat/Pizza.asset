@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: Assembly-CSharp::Ingrediente
   ID: 0
-  icon: {fileID: 21300000, guid: ebfdf65012cbce24899546202e5827c7, type: 3}
+  icon: {fileID: 21300000, guid: 770f19ab263dfc245b28bf41ac6f45b6, type: 3}
   name: Pizza
