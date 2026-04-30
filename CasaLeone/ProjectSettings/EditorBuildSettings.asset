@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneSaverio.unity
     guid: ed1a7a503c1e60e4dbf1560585293b48
+  - enabled: 1
+    path: Assets/Scenes/EndScene/EndScene.unity
+    guid: 92d0f0dba0904634fbcfedce0235584a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

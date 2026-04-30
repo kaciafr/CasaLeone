@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Clients;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace PnjWaves
 {
@@ -25,6 +27,7 @@ namespace PnjWaves
         private List<GameObject> activeClients = new List<GameObject>();
         
         private int prochainIdGroupe = 0;
+        public event Action<int> FireEnd; 
 
         // ─────────────────────────────────────────────
         //  Démarrage
@@ -44,6 +47,8 @@ namespace PnjWaves
         {
             while (true)
             {
+                if(CurrentWave == 2)
+                    FireEnd?.Invoke(3);
                 CurrentWave++;
                 audioSource.Play();
                 if (CurrentWave > BestWave)

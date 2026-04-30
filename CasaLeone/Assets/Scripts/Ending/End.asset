@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a364b2b82304451ba2630a1f82e9096, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: Assembly-CSharp::Ending.EndScript
+  fireEnd: 0
+  burnOutEnd: 0
+  changedEnd: 0
+  perroquetEnd: 0

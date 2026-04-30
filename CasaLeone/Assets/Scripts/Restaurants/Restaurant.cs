@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Clients;
 using Players;
 using PnjWaves;
+using Unity.Loading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Restaurants
@@ -20,6 +22,7 @@ namespace Restaurants
 
 		[SerializeField] 
 		private List<Command> commands;
+		[SerializeField] private EndingGame endingGame;
 		
 		[SerializeField]
 		private ClientTable[] tablePlaces;
@@ -135,7 +138,8 @@ namespace Restaurants
 		
 		private void GameOver()
 		{
-			Debug.Log("FF");
+			endingGame.endScript.burnOutEnd =  true;
+			SceneManager.LoadScene("EndScene");
 		}
 	}
 }
