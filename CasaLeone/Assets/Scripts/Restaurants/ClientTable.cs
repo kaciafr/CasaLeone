@@ -11,7 +11,7 @@ namespace Restaurants
 		[field: SerializeField]
 		public ClientSeat[] ClientSeats { get; private set; }
 
-		public int currentIdGroupe { get; private set; } = -1;
+		public int currentIdGroupe { get; set; } = -1;
 
 		public bool IsFree
 		{

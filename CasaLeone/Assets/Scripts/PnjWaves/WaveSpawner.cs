@@ -27,7 +27,8 @@ namespace PnjWaves
         private List<GameObject> activeClients = new List<GameObject>();
         
         private int prochainIdGroupe = 0;
-        public event Action<int> FireEnd; 
+        public event Action<int> FireEnd;
+        private int clientsInGroup;
 
         // ─────────────────────────────────────────────
         //  Démarrage
@@ -90,7 +91,7 @@ namespace PnjWaves
                     yield break;
                 }
 
-                int clientsInGroup = Random.Range(profile.minClientsPerGroup, profile.maxClientsPerGroup + 1);
+                clientsInGroup = Random.Range(profile.minClientsPerGroup, profile.maxClientsPerGroup + 1);
 
 
                 for (int c = 0; c < clientsInGroup; c++)
@@ -111,25 +112,19 @@ namespace PnjWaves
 
         void SpawnClient(WaveProfile profile, ClientTypeSO clientType, int id)
         {
-            
-            // Choisit une variante aléatoire parmi celles du type
             GameObject prefab = clientType.PickRandomVariant();
-        
-
             GameObject client = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
 
             if (client.TryGetComponent(out ClientController clientController))
             {
-                clientController.ClientData.idGroupe = id;
-                clientController.Spawn(profile);
+                clientController.Spawn(profile, clientsInGroup, id); 
             }
             else
             {
-                Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de PnjTest.");
+                Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de ClientController.");
             }
-            
+    
             activeClients.Add(client);
-            
         }
 
         // ─────────────────────────────────────────────

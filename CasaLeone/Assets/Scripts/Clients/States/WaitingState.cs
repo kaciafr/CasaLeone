@@ -33,7 +33,7 @@ namespace Clients.States
 				return;
 			}
 
-			if (Restaurant.Instance.TryFindTable(controller.currentId,1,out ClientTable table))
+			if (Restaurant.Instance.TryFindTable(controller.currentId, controller.groupSize, out ClientTable table))
 			{
 				if (table.TryGetSeat(controller.currentId,out ClientSeat seat))
 				{

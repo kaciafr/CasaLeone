@@ -13,8 +13,10 @@ namespace Clients
 	{
 		public event Action<IClientState> OnStateChanged;
 		[SerializeField]
-		public float maxBoredTime = 5f; 
-		
+		public float maxBoredTime = 5f;
+
+		public int groupSize;
+
 		[field: SerializeField]
 		public ClientMovement Movement { get; private set; }
 		
@@ -51,10 +53,11 @@ namespace Clients
 			OnStateChanged?.Invoke(CurrentState);
 		}
 
-		public void Spawn(WaveProfile waveProfile)
+		public void Spawn(WaveProfile waveProfile, int clientsInGroup, int size)
 		{
 			currentId = ClientData.idGroupe;
 			WaveProfile = waveProfile;
+			groupSize = size;
 		}
 		
 		public void Despawn()
