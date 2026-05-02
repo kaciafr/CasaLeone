@@ -57,8 +57,8 @@ public class PlayerMovement : MonoBehaviour
         {
             TurnCheck(moveInput);
 
-            Vector3 targetVelocity = new Vector3(moveInput.x, 0f, 0f) *
-                                     (_input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed * multiplier);
+            float baseSpeed = _input.IsRunning ? movementState.MaxRunSpeed : movementState.MaxWalkSpeed;
+            Vector3 targetVelocity = new Vector3(moveInput.x, 0f, 0f) * (baseSpeed * multiplier); // ✅
 
             _moveVelocity = Vector3.Lerp(_moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
         }
@@ -67,8 +67,9 @@ public class PlayerMovement : MonoBehaviour
             _moveVelocity = Vector3.Lerp(_moveVelocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
         }
 
-        rb.linearVelocity = new Vector3(_moveVelocity.x, rb.linearVelocity.y, 0f); 
+        rb.linearVelocity = new Vector3(_moveVelocity.x, rb.linearVelocity.y, 0f);
     }
+
 
     public void TurnCheck(Vector2 moveInput)
     {
