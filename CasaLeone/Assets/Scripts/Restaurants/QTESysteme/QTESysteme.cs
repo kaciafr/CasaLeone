@@ -12,7 +12,7 @@ namespace Restaurants.QTESysteme
 {
 	public class QTESysteme : MonoBehaviour
 	{
-		
+		[SerializeField] private Transform doorPivot;
 		public Dish winGift;
 		public enum QTEKey
 		{
@@ -29,7 +29,8 @@ namespace Restaurants.QTESysteme
 		public int minSequence = 5;
 		public int round = 2;
 		[SerializeField] private GlobalPlayer playerInventory;
-		[SerializeField] private ObjetBaseInteractable objetBaseInteractable;
+		public ObjetBaseInteractable objetBaseInteractable;
+		public Collider toDestroy;
 
 		public event Action<List<QTEKey>> QTESequence;
 		public event Action<int> KeyPressed;
@@ -55,10 +56,17 @@ namespace Restaurants.QTESysteme
 			
 			currentInput.SwitchCurrentActionMap("UI");
 			currentRound = round;
-			
-			delay = TimerDelay;
-			currentIndex = 0;
-			showFood?.Invoke(winGift);
+			if (objetBaseInteractable.lockDoor == true)
+			{
+				GenerateSequence();
+			}
+			else
+			{
+				delay = TimerDelay;
+				currentIndex = 0;
+				showFood?.Invoke(winGift);
+			}
+
 		}
 
 		private void Round()
@@ -80,13 +88,12 @@ namespace Restaurants.QTESysteme
 
 		public void GenerateSequence()
 		{
+			qteStart = true;
 			isStarted = true;
-			if (winGift == null)
+			if (winGift == null && objetBaseInteractable.lockDoor == false)
 			{
 				return;
 			}
-			qteStart = true;
-			
 			currentInput.SwitchCurrentActionMap("QTE");
 			sequence.Clear();
 		
@@ -134,7 +141,14 @@ namespace Restaurants.QTESysteme
 
 				if (currentIndex >= sequence.Count)
 				{
-					Manche();
+					if (objetBaseInteractable.lockDoor)
+					{
+						Success();
+					}
+					else
+					{
+						Manche();
+					}
 				}
 			}
 			else
@@ -157,15 +171,26 @@ namespace Restaurants.QTESysteme
 
 		void Success()
 		{
-			Inventory inventory = playerInventory.Inventory;
-
-			qteStart = false;
 			isStarted = false;
+			qteStart = false;
 			currentInput.SwitchCurrentActionMap("Player");
-			Debug.Log("SUCCESS");
-			onSuccess?.Invoke();
-			inventory.AddDish(winGift);
-			winGift = null;
+
+			if (objetBaseInteractable.lockDoor)
+			{
+				Debug.Log("PORTE DEVERROUILLEE");
+				toDestroy.enabled = false;
+				doorPivot.transform.rotation = Quaternion.Euler(0, 0, 0); 
+			}
+			else
+			{
+				Inventory inventory = playerInventory.Inventory;
+				if (winGift != null)
+				{
+					inventory.AddDish(winGift);
+					winGift = null;
+				}
+				onSuccess?.Invoke();
+			}
 		}
 
 		void Lose()
@@ -175,7 +200,10 @@ namespace Restaurants.QTESysteme
 			currentInput.SwitchCurrentActionMap("Player");
 			winGift = null;
 			Debug.Log("FAILED");
-			onLose?.Invoke();
+			
+			if (objetBaseInteractable.lockDoor == false)
+				onLose?.Invoke();
+			
 		}
 	}
 }

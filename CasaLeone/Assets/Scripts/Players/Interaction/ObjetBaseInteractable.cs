@@ -14,14 +14,16 @@ namespace Players.Interaction
 		[SerializeField] private GameObject endPosition;
 		[SerializeField] private GameObject startPosition;
 		[SerializeField] private QTESysteme qteSysteme;
-		[SerializeField] private UiQte qteUi;
+		public UiQte qteUi;
 		[SerializeField] private TransformeUiQte UiLocQte;
 		
 		public GlobalPlayer currentPlayer;
 
 		[SerializeField] private float speedAnim;
+		public bool lockDoor = false;
 
 		public Action<Transform> UILoc;
+		
 
 		private void Start()
 		{
@@ -33,7 +35,7 @@ namespace Players.Interaction
 			currentPlayer = globalPlayer;
 			pressE.SetActive(false);
 			UiLocQte.UiTransform(objectTransform);
-			
+			qteSysteme.objetBaseInteractable = this;
 			qteSysteme.StartSequence();
 		}
 		private void OnTriggerEnter(Collider other)
