@@ -19,6 +19,7 @@ namespace LioneManager.State
                 
                 _playerMovement = other.gameObject.GetComponent<PlayerMovement>();
                 _playerInZone = true;
+                _restaurant.AddOrRemoveStress(5);
             }
         }
 
@@ -35,7 +36,7 @@ namespace LioneManager.State
 
         private void Update()
         {
-            if (_playerInZone || _playerMovement == null)
+            if (!_playerInZone || _playerMovement == null)
                 return;
             float multiplier = GetMultiplierFromStress();
                 _playerMovement.ApplyMultiplier(multiplier);

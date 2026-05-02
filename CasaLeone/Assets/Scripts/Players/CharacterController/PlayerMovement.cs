@@ -37,14 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    private void Update()
-    {
-
-        if (_input.IsDroppingThisFrame && _lastKnownPlatformCollider != null)
-        {
-            StartCoroutine(DropThroughPlatform());
-        }
-    }
 
     private void FixedUpdate()
     {
@@ -130,16 +122,7 @@ public class PlayerMovement : MonoBehaviour
             movementState.GroundDetectionRayLength
         );
 
-        foreach (RaycastHit hit in hits)
-        {
-            if (hit.collider.CompareTag("Platform"))
-            {
-                _currentPlatformCollider = hit.collider;
-                _lastKnownPlatformCollider = hit.collider;
-                _isGrounded = true;
-                break;
-            }
-        }
+        
 
     }
 
@@ -160,35 +143,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #endregion
-
-    #region Drop Through Platform
-
-    private IEnumerator DropThroughPlatform()
-    {
-
-        if (_lastKnownPlatformCollider == null)
-        {
-            yield break;
-        }
-
-        Collider platformToIgnore = _lastKnownPlatformCollider;
-        _isDropping = true;
-
-
-        Physics.IgnoreCollision(bodyCol, platformToIgnore, true);
-        Physics.IgnoreCollision(feetCol, platformToIgnore, true);
-
-        yield return new WaitForSeconds(0.5f);
-
-        Physics.IgnoreCollision(bodyCol, platformToIgnore, false);
-        Physics.IgnoreCollision(feetCol, platformToIgnore, false);
-
-        _isDropping = false;
-
-    }
-
-    #endregion
-
+    
     public void ApplyMultiplier(float slow)
     {
         multiplier = slow ;
