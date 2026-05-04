@@ -1,3 +1,4 @@
+using DialogueSystem.DATA;
 using Players;
 using Players.Interaction;
 using TMPro;
@@ -15,6 +16,9 @@ namespace Item
 		[SerializeField] private Image icon;
 		[SerializeField] private TextMeshProUGUI description;
 		private bool seeOneTime = false;
+		
+		public string conditionID = "";
+
 
 		private void Start()
 		{
@@ -30,6 +34,7 @@ namespace Item
 				itemList.UpdateList(itemData);
 				Destroy(gameObject);
 				seeOneTime = true;
+				ConditionManager.SetCondition(conditionID, true);
 			}
 		}
 	}

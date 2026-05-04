@@ -13,8 +13,10 @@ namespace Clients
 	{
 		public event Action<IClientState> OnStateChanged;
 		[SerializeField]
-		public float maxBoredTime = 5f; 
-		
+		public float maxBoredTime = 5f;
+
+		public int groupSize;
+
 		[field: SerializeField]
 		public ClientMovement Movement { get; private set; }
 		
@@ -32,7 +34,7 @@ namespace Clients
 
 		private void Start()
 		{
-			CurrentState = new WaitingState();
+			GoTo(new WaitingState());
 		}
 
 		private void Update()
@@ -51,10 +53,11 @@ namespace Clients
 			OnStateChanged?.Invoke(CurrentState);
 		}
 
-		public void Spawn(WaveProfile waveProfile)
+		public void Spawn(WaveProfile waveProfile, int clientsInGroup, int size)
 		{
 			currentId = ClientData.idGroupe;
 			WaveProfile = waveProfile;
+			groupSize = size;
 		}
 		
 		public void Despawn()
@@ -71,6 +74,8 @@ namespace Clients
 		
 		public ClientSeat GetClientSeat()
 		{
+			return currentSeat;
+			
 			ClientTable[] tables = Restaurant.Instance.TablePlaces;
 			for (int i = 0; i < tables.Length; i++)
 			{

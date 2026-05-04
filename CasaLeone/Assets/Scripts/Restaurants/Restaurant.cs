@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Clients;
 using Players;
 using PnjWaves;
+using Unity.Loading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Restaurants
@@ -11,7 +13,7 @@ namespace Restaurants
 	public class Restaurant : Singleton<Restaurant>
 	{
 		public const int MaxStress = 100;
-		public event Action<int, int> OnStressChanged;
+		public event Action<float, float> OnStressChanged;
 		public event Action<Command> OnCommandAdded; 
 		public event Action<Command> OnCommandRemoved; 
 		
@@ -20,6 +22,7 @@ namespace Restaurants
 
 		[SerializeField] 
 		private List<Command> commands;
+		[SerializeField] private EndingGame endingGame;
 		
 		[SerializeField]
 		private ClientTable[] tablePlaces;
@@ -36,7 +39,7 @@ namespace Restaurants
 		[field: SerializeField]
 		public QTESysteme.QTESysteme qteSysteme;
 		[field: SerializeField, Range(0, MaxStress)]
-		public int Stress { get; private set; } = 0;
+		public float Stress { get; private set; } = 0;
 		public event Action <IStressBar> OnStressStateChanged;
 		public IStressBar currentStressBar { get; private set; }
 		public bool TryFindTable(int groupID,int groupSize, out ClientTable table)
@@ -44,23 +47,30 @@ namespace Restaurants
 			for (var i = 0; i < tablePlaces.Length; i++)
 			{
 				var t = tablePlaces[i];
-				if (t.currentIdGroupe == groupID && t.GetFreeSeatCount() > 0)
+				if (t.currentIdGroupe == groupID) 
 				{
-					table = t;
-					return true;
-				}
-			}
-
-			for (var i = 0; i < tablePlaces.Length; i++)
-			{
-				var t = tablePlaces[i];
-				if (t.currentIdGroupe==-1 && t.CanFitGroup(groupID,groupSize))
-				{
-					table = t;
-					return true;
+					if (t.GetFreeSeatCount() > 0)
+					{
+						table = t;
+						return true;
+					}
 				}
 			}
 			
+			for (var i = 0; i < tablePlaces.Length; i++)
+			{
+				var t = tablePlaces[i];
+				if (t.currentIdGroupe == -1) 
+				{
+					if (t.CanFitGroup(groupID, groupSize))
+					{
+						t.currentIdGroupe = groupID; 
+						table = t;
+						return true;
+					}
+				}
+			}
+
 			table = null;
 			return false;
 		}
@@ -72,9 +82,9 @@ namespace Restaurants
 		}
 
 
-		public void AddOrRemoveStress(int amount)
+		public void AddOrRemoveStress(float amount)
 		{
-			int last = Stress;
+			float last = Stress;
 			Stress += amount;
 
 			if (Stress < 0)
@@ -134,7 +144,8 @@ namespace Restaurants
 		
 		private void GameOver()
 		{
-			Debug.Log("FF");
+			endingGame.endScript.burnOutEnd =  true;
+			SceneManager.LoadScene("EndScene");
 		}
 	}
 }

@@ -1,13 +1,14 @@
 using DialogueSystem.DATA;
 using DialogueSystem.Runtime;
+using Players;
+using Players.Interaction;
 using UnityEngine;
 
 namespace DialogueSystem
 {
-    public class NPCTriggerDialogue : MonoBehaviour
+    public class NPCTriggerDialogue : MonoBehaviour, IInteractable
     {
         private DialogueTrigger _dialogueTrigger;
-        private bool            _playerInRange;
 
         [Header("Condition déclenchée à la fin (optionnel)")]
         public string triggerConditionOnEnd = "";
@@ -17,17 +18,14 @@ namespace DialogueSystem
             _dialogueTrigger = GetComponent<DialogueTrigger>();
         }
 
-        void Update()
-        {
-            if (!Input.GetKeyDown(KeyCode.E)) return;
 
+        public void Interact(GlobalPlayer globalPlayer)
+        {
             if (DialogueManager.Instance.IsInConversation)
             {
                 DialogueManager.Instance.PlayerAdvance();
                 return;
             }
-
-            if (!_playerInRange) return;
 
             DialogueConversation conv = _dialogueTrigger?.conversation;
             if (conv == null) return;
@@ -38,7 +36,6 @@ namespace DialogueSystem
             StartDialogue(conv);
         }
 
-        // ── Déclenchement par script externe ─────────────────────────────────
 
         public void TriggerDialogue(DialogueConversation conversation)
         {
@@ -54,7 +51,6 @@ namespace DialogueSystem
             DialogueManager.Instance.StartConversation(conversation, transform, "", onEnded);
         }
 
-        // ── Privé ─────────────────────────────────────────────────────────────
 
         void StartDialogue(DialogueConversation conversation)
         {
@@ -65,17 +61,6 @@ namespace DialogueSystem
         {
             if (!string.IsNullOrEmpty(triggerConditionOnEnd))
                 ConditionManager.SetCondition(triggerConditionOnEnd, true);
-        }
-
-
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Player")) _playerInRange = true;
-        }
-
-        void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Player")) _playerInRange = false;
         }
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pasta
   m_EditorClassIdentifier: Assembly-CSharp::Ingrediente
   ID: 2
-  icon: {fileID: 21300000, guid: ce139de68315f664eb77ac75066a25dd, type: 3}
-  name: Pasta
+  icon: {fileID: 21300000, guid: 89a901deb06ddb44180ea3eeae787667, type: 3}
+  name: Pesto

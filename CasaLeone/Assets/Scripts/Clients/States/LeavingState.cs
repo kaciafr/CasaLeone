@@ -20,12 +20,11 @@ namespace Clients.States
 			isReady = true;
 			if (controller.currentSeat != null)
 			{
-				ClientTable table = controller.currentSeat.table;
 				controller.currentSeat.Leave(controller); 
-				table.CheckIfTableIsNowEmpty(); 
+				controller.currentSeat.table.CheckIfTableIsNowEmpty(); 
 				controller.currentSeat = null; 
 			}
-			QueueManager.Instance.NextClient();
+			QueueManager.Instance.LeaveTheQueue(controller);
 			
 			controller.Movement.SetDestination(Restaurant.Instance.Exit);
 			if (IsAngry)
@@ -51,9 +50,10 @@ namespace Clients.States
 				ReplicaLine?.Invoke();
 				isReady = false;
 			}
-			
 			if (controller.Movement.HasArrived())
-				controller.GoTo(null);
+			{
+				controller.Despawn();
+			}
 		}
 	}
 }

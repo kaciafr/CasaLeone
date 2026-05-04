@@ -9,6 +9,8 @@ public class CuisineUI : MonoBehaviour
     [SerializeField] private ParticleSystem madMAxFire;
     private void Start()
     {
+        StopAll();
+        Restaurant.Instance.OnStressStateChanged -= UpdateFlamme;
         Restaurant.Instance.OnStressStateChanged += UpdateFlamme;
     }
 

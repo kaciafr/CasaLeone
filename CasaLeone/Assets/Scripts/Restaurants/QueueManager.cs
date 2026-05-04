@@ -9,8 +9,11 @@ public class QueueManager : Singleton<QueueManager>
 
 	public void JoinTheQueue(ClientController nouveauClient) 
 	{
-		clientsEnAttente.Add(nouveauClient);
-		UpdateTheQueue();
+		if (!clientsEnAttente.Contains(nouveauClient))
+		{
+			clientsEnAttente.Add(nouveauClient);
+			UpdateTheQueue();
+		}
 	}
 
 	public void NextClient() 
@@ -32,12 +35,17 @@ public class QueueManager : Singleton<QueueManager>
 			if (i < positionsDeLaFile.Count) 
 			{
 				clientsEnAttente[i].Movement.AllerA(positionsDeLaFile[i].position);
+				Debug.Log(positionsDeLaFile[i].position);
 			}
 		}
 	}
 
 	public void LeaveTheQueue(ClientController client)
 	{
-		clientsEnAttente.Remove(client);
+		if (clientsEnAttente.Contains(client))
+		{
+			clientsEnAttente.Remove(client);
+			UpdateTheQueue();
+		}
 	}
 }

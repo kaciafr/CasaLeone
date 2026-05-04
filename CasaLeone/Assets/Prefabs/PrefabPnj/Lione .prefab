@@ -86,8 +86,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 451766520, guid: 7bc5bdfa74be0ef429739885a85b4392, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.3765235, a: 1}
+  m_Sprite: {fileID: 1736433204, guid: c93331aa67b5d4949af6abb475c9af22, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,7 +106,7 @@ Animator:
   m_GameObject: {fileID: 961759230165802500}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c8d62b3883430a84c9182c5107f470be, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33ee3c9e97f1d4b459ccc0e789eda024, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LioneController
   LioneMovement: {fileID: 7588027330652310159}
   waitPoint: {fileID: 0}
+  patrolRadius: 0
+  waitTimeAtPoint: 0
 --- !u!114 &7588027330652310159
 MonoBehaviour:
   m_ObjectHideFlags: 0

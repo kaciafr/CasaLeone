@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Clients;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace PnjWaves
 {
@@ -25,6 +27,8 @@ namespace PnjWaves
         private List<GameObject> activeClients = new List<GameObject>();
         
         private int prochainIdGroupe = 0;
+        public event Action<int> FireEnd;
+        private int clientsInGroup;
 
         // ─────────────────────────────────────────────
         //  Démarrage
@@ -44,6 +48,8 @@ namespace PnjWaves
         {
             while (true)
             {
+                if(CurrentWave == 2)
+                    FireEnd?.Invoke(3);
                 CurrentWave++;
                 audioSource.Play();
                 if (CurrentWave > BestWave)
@@ -85,7 +91,7 @@ namespace PnjWaves
                     yield break;
                 }
 
-                int clientsInGroup = Random.Range(profile.minClientsPerGroup, profile.maxClientsPerGroup + 1);
+                clientsInGroup = Random.Range(profile.minClientsPerGroup, profile.maxClientsPerGroup + 1);
 
 
                 for (int c = 0; c < clientsInGroup; c++)
@@ -106,25 +112,19 @@ namespace PnjWaves
 
         void SpawnClient(WaveProfile profile, ClientTypeSO clientType, int id)
         {
-            
-            // Choisit une variante aléatoire parmi celles du type
             GameObject prefab = clientType.PickRandomVariant();
-        
-
             GameObject client = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
 
             if (client.TryGetComponent(out ClientController clientController))
             {
-                clientController.ClientData.idGroupe = id;
-                clientController.Spawn(profile);
+                clientController.Spawn(profile, clientsInGroup, id); 
             }
             else
             {
-                Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de PnjTest.");
+                Debug.LogWarning($"WaveSpawner : le prefab {prefab.name} n'a pas de ClientController.");
             }
-            
+    
             activeClients.Add(client);
-            
         }
 
         // ─────────────────────────────────────────────
