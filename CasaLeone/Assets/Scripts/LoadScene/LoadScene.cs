@@ -37,5 +37,10 @@ namespace LoadScene
         {
             SceneManager.LoadScene("StartScene");
         }
+        
+        private void CinematicsScene()
+        {
+            SceneManager.LoadScene("CinematicsScene");
+        }
     }
 }
