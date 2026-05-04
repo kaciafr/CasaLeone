@@ -2,8 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using ChromaticAberration = UnityEngine.Rendering.PostProcessing.ChromaticAberration;
-using Vignette = UnityEngine.Rendering.PostProcessing.Vignette;
 
 public class AnxietyEffect : MonoBehaviour
 {
@@ -42,7 +40,6 @@ public class AnxietyEffect : MonoBehaviour
         volume.profile.TryGet(out filmGrain);
         volume.profile.TryGet(out distortion);
         volume.profile.TryGet(out colorAdjustments);
-        SetNormal();
     }
     
 

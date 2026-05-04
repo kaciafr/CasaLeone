@@ -44,7 +44,7 @@ namespace LioneManager.State
             float multiplier = GetMultiplierFromStress();
             foreach (PlayerMovement player in _playersInZone)
             {
-                player.ApplyMultiplier(multiplier); // 
+                player.ApplyMultiplier(multiplier); 
             }
         }
 
