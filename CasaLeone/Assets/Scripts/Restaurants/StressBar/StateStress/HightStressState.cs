@@ -11,7 +11,7 @@ public class HightStressState : IStressBar
 	{
 		
 		Debug.Log("HightStressState Enter");
-		restaurant.qteSysteme.round = 4;
+		restaurant.cooker.round = 4;
 		SoundManager.Instance.PlayMusic(MusicType.HighStress);
 		
 	}

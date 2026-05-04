@@ -10,7 +10,7 @@ public class LightStressState : IStressBar
 	{
 		
 		Debug.Log("LightStressState Enter");
-		restaurant.qteSysteme.round = 2;
+		restaurant.cooker.round = 2;
 		SoundManager.Instance.PlayMusic(MusicType.HighStress);
 
 	}

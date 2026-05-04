@@ -8,7 +8,7 @@ public class NormalState : IStressBar
 
 	public void Enter(Restaurant restaurant)
 	{
-		restaurant.qteSysteme.round = 1;
+		restaurant.cooker.round = 1;
 		SoundManager.Instance.PlayMusic(MusicType.NormalStress);
 	}
 

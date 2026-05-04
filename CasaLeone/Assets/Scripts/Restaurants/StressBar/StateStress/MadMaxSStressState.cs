@@ -9,7 +9,7 @@ public class MadMaxSStressState : IStressBar
 	{
 		
 		Debug.Log("MadMAx Enter");
-		restaurant.qteSysteme.round = 6;
+		restaurant.cooker.round = 6;
 		SoundManager.Instance.PlayMusic(MusicType.MadMaxStress);
 	}
 

@@ -22,6 +22,7 @@ namespace Restaurants.QTESysteme.UiQte
 		[SerializeField] private Image timerBar;
 		[SerializeField] private GameObject timerBars;
 		[SerializeField] private QTESysteme qteSysteme;
+		[SerializeField] private Cooker cooker;
 		[SerializeField] private Transform arrowContainer;
 		[SerializeField] private GameObject arrowPrefab;
 		[SerializeField] private GameObject endPosition;
@@ -48,7 +49,7 @@ namespace Restaurants.QTESysteme.UiQte
 			qteSysteme.onLose += LoseUI;
 			qteSysteme.onSuccess += WinUI;
 			qteSysteme.Timer += Timers;
-			qteSysteme.showFood += ChooseFood;
+			cooker.showFood += ChooseFood;
 		}
 		private void OnDisable()
 		{
@@ -57,7 +58,7 @@ namespace Restaurants.QTESysteme.UiQte
 			qteSysteme.onLose -= LoseUI;
 			qteSysteme.onSuccess -= WinUI;
 			qteSysteme.Timer -= Timers;
-			qteSysteme.showFood -= ChooseFood;
+			cooker.showFood -= ChooseFood;
 		}
 
 		private void ChooseFood(Dish food)
@@ -119,16 +120,18 @@ namespace Restaurants.QTESysteme.UiQte
 		{
 			foreach (Transform child in arrowContainer)
 				Destroy(child.gameObject);
+			
 			arrows.Clear();
 			timerBars.SetActive(false);
 			
-			Restaurant.Instance.AddOrRemoveStress(4);
+			
 		}
 
 		private void WinUI()
 		{
 			foreach (Transform child in arrowContainer)
 				Destroy(child.gameObject);
+			
 			timerBars.SetActive(false);
 			arrows.Clear();
 		

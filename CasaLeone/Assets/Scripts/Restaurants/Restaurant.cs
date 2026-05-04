@@ -16,7 +16,7 @@ namespace Restaurants
 		public event Action<float, float> OnStressChanged;
 		public event Action<Command> OnCommandAdded; 
 		public event Action<Command> OnCommandRemoved; 
-		
+		public Cooker cooker;
 		[SerializeField] 
 		private List<Dish> plats;
 

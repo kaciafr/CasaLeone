@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Item
 {
-	public class Item : MonoBehaviour, IInteractable
+	public class Item : MonoBehaviour, IInteractableQTE
 	{
 		[SerializeField] private ItemData itemData;
 		[SerializeField] private ItemList itemList;
