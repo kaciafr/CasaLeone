@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class NavigationUi : MonoBehaviour
 {
-    [SerializeField] private QTESysteme qteSysteme;
+    [SerializeField] private Cooker cooker;
     
     private int index = 0;
     
@@ -49,7 +49,7 @@ public class NavigationUi : MonoBehaviour
             Debug.LogError($"DishsData[{index}] manquant !");
             return;
         }
-        qteSysteme.winGift = DishsData[index];
+        cooker.winGift = DishsData[index];
         DishsSelected[index]?.GetComponent<Button>()?.onClick.Invoke();
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Restaurants
 {
-	public class ClientTable : MonoBehaviour, IInteractable
+	public class ClientTable : MonoBehaviour, IInteractableQTE
 	{
 		[field: SerializeField]
 		public ClientSeat[] ClientSeats { get; private set; }
