@@ -18,9 +18,7 @@ MonoBehaviour:
   personality: 0
   variants:
   - {fileID: 3175802198374922146, guid: 3eb706f7f1e130a41a013c45c59358f8, type: 3}
-  - {fileID: 3175802198374922146, guid: 3eb706f7f1e130a41a013c45c59358f8, type: 3}
-  - {fileID: 3175802198374922146, guid: 3eb706f7f1e130a41a013c45c59358f8, type: 3}
-  - {fileID: 3175802198374922146, guid: 3eb706f7f1e130a41a013c45c59358f8, type: 3}
+  - {fileID: 3175802198374922146, guid: ef20a4adc6da20945929fa65ed10dc23, type: 3}
   impatientLines:
   - 'Ayooo !! '
   - "Autant le faire nous m\xEAme"

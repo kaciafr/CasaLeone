@@ -18,10 +18,7 @@ MonoBehaviour:
   personality: 5
   variants:
   - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
-  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
-  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
-  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
-  - {fileID: 2224562426785233550, guid: 4049c7ae0974e704fa69467fa929ef42, type: 3}
+  - {fileID: 2224562426785233550, guid: e4f6b55fde67c8c4889c573bd96d3caa, type: 3}
   impatientLines:
   - Ils font quoi la, c'est trop long !?
   - Rooooh c'est long!

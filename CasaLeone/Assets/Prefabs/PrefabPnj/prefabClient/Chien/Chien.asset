@@ -18,9 +18,7 @@ MonoBehaviour:
   personality: 0
   variants:
   - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}
-  - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}
-  - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}
-  - {fileID: 5445163248996622632, guid: 12bbe295a7d476d41acbdb98950ac17c, type: 3}
+  - {fileID: 5445163248996622632, guid: 42c97e48dafdd6041bffd820c422d5b3, type: 3}
   impatientLines:
   - "J'ai h\xE2te de manger"
   - Un poil long

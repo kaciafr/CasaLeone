@@ -18,9 +18,7 @@ MonoBehaviour:
   personality: 0
   variants:
   - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
-  - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
-  - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
-  - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
+  - {fileID: 3694290337758468392, guid: 948e167b386907744b46b47d2941bc0c, type: 3}
   impatientLines:
   - "Ils sont bloqu\xE9 par la manif en cuisine?"
   - Long...

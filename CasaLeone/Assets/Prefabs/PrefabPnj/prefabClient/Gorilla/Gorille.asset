@@ -18,9 +18,8 @@ MonoBehaviour:
   personality: 0
   variants:
   - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
-  - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
-  - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
-  - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
+  - {fileID: 3786077069403723191, guid: e4a511d5b1eef0a46aa6fc483a6297c7, type: 3}
+  - {fileID: 3786077069403723191, guid: 46b0814bc2987d64c95690770e5f56d9, type: 3}
   impatientLines:
   - Ils sont entrain de poser un classique ou c'est comment ?!
   - "J'esp\xE9re ils sont plus rapide \xE0 \xE9chapper au FISC qu'\xE0 cuisiner"
