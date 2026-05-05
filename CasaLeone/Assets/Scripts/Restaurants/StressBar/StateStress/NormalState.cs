@@ -10,6 +10,7 @@ public class NormalState : IStressBar
 	{
 		restaurant.cooker.round = 1;
 		SoundManager.Instance.PlayMusic(MusicType.NormalStress);
+		AnxietyEffect.instance.SetNormal();
 	}
 
 	public void Update(Restaurant restaurant, float deltaTime)

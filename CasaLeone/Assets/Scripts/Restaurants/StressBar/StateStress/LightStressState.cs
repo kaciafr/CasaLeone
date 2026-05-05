@@ -12,6 +12,7 @@ public class LightStressState : IStressBar
 		Debug.Log("LightStressState Enter");
 		restaurant.cooker.round = 2;
 		SoundManager.Instance.PlayMusic(MusicType.HighStress);
+		AnxietyEffect.instance.SetLightStress();
 
 	}
 

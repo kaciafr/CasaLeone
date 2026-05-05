@@ -43,7 +43,6 @@ public class AnxietyEffect : MonoBehaviour
     }
     
 
-
     void Update()
     {
         if (vignette != null)
@@ -76,37 +75,25 @@ public class AnxietyEffect : MonoBehaviour
     public void SetNormal()
     {
         targetVignette = 0.2f;
-        targetChromaticAberration = 0f;
-        targetSaturation = 0f;
-        targetFilmGrain = 0.1f;
-        targetLensDistortion = 0f;
+        
     }
 
     public void SetLightStress()
     {
         targetVignette = 0.4f;
-        targetChromaticAberration = 0.2f;
-        targetSaturation = -20f;
-        targetFilmGrain = 0.3f;
-        targetLensDistortion = -0.1f;
+       
     }
     
-    public void SetHightLightStress()
+    public void SetHightStress()
     {
         targetVignette = 0.6f;
-        targetChromaticAberration = 0.5f;
-        targetSaturation = -50f;
-        targetFilmGrain = 0.6f;
-        targetLensDistortion = -0.3f;
+        
     }
 
     public void SetMadMaxStress()
     {
         targetVignette = 0.8f;
-        targetChromaticAberration = 1f;
-        targetSaturation = -100f;
-        targetFilmGrain = 1f;
-        targetLensDistortion = -0.6f;    
+         
         
     }
     

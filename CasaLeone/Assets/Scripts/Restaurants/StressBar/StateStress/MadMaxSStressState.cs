@@ -11,6 +11,7 @@ public class MadMaxSStressState : IStressBar
 		Debug.Log("MadMAx Enter");
 		restaurant.cooker.round = 6;
 		SoundManager.Instance.PlayMusic(MusicType.MadMaxStress);
+		AnxietyEffect.instance.SetHightStress();
 	}
 
 	public void Update(Restaurant restaurant, float deltaTime)

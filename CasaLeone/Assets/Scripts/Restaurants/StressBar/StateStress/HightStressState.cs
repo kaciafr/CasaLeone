@@ -13,6 +13,7 @@ public class HightStressState : IStressBar
 		Debug.Log("HightStressState Enter");
 		restaurant.cooker.round = 4;
 		SoundManager.Instance.PlayMusic(MusicType.HighStress);
+		AnxietyEffect.instance.SetHightStress();
 		
 	}
 
