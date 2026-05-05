@@ -58,6 +58,7 @@ namespace Clients
 			currentId = ClientData.idGroupe;
 			WaveProfile = waveProfile;
 			groupSize = size;
+			
 		}
 		
 		public void Despawn()

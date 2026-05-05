@@ -6,12 +6,15 @@ public class HightStressState : IStressBar
 {
 	private int maxHightMedium = 75;
 	private int minHightMedium = 40;
-	private SoundManager _soundManager;
 	public void Enter(Restaurant restaurant)
 	{
 		
 		Debug.Log("HightStressState Enter");
-		restaurant.cooker.round = 4;
+		if (restaurant.cooker != null)
+		{
+			restaurant.cooker.round = 4;
+
+		}
 		SoundManager.Instance.PlayMusic(MusicType.HighStress);
 		AnxietyEffect.instance.SetHightStress();
 		

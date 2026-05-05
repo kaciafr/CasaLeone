@@ -8,19 +8,7 @@ namespace Sound
     {
         public static SoundManager Instance;
 
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-                InitDictionaries();
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+     
 
 
         [Header(" Volumes")]
@@ -43,7 +31,22 @@ namespace Sound
 
         private Dictionary<SoundType, SoundItem> soundDict;
         private Dictionary<MusicType, MusicItem> musicDict;
-
+        
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
+            InitDictionaries();
+        }
         private void InitDictionaries()
         {
  
