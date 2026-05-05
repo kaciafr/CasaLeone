@@ -6,6 +6,8 @@ namespace DialogueSystem.Runtime
 {
     public class DialogueManager : MonoBehaviour
     {
+        public static event Action<DialogueNode> onNodeDisplayed;
+
         public static DialogueManager Instance;
 
         [Header("UI 3D")]
@@ -31,7 +33,7 @@ namespace DialogueSystem.Runtime
             _currentNode = ResolveEntryNode(conversation.startingNode);
 
             worldSpaceUI.ShowBubble(npcTransform);
-            worldSpaceUI.Display(_currentNode);
+            DisplayNode(_currentNode);
         }
 
         public void PlayerAdvance()
@@ -47,7 +49,7 @@ namespace DialogueSystem.Runtime
             if (nextNode != null)
             {
                 _currentNode = nextNode;
-                worldSpaceUI.Display(_currentNode);
+                DisplayNode(_currentNode);
             }
             else
             {
@@ -69,6 +71,11 @@ namespace DialogueSystem.Runtime
             }
 
             return startingNode;
+        }
+        void DisplayNode(DialogueNode node)
+        {
+            worldSpaceUI.Display(node);
+            onNodeDisplayed?.Invoke(node);
         }
 
         void EndConversation()

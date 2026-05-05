@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Personne n\u2019\xE9coute ici."
   autoAdvanceDelay: 5
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: 1d8b1c4ab166e0144814f32884e3dadd, type: 2}
   conditionalBranches: []

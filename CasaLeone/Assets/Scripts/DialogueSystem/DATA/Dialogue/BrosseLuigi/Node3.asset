@@ -18,3 +18,6 @@ MonoBehaviour:
   conditionalBranches:
   - conditionID: Brosse
     branchNode: {fileID: 11400000, guid: 37b9f4424040dad43aa352a612fc6432, type: 2}
+  onNodeEnd:
+    m_PersistentCalls:
+      m_Calls: []
