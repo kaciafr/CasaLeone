@@ -39,8 +39,6 @@ namespace Clients.States
 
 		public void Exit(ClientController controller)
 		{
-			if(controller.Movement.HasArrived())
-				controller.Despawn();
 		}
 
 		public void Update(ClientController controller, float deltaTime)

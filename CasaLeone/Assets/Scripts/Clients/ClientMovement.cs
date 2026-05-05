@@ -1,4 +1,6 @@
 
+using Restaurants.QTESysteme;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,10 +11,13 @@ namespace Clients
         [Header("References")]
         [field: SerializeField]
         public ClientController Controller { get; private set; }
-        
+
+        public Animator animator;
 
         [SerializeField]
         private NavMeshAgent agent;
+        
+        private float lastDirectionX = 1f; 
 
         private void Awake()
         {
@@ -22,7 +27,25 @@ namespace Clients
 
         private void Start()
         {
-            agent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
+        }
+
+        private void Update()
+        {
+            float speed = new Vector2(agent.velocity.x, agent.velocity.y).magnitude;
+    
+            animator.SetFloat("Speed", speed, 0.1f, Time.deltaTime);
+
+            if (agent.velocity.x > 0.3f)
+            {
+                lastDirectionX = -1f;
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (agent.velocity.x < -0.3f)
+            {
+                lastDirectionX = 1f;
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
         
         public void ClearDestination()
@@ -31,7 +54,7 @@ namespace Clients
         }
         
         public void SetDestination(Transform destination)
-        { 
+        {
             agent.SetDestination(destination.position);
         }
 
@@ -41,11 +64,9 @@ namespace Clients
         }
         public bool HasArrived()
         {
-            return agent.remainingDistance <= agent.stoppingDistance;
-        }
-        public void AllerA(Vector3 destination) 
-        {
-            agent.SetDestination(destination);
+            if (agent.pathPending) return false;
+            bool hasArrived = agent.remainingDistance <= agent.stoppingDistance;
+            return hasArrived;
         }
     }
 }

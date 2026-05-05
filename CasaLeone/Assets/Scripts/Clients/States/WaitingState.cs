@@ -15,6 +15,7 @@ namespace Clients.States
 			currentBoredTime = 0;
 			maxBoredTimed = controller.maxBoredTime;
 			QueueManager.Instance.JoinTheQueue(controller);
+			
 		}
 
 		public void Exit(ClientController controller)
@@ -37,7 +38,6 @@ namespace Clients.States
 			{
 				if (table.TryGetSeat(controller.currentId,out ClientSeat seat))
 				{
-					QueueManager.Instance.LeaveTheQueue(controller);
 					controller.currentSeat = seat;
 					seat.Reserve(controller);
 					GoingToSeatState state = new GoingToSeatState(seat);
