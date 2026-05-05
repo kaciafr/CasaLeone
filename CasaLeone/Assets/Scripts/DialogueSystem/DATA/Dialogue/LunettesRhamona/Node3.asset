@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: Continue comme tu fais, tu fais partie des rares qui essaient.
-  autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
+  dialogueText: Je vois mieux, t'es vraiment top comme chat ! Aussi gentil et serviable
+    que Leone...
+  autoAdvanceDelay: 5
+  nextNode: {fileID: 11400000, guid: 7c0eeac20d452d7489bf92f1ac8c332d, type: 2}
   conditionalBranches: []
