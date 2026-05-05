@@ -26,8 +26,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b819f72eee4d2ba7d7b7e2e403446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
-  conditionID: new_condition
-  description: Description
+  conditionID: Brosse
+  description: "Donner le brosse \xE0 cheveux \xE0 Luigi"
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +45,36 @@ MonoBehaviour:
   - {fileID: -5169848926284308598}
   - {fileID: 7563894888908184546}
   - {fileID: -3487073285198126428}
+  - {fileID: 3517470780005766940}
+  - {fileID: 4810104818656702774}
+--- !u!114 &3517470780005766940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b819f72eee4d2ba7d7b7e2e403446f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
+  conditionID: Trophee
+  description: "Donner troph\xE9e Michelin \xE0 Lorenzo"
+--- !u!114 &4810104818656702774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b819f72eee4d2ba7d7b7e2e403446f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
+  conditionID: new_condition
+  description: Description
 --- !u!114 &6010522290266281532
 MonoBehaviour:
   m_ObjectHideFlags: 0

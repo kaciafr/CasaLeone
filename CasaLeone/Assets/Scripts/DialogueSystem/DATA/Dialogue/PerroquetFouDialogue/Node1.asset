@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Personne n\u2019\xE9coute ici."
-  autoAdvanceDelay: 5
-  nextNode: {fileID: 0}
+  dialogueText: IL SE FOUT DE TOI
+  autoAdvanceDelay: 7
+  nextNode: {fileID: 11400000, guid: a455d18b585426549b83ad52421f4557, type: 2}
   conditionalBranches: []

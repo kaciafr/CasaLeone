@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
-  m_Name: Node1
+  m_Name: Node4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Personne n\u2019\xE9coute ici."
-  autoAdvanceDelay: 5
-  nextNode: {fileID: 0}
+  dialogueText: "MAIS !! C'est ma pr\xE9sieuse brosse \xE0 crin ! Merci merci merci
+    merci. "
+  autoAdvanceDelay: 7
+  nextNode: {fileID: 11400000, guid: 0ca65f36a486db8468facd2658a79569, type: 2}
   conditionalBranches: []

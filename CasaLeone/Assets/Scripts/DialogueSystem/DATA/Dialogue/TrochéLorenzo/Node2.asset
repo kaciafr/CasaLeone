@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
-  m_Name: Node1
+  m_Name: Node2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Personne n\u2019\xE9coute ici."
-  autoAdvanceDelay: 5
-  nextNode: {fileID: 0}
+  dialogueText: "Casa Leone tourne tr\xE8s bien. Les gens exag\xE8rent."
+  autoAdvanceDelay: 7
+  nextNode: {fileID: 11400000, guid: af5caf3630068c146ac1fc2dd37d6ed2, type: 2}
   conditionalBranches: []
