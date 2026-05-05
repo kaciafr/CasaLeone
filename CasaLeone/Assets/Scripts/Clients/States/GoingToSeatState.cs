@@ -6,7 +6,7 @@ namespace Clients.States
 	public class GoingToSeatState : IClientState
 	{
 		public readonly ClientSeat Seat;
-
+		private bool isMoving = false;
 		public GoingToSeatState(ClientSeat seat)
 		{
 			this.Seat = seat;
@@ -14,6 +14,7 @@ namespace Clients.States
 
 		public void Enter(ClientController controller)
 		{
+			isMoving = false;
 			controller.Movement.SetDestination(Seat.transform);
 		}
 
@@ -24,6 +25,11 @@ namespace Clients.States
 
 		public void Update(ClientController controller, float deltaTime)
 		{
+			if (!isMoving)
+			{
+				isMoving = true;
+				return;
+			}
 			if (controller.Movement.HasArrived())
 			{
 				ReflexionState reflexionState = new ReflexionState(30, 60);

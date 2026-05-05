@@ -59,6 +59,7 @@ namespace Clients
 			WaveProfile = waveProfile;
 			groupSize = size;
 			
+			GoTo(new WaitingState());
 		}
 		
 		public void Despawn()
