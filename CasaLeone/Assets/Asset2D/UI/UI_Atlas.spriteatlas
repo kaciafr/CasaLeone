@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI_Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e1d3207807e215f488c8b2836f360734, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - ae85f8a0aae2bd147a76feca84ed474b: -423746211
+    - 57c6ee81c2a309042a24af5fe3c13f48: 1641143253
+    - 18fe05b15d68b1d49bdeebcd74e4fe9e: 261138119
+    - 00ed9e169ee8cd54a8ca6ccbc1d42a1b: 21300000
+    - ca5b9966c0eeeb34790025cc78a6e6db: -1593726656
+    - 3058d2e81e074a841aed4717f390d9ce: 311263066
+    - 1d76da4e947c13d489787eb1b0f33d30: -1695691322
+    - cd2e908f957e69a4d90e93c52def6575: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -423746211, guid: ae85f8a0aae2bd147a76feca84ed474b, type: 3}
+  - {fileID: 1641143253, guid: 57c6ee81c2a309042a24af5fe3c13f48, type: 3}
+  - {fileID: 261138119, guid: 18fe05b15d68b1d49bdeebcd74e4fe9e, type: 3}
+  - {fileID: 21300000, guid: 00ed9e169ee8cd54a8ca6ccbc1d42a1b, type: 3}
+  - {fileID: -1593726656, guid: ca5b9966c0eeeb34790025cc78a6e6db, type: 3}
+  - {fileID: 311263066, guid: 3058d2e81e074a841aed4717f390d9ce, type: 3}
+  - {fileID: -1695691322, guid: 1d76da4e947c13d489787eb1b0f33d30, type: 3}
+  - {fileID: 21300000, guid: cd2e908f957e69a4d90e93c52def6575, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - BulleDialogue_0
+  - CommandeUI_0
+  - ButtonRond_0
+  - StartTomatoButton
+  - MusicLogo_0
+  - DevantureRestaurant copie_0
+  - CadreBouton_0
+  - StartTomatoButton2
+  m_RenderDataMap: {}
+  m_Tag: UI_Atlas
+  m_IsVariant: 0

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Restaurants
 {
-	public class ClientTable : MonoBehaviour, IInteractable
+	public class ClientTable : OutlineBase, IInteractable
 	{
 		[field: SerializeField]
 		public ClientSeat[] ClientSeats { get; private set; }
@@ -15,12 +15,21 @@ namespace Restaurants
 		[SerializeField] private GameObject pressE;
 		[SerializeField] private GameObject endPosition;
 		[SerializeField] private GameObject startPosition;
+		
+		protected override void Awake()
+		{
+			base.Awake();
+		}
 
 		private void Start()
 		{
 			pressE.transform.position = startPosition.transform.position;
+			SetOutline(false );
+
+			
 		}
 		public int currentIdGroupe { get; set; } = -1;
+		
 
 		public bool IsFree
 		{
@@ -105,6 +114,7 @@ namespace Restaurants
 		private void OnTriggerEnter(Collider other)
 		{
 			pressE.SetActive(true);
+			SetOutline(true );
 			
 		}
 
@@ -117,6 +127,7 @@ namespace Restaurants
 		{
 			
 			pressE.transform.DOMove(startPosition.transform.position,1);
+			SetOutline(false );
 			
 		}
 	}

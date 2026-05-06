@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Altas_ Decor
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: b60054468de6d904085fac0eb596eb9a, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - b69a78c2581778449ba2678965be1f2b: 21300000
+    - 8cd5cdc2ee657fe4ca5782aff937ccbe: 1030386204
+    - e53f9af34110553418ae455c006369f7: 21300000
+    - 0e8208b4e968f3f47bfadb35b65d3225: -2090450394
+    - b30bdc35a47cae44fb4e47e68839cfac: -904771724
+    - b30bdc35a47cae44fb4e47e68839cfac: 1474228774
+    - 269998a8c1985d34aa9ad0c3f150a0df: 21300000
+    - eddef49949e86bb468a414e7b83fd03e: 694529033
+    - eddef49949e86bb468a414e7b83fd03e: -1464447850
+    - eddef49949e86bb468a414e7b83fd03e: -1918621878
+    - fcd3da4f59f6e6e4d8a55a2d5deb5f8b: -1143164748
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b69a78c2581778449ba2678965be1f2b, type: 3}
+  - {fileID: 1030386204, guid: 8cd5cdc2ee657fe4ca5782aff937ccbe, type: 3}
+  - {fileID: 21300000, guid: e53f9af34110553418ae455c006369f7, type: 3}
+  - {fileID: -2090450394, guid: 0e8208b4e968f3f47bfadb35b65d3225, type: 3}
+  - {fileID: -904771724, guid: b30bdc35a47cae44fb4e47e68839cfac, type: 3}
+  - {fileID: 1474228774, guid: b30bdc35a47cae44fb4e47e68839cfac, type: 3}
+  - {fileID: 21300000, guid: 269998a8c1985d34aa9ad0c3f150a0df, type: 3}
+  - {fileID: 694529033, guid: eddef49949e86bb468a414e7b83fd03e, type: 3}
+  - {fileID: -1464447850, guid: eddef49949e86bb468a414e7b83fd03e, type: 3}
+  - {fileID: -1918621878, guid: eddef49949e86bb468a414e7b83fd03e, type: 3}
+  - {fileID: -1143164748, guid: fcd3da4f59f6e6e4d8a55a2d5deb5f8b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Illustration_sans_titre
+  - Sprite_Plante2_0
+  - Illustration_sans_titre (2)
+  - Sprite_Plant1_0
+  - drapeau_0
+  - drapeau_1
+  - Illustration_sans_titre (1)
+  - Sprite_Vespa_2
+  - Sprite_Vespa_1
+  - Sprite_Vespa_0
+  - Sprite_FrontVespa_0
+  m_RenderDataMap: {}
+  m_Tag: Altas_ Decor
+  m_IsVariant: 0

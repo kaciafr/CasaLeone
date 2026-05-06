@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI_Atlas_2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables: []
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - b7733b900f61a7e45998db52f6f42b35: -1546800067
+    - 4cd9c3a14387c6d4a8570c23ee68f329: 21300000
+    - e12c0a324012fac419f20ee02077c598: -696956577
+    - 85f9986389b87484cae86280a40cd915: 21300000
+    - c2a1a3d371ccbc54bb78e595b200bd0a: 21300000
+    - 46a5e2f33b3066443b1fb422ccd683c4: 1263491367
+    - ff6080655a5813a4f9984e72942d1041: 21300000
+    - 1850328533623ad4a9920bcee944dae2: 21300000
+    - 61ddfc57f98fe284b9cb4de691f88803: 193769941
+    - 559ee767386481a4e8170c3611b4b993: 21300000
+    - 04f34c48e1935e1478d42d4f438d4746: 21300000
+    - 6562bcb8c8e31874f81e9b8ff2db98b4: -175389256
+    - 770f19ab263dfc245b28bf41ac6f45b6: 21300000
+    - ffbcfaabb1926404790e20ad33a5523d: 1292098287
+    - 188a6f6d92a0df848a03e8581b095432: -1944628918
+    - 89a901deb06ddb44180ea3eeae787667: 21300000
+    - f92d8dde809199847b83504ff162c6a8: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1546800067, guid: b7733b900f61a7e45998db52f6f42b35, type: 3}
+  - {fileID: 21300000, guid: 4cd9c3a14387c6d4a8570c23ee68f329, type: 3}
+  - {fileID: -696956577, guid: e12c0a324012fac419f20ee02077c598, type: 3}
+  - {fileID: 21300000, guid: 85f9986389b87484cae86280a40cd915, type: 3}
+  - {fileID: 21300000, guid: c2a1a3d371ccbc54bb78e595b200bd0a, type: 3}
+  - {fileID: 1263491367, guid: 46a5e2f33b3066443b1fb422ccd683c4, type: 3}
+  - {fileID: 21300000, guid: ff6080655a5813a4f9984e72942d1041, type: 3}
+  - {fileID: 21300000, guid: 1850328533623ad4a9920bcee944dae2, type: 3}
+  - {fileID: 193769941, guid: 61ddfc57f98fe284b9cb4de691f88803, type: 3}
+  - {fileID: 21300000, guid: 559ee767386481a4e8170c3611b4b993, type: 3}
+  - {fileID: 21300000, guid: 04f34c48e1935e1478d42d4f438d4746, type: 3}
+  - {fileID: -175389256, guid: 6562bcb8c8e31874f81e9b8ff2db98b4, type: 3}
+  - {fileID: 21300000, guid: 770f19ab263dfc245b28bf41ac6f45b6, type: 3}
+  - {fileID: 1292098287, guid: ffbcfaabb1926404790e20ad33a5523d, type: 3}
+  - {fileID: -1944628918, guid: 188a6f6d92a0df848a03e8581b095432, type: 3}
+  - {fileID: 21300000, guid: 89a901deb06ddb44180ea3eeae787667, type: 3}
+  - {fileID: 21300000, guid: f92d8dde809199847b83504ff162c6a8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - UpFlecheQTE1_0
+  - CadreBouton
+  - Gribouilli_0
+  - FlecheMenu
+  - InventaireMetal
+  - Billets_0
+  - Etoile
+  - Illustration_sans_titre (3)
+  - LeftFlecheQTE4_0
+  - ButtonRond
+  - InventaireBois
+  - RightFlecheQTE2_0
+  - Illustration_sans_titre (5)
+  - DownFlecheQTE3_1
+  - PickCommande_0
+  - Illustration_sans_titre (4)
+  - MusicLogo
+  m_RenderDataMap: {}
+  m_Tag: UI_Atlas_2
+  m_IsVariant: 0

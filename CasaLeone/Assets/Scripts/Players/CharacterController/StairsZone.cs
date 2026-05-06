@@ -2,27 +2,27 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-public class StairsZone : MonoBehaviour
+public class StairsZone : OutlineBase
 {
     [SerializeField] private GameObject climbFeedBack;
-
     [SerializeField] private Transform[] points;
     [SerializeField] private float duration = 0.2f;
-
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
-
     [SerializeField] private InputManager inputPlayer1;
     [SerializeField] private InputManager inputPlayer2;
-
     public float rotationoffset = -45;
-
     [SerializeField] private Vector3 _targetScale = new Vector3(1f, 1f, 1f);
 
     private bool _player1InZone = false;
     private bool _player2InZone = false;
     private bool _isPlayer1Climbing = false;
     private bool _isPlayer2Climbing = false;
+
+    protected override void Awake()
+    {
+        base.Awake(); 
+    }
 
     private void Start()
     {
@@ -45,6 +45,8 @@ public class StairsZone : MonoBehaviour
         if (IsSpecificPlayer(other, player1)) _player1InZone = true;
         if (IsSpecificPlayer(other, player2)) _player2InZone = true;
 
+        SetOutline(true);
+
         if (climbFeedBack == null) return;
 
         climbFeedBack.SetActive(true);
@@ -59,6 +61,9 @@ public class StairsZone : MonoBehaviour
 
         if (IsSpecificPlayer(other, player1)) _player1InZone = false;
         if (IsSpecificPlayer(other, player2)) _player2InZone = false;
+
+        if (!_player1InZone && !_player2InZone)
+            SetOutline(false);
 
         if (_player1InZone || _player2InZone) return;
 
@@ -98,12 +103,10 @@ public class StairsZone : MonoBehaviour
         }
 
         Sequence stairsSeq = DOTween.Sequence();
-
         stairsSeq.Append(player.transform
             .DOPath(waypoints, duration, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetOptions(false));
-
         stairsSeq.OnComplete(() =>
         {
             if (isPlayer1) _isPlayer1Climbing = false;
