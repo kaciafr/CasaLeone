@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Clients
 {
-	public class ClientController : MonoBehaviour,IInteractableQTE
+	public class ClientController : MonoBehaviour,IInteractable
 	{
 		public event Action<IClientState> OnStateChanged;
 		[SerializeField]

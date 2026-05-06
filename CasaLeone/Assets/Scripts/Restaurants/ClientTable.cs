@@ -1,4 +1,5 @@
 using Clients;
+using DG.Tweening;
 using Players;
 using Players.Interaction;
 using PnjWaves;
@@ -6,11 +7,19 @@ using UnityEngine;
 
 namespace Restaurants
 {
-	public class ClientTable : MonoBehaviour, IInteractableQTE
+	public class ClientTable : MonoBehaviour, IInteractable
 	{
 		[field: SerializeField]
 		public ClientSeat[] ClientSeats { get; private set; }
+		
+		[SerializeField] private GameObject pressE;
+		[SerializeField] private GameObject endPosition;
+		[SerializeField] private GameObject startPosition;
 
+		private void Start()
+		{
+			pressE.transform.position = startPosition.transform.position;
+		}
 		public int currentIdGroupe { get; set; } = -1;
 
 		public bool IsFree
@@ -49,6 +58,8 @@ namespace Restaurants
 
 		public void Interact(GlobalPlayer globalPlayer)
 		{
+			pressE.SetActive(false);
+			
 			for (int i = 0; i < ClientSeats.Length; i++)
 			{
 				var seat = ClientSeats[i];
@@ -89,6 +100,24 @@ namespace Restaurants
 				currentIdGroupe= -1;
 				Debug.Log("La table est maintenant totalement libre.");
 			}
+		}
+		
+		private void OnTriggerEnter(Collider other)
+		{
+			pressE.SetActive(true);
+			
+		}
+
+		private void OnTriggerStay(Collider other)
+		{
+			pressE.transform.DOMove(endPosition.transform.position,1);
+		}
+
+		private void OnTriggerExit(Collider other)
+		{
+			
+			pressE.transform.DOMove(startPosition.transform.position,1);
+			
 		}
 	}
 }

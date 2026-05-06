@@ -1,6 +1,6 @@
 namespace Players.Interaction
 {
-    public interface IInteractableQTE
+    public interface IInteractable
     {
         void Interact(GlobalPlayer globalPlayer);
     }

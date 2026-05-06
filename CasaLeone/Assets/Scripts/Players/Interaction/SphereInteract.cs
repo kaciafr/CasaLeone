@@ -7,7 +7,7 @@ namespace Players.Interaction
 {
 	public class SphereInteract : MonoBehaviour
 	{
-		private IInteractableQTE current;
+		private IInteractable current;
 
 		[SerializeField] 
 		private GlobalPlayer globalPlayer;
@@ -22,7 +22,7 @@ namespace Players.Interaction
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if (other.TryGetComponent(out IInteractableQTE interactable))
+			if (other.TryGetComponent(out IInteractable interactable))
 			{
 				current = interactable;
 			}
@@ -30,7 +30,7 @@ namespace Players.Interaction
 
 		private void OnTriggerExit(Collider other)
 		{
-			if (other.TryGetComponent(out IInteractableQTE interactable))
+			if (other.TryGetComponent(out IInteractable interactable))
 			{
 				if (current == interactable)
 				{

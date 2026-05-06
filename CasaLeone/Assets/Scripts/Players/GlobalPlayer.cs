@@ -11,13 +11,17 @@ namespace Players
 	{
 		[field: SerializeField]
 		public Inventory Inventory { get; private set; }
-		
 		public PlayerInput playerMovement;
 
+		public GameObject yellowBird;
 		private void Awake()
 		{
 			Inventory = new Inventory();
 		}
-		
+
+		private void Start()
+		{
+			yellowBird.SetActive(false);
+		}
 	}
 }

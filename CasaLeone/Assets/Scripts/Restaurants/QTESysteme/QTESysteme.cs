@@ -28,7 +28,7 @@ namespace Restaurants.QTESysteme
 		public int maxSequence;
 		public int minSequence;
 		
-		public ObjetBaseInteractableQte interactObj;
+		public ObjetBaseInteractable interactObj;
 		
 
 		public event Action<List<QTEKey>> QTESequence;

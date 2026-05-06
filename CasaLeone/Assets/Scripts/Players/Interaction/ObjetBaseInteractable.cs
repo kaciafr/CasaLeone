@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Players.Interaction
 {
-	public class ObjetBaseInteractableQte :  MonoBehaviour,IInteractableQTE
+	public class ObjetBaseInteractable :  MonoBehaviour,IInteractable
 	{
 		[Header("UI")]
 		[SerializeField] private Transform objectTransform;

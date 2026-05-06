@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace DialogueSystem
 {
-    public class NPCTriggerDialogue : MonoBehaviour, IInteractableQTE
+    public class NPCTriggerDialogue : MonoBehaviour, IInteractable
     {
         private DialogueTrigger _dialogueTrigger;
 
