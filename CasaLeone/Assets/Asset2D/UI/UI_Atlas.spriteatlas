@@ -37,33 +37,54 @@ SpriteAtlas:
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
+    - 13240c601ec5d994ea127b6b431e2f77: -845281267
     - ae85f8a0aae2bd147a76feca84ed474b: -423746211
     - 57c6ee81c2a309042a24af5fe3c13f48: 1641143253
     - 18fe05b15d68b1d49bdeebcd74e4fe9e: 261138119
     - 00ed9e169ee8cd54a8ca6ccbc1d42a1b: 21300000
     - ca5b9966c0eeeb34790025cc78a6e6db: -1593726656
     - 3058d2e81e074a841aed4717f390d9ce: 311263066
+    - be66327dc6e6dde4db318df60bae5197: -391395987
+    - 5bf84eadc77ca9a4aa4aee5d280adced: -647191187
+    - ccd02d0ee158dce4f9c5e591fc6bbe00: 1984404796
+    - bd61e31e050e8a54aabef1a30bfd7415: -670631520
     - 1d76da4e947c13d489787eb1b0f33d30: -1695691322
     - cd2e908f957e69a4d90e93c52def6575: 21300000
+    - a302cdcfbe526e941a6c62edf17f9337: 1700413465
+    - d92902df0cdc10e45b0737f4a9576ec0: -1255876053
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: -845281267, guid: 13240c601ec5d994ea127b6b431e2f77, type: 3}
   - {fileID: -423746211, guid: ae85f8a0aae2bd147a76feca84ed474b, type: 3}
   - {fileID: 1641143253, guid: 57c6ee81c2a309042a24af5fe3c13f48, type: 3}
   - {fileID: 261138119, guid: 18fe05b15d68b1d49bdeebcd74e4fe9e, type: 3}
   - {fileID: 21300000, guid: 00ed9e169ee8cd54a8ca6ccbc1d42a1b, type: 3}
   - {fileID: -1593726656, guid: ca5b9966c0eeeb34790025cc78a6e6db, type: 3}
   - {fileID: 311263066, guid: 3058d2e81e074a841aed4717f390d9ce, type: 3}
+  - {fileID: -391395987, guid: be66327dc6e6dde4db318df60bae5197, type: 3}
+  - {fileID: -647191187, guid: 5bf84eadc77ca9a4aa4aee5d280adced, type: 3}
+  - {fileID: 1984404796, guid: ccd02d0ee158dce4f9c5e591fc6bbe00, type: 3}
+  - {fileID: -670631520, guid: bd61e31e050e8a54aabef1a30bfd7415, type: 3}
   - {fileID: -1695691322, guid: 1d76da4e947c13d489787eb1b0f33d30, type: 3}
   - {fileID: 21300000, guid: cd2e908f957e69a4d90e93c52def6575, type: 3}
+  - {fileID: 1700413465, guid: a302cdcfbe526e941a6c62edf17f9337, type: 3}
+  - {fileID: -1255876053, guid: d92902df0cdc10e45b0737f4a9576ec0, type: 3}
   m_PackedSpriteNamesToIndex:
+  - FicheObjetInventaire_0
   - BulleDialogue_0
   - CommandeUI_0
   - ButtonRond_0
   - StartTomatoButton
   - MusicLogo_0
   - DevantureRestaurant copie_0
+  - CadreBoutonViolet_0
+  - CadreBoutonOrange_0
+  - CadreBoutonVert_0
+  - CadreBoutonBleu_0
   - CadreBouton_0
   - StartTomatoButton2
+  - SlotInventaire_0
+  - InventaireBackground_0
   m_RenderDataMap: {}
   m_Tag: UI_Atlas
   m_IsVariant: 0

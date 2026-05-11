@@ -8,7 +8,6 @@ namespace ScriptMenu
     {
         public GameObject optionContainerGO;
         public GameObject restPanelGO;
-        public Light sunLight;
 
         private float slideSpeed = 0.3f;
         private float optionSpeed = 3f;
@@ -17,15 +16,11 @@ namespace ScriptMenu
 
         private Vector3 closedPos;
         private Vector3 openPos;
-
-        private Quaternion lightDefaultRot;
-        private Quaternion lightTargetRot = Quaternion.Euler(20f, 0f, 0f);
-
+        
         void Start()
         {
             closedPos = optionContainerGO.transform.localPosition;
             openPos = closedPos + new Vector3(-530, 0, 0);
-            lightDefaultRot = sunLight.transform.rotation;
         }
 
         void Update()
@@ -38,14 +33,7 @@ namespace ScriptMenu
             );
             
         }
-
-        public void Begin()
-        {
-            if (restPanelGO != null)
-                StartCoroutine(SlidePanelDown());
-
-            StartCoroutine(RotateSun());
-        }
+        
 
         private IEnumerator SlidePanelDown()
         {
@@ -61,21 +49,6 @@ namespace ScriptMenu
             }
 
             restPanelGO.transform.localPosition = endPos;
-        }
-
-        private IEnumerator RotateSun()
-        {
-            Quaternion startRot = sunLight.transform.rotation;
-            float t = 0f;
-
-            while (t < 1f)
-            {
-                t += Time.deltaTime * sunSpeed;
-                sunLight.transform.rotation = Quaternion.Lerp(startRot, lightTargetRot, t);
-                yield return null;
-            }
-
-            sunLight.transform.rotation = lightTargetRot;
         }
 
         public void OpenOptions()
