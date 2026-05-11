@@ -58,8 +58,21 @@ public class NavigationUi : MonoBehaviour
     private void SelectButton()
     {
         if (DishsSelected == null || index >= DishsSelected.Length) return;
-        if (EventSystem.current == null) return;
-        Debug.Log(DishsSelected[index]);
-        EventSystem.current.SetSelectedGameObject(DishsSelected[index]);
+
+        foreach (GameObject go in DishsSelected)
+        {
+            if (go != null) go.GetComponent<Image>().color = Color.gray; 
+        }
+
+        Image selectedImage = DishsSelected[index].GetComponent<Image>();
+        if (selectedImage != null)
+        {
+            selectedImage.color = Color.white;
+        }
+
+        if (EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(DishsSelected[index]);
+        }
     }
 }
