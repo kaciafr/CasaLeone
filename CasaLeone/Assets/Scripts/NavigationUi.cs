@@ -27,6 +27,7 @@ public class NavigationUi : MonoBehaviour
         index++;
         if (index >= DishsSelected.Length)
             index = 0;
+        Debug.Log(DishsSelected[index]);
 
         SelectButton();
     }
@@ -37,6 +38,7 @@ public class NavigationUi : MonoBehaviour
         index--;
         if (index < 0)
             index = DishsSelected.Length - 1;
+        Debug.Log(DishsSelected[index]);
 
         SelectButton();
     }
@@ -57,6 +59,7 @@ public class NavigationUi : MonoBehaviour
     {
         if (DishsSelected == null || index >= DishsSelected.Length) return;
         if (EventSystem.current == null) return;
+        Debug.Log(DishsSelected[index]);
         EventSystem.current.SetSelectedGameObject(DishsSelected[index]);
     }
 }

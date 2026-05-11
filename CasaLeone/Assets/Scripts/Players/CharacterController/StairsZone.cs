@@ -19,10 +19,11 @@ public class StairsZone : OutlineBase
     private bool _isPlayer1Climbing = false;
     private bool _isPlayer2Climbing = false;
 
-    protected override void Awake()
+    //tODO
+    /*protected override void Awake()
     {
         base.Awake(); 
-    }
+    }*/
 
     private void Start()
     {

@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df23ad9306246ed9982123930d4ddf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.ClimbZone
+  objectRenderer: {fileID: 0}
+  outlineThickness: 0.015
   climbFeedBack: {fileID: 6637270919657063937}
   points:
   - {fileID: 0}
@@ -58,7 +60,6 @@ MonoBehaviour:
   inputPlayer2: {fileID: 0}
   rotationoffset: -45
   _targetScale: {x: 0.3, y: 0.1, z: 1}
-  objectRenderer: {fileID: 0}
 --- !u!65 &2124627830215725703
 BoxCollider:
   m_ObjectHideFlags: 0

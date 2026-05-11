@@ -16,10 +16,11 @@ namespace Restaurants
 		[SerializeField] private GameObject endPosition;
 		[SerializeField] private GameObject startPosition;
 		
-		protected override void Awake()
+		//tODO
+		/*protected override void Awake()
 		{
 			base.Awake();
-		}
+		}*/
 
 		private void Start()
 		{
