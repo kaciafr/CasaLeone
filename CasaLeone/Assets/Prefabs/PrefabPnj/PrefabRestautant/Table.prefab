@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2871228680202565733}
   - component: {fileID: 1846688129333271074}
   - component: {fileID: 3078812649662861967}
-  - component: {fileID: 4432153849782654790}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -28,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 145643499719672182}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.85, y: 0.89, z: 3.49}
-  m_LocalScale: {x: 1, y: 3.69, z: 1}
+  m_LocalPosition: {x: -2.5372, y: 0.89, z: 3.5451}
+  m_LocalScale: {x: 1.3068664, y: 3.69, z: 1.6893}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 857910258031241316}
@@ -71,27 +70,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &4432153849782654790
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145643499719672182}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &883688572015847477
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +81,6 @@ GameObject:
   - component: {fileID: 6065728664263058077}
   - component: {fileID: 3920862043038939065}
   - component: {fileID: 1320359382407813633}
-  - component: {fileID: 2832141236986636828}
   m_Layer: 0
   m_Name: Chair (1)
   m_TagString: Untagged
@@ -120,8 +97,8 @@ Transform:
   m_GameObject: {fileID: 883688572015847477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 0.8900001, z: 3.47}
-  m_LocalScale: {x: 1, y: 3.69, z: 1}
+  m_LocalPosition: {x: -0.32874, y: 0.8900001, z: 3.5114}
+  m_LocalScale: {x: 1.3068664, y: 3.69, z: 1.6893}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 857910258031241316}
@@ -143,27 +120,6 @@ MonoBehaviour:
   reserve: 0
   idGroupe: -1
 --- !u!65 &1320359382407813633
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883688572015847477}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &2832141236986636828
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,7 +229,6 @@ GameObject:
   - component: {fileID: 5350895925756125359}
   - component: {fileID: 6827217254734134955}
   - component: {fileID: 1394564530153436625}
-  - component: {fileID: 833269023175497532}
   m_Layer: 0
   m_Name: Chair (3)
   m_TagString: Untagged
@@ -290,8 +245,8 @@ Transform:
   m_GameObject: {fileID: 2548808329736225190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.63, y: 0.8900001, z: 2.95}
-  m_LocalScale: {x: 1, y: 3.69, z: 1}
+  m_LocalPosition: {x: 3.3172, y: 0.8900001, z: 2.6329}
+  m_LocalScale: {x: 1.3068664, y: 3.69, z: 1.6893}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 857910258031241316}
@@ -333,27 +288,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &833269023175497532
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2548808329736225190}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2655533825479629561
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +299,6 @@ GameObject:
   - component: {fileID: 2157249837404589284}
   - component: {fileID: 6676249502877232243}
   - component: {fileID: 8049919441507916842}
-  - component: {fileID: 556026027865231752}
   m_Layer: 0
   m_Name: Chair (2)
   m_TagString: Untagged
@@ -382,8 +315,8 @@ Transform:
   m_GameObject: {fileID: 2655533825479629561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.37, y: 0.8900001, z: 3.87}
-  m_LocalScale: {x: 1, y: 3.69, z: 1}
+  m_LocalPosition: {x: 1.6706, y: 0.8900001, z: 4.1871}
+  m_LocalScale: {x: 1.3068664, y: 3.69, z: 1.6893}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 857910258031241316}
@@ -405,27 +338,6 @@ MonoBehaviour:
   reserve: 0
   idGroupe: -1
 --- !u!65 &8049919441507916842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2655533825479629561}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &556026027865231752
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -610,6 +522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7973de858dce4d1295c4a6b62e30738a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Restaurants.ClientTable
+  objectRenderer: {fileID: 0}
+  outlineThickness: 0.015
   <ClientSeats>k__BackingField:
   - {fileID: 1846688129333271074}
   - {fileID: 3920862043038939065}
