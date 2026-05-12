@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a735a613a5664914faa097cc17eb789f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateOnNode
-  activateOnNode: {fileID: 11400000, guid: 1d8b1c4ab166e0144814f32884e3dadd, type: 2}
+  activateOnNode: {fileID: 11400000, guid: b41460dfb59806e499e78547db168442, type: 2}
   visual: {fileID: 3578221204072261523}
 --- !u!54 &2316093500895281433
 Rigidbody:
