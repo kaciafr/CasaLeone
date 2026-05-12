@@ -24,7 +24,7 @@ public class LockDoor : MonoBehaviour , IQteListen
 	public void OnQteSucces(GlobalPlayer globalPlayer)
 	{
 		Debug.Log("PORTE DEVERROUILLEE");
-		door.enabled = false;
+		Destroy(door);
 		doorPivot.transform.rotation = Quaternion.Euler(0, 0, 0);
 		
 		

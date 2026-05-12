@@ -12,11 +12,6 @@ public class Cooker : MonoBehaviour,IQteListen
 	public QTESysteme qteSysteme;
 	public Dish winGift;
 	public event Action<Dish> showFood;
-
-	private void Start()
-	{
-		qteSysteme=GetComponentInParent<QTESysteme>();
-	}
 	public void OnQteStart()
 	{
 		showFood?.Invoke(winGift);
@@ -26,8 +21,6 @@ public class Cooker : MonoBehaviour,IQteListen
 			qteSysteme.minSequence = minSequence;
 			qteSysteme.GenerateSequence();
 		}
-		
-		
 	}
 
 	public void OnQteSucces(GlobalPlayer globalPlayer)
