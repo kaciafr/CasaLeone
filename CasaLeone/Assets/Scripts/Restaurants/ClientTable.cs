@@ -49,13 +49,7 @@ namespace Restaurants
 
 		public bool TryGetSeat(int idGroup,out ClientSeat seat)
 		{
-			if (currentIdGroupe < 0)
-			{
-				seat = null;
-				return false;
-			}
-			
-			if (currentIdGroupe == idGroup)
+			if (currentIdGroupe == -1 || currentIdGroupe == idGroup)
 			{
 				for (int i = 0; i < ClientSeats.Length; i++)
 				{
@@ -132,10 +126,8 @@ namespace Restaurants
 
 		private void OnTriggerExit(Collider other)
 		{
-			
 			pressE.transform.DOMove(startPosition.transform.position,1);
 			SetOutline(false );
-			
 		}
 	}
 }

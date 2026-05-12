@@ -1,12 +1,13 @@
 using System;
 using PnjWaves;
 using Restaurants;
+using UnityEngine;
 
 namespace Clients.States
 {
 	public class WaitingState : IClientState
 	{
-		private float maxBoredTimed = 600f;
+		private float maxBoredTimed = 1200f;
 		
 		private float currentBoredTime;
 		private bool IsBored => currentBoredTime > maxBoredTimed;
@@ -34,17 +35,16 @@ namespace Clients.States
 				return;
 			}
 
-			if (Restaurant.Instance.TryFindTable(controller.currentId, controller.groupSize, out ClientTable table))
+			if (Restaurant.Instance.TryFindTable(controller.CurrentId, controller.groupSize, out ClientTable table))
 			{
-				if (table.TryGetSeat(controller.currentId,out ClientSeat seat))
+				if (table.TryGetSeat(controller.CurrentId,out ClientSeat seat))
 				{
-					controller.currentSeat = seat;
+					controller.CurrentSeat = seat;
 					seat.Reserve(controller);
 					GoingToSeatState state = new GoingToSeatState(seat);
 					controller.GoTo(state);
 				}
 			}
-			
 		}
 	}
 }

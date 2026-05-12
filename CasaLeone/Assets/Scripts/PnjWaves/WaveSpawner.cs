@@ -29,6 +29,7 @@ namespace PnjWaves
         private int prochainIdGroupe = 0;
         public event Action<int> FireEnd;
         private int clientsInGroup;
+        private int currentIdGroupe;
 
         // ─────────────────────────────────────────────
         //  Démarrage
@@ -110,14 +111,14 @@ namespace PnjWaves
         //  Spawn d'un client individuel
         // ─────────────────────────────────────────────
 
-        void SpawnClient(WaveProfile profile, ClientTypeSO clientType, int id)
+        void SpawnClient(WaveProfile profile, ClientTypeSO clientType, int size)
         {
             GameObject prefab = clientType.PickRandomVariant();
             GameObject client = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
 
             if (client.TryGetComponent(out ClientController clientController))
             {
-                clientController.Spawn(profile, clientsInGroup, id); 
+                clientController.Spawn(profile,prochainIdGroupe,clientsInGroup); 
             }
             else
             {

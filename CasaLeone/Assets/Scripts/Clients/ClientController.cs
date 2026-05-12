@@ -27,11 +27,15 @@ namespace Clients
 		public WaveProfile WaveProfile { get; private set; }
 
 		[field : SerializeField] 
-		public int currentId { get; private set; }
+		public int CurrentId { get; private set; }
 		
 		[field : SerializeField] 
-		public ClientSeat currentSeat { get; set; }
+		public ClientSeat CurrentSeat { get; set; }
 
+		private void Awake()
+		{
+			ClientData.idGroupe = 0;
+		}
 		private void Start()
 		{
 			GoTo(new WaitingState());
@@ -55,7 +59,7 @@ namespace Clients
 
 		public void Spawn(WaveProfile waveProfile, int clientsInGroup, int size)
 		{
-			currentId = ClientData.idGroupe;
+			CurrentId = clientsInGroup;
 			WaveProfile = waveProfile;
 			groupSize = size;
 			
@@ -76,7 +80,7 @@ namespace Clients
 		
 		public ClientSeat GetClientSeat()
 		{
-			return currentSeat;
+			return CurrentSeat;
 			
 			ClientTable[] tables = Restaurant.Instance.TablePlaces;
 			for (int i = 0; i < tables.Length; i++)
@@ -91,6 +95,5 @@ namespace Clients
 
 			return null;
 		}
-
 	}
 }

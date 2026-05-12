@@ -7,7 +7,6 @@ namespace Restaurants
 	public class ClientSeat : MonoBehaviour
 	{
 		[SerializeField] public ClientTable table; 
-		public ClientTable Table => table;
 		public bool IsFree => Client == null;
 		
 		[field: SerializeField]
@@ -24,7 +23,7 @@ namespace Restaurants
 		{
 			Client = pnj;
 			idGroupe = pnj.ClientData.idGroupe;
-			pnj.currentSeat = this;
+			pnj.CurrentSeat = this;
 			if (Client != null)
 			{
 				reserve =  true;
@@ -33,9 +32,8 @@ namespace Restaurants
 
 		public void Leave(ClientController pnj)
 		{
-			Client = null;
 			idGroupe = -1;
-			pnj.currentSeat = null;
+			pnj.CurrentSeat = null;
 			if (Client == null)
 			{
 				reserve = false;
