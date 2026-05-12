@@ -16,11 +16,11 @@ namespace Restaurants
 		[SerializeField] private GameObject endPosition;
 		[SerializeField] private GameObject startPosition;
 		
-		//tODO
-		/*protected override void Awake()
+		
+		protected override void Awake()
 		{
 			base.Awake();
-		}*/
+		}
 
 		private void Start()
 		{
@@ -49,13 +49,7 @@ namespace Restaurants
 
 		public bool TryGetSeat(int idGroup,out ClientSeat seat)
 		{
-			if (currentIdGroupe < 0)
-			{
-				seat = null;
-				return false;
-			}
-			
-			if (currentIdGroupe == idGroup)
+			if (currentIdGroupe == -1 || currentIdGroupe == idGroup)
 			{
 				for (int i = 0; i < ClientSeats.Length; i++)
 				{

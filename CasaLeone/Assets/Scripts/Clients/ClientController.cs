@@ -80,8 +80,6 @@ namespace Clients
 		
 		public ClientSeat GetClientSeat()
 		{
-			return CurrentSeat;
-			
 			ClientTable[] tables = Restaurant.Instance.TablePlaces;
 			for (int i = 0; i < tables.Length; i++)
 			{

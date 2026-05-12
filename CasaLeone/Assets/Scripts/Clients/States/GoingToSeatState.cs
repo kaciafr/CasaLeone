@@ -25,6 +25,7 @@ namespace Clients.States
 
 		public void Update(ClientController controller, float deltaTime)
 		{
+			
 			if (!isMoving)
 			{
 				isMoving = true;
@@ -32,7 +33,7 @@ namespace Clients.States
 			}
 			if (controller.Movement.HasArrived())
 			{
-				ReflexionState reflexionState = new ReflexionState(30, 60);
+				ReflexionState reflexionState = new ReflexionState(10, 10);
 				controller.GoTo(reflexionState);
 			}
 		}

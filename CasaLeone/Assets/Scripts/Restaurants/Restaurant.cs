@@ -60,7 +60,7 @@ namespace Restaurants
 			for (var i = 0; i < tablePlaces.Length; i++)
 			{
 				var t = tablePlaces[i];
-				if (t.currentIdGroupe < 0 ) 
+				if (t.currentIdGroupe == -1) 
 				{
 					if (t.CanFitGroup(groupID, groupSize))
 					{

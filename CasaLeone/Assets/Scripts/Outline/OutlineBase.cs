@@ -5,9 +5,8 @@ public abstract class OutlineBase : MonoBehaviour
     [SerializeField] protected Renderer objectRenderer;
     [SerializeField] protected float outlineThickness = 0.015f;
     protected Material outlineMaterial;
-
-    //tODO
-   /* protected virtual void Awake()
+    
+   protected virtual void Awake()
     {
         if (objectRenderer != null)
         {
@@ -15,7 +14,7 @@ public abstract class OutlineBase : MonoBehaviour
             outlineMaterial = mats[1];
         }
         SetOutline(false);
-    }*/
+    }
 
     public virtual void SetOutline(bool active)
     {

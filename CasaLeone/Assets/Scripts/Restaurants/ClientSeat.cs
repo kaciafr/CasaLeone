@@ -22,7 +22,8 @@ namespace Restaurants
 		public void Reserve(ClientController pnj)
 		{
 			Client = pnj;
-			idGroupe = pnj.ClientData.idGroupe;
+			idGroupe = pnj.CurrentId;
+			Debug.Log(idGroupe);
 			pnj.CurrentSeat = this;
 			if (Client != null)
 			{
@@ -32,8 +33,9 @@ namespace Restaurants
 
 		public void Leave(ClientController pnj)
 		{
+			Client = null;
 			idGroupe = -1;
-			pnj.CurrentSeat = null;
+			reserve = false;
 			if (Client == null)
 			{
 				reserve = false;
