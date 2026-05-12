@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 4058619043749018570}
   - component: {fileID: 7244343308823472714}
   - component: {fileID: 6207026298338518217}
-  - component: {fileID: 7781058268002284738}
-  - component: {fileID: 3364162368942498006}
-  - component: {fileID: 7914347267982008128}
+  - component: {fileID: 9012497519872220667}
+  - component: {fileID: 4372002117243464394}
+  - component: {fileID: 3949946561307864159}
   m_Layer: 0
-  m_Name: Enrico
+  m_Name: Lorenzo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1526642478, guid: 72af43e72519e8247bc45cb1aa68a09a, type: 3}
+  m_Sprite: {fileID: -1800884422, guid: 2f574181a4a54f547ad514b98a2955cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861b41bb1a0a590479f9e842505b68fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.Runtime.DialogueTrigger
-  conversation: {fileID: 11400000, guid: fdf32fde3278199488b6400ea60eb69a, type: 2}
+  conversation: {fileID: 11400000, guid: 2e7ae71aeb0560649ae48ce23bdae517, type: 2}
 --- !u!114 &4058619043749018570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +143,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9690952, y: 4.266718, z: 24.216501}
-  m_Center: {x: 0.032719612, y: 0.01602745, z: -0.7143669}
+  m_Size: {x: 2.1650944, y: 4.0053926, z: 24.216501}
+  m_Center: {x: 0.01582241, y: -0.007328987, z: -0.7143669}
 --- !u!95 &6207026298338518217
 Animator:
   serializedVersion: 7
@@ -155,7 +155,7 @@ Animator:
   m_GameObject: {fileID: 8869287283351307003}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4668d19c1c092504d9b0c6978c6a3246, type: 2}
+  m_Controller: {fileID: 9100000, guid: 40c044f4bb0d2a54098c12bdd73788b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -167,45 +167,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!195 &7781058268002284738
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8869287283351307003}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.854
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 4.186322
-  m_BaseOffset: 2.093161
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &3364162368942498006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8869287283351307003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cd2737aa43cf2f46a8924756a732959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LioneController
-  LioneMovement: {fileID: 7914347267982008128}
-  waitPoint: {fileID: 4076140121689103241}
-  patrolRadius: 1
-  waitTimeAtPoint: 20
---- !u!114 &7914347267982008128
+--- !u!114 &9012497519872220667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,5 +179,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ca9dbf86e14d0db2f084dc23462fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.LioneMovement
-  <Controller>k__BackingField: {fileID: 3364162368942498006}
-  agent: {fileID: 7781058268002284738}
+  <Controller>k__BackingField: {fileID: 4372002117243464394}
+  agent: {fileID: 3949946561307864159}
+--- !u!114 &4372002117243464394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869287283351307003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd2737aa43cf2f46a8924756a732959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LioneController
+  LioneMovement: {fileID: 9012497519872220667}
+  waitPoint: {fileID: 4076140121689103241}
+  patrolRadius: 0
+  waitTimeAtPoint: 25
+--- !u!195 &3949946561307864159
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869287283351307003}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.872
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.9061666
+  m_BaseOffset: 1.9530833
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

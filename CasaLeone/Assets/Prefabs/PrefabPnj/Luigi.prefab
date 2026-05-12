@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 4058619043749018570}
   - component: {fileID: 7244343308823472714}
   - component: {fileID: 6207026298338518217}
+  - component: {fileID: 2055078258446527497}
+  - component: {fileID: 5957179167500746024}
+  - component: {fileID: 4136731678861541823}
   m_Layer: 0
   m_Name: Luigi
   m_TagString: Untagged
@@ -164,3 +167,55 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &2055078258446527497
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869287283351307003}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.056
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 4.1663113
+  m_BaseOffset: 2.0831556
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5957179167500746024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869287283351307003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd2737aa43cf2f46a8924756a732959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LioneController
+  LioneMovement: {fileID: 4136731678861541823}
+  waitPoint: {fileID: 4076140121689103241}
+  patrolRadius: 20
+  waitTimeAtPoint: 7
+--- !u!114 &4136731678861541823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869287283351307003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ca9dbf86e14d0db2f084dc23462fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.LioneMovement
+  <Controller>k__BackingField: {fileID: 5957179167500746024}
+  agent: {fileID: 2055078258446527497}
