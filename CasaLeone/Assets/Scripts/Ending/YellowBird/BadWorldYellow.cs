@@ -1,6 +1,7 @@
 using DialogueSystem.DATA;
 using DialogueSystem.Runtime;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class BadWorldYellow : MonoBehaviour
@@ -17,15 +18,16 @@ public class BadWorldYellow : MonoBehaviour
 	public GameObject thirdDialogue;
 
 	private int sequence = 0;
+	private bool active = false;
 	
 	private void OnEnable()
 	{
-		haveTheBird.OnYellowBird += PushToTalk;
+		haveTheBird.OnYellowBird += Activation;
 	}
 
 	private void OnDisable()
 	{
-		haveTheBird.OnYellowBird -= PushToTalk;
+		haveTheBird.OnYellowBird -= Activation;
 	}
 	
 	private void Start()
@@ -36,33 +38,40 @@ public class BadWorldYellow : MonoBehaviour
 		secondDialogue.SetActive(false);
 		thirdDialogue.SetActive(false);
 	}
-	public void PushToTalk(YellowBird bird)
+	private void Activation(YellowBird bird)
 	{
 		uiYellowBird.SetActive(true);
-		
-		switch (sequence)
+		active = true;
+	}
+
+	public void PushToTalk(InputAction.CallbackContext context)
+	{
+		if (active && context.performed)
 		{
-			case 0:
-				sequence++;
-				break;
-			case 1 :
-				firstDialogue.SetActive(true);
-				Destroy(firstDialogue,4);
-				sequence++;
-				break;
-			case 2 :
-				secondDialogue.SetActive(true);
-				Destroy(secondDialogue,4);
-				sequence++;
-				break;
-			case 3 :
-				thirdDialogue.SetActive(true);
-				Destroy(thirdDialogue,4);
-				sequence++;
-				break;
-			case 4 :
-				GameOver();
-				break;
+			switch (sequence)
+			{
+				case 0:
+					sequence++;
+					break;
+				case 1:
+					firstDialogue.SetActive(true);
+					Destroy(firstDialogue, 4);
+					sequence++;
+					break;
+				case 2:
+					secondDialogue.SetActive(true);
+					Destroy(secondDialogue, 4);
+					sequence++;
+					break;
+				case 3:
+					thirdDialogue.SetActive(true);
+					Destroy(thirdDialogue, 4);
+					sequence++;
+					break;
+				case 4:
+					GameOver();
+					break;
+			}
 		}
 	}
 
