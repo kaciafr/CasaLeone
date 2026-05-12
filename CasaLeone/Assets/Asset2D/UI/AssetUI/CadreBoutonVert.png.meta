@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 00ed9e169ee8cd54a8ca6ccbc1d42a1b
+guid: ccd02d0ee158dce4f9c5e591fc6bbe00
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StartTomatoButton_0
+      name: CadreBoutonVert_0
       rect:
         serializedVersion: 2
-        x: 224
-        y: 13
-        width: 279
-        height: 291
+        x: 1
+        y: 26
+        width: 719
+        height: 234
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 429e38fe099c7f945b6b750e8d08ba19
-      internalID: -684140651
+      spriteID: 99133c0a583478842987275061095b45
+      internalID: 1984404796
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 53cc433cb6e60234a9e2fb1555f9de1e
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      StartTomatoButton_0: -684140651
+      CadreBoutonVert_0: 1984404796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
