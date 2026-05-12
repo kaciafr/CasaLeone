@@ -10,8 +10,8 @@ namespace Clients.States
 	{
 		public readonly Command commanded;
 		public readonly Dish dish;
-		private readonly float startTime = 60;
-		private readonly float maxBoredTime = 100;
+		private readonly float startTime = 160;
+		private readonly float maxBoredTime = 200;
 		public float currentTime;
 		public bool isBored => currentTime >= startTime;
 		public bool wasReady;
@@ -59,7 +59,7 @@ namespace Clients.States
 			{
 				inventory.RemoveDish(dish);
 				Restaurant.Instance.RemoveCommand(commanded);
-				EatingState eatingState = new EatingState(10);
+				EatingState eatingState = new EatingState(15);
 				controller.GoTo(eatingState);
 			}
 		}

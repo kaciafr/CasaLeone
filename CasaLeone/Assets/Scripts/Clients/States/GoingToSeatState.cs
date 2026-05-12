@@ -33,7 +33,7 @@ namespace Clients.States
 			}
 			if (controller.Movement.HasArrived())
 			{
-				ReflexionState reflexionState = new ReflexionState(15, 20);
+				ReflexionState reflexionState = new ReflexionState(8, 40);
 				controller.GoTo(reflexionState);
 			}
 		}

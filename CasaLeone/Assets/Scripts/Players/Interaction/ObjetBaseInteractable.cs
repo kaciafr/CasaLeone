@@ -16,12 +16,11 @@ namespace Players.Interaction
 		[SerializeField] private QTESysteme qteSysteme;
 		[SerializeField] private TransformeUiQte UiLocQte;
 		[SerializeField] private float speedAnim;
-		public GlobalPlayer playerInventory;
 		
 		private IQteListen currentListener;
 		
 		[Header("References")]
-		public UiQte qteUi;
+		public GlobalPlayer playerInventory;
 		public GlobalPlayer currentPlayer;
 
 		private void Start()
@@ -32,6 +31,8 @@ namespace Players.Interaction
 		}
 		public void Interact(GlobalPlayer globalPlayer)
 		{
+			if (currentPlayer != null && qteSysteme.isStarted) return;
+			
 			playerInventory = globalPlayer;
 			Debug.Log(currentListener);
 			currentPlayer = globalPlayer;
@@ -44,8 +45,6 @@ namespace Players.Interaction
 		private void OnTriggerEnter(Collider other)
 		{
 			pressE.SetActive(true);
-			qteSysteme.enabled = true;
-			qteUi.enabled = true;
 		}
 
 		private void OnTriggerStay(Collider other)
@@ -55,11 +54,7 @@ namespace Players.Interaction
 
 		private void OnTriggerExit(Collider other)
 		{
-			playerInventory = null;
-			currentPlayer = null;
 			pressE.transform.DOMove(startPosition.transform.position, speedAnim);
-			qteSysteme.enabled = false;
-			qteUi.enabled = false;
 		}
 	
 	}

@@ -14,6 +14,7 @@ public class Cooker : MonoBehaviour,IQteListen
 	public event Action<Dish> showFood;
 	public void OnQteStart()
 	{
+		
 		showFood?.Invoke(winGift);
 		if (winGift != null)
 		{

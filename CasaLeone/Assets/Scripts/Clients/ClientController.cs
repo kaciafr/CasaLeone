@@ -13,7 +13,7 @@ namespace Clients
 	{
 		public event Action<IClientState> OnStateChanged;
 		[SerializeField]
-		public float maxBoredTime = 5f;
+		public float maxBoredTime = 1000f;
 
 		public int groupSize;
 

@@ -7,7 +7,7 @@ namespace Clients.States
 {
 	public class WaitingState : IClientState
 	{
-		private float maxBoredTimed = 1200f;
+		private float maxBoredTimed;
 		
 		private float currentBoredTime;
 		private bool IsBored => currentBoredTime > maxBoredTimed;

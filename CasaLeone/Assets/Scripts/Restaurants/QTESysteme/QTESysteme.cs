@@ -12,8 +12,6 @@ namespace Restaurants.QTESysteme
 {
 	public class QTESysteme : MonoBehaviour
 	{
-		
-		
 		public enum QTEKey
 		{
 			Up,
@@ -63,15 +61,12 @@ namespace Restaurants.QTESysteme
 			Debug.Log("No lock door");
 			delay = TimerDelay;
 			currentIndex = 0;
-			
-
 		}
 
 		private void Round()
 		{
 			GenerateSequence();
 			currentIndex = 0;
-		
 		}
 		private void Update()
 		{
@@ -160,22 +155,27 @@ namespace Restaurants.QTESysteme
 
 		void Success()
 		{
+			currentInput.SwitchCurrentActionMap("Player");
 			isStarted = false;
 			qteStart = false;
-			currentInput.SwitchCurrentActionMap("Player");
 
 			GlobalPlayer currentPlayer = interactObj.currentPlayer;
 			currentQteListen.OnQteSucces(currentPlayer);
+			interactObj.currentPlayer = null;
+			interactObj.playerInventory = null; 
 			onSuccess?.Invoke();
 
 		}
 
 		void Lose()
 		{
+			currentInput.SwitchCurrentActionMap("Player");
+			interactObj.currentPlayer = null;
 			qteStart = false;
 			isStarted = false;
-			currentInput.SwitchCurrentActionMap("Player");
 			currentQteListen.OnQteFail();
+			interactObj.currentPlayer = null;
+			interactObj.playerInventory = null;
 			onLose?.Invoke();
 			
 		}
