@@ -28,9 +28,11 @@ namespace PnjWaves
         
         private int prochainIdGroupe = 0;
         public event Action<int> FireEnd;
+        public event Action<WaveSpawner> ClearInventory;
         private int clientsInGroup;
         private int currentIdGroupe;
 
+        private int add = 0;
         // ─────────────────────────────────────────────
         //  Démarrage
         // ─────────────────────────────────────────────
@@ -39,6 +41,7 @@ namespace PnjWaves
         {
             BestWave = PlayerPrefs.GetInt(BEST_WAVE_KEY, 0);
             StartCoroutine(RunWaves());
+            add = 0;
         }
 
         // ─────────────────────────────────────────────
@@ -49,9 +52,11 @@ namespace PnjWaves
         {
             while (true)
             {
+                ClearInventory ?.Invoke(this);
                 if(CurrentWave == 2)
                     FireEnd?.Invoke(3);
                 CurrentWave++;
+                
                 audioSource.Play();
                 if (CurrentWave > BestWave)
                 {
@@ -77,8 +82,12 @@ namespace PnjWaves
 
         IEnumerator SpawnWave(WaveProfile profile)
         {
+            add += 2;
+            var profileMinGroups = profile.minGroups + add - 2;
+            var currentMaxGroup = profile.maxGroups + add;
             
-            int groupCount = Random.Range(profile.minGroups, profile.maxGroups + 1);
+            int groupCount = Random.Range(profileMinGroups, currentMaxGroup + 1);
+            Debug.Log("Min groupp : " + profileMinGroups + "Max groupp : "+ currentMaxGroup);
 
             for (int g = 0; g < groupCount; g++)
             {

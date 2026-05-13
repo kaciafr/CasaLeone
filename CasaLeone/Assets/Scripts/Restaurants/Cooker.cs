@@ -14,8 +14,8 @@ public class Cooker : MonoBehaviour,IQteListen
 	public event Action<Dish> showFood;
 	public void OnQteStart()
 	{
-		
 		showFood?.Invoke(winGift);
+		
 		if (winGift != null)
 		{
 			qteSysteme.maxSequence = maxSequence;
@@ -28,6 +28,7 @@ public class Cooker : MonoBehaviour,IQteListen
 	{
 		if (winGift != null)
 		{
+			Debug.Log("ZEUBi");
 			globalPlayer.Inventory.AddDish(winGift);
 			winGift = null;
 		}

@@ -32,7 +32,6 @@ namespace Restaurants.QTESysteme.UiQte
 		[SerializeField] private GameObject pizza;
 		[SerializeField] private GameObject salade;
 		[SerializeField] private GameObject pates;
-	
 
 		private void Start()
 		{
@@ -63,6 +62,7 @@ namespace Restaurants.QTESysteme.UiQte
 
 		private void ChooseFood(Dish food)
 		{
+			
 			pizza.SetActive(true);
 			salade.SetActive(true);
 			pates.SetActive(true);

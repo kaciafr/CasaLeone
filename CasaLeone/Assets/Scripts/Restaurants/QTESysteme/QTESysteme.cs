@@ -43,9 +43,11 @@ namespace Restaurants.QTESysteme
 		public bool isStarted = false;
 		public PlayerInput currentInput;
 		public IQteListen currentQteListen;
-
 		public void StartSequence(IQteListen listener)
 		{
+			if(isStarted || qteStart) return;
+			
+			isStarted =  true;
 			currentQteListen = listener;
 			var currentInv = interactObj.playerInventory;
 			currentInv = interactObj.currentPlayer;
@@ -55,8 +57,8 @@ namespace Restaurants.QTESysteme
 			currentInput.SwitchCurrentActionMap("UI");
 			
 			
-			currentRound = listener.QteRound();
 			listener.OnQteStart();
+			currentRound = listener.QteRound();
 			
 			Debug.Log("No lock door");
 			delay = TimerDelay;
@@ -82,9 +84,7 @@ namespace Restaurants.QTESysteme
 		public void GenerateSequence()
 		{
 			qteStart = true;
-			isStarted = true;
 			currentInput.SwitchCurrentActionMap("QTE");
-			Debug.Log(currentInput.currentActionMap);
 			
 			sequence.Clear();
 		
@@ -156,11 +156,11 @@ namespace Restaurants.QTESysteme
 		void Success()
 		{
 			currentInput.SwitchCurrentActionMap("Player");
-			isStarted = false;
-			qteStart = false;
 
 			GlobalPlayer currentPlayer = interactObj.currentPlayer;
 			currentQteListen.OnQteSucces(currentPlayer);
+			isStarted = false;
+			qteStart = false;
 			interactObj.currentPlayer = null;
 			interactObj.playerInventory = null; 
 			onSuccess?.Invoke();
