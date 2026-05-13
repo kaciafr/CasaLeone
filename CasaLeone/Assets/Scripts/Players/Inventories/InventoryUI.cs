@@ -18,12 +18,26 @@ namespace Players.Inventories
 			
 			inventory.OnDishAdded += AddUi;
 			inventory.OnDishRemoved += RemoveUi;
+			inventory.OnDishClear += Clear;
 		}
+
 
 		private void OnDisable()
 		{
 			inventory.OnDishAdded -= AddUi;
 			inventory.OnDishRemoved -= RemoveUi;
+			inventory.OnDishClear -= Clear;
+		}
+		private void Clear(Dish obj)
+		{
+			foreach (ItemUI item in items)
+			{
+				if (item != null)
+				{
+					Destroy(item.gameObject);
+				}
+			}
+			items.Clear();
 		}
 
 		public void AddUi(Dish obj)
@@ -38,10 +52,11 @@ namespace Players.Inventories
 		public void RemoveUi(Dish obj)
 		{
 			ItemUI uiToRemove = items.Find(x => x.data.ID == obj.ID);
-			Debug.Log(uiToRemove.data.name);
-			items.RemoveAt(0);
-			Destroy(uiToRemove.gameObject);
-		
+			if (uiToRemove != null)
+			{
+				items.Remove(uiToRemove);
+				Destroy(uiToRemove.gameObject);
+			}
 		}
 	}
 }
