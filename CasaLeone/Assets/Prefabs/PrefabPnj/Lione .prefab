@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8528332462438462782}
   - component: {fileID: 7588027330652310159}
   - component: {fileID: 6218395942575262619}
+  - component: {fileID: 8746130309224999196}
   m_Layer: 3
   m_Name: 'Lione '
   m_TagString: Player
@@ -197,3 +198,24 @@ NavMeshAgent:
   m_BaseOffset: 1.685
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &8746130309224999196
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961759230165802500}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5560001, y: 3.7941043, z: 8.342932}
+  m_Center: {x: 0, y: 0, z: -1.0173435}

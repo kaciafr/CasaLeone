@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: first
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: VOUS VOULIEZ ME BZ HYN !!!
+  dialogueText: DES ANNEES QUE JE SUIS LA, J'AI DES TRUCS A DIRE !!
   autoAdvanceDelay: 7
   nextNode: {fileID: 11400000, guid: 9f1df32236b251944bab26e4139c4824, type: 2}
   conditionalBranches: []

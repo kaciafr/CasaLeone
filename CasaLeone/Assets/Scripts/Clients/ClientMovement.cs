@@ -1,11 +1,8 @@
 
-using Restaurants.QTESysteme;
-using UnityEditor.Animations;
+using Clients;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Clients
-{
     public class ClientMovement : MonoBehaviour
     {
         [Header("References")]
@@ -69,4 +66,3 @@ namespace Clients
             return hasArrived;
         }
     }
-}

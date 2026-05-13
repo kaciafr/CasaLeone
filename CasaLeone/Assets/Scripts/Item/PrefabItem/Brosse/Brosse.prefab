@@ -187,8 +187,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 46.638527, y: 40.65115, z: 31.317448}
-  m_Center: {x: 0.14722696, y: -0.9815298, z: 2.265327}
+  m_Size: {x: 46.638527, y: 40.65115, z: 224.18272}
+  m_Center: {x: 0.14722696, y: -0.9815298, z: -33.811382}
 --- !u!114 &9174182490980501746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemData: {fileID: 11400000, guid: 44f0b8c914fe70048bfc7063f3792fea, type: 2}
   itemList: {fileID: 0}
-  itemPrefab: {fileID: 1604954719614330214}
+  itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
   conditionID: Brosse

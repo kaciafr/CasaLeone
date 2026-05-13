@@ -187,8 +187,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 46.615414, y: 54.357048, z: 53.442}
-  m_Center: {x: -0.8389093, y: 0.20476288, z: 3.9522858}
+  m_Size: {x: 46.615414, y: 54.35705, z: 255.89697}
+  m_Center: {x: -0.8389093, y: 0.20476288, z: -97.27517}
 --- !u!114 &3940319561989803509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,4 +206,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
-  conditionID: MP3
+  conditionID: Trophee

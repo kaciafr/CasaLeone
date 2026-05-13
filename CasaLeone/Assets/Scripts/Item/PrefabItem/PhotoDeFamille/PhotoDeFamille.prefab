@@ -140,8 +140,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.434572, y: 5.3993635, z: 9.419556}
-  m_Center: {x: -0.0037362177, y: -0.014320413, z: 0.0066246586}
+  m_Size: {x: 5.434572, y: 5.3993635, z: 30.59129}
+  m_Center: {x: -0.0037362177, y: -0.014320413, z: -7.085233}
 --- !u!114 &8205857090560519102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffc1db5104c38b45992d230dd4b1e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item.Item
-  itemData: {fileID: 11400000, guid: 0c4598fff98c0ca4b8c2b7c48f0bbaa8, type: 2}
+  itemData: {fileID: 11400000, guid: 190134c1108d190419393e7f16eb5a7b, type: 2}
   itemList: {fileID: 0}
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}

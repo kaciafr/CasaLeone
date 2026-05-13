@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Avant c\u2019\xE9tait diff\xE9rent. On pourrait r\xE9parer \xE7a\u2026
-    mais seuls, non."
+  dialogueText: "Avant c\u2019\xE9tait diff\xE9rent..."
   autoAdvanceDelay: 7
   nextNode: {fileID: 0}
   conditionalBranches:

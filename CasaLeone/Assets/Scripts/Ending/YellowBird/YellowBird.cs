@@ -33,7 +33,7 @@ public class YellowBird : MonoBehaviour, IInteractable
 		{
 			npcDialogue.TriggerDialogue(dialogueOiseau, () => { FinalizeBird(globalPlayer); });
 		}
-	}
+	} 
 
 	private void FinalizeBird(GlobalPlayer globalPlayer)
 	{
