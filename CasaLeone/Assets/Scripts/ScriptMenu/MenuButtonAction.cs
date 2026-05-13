@@ -7,7 +7,6 @@ namespace ScriptMenu
     public class MenuButtonAction : MonoBehaviour
     {
         public GameObject optionContainerGO;
-        public GameObject restPanelGO;
 
         private float slideSpeed = 0.3f;
         private float optionSpeed = 3f;
@@ -33,23 +32,7 @@ namespace ScriptMenu
             );
             
         }
-        
-
-        private IEnumerator SlidePanelDown()
-        {
-            Vector3 startPos = restPanelGO.transform.localPosition;
-            Vector3 endPos = startPos + new Vector3(0, -350, 0);
-            float t = 0f;
-
-            while (t < 1f)
-            {
-                t += Time.deltaTime * slideSpeed;
-                restPanelGO.transform.localPosition = Vector3.Lerp(startPos, endPos, t);
-                yield return null;
-            }
-
-            restPanelGO.transform.localPosition = endPos;
-        }
+    
 
         public void OpenOptions()
         {
