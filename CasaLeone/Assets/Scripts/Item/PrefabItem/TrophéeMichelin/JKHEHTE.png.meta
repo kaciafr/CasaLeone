@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 825efbad1bdca6b4c9fbc13bc8b2e0c8
+guid: 60c5ce54b4cd6544ba6f3dbbdba49ba4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pngtree-flying-blue-macaw-parrot-png-image_12644630_0
+      name: JKHEHTE_0
       rect:
         serializedVersion: 2
-        x: 245
-        y: 144
-        width: 74
-        height: 64
+        x: 506
+        y: 643
+        width: 6080
+        height: 6040
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a78a9eb7dbf8914e80fff66e3d8aedc
-      internalID: 1039961223
+      spriteID: 5453d9febf79f9b4f99100da341ef46f
+      internalID: -763742838
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 980f7bb78f36df3478566ccc6cde3f88
+    spriteID: f75f28fd67efd1a41826e024c4962679
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      pngtree-flying-blue-macaw-parrot-png-image_12644630_0: 1039961223
+      JKHEHTE_0: -763742838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
