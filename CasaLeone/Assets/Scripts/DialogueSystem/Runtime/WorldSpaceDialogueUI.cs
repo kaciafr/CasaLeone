@@ -19,13 +19,18 @@ namespace DialogueSystem.Runtime
 
             GameObject go = Instantiate(
                 bubblePrefab,
-                npcTransform.position + npcTransform.TransformDirection(bubbleOffset),
+                npcTransform.position + bubbleOffset,
                 Quaternion.identity,
-                npcTransform
+                npcTransform  // ← enfant du NPC
             );
             go.transform.localPosition = bubbleOffset;
 
             _currentBubble = go.GetComponent<WorldSpaceBubble>();
+            if (_currentBubble == null)
+            {
+                Destroy(go);
+                return;
+            }
         }
 
         public void HideBubble()

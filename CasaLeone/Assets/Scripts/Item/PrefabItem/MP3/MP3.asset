@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MP3
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemData
   ID: 7
-  icon: {fileID: 1039961223, guid: 825efbad1bdca6b4c9fbc13bc8b2e0c8, type: 3}
+  icon: {fileID: -1483597809, guid: 71251467fef98484fb2d1787f138412a, type: 3}
   name: MP3
   description: "Enrico passe son temps \xE0 fumer \xE0 l\u2019ext\xE9rieur sans se
     pr\xE9occuper de pourquoi il a \xE9t\xE9 engag\xE9 car il sait que le patron

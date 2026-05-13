@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Fermer sa gueule, parfois, c\u2019est \xEAtre complice."
-  autoAdvanceDelay: 5
-  nextNode: {fileID: 0}
+  dialogueText: "J'ai trouv\xE9 cette clef"
+  autoAdvanceDelay: 7
+  nextNode: {fileID: 11400000, guid: ce346b32845fc5945aca7d0f38dd4510, type: 2}
   conditionalBranches: []

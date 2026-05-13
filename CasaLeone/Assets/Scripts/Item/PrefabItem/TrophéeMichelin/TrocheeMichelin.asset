@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TrocheeMichelin
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemData
   ID: 8
-  icon: {fileID: 21300000, guid: 1c83775dfd392f84fb5fde123983e64d, type: 3}
+  icon: {fileID: -763742838, guid: 60c5ce54b4cd6544ba6f3dbbdba49ba4, type: 3}
   name: "Troch\xE9e Michelin"
   description: "En 2014, le restaurant \xE0 vu se faire attribuer une \xE9toile Michelin
     gr\xE2ce \xE0 l\u2019ancien patron Leone. Casa Leone \xE9tait LE restaurant italien

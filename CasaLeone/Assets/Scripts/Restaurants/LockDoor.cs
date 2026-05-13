@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Players;
+using Players.Interaction;
 using Restaurants.QTESysteme;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ public class LockDoor : MonoBehaviour , IQteListen
 	[SerializeField] private SpriteRenderer hideRoom;
 	[SerializeField] private Transform doorPivot;
 	[SerializeField] private QTESysteme qteSysteme;
+	public ObjetBaseInteractable qteToSetFalse;
 	public Collider door;
-
 	
 	public void OnQteStart()
 	{
@@ -24,7 +25,8 @@ public class LockDoor : MonoBehaviour , IQteListen
 	public void OnQteSucces(GlobalPlayer globalPlayer)
 	{
 		Debug.Log("PORTE DEVERROUILLEE");
-		Destroy(door);
+		door.enabled = false;
+		qteToSetFalse.enabled = false;
 		doorPivot.transform.rotation = Quaternion.Euler(0, 0, 0);
 		
 		

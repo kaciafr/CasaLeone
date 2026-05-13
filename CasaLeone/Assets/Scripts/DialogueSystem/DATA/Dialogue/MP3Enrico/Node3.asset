@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Rooh tu sais je suis pote avec Lorenzo moi, je suis l\xE0 pour l'ambiance."
-  autoAdvanceDelay: 5
-  nextNode: {fileID: 0}
+  dialogueText: "Whaaat tu l'as retouv\xE9 !?"
+  autoAdvanceDelay: 7
+  nextNode: {fileID: 11400000, guid: 9d87696de3bfb0746a602ffd88ff0ffd, type: 2}
   conditionalBranches: []

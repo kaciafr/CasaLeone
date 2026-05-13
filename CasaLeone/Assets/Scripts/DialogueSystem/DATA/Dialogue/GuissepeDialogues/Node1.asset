@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Le service, c\u2019est la guerre. Mais chacun se bat seul."
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: 1c8286950fe4423408762fc501a13247, type: 2}
   conditionalBranches: []

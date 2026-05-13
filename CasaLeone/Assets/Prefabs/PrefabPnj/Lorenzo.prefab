@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LioneController
   LioneMovement: {fileID: 9012497519872220667}
   waitPoint: {fileID: 4076140121689103241}
-  patrolRadius: 0
+  patrolRadius: 2
   waitTimeAtPoint: 25
 --- !u!195 &3949946561307864159
 NavMeshAgent:

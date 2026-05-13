@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Je me sens un phacoph\xE8re nouveaux gr\xE2ce \xE0 toi ! Je me remet
-    au boulot."
+  dialogueText: "MAIS !! C'est ma pr\xE9sieuse brosse \xE0 crin ! Merci ! "
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: 0ca65f36a486db8468facd2658a79569, type: 2}
   conditionalBranches: []

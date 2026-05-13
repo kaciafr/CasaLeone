@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
-  m_Name: Node5
+  m_Name: Node4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: Tiens, tu trouveras surement ce qu'elle ouvre.
+  dialogueText: "Trop bien tu carry man toi et ton coll\xE8gue."
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: ea9cd9bd6290f7a49922800df03e7eaf, type: 2}
   conditionalBranches: []

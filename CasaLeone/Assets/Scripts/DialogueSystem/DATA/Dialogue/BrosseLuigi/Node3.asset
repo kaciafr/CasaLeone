@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Je veux juste finir la journ\xE9e\u2026"
+  dialogueText: J'ai peur qu'elle fasse pire.
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
-  conditionalBranches:
-  - conditionID: Brosse
-    branchNode: {fileID: 11400000, guid: 37b9f4424040dad43aa352a612fc6432, type: 2}
-  onNodeEnd:
-    m_PersistentCalls:
-      m_Calls: []
+  nextNode: {fileID: 11400000, guid: d447ecb41bdd3d4468d33036665aebc2, type: 2}
+  conditionalBranches: []
