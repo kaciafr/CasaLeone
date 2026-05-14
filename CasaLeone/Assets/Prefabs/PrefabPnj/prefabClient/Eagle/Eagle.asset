@@ -27,8 +27,8 @@ MonoBehaviour:
   - "Le service est \xE0 revoir mais pourquoi pas."
   - Merci, tu peux y aller maintenant.
   angryLines:
-  - "T\u2019es tellement nul, tu n'aurais pas tenu une seconde dans une prison."
+  - Tu n'aurais pas tenu une seconde dans une prison toi.
   - "Si tu me refais \xE7a je te tra\xEEne sur 200 m\xE8tres avec ma moto."
   - "C\u2019est quoi cette bouffe l\xE0, j\u2019ai l\u2019air d\u2019un chien pour
     toi ?"
-  idGroupe: 3
+  idGroupe: 0

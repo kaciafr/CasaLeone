@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Si t\u2019y arrives pas, dis-le. Que je ne mette pas trop d'espoir
-    en toi."
+  dialogueText: T'y arrives pas ? Pourquoi j'aurais mis un espoir en toi ?
   autoAdvanceDelay: 7
   nextNode: {fileID: 0}
   conditionalBranches:

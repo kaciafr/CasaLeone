@@ -9,6 +9,9 @@ namespace DialogueSystem.Runtime
         public static event Action<DialogueNode> onNodeDisplayed;
 
         public static DialogueManager Instance;
+        public DialogueConversation[] conversationsToReset;
+
+        
 
         [Header("UI 3D")]
         public WorldSpaceDialogueUI worldSpaceUI;
@@ -22,16 +25,16 @@ namespace DialogueSystem.Runtime
         void Awake()
         {
             if (Instance == null) Instance = this;
+            foreach (var conv in conversationsToReset)
+                if (conv != null) conv.conditionReachedNode = null;
         }
 
         public void StartConversation(DialogueConversation conversation, Transform npcTransform,
-                                      string conditionID = "", Action onEnded = null)
+            string conditionID = "", Action onEnded = null)
         {
             _currentConversation = conversation;
             _onEndedCallback     = onEnded;
-
-            _currentNode = ResolveEntryNode(conversation.startingNode);
-
+            _currentNode         = conversation.GetEntryNode(); // ← juste ça, rien d'autre
             worldSpaceUI.ShowBubble(npcTransform);
             DisplayNode(_currentNode);
         }
@@ -48,6 +51,9 @@ namespace DialogueSystem.Runtime
 
             if (nextNode != null)
             {
+                if (IsConditionalBranch(_currentNode, nextNode))
+                    _currentConversation.conditionReachedNode = nextNode;
+
                 _currentNode = nextNode;
                 DisplayNode(_currentNode);
             }
@@ -58,25 +64,21 @@ namespace DialogueSystem.Runtime
         }
 
         public bool IsInConversation => worldSpaceUI.IsActive;
-        
-        DialogueNode ResolveEntryNode(DialogueNode startingNode)
-        {
-            if (startingNode == null) return null;
 
-            DialogueNode resolved = startingNode.ResolveNextNode();
-            
-            if (resolved != startingNode.nextNode)
-            {
-                return resolved ?? startingNode;
-            }
-
-            return startingNode;
-        }
         void DisplayNode(DialogueNode node)
         {
             worldSpaceUI.Display(node);
             onNodeDisplayed?.Invoke(node);
         }
+
+        bool IsConditionalBranch(DialogueNode current, DialogueNode next)
+        {
+            if (current.conditionalBranches == null) return false;
+            foreach (var branch in current.conditionalBranches)
+                if (branch.branchNode == next) return true;
+            return false;
+        }
+        
 
         void EndConversation()
         {

@@ -17,6 +17,9 @@ namespace Clients
         [SerializeField] private GameObject clientrTimer;
         [SerializeField] private GameObject clientrCheck;
         
+        [SerializeField] private Transform bubbleAnchor; 
+
+        
         [SerializeField]
         private float zoom = 1;
 
@@ -98,8 +101,8 @@ namespace Clients
         private void BoredLine()
         {
             GameObject bubble = Instantiate(bubblePrefab, clientController.transform);
-            bubble.transform.localPosition = bubbleOffset;
-
+            bubble.transform.position = bubbleAnchor.position; // world space direct
+            
             currentBubble = bubble.GetComponent<WorldSpaceBubble>();
 
             string line = clientController.ClientData.PickImpatientLine();
@@ -114,7 +117,7 @@ namespace Clients
         private void ReplicaLine()
         {
             GameObject bubble = Instantiate(bubblePrefab, clientController.transform);
-            bubble.transform.localPosition = bubbleOffset;
+            bubble.transform.position = bubbleAnchor.position; // world space direct
 
             currentBubble = bubble.GetComponent<WorldSpaceBubble>();
 

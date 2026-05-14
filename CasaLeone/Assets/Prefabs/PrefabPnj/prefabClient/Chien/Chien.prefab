@@ -182,6 +182,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &3114265621351588132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6266150025637659669}
+  m_Layer: 0
+  m_Name: AnchorBubble
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6266150025637659669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114265621351588132}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.83, y: 1.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2087409407432816287}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3406576468020380576
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +340,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6266150025637659669}
   - {fileID: 4111872255182845129}
   - {fileID: 4251862441346802676}
   - {fileID: 3243464499852664547}
@@ -414,6 +446,7 @@ MonoBehaviour:
   clientrReflexion: {fileID: 157954930966896219}
   clientrTimer: {fileID: 3406576468020380576}
   clientrCheck: {fileID: 2999516038075339120}
+  bubbleAnchor: {fileID: 6266150025637659669}
   zoom: 0.3
 --- !u!95 &-9117574628076004400
 Animator:
