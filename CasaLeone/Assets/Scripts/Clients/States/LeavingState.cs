@@ -32,11 +32,17 @@ namespace Clients.States
           }
 
           QueueManager.Instance.LeaveTheQueue(controller);
-          
+
           if (IsAngry)
+          {
              Restaurant.Instance.AddOrRemoveStress(5);
+             RoundEcran.Instance.SadScore();
+          }
           else
+          {
              Restaurant.Instance.AddOrRemoveStress(-2);
+             RoundEcran.Instance.HappyScore();
+          }
 
        }
 

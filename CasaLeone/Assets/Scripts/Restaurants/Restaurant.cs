@@ -32,8 +32,7 @@ namespace Restaurants
 		
 		[field: SerializeField]
 		public GlobalPlayer[] Players { get; private set; }
-
-
+		
 		public ClientTable[] TablePlaces => tablePlaces;
 		
 		[field: SerializeField]
@@ -42,6 +41,7 @@ namespace Restaurants
 		public float Stress { get; private set; } = 0;
 		public event Action <IStressBar> OnStressStateChanged;
 		public IStressBar currentStressBar { get; private set; }
+		
 		public bool TryFindTable(int groupID,int groupSize, out ClientTable table)
 		{
 			for (var i = 0; i < tablePlaces.Length; i++)

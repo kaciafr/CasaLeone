@@ -29,6 +29,9 @@ namespace PnjWaves
         private int prochainIdGroupe = 0;
         public event Action<int> FireEnd;
         public event Action<WaveSpawner> ClearInventory;
+        public event Action<WaveSpawner> UiRound;
+        public event Action<WaveSpawner> UiOffRound;
+        public event Action<WaveSpawner> CleanScore;
         private int clientsInGroup;
         private int currentIdGroupe;
 
@@ -53,6 +56,8 @@ namespace PnjWaves
             while (true)
             {
                 ClearInventory ?.Invoke(this);
+                UiOffRound?.Invoke(this);
+                CleanScore?.Invoke(this);
                 if(CurrentWave == 2)
                     FireEnd?.Invoke(3);
                 CurrentWave++;
@@ -72,6 +77,7 @@ namespace PnjWaves
 
                 yield return new WaitUntil(() => AllClientsGone());
                 audioSource.Play();
+                UiRound?.Invoke(this);
                 yield return new WaitForSeconds(waitBetweenWaves);
             }
         }
@@ -82,7 +88,7 @@ namespace PnjWaves
 
         IEnumerator SpawnWave(WaveProfile profile)
         {
-            add += 2;
+            add += 5;
             var profileMinGroups = profile.minGroups + add - 2;
             var currentMaxGroup = profile.maxGroups + add;
             
