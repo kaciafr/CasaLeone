@@ -28,6 +28,7 @@ namespace Item
 		{
 			if (!seeOneTime)
 			{
+				Time.timeScale = 0;
 				icon.sprite = itemData.icon;
 				description.text = itemData.description;
 				itemPrefab.SetActive(true);

@@ -13,6 +13,7 @@ namespace Item
 		public void Interact()
 		{
 			itemPrefab.SetActive(false);
+			Time.timeScale = 1;
 		}
     
 	}

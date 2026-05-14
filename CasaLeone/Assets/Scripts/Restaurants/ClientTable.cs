@@ -114,20 +114,28 @@ namespace Restaurants
 		
 		private void OnTriggerEnter(Collider other)
 		{
-			pressE.SetActive(true);
-			SetOutline(true );
+			if (other.CompareTag("Player"))
+			{
+				Debug.Log(other.gameObject.name);
+				pressE.SetActive(true);
+				SetOutline(true );
+			}
 			
 		}
 
 		private void OnTriggerStay(Collider other)
 		{
-			pressE.transform.DOMove(endPosition.transform.position,1);
+			if (other.CompareTag("Player"))
+				pressE.transform.DOMove(endPosition.transform.position,1);
 		}
 
 		private void OnTriggerExit(Collider other)
 		{
-			pressE.transform.DOMove(startPosition.transform.position,1);
-			SetOutline(false );
+			if (other.CompareTag("Player"))
+			{
+				pressE.transform.DOMove(startPosition.transform.position,1);
+				SetOutline(false );
+			}
 		}
 	}
 }
