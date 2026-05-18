@@ -23,6 +23,7 @@ namespace Outline
 			if (outlineMaterial == null) return;
 			Debug.Log(active);
 			outlineMaterial.SetFloat("OutlineThickness", active ? outlineThickness : 0f);
+			
 		}
 	}
 }

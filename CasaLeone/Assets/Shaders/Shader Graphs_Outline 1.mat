@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2436
+  m_CustomRenderQueue: 2438
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -38,12 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - OutlineThickness: 0.0059
     - _Fade_Distance: 75
     - _OutlineThickness: 0.05
     - _QueueControl: 0
-    - _QueueOffset: -14
+    - _QueueOffset: -12
     m_Colors:
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.9044037, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8175640089302680439
