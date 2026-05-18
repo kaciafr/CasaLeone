@@ -16,6 +16,7 @@ namespace Players.Interaction
         [SerializeField] private QTESysteme qteSysteme;
         [SerializeField] private TransformeUiQte UiLocQte;
         [SerializeField] private float speedAnim = 0.5f;
+        public int Priotity => 10;
 
         private IQteListen currentListener;
 
@@ -56,6 +57,7 @@ namespace Players.Interaction
             qteSysteme.interactObj = this;
             qteSysteme.StartSequence(currentListener);
         }
+
 
         private void OnTriggerEnter(Collider other)
         {

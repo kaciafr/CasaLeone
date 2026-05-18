@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class YellowBird : MonoBehaviour, IInteractable
 {
+	public int Priotity => 1;
 	private GlobalPlayer currentPlayer;
 	[SerializeField] private GameObject yellowBirds;
 	[SerializeField] private DialogueConversation dialogueOiseau;
@@ -33,7 +34,8 @@ public class YellowBird : MonoBehaviour, IInteractable
 		{
 			npcDialogue.TriggerDialogue(dialogueOiseau, () => { FinalizeBird(globalPlayer); });
 		}
-	} 
+	}
+
 
 	private void FinalizeBird(GlobalPlayer globalPlayer)
 	{

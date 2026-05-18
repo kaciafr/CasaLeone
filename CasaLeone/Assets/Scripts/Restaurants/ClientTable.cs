@@ -10,6 +10,7 @@ namespace Restaurants
 {
 	public class ClientTable : OutlineBase, IInteractable
 	{
+		public int Priotity => 3;
 		[field: SerializeField]
 		public ClientSeat[] ClientSeats { get; private set; }
 		
@@ -78,6 +79,7 @@ namespace Restaurants
 					seat.Client.Interact(globalPlayer);
 			}
 		}
+
 
 		public bool CanFitGroup(int idGroup,int groupSize)
 		{

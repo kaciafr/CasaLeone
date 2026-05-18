@@ -9,6 +9,7 @@ namespace Item
 {
 	public class Item : MonoBehaviour, IInteractable
 	{
+		public int Priotity => 4;
 		[SerializeField] private ItemData itemData;
 		[SerializeField] private ItemList itemList;
 		
@@ -38,5 +39,6 @@ namespace Item
 				ConditionManager.SetCondition(conditionID, true);
 			}
 		}
+
 	}
 }

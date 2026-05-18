@@ -11,6 +11,7 @@ namespace Clients
 {
 	public class ClientController : MonoBehaviour,IInteractable
 	{
+		public int Priotity { get; }
 		public event Action<IClientState> OnStateChanged;
 		[SerializeField]
 		public float maxBoredTime = 1000f;
@@ -76,8 +77,9 @@ namespace Clients
 			if(CurrentState is IInteractableClientState interactableState)
 				interactableState.Interact(this, globalPlayer);
 		}
-		
-		
+
+
+
 		public ClientSeat GetClientSeat()
 		{
 			ClientTable[] tables = Restaurant.Instance.TablePlaces;
