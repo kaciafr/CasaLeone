@@ -19,16 +19,13 @@ MonoBehaviour:
   variants:
   - {fileID: 3694290337758468392, guid: 04015bf66349118458b883536f6413d2, type: 3}
   - {fileID: 3694290337758468392, guid: 948e167b386907744b46b47d2941bc0c, type: 3}
-  impatientLines:
-  - "Ils sont bloqu\xE9 par la manif en cuisine?"
-  - Long...
+  impatientLines: []
   satisfiedLines:
   - "Merci beau gosse ! Je t'emm\xE8nerai en manif !"
   - "T\u2019as jamais envisag\xE9 de te faire une cr\xEAte si ?"
-  - "J\u2019ai jamais \xE9t\xE9 aussi content d\u2019un service ! Et la nourriture
-    est incroyable."
+  - C'est un autre niveau que les poubelle, merci mec !
   angryLines:
   - "C\u2019est pas si grave, on a tous eu des mauvais jours !"
-  - "La prochaine table sera la cerise sur la canette de bi\xE8re, je le sens bien."
+  - "La prochaine table sera la cerise sur la canette de bi\xE8re."
   - "Abandonne pas, donne pas au grand capito ce qu\u2019ils veulent."
-  idGroupe: 5
+  idGroupe: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace DialogueSystem.DATA
 {
@@ -13,7 +14,9 @@ namespace DialogueSystem.DATA
 
         public static bool CheckCondition(string id)
         {
-            return states.ContainsKey(id) && states[id];
+            bool result = states.ContainsKey(id) && states[id];
+            Debug.Log($"CheckCondition({id}) = {result}");
+            return result;
         }
 
         public static void Clear()

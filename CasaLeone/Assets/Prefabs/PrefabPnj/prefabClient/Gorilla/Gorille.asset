@@ -20,17 +20,14 @@ MonoBehaviour:
   - {fileID: 3786077069403723191, guid: a65c493c6f3a2784980c2066d08ca5e1, type: 3}
   - {fileID: 3786077069403723191, guid: e4a511d5b1eef0a46aa6fc483a6297c7, type: 3}
   - {fileID: 3786077069403723191, guid: 46b0814bc2987d64c95690770e5f56d9, type: 3}
-  impatientLines:
-  - Ils sont entrain de poser un classique ou c'est comment ?!
-  - "J'esp\xE9re ils sont plus rapide \xE0 \xE9chapper au FISC qu'\xE0 cuisiner"
+  impatientLines: []
   satisfiedLines:
   - "Merci p\u2019tit gars t\u2019es bien serviable !"
-  - "\xC7a \xE0 l\u2019air d\xE9licieux, on as bien fait de venir ici un ? haha"
-  - "H\xE9! Si y en a un qui t\u2019emb\xEAte la, tu me le dis on va lui r\xE9gler
-    son compte."
+  - "\xC7a a l\u2019air d\xE9licieux, on a bien fait de venir ici hein ? haha"
+  - "Si y en a un qui t\u2019emb\xEAte la, on va lui r\xE9gler son compte."
   angryLines:
-  - "Faut pas h\xE9siter \xE0 aller plus vite ! On attend depuis des plombes !"
-  - "\xC7a t'arrive souvent d\u2019\xEAtre aussi nul ? La en tout cas c\u2019est
-    d\xE9sastreux."
+  - "Tellement mis\xE9rable \xE7a me donne envis de t'en mettre une."
+  - "\xC7a t'arrive souvent d\u2019\xEAtre aussi nul ? L\xE0 en tout cas c\u2019est
+    pourris."
   - "Franchement tu m\xE9riterais que je te foute \xE0 la porte moi-m\xEAme."
   idGroupe: 0

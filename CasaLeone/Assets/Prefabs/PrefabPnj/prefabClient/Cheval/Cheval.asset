@@ -24,14 +24,12 @@ MonoBehaviour:
   - "Autant le faire nous m\xEAme"
   - "Ma grand-m\xE8re est plus rapide"
   satisfiedLines:
-  - "Merci beaucoup ! Je t\u2019offrirai une peinture de ma composition la prochaine
-    fois que je viendrai."
-  - Tu es aussi efficace dans ton service que les champignons que nous prenons.
+  - "F\xE9licitation man, t'es au top du top."
+  - "Tu es aussi efficace dans ton service que les chanterelle de la for\xEAt."
   - "Le service est incroyable, je reviendrai forc\xE9ment mang\xE9 ici !"
   angryLines:
-  - "Tu es incomp\xE9tent dans ton travail, et sa ne me donne aucunement envie de
-    revenir ici un jour."
+  - "Man, la restauration \xE7a doit pas \xEAtre pour toi."
   - "Un changement de carri\xE8re serait pr\xE9f\xE9rable pour toi."
   - "Tu m\u2019as s\xE9rieusement d\xE9\xE7u, j\u2019ai cru en toi et tu m\u2019as
     trahis."
-  idGroupe: 1
+  idGroupe: 0

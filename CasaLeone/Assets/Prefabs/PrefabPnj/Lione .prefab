@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 7588027330652310159}
   - component: {fileID: 6218395942575262619}
   - component: {fileID: 8746130309224999196}
+  - component: {fileID: 895809866285082636}
+  - component: {fileID: 1150354652383777049}
   m_Layer: 3
   m_Name: 'Lione '
   m_TagString: Player
@@ -160,8 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LioneController
   LioneMovement: {fileID: 7588027330652310159}
   waitPoint: {fileID: 0}
-  patrolRadius: 0
-  waitTimeAtPoint: 0
+  patrolRadius: 8
+  waitTimeAtPoint: 12
 --- !u!114 &7588027330652310159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,3 +221,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5560001, y: 3.7941043, z: 8.342932}
   m_Center: {x: 0, y: 0, z: -1.0173435}
+--- !u!114 &895809866285082636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961759230165802500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861b41bb1a0a590479f9e842505b68fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.Runtime.DialogueTrigger
+  conversation: {fileID: 11400000, guid: faa6216f9e828194e85f8ecac2b5f926, type: 2}
+--- !u!114 &1150354652383777049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961759230165802500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f70fc6f535856142ac231421006e302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.NPCTriggerDialogue
+  triggerConditionOnEnd: 
