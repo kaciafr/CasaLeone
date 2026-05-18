@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JournalArrache
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemData
   ID: 5
-  icon: {fileID: 21300000, guid: 6c1c409d4b84f7b438e78f84b5e727ab, type: 3}
+  icon: {fileID: 21300000, guid: 00feb728b02d43f499f372b043bcc4f3, type: 3}
   name: "Journal arrach\xE9"
   description: "Leone appr\xE9ci\xE9 par les clients par son humour, sa gentillesse
     et ses bonnes actions pour les habitants du quartier et appr\xE9ci\xE9 par les

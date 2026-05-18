@@ -1,5 +1,6 @@
 using Clients;
 using DG.Tweening;
+using Outline;
 using Players;
 using Players.Interaction;
 using PnjWaves;
@@ -17,7 +18,7 @@ namespace Restaurants
 		[SerializeField] private GameObject startPosition;
 		
 		
-		protected override void Awake()
+		protected void Awake()
 		{
 			base.Awake();
 		}
@@ -116,9 +117,9 @@ namespace Restaurants
 		{
 			if (other.CompareTag("Player"))
 			{
+				SetOutline(true );
 				Debug.Log(other.gameObject.name);
 				pressE.SetActive(true);
-				SetOutline(true );
 			}
 			
 		}

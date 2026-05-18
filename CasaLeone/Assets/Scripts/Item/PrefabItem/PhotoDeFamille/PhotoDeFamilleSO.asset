@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhotoDeFamilleSO
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemData
   ID: 6
-  icon: {fileID: 21300000, guid: 4b7e4d5148288444099c81b8ac625325, type: 3}
+  icon: {fileID: 21300000, guid: 3281c5ed93c3b9646b608361106ad061, type: 3}
   name: Photo de famille
   description: "Une vielle photo de Leonne et Lorenzo. Lorenzo ne semble pas tr\xE8s
     attentif aux t\xE9l\xE9phone."

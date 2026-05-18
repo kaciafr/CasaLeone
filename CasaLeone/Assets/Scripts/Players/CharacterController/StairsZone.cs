@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Outline;
 using UnityEngine;
 
 public class StairsZone : OutlineBase
@@ -18,12 +19,11 @@ public class StairsZone : OutlineBase
     private bool _player2InZone = false;
     private bool _isPlayer1Climbing = false;
     private bool _isPlayer2Climbing = false;
-
-    //tODO
-    /*protected override void Awake()
+    
+    protected void Awake()
     {
         base.Awake(); 
-    }*/
+    }
 
     private void Start()
     {
@@ -43,10 +43,10 @@ public class StairsZone : OutlineBase
     {
         if (!IsPlayer(other)) return;
 
+        SetOutline(true);
         if (IsSpecificPlayer(other, player1)) _player1InZone = true;
         if (IsSpecificPlayer(other, player2)) _player2InZone = true;
 
-        SetOutline(true);
 
         if (climbFeedBack == null) return;
 
