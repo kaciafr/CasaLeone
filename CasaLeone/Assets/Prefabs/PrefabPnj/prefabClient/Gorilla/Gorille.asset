@@ -23,11 +23,10 @@ MonoBehaviour:
   impatientLines: []
   satisfiedLines:
   - "Merci p\u2019tit gars t\u2019es bien serviable !"
-  - "\xC7a a l\u2019air d\xE9licieux, on a bien fait de venir ici hein ? haha"
-  - "Si y en a un qui t\u2019emb\xEAte la, on va lui r\xE9gler son compte."
+  - "\xC7a a l\u2019air d\xE9licieux, on a bien fait de venir ici hein ?"
+  - "Si y en a un qui t\u2019emb\xEAte, on va lui r\xE9gler son compte."
   angryLines:
   - "Tellement mis\xE9rable \xE7a me donne envis de t'en mettre une."
-  - "\xC7a t'arrive souvent d\u2019\xEAtre aussi nul ? L\xE0 en tout cas c\u2019est
-    pourris."
-  - "Franchement tu m\xE9riterais que je te foute \xE0 la porte moi-m\xEAme."
+  - "\xC7a t'arrive souvent d\u2019\xEAtre aussi nul ? L\xE0 c\u2019est pourris."
+  - "Tu m\xE9riterais que je te foute \xE0 la porte moi-m\xEAme."
   idGroupe: 0

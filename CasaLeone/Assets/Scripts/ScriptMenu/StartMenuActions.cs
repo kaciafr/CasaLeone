@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class StartMenuActions : MonoBehaviour
 {
     [Header("Panneaux")]
-    [SerializeField] private GameObject startMenuPanel;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject gamePanel;
 
@@ -15,24 +14,8 @@ public class StartMenuActions : MonoBehaviour
 
     private void Start()
     {
-        startMenuPanel.SetActive(true);
         optionsPanel.SetActive(false);
-        gamePanel.SetActive(false);
-
-        // Fade in à l'ouverture du menu
         StartCoroutine(Fade(1f, 0f, fadeDuration, null));
-    }
-
-    // ── Boutons ──────────────────────────────────────────────────────────────
-
-    public void OnCommencerButton()
-    {
-        StartCoroutine(Fade(0f, 1f, fadeDuration, () =>
-        {
-            startMenuPanel.SetActive(false);
-            gamePanel.SetActive(true);
-            StartCoroutine(Fade(1f, 0f, fadeDuration, null));
-        }));
     }
 
     public void OnOptionsButton()
@@ -45,7 +28,6 @@ public class StartMenuActions : MonoBehaviour
         optionsPanel.SetActive(false);
     }
 
-    // ── Fade ─────────────────────────────────────────────────────────────────
 
     private IEnumerator Fade(float from, float to, float duration, System.Action onComplete)
     {
