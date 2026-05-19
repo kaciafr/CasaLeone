@@ -23,7 +23,6 @@ namespace Restaurants
 		{
 			Client = pnj;
 			idGroupe = pnj.CurrentId;
-			Debug.Log(idGroupe);
 			pnj.CurrentSeat = this;
 			if (Client != null)
 			{
@@ -39,7 +38,6 @@ namespace Restaurants
 			if (Client == null)
 			{
 				reserve = false;
-				Debug.Log(reserve);
 			}
 		}
 	}

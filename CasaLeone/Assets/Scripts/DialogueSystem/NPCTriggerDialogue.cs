@@ -8,7 +8,7 @@ namespace DialogueSystem
 {
     public class NPCTriggerDialogue : MonoBehaviour, IInteractable
     {
-        public int Priotity => 2;
+        public int Priority => 2;
         private DialogueTrigger _dialogueTrigger;
 
         [Header("Condition déclenchée à la fin (optionnel)")]

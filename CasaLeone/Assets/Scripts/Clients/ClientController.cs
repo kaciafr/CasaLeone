@@ -11,7 +11,7 @@ namespace Clients
 {
 	public class ClientController : MonoBehaviour,IInteractable
 	{
-		public int Priotity { get; }
+		public int Priority { get; }
 		public event Action<IClientState> OnStateChanged;
 		[SerializeField]
 		public float maxBoredTime = 1000f;

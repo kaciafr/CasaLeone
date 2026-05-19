@@ -46,7 +46,6 @@ namespace Clients.States
 			if (!wasReady && IsReady)
 			{
 				OnReady?.Invoke();
-				Debug.Log("ImReady");	
 			}
 			
 			if (IsReady && CurrentReflexionTime >= maxBoredTime)

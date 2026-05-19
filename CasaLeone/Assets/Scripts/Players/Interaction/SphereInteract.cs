@@ -11,7 +11,7 @@ namespace Players.Interaction
        [SerializeField] 
        private GlobalPlayer globalPlayer;
 
-       private List<IInteractable> interactablesInRange = new List<IInteractable>();
+       public List<IInteractable> interactablesInRange = new List<IInteractable>();
 
        public void OnInteractInput(InputAction.CallbackContext context)
        { 
@@ -22,6 +22,7 @@ namespace Players.Interaction
              if (priorityTarget != null)
              {
                 priorityTarget.Interact(globalPlayer);
+                Debug.Log(priorityTarget);
              }
           }
        }
@@ -44,22 +45,23 @@ namespace Players.Interaction
              if (interactablesInRange.Contains(interactable))
              {
                 interactablesInRange.Remove(interactable);
+                interactablesInRange.Clear();
              }
           }
        }
 
        private IInteractable GetPriorityInteractable()
        {
-          if (interactablesInRange == null || interactablesInRange.Count == 0) return null;
-
+	       if (interactablesInRange == null || interactablesInRange.Count == 0) return null;
+	       
           IInteractable highestPriorityTarget = null;
           int maxPriority = int.MinValue;
-
+          
           foreach (var interactable in interactablesInRange)
           {
-             if (interactable.Priotity > maxPriority)
+             if (interactable.Priority > maxPriority)
              {
-                maxPriority = interactable.Priotity;
+                maxPriority = interactable.Priority;
                 highestPriorityTarget = interactable;
              }
           }

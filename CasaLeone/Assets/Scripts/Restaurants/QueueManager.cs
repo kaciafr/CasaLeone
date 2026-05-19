@@ -35,7 +35,6 @@ public class QueueManager : Singleton<QueueManager>
 			if (i < positionsDeLaFile.Count) 
 			{
 				clientsEnAttente[i].Movement.SetDestination(positionsDeLaFile[i].position);
-				Debug.Log(positionsDeLaFile[i].position);
 			}
 		}
 	}

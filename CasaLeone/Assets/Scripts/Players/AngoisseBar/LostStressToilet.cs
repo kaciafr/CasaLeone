@@ -26,7 +26,6 @@ public class LostStressToilet : MonoBehaviour
          timeToStayIn += Time.deltaTime;
          if (timeToStayIn >= 30)
          {
-            Debug.Log("Stress Reload is full");
             timeToStayIn = 30;
             currentLostStress = lostStress;
             StressIsFull?.Invoke();
@@ -46,7 +45,6 @@ public class LostStressToilet : MonoBehaviour
 
          if (timeToStayIn <= 0)
          {
-            Debug.Log("Stress Reload is empty");
             currentLostStress = 0;
             StressIsEmpty?.Invoke();
          }
@@ -57,7 +55,6 @@ public class LostStressToilet : MonoBehaviour
    {
       if (other.gameObject.CompareTag("Player"))
       {
-         Debug.Log("Stress Reload");
          isIn = false;
          
       }

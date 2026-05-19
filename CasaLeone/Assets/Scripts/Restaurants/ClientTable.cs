@@ -10,7 +10,7 @@ namespace Restaurants
 {
 	public class ClientTable : OutlineBase, IInteractable
 	{
-		public int Priotity => 3;
+		public int Priority => 2;
 		[field: SerializeField]
 		public ClientSeat[] ClientSeats { get; private set; }
 		
@@ -111,7 +111,6 @@ namespace Restaurants
 			if (occupiedCount == 0)
 			{
 				currentIdGroupe= -1;
-				Debug.Log("La table est maintenant totalement libre.");
 			}
 		}
 		
@@ -120,7 +119,6 @@ namespace Restaurants
 			if (other.CompareTag("Player"))
 			{
 				SetOutline(true );
-				Debug.Log(other.gameObject.name);
 				pressE.SetActive(true);
 			}
 			

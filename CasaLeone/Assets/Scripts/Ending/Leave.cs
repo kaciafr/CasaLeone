@@ -1,16 +1,23 @@
+using DG.Tweening;
 using Players;
 using Players.Interaction;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Leave : MonoBehaviour,IInteractable
+public class Leave : MonoBehaviour
 {
-	public int Priotity => 1;
 	[SerializeField] private EndingGame endingGame;
-	public void Interact(GlobalPlayer globalPlayer)
+	[SerializeField] private GameObject leavingWayUi;
+	public void Interact()
 	{
 		endingGame.endScript.fireEnd =  true;
 		SceneManager.LoadScene("EndScene");
+	}
+	
+	public void Exit()
+	{
+		Time.timeScale = 1;
+		leavingWayUi.SetActive(false);
 	}
 
 }

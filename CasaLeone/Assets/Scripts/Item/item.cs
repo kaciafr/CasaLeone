@@ -9,7 +9,7 @@ namespace Item
 {
 	public class Item : MonoBehaviour, IInteractable
 	{
-		public int Priotity => 4;
+		public int Priority => 2;
 		[SerializeField] private ItemData itemData;
 		[SerializeField] private ItemList itemList;
 		
@@ -34,7 +34,7 @@ namespace Item
 				description.text = itemData.description;
 				itemPrefab.SetActive(true);
 				itemList.UpdateList(itemData);
-				Destroy(gameObject);
+				gameObject.SetActive(false);
 				seeOneTime = true;
 				ConditionManager.SetCondition(conditionID, true);
 			}

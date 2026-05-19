@@ -16,7 +16,7 @@ namespace Players.Interaction
         [SerializeField] private QTESysteme qteSysteme;
         [SerializeField] private TransformeUiQte UiLocQte;
         [SerializeField] private float speedAnim = 0.5f;
-        public int Priotity => 10;
+        public int Priority => 4;
 
         private IQteListen currentListener;
 
