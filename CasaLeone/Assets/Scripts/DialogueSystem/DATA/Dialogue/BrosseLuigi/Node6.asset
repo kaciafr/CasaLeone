@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Je me sens un phacoph\xE8re nouveaux gr\xE2ce \xE0 toi !"
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: a3bca0386af56324281ee039193eb724, type: 2}
   conditionalBranches: []

@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Avant c\u2019\xE9tait diff\xE9rent..."
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
-  conditionalBranches:
-  - conditionID: Lunettes
-    branchNode: {fileID: 11400000, guid: 0b557d8eef13bd14fa6a7bb05d3132e1, type: 2}
+  nextNode: {fileID: 11400000, guid: 87eed429c98b6224582d91dbdd0241c0, type: 2}
+  conditionalBranches: []

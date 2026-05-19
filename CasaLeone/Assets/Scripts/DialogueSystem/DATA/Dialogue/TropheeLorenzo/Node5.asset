@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "C\u2019est vieux. \xC7a veut rien dire aujourd\u2019hui."
+  dialogueText: "...O\xF9 t\u2019as trouv\xE9 \xE7a ?"
   autoAdvanceDelay: 7
-  nextNode: {fileID: 11400000, guid: b31e77b4003dc8d48bd59afe414fc9e9, type: 2}
+  nextNode: {fileID: 11400000, guid: 3945ef4961846c740823ad9648fe7654, type: 2}
   conditionalBranches: []

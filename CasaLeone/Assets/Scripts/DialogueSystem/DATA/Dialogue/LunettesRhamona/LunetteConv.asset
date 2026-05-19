@@ -15,3 +15,7 @@ MonoBehaviour:
   conversationID: LunettesConv
   startingNode: {fileID: 11400000, guid: c445104ffdef4cf45a0ef726abfa1565, type: 2}
   canRepeat: 1
+  conditionID: Lunettes
+  nodeAfterCondition: {fileID: 11400000, guid: 0b557d8eef13bd14fa6a7bb05d3132e1, type: 2}
+  nodeAfterConditionPlayed: {fileID: 11400000, guid: e2b0489181cafe641a187692eb0d4754, type: 2}
+  conditionReachedNode: {fileID: 11400000, guid: e2b0489181cafe641a187692eb0d4754, type: 2}

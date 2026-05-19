@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
-  m_Name: Node4
+  m_Name: Node6
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "C'est pas comme si il \xE9tait mieux que moi pour g\xE9rer un restaurant."
-  autoAdvanceDelay: 7
+  dialogueText: Bon, retourne bosser.
+  autoAdvanceDelay: 5
   nextNode: {fileID: 0}
-  conditionalBranches:
-  - conditionID: Trophee
-    branchNode: {fileID: 11400000, guid: f75fe22459dec2a4fba22bd48e8aa5af, type: 2}
+  conditionalBranches: []

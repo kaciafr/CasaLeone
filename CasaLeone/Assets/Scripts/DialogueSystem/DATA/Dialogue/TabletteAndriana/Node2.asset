@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: T'y arrives pas ? Pourquoi j'aurais mis un espoir en toi ?
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
-  conditionalBranches:
-  - conditionID: Tablette
-    branchNode: {fileID: 11400000, guid: 5386cc445cfc68040a9368324dad5b01, type: 2}
+  nextNode: {fileID: 11400000, guid: 4a5e54cc9addbde45a70b390fde6e149, type: 2}
+  conditionalBranches: []

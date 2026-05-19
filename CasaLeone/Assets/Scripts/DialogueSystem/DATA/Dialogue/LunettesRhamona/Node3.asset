@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: Je vois mieux, t'es vraiment top comme chat !
-  autoAdvanceDelay: 5
-  nextNode: {fileID: 11400000, guid: e2b0489181cafe641a187692eb0d4754, type: 2}
+  dialogueText: Enplus j'ai perdu mes lunettes, je n'y voie plus rien...
+  autoAdvanceDelay: 7
+  nextNode: {fileID: 0}
   conditionalBranches: []
