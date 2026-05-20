@@ -17,4 +17,4 @@ MonoBehaviour:
   nextNode: {fileID: 0}
   conditionalBranches:
   - conditionID: MP3
-    branchNode: {fileID: 11400000, guid: 9ea5dcdcf4260b745b883c75e7c5987f, type: 2}
+    branchNode: {fileID: 0}

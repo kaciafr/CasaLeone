@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: Raaah, l'organisation ici est affreuse, je n'en peux plus de travailler
+  dialogueText: L'organisation ici est affreuse, je n'en peux plus de travailler
     sur papier.
   autoAdvanceDelay: 7
   nextNode: {fileID: 0}
