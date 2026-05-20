@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 9012497519872220667}
   - component: {fileID: 4372002117243464394}
   - component: {fileID: 3949946561307864159}
+  - component: {fileID: 7790145374883093225}
   m_Layer: 0
   m_Name: Lorenzo
   m_TagString: Untagged
@@ -219,3 +220,17 @@ NavMeshAgent:
   m_BaseOffset: 1.9530833
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7790145374883093225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869287283351307003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0f6243a9bf4e54491c1021935cb0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
+  activateOnNode: {fileID: 0}
+  scriptToActivate: {fileID: 0}
