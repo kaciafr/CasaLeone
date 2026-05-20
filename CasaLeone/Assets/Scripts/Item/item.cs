@@ -9,7 +9,7 @@ namespace Item
 {
 	public class Item : MonoBehaviour, IInteractable
 	{
-		public int Priority => 2;
+		public int Priority => 4;
 		[SerializeField] private ItemData itemData;
 		[SerializeField] private ItemList itemList;
 		
