@@ -8,7 +8,7 @@ public class ActivateScriptOnNode : MonoBehaviour
     public DialogueNode activateOnNode;
 
     [Tooltip("Le script à activer (sur ce GameObject ou un enfant)")]
-    public MonoBehaviour scriptToActivate;
+    public PnjZoneStress pnjZoneStress;
 
     void OnEnable()
     {
@@ -19,19 +19,15 @@ public class ActivateScriptOnNode : MonoBehaviour
     {
         DialogueManager.onNodeDisplayed -= OnNodeDisplayed;
     }
-
-    void Start()
-    {
-        if (scriptToActivate != null)
-            scriptToActivate.enabled = false;
-    }
-
     void OnNodeDisplayed(DialogueNode node)
     {
         if (node != activateOnNode) return;
 
-        if (scriptToActivate != null)
-            scriptToActivate.enabled = true;
+        if (pnjZoneStress != null)
+        {
+            pnjZoneStress.addStress = false;
+            Debug.Log("il t'qimbe bien ce fdp");
+        }
 
         DialogueManager.onNodeDisplayed -= OnNodeDisplayed;
     }
