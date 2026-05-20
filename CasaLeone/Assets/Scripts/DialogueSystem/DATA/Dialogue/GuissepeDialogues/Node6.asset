@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node6
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "C'est fou tout ce qu'il se passe ici. Je devrais peut-\xEAtre faire
-    quelque chose."
+  dialogueText: "Je n'aime pas ce qu'il se passe ici. Je devrais peut-\xEAtre faire
+    quelque chose ?"
   autoAdvanceDelay: 7
   nextNode: {fileID: 11400000, guid: 7d97ca9c544a61c418335d52ca257a8d, type: 2}
   conditionalBranches: []

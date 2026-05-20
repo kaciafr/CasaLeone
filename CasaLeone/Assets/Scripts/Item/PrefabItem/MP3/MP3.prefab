@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a735a613a5664914faa097cc17eb789f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateOnNode
-  activateOnNode: {fileID: 11400000, guid: fb52502a26d2b69408f98bd0922ed4f7, type: 2}
+  activateOnNode: {fileID: 11400000, guid: c133898f53e1f3f448432921b3242d46, type: 2}
   visual: {fileID: 3256656695387708595}
 --- !u!54 &8383242869007674188
 Rigidbody:

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: Rooh tu sais je suis pote avec Lorenzo moi.
   autoAdvanceDelay: 7
-  nextNode: {fileID: 11400000, guid: 318f1d3ef4c6485468208483cbceee94, type: 2}
+  nextNode: {fileID: 11400000, guid: c8c30fcb64d7e2d42b5cfab8cd3e585c, type: 2}
   conditionalBranches: []

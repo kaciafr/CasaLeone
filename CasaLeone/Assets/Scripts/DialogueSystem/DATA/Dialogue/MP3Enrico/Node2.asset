@@ -15,6 +15,4 @@ MonoBehaviour:
   dialogueText: "Tu veux pas \xEAtre utile et le me chercher tiens."
   autoAdvanceDelay: 5
   nextNode: {fileID: 0}
-  conditionalBranches:
-  - conditionID: MP3
-    branchNode: {fileID: 0}
+  conditionalBranches: []
