@@ -15,3 +15,7 @@ MonoBehaviour:
   conversationID: 
   startingNode: {fileID: 11400000, guid: 87bbc49c81ffe9f4e845a1031d510fb2, type: 2}
   canRepeat: 1
+  conditionID: 
+  nodeAfterCondition: {fileID: 11400000, guid: f75fe22459dec2a4fba22bd48e8aa5af, type: 2}
+  nodeAfterConditionPlayed: {fileID: 11400000, guid: 1a08fbc35993f1146b3caecb74bc9864, type: 2}
+  conditionReachedNode: {fileID: 0}

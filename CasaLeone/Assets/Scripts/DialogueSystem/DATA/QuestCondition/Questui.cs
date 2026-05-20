@@ -3,15 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Panel du carnet de quêtes dans le menu pause.
-/// Se rafraîchit quand une quête est ajoutée ou complétée.
-/// 
-/// Hiérarchie UI suggérée :
-///   QuestPanel
-///   └── ScrollView
-///       └── Content          ← QuestEntryPrefab instanciés ici
-/// </summary>
 public class QuestUI : MonoBehaviour
 {
     [Header("Références")]

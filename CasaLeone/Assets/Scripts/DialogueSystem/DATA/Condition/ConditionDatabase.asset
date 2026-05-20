@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
   conditionID: Tablette
-  description: Trouver un tablette pour Andrianna dans le bureau du boss
+  questName: L'organisation lionnesque
+  description: "Adrianna enplus de se d\xE9foul\xE9 sur tout le monde \xE0 une organisation
+    terrible. Trouv\xE9 un objet pour qu'elle s'organise mieux. Elle pourra sans
+    doute se d\xE9tendre et \xEAtre plus sympa avec."
 --- !u!114 &-3487073285198126428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,7 +30,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
   conditionID: Brosse
-  description: "Donner le brosse \xE0 cheveux \xE0 Luigi"
+  questName: "La brosse \xE0 crin de Luigi"
+  description: "La brosse \xE0 crin du peureux Luigi a \xE9t\xE9 jet\xE9 par Adrianna
+    la manageuse lors d'un p\xE9tage de plomb de cette derni\xE8re. Rendez la brosse
+    \xE0 Luigi pour qu'il retrouve sa confiance en lui."
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +65,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
   conditionID: Trophee
-  description: "Donner troph\xE9e Michelin \xE0 Lorenzo"
+  questName: Lorenzo se moque de tout
+  description: "Trouvez un objet pour prouvez \xE0 Lorenzo qu'il n'est pas aussi
+    bon qu'il se croit. Il faudrait qu'il descende de ses grands chevaux."
 --- !u!114 &6010522290266281532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +81,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
   conditionID: MP3
-  description: Retrouver le MP3 de Enrico dans les poubelles
+  questName: Ne rien faire mais en musique
+  description: "Enrico vous a missionn\xE9 de lui retrouver son lecteur MP3. Il assure
+    qu'il l'a perdu dans le bureau de son meilleur pote Lorenzo. On comprend pourquoi
+    il se la coule douce si le patron est son pote."
 --- !u!114 &7563894888908184546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,4 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueCondition
   conditionID: Lunettes
-  description: Trouver les lunettes de Rhamona dans le restaurant
+  questName: Les lunettes de la vielle
+  description: "Rhamona ne voit rien sans ses lunettes. Ces derni\xE8re lui sont
+    importante. Elle vous a assur\xE9 les avoir perdu au premier \xE9tage."

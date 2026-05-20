@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Mon p\xE8re faisait \xE7a comme \xE7a, donc \xE7a marche."
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
-  conditionalBranches:
-  - conditionID: Trophee
-    branchNode: {fileID: 11400000, guid: f75fe22459dec2a4fba22bd48e8aa5af, type: 2}
+  nextNode: {fileID: 11400000, guid: fb3c16bed4310984ea2865f89bc6d46f, type: 2}
+  conditionalBranches: []

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: Tiens, tu trouveras surement ce qu'elle ouvre.
   autoAdvanceDelay: 7
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: 45f775ff48e0f0346820071f149ef7dd, type: 2}
   conditionalBranches: []

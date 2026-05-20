@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
-  m_Name: Node6
+  m_Name: Node7
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "Je n'ai jamais eu d'\xE9toile Michelin moi..."
+  dialogueText: "Au final \xEAtre l\xE2che c'est s\xFBrement de fermer sa gueule. "
   autoAdvanceDelay: 7
-  nextNode: {fileID: 11400000, guid: b31e77b4003dc8d48bd59afe414fc9e9, type: 2}
+  nextNode: {fileID: 0}
   conditionalBranches: []

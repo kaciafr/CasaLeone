@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002208059b1348e3814c859204652252, type: 3}
   m_Name: Node4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
-  dialogueText: "C\u2019est pour moi ?"
+  dialogueText: "C\u2019est pour moi ? \xC7a pourrait m\u2019aider \xE0 organiser
+    tout \xE7a\u2026"
   autoAdvanceDelay: 4
   nextNode: {fileID: 11400000, guid: cb826c2c038f31447a148f3fa58ce9d8, type: 2}
   conditionalBranches: []
