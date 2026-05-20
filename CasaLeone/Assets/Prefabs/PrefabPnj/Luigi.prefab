@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 3401096000949172188}
   - component: {fileID: -8293784340404023447}
   - component: {fileID: -3504195256913286476}
+  - component: {fileID: 570516650271985730}
   m_Layer: 0
   m_Name: Luigi
   m_TagString: Untagged
@@ -206,8 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LioneController
   LioneMovement: {fileID: 4136731678861541823}
   waitPoint: {fileID: 4076140121689103241}
-  patrolRadius: 5
-  waitTimeAtPoint: 10
+  patrolRadius: 3
+  waitTimeAtPoint: 15
 --- !u!114 &4136731678861541823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
   activateOnNode: {fileID: 11400000, guid: 0ca65f36a486db8468facd2658a79569, type: 2}
-  pnjZoneStress: {fileID: 8672044780784837292, guid: 83bb20cb68cea8a41868a02eed5123ee, type: 3}
+  pnjZoneStress: {fileID: -3504195256913286476}
 --- !u!135 &-8293784340404023447
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -271,3 +272,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PnjZoneStress
   addStress: 1
   stress: 0.001
+--- !u!114 &570516650271985730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869287283351307003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e9745c047902341a2a72bd657f87a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCConditionAnimator
+  thankYouNode: {fileID: 11400000, guid: 37b9f4424040dad43aa352a612fc6432, type: 2}

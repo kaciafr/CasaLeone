@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 8513260588092444517}
   - component: {fileID: 451916702987510216}
   - component: {fileID: 1449698144585386545}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 'Lione '
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
   activateOnNode: {fileID: 11400000, guid: b4c39c64119496b4db4d43b4d5376529, type: 2}
-  pnjZoneStress: {fileID: 8672044780784837292, guid: 83bb20cb68cea8a41868a02eed5123ee, type: 3}
+  pnjZoneStress: {fileID: 1449698144585386545}
 --- !u!135 &451916702987510216
 SphereCollider:
   m_ObjectHideFlags: 0

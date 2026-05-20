@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
   activateOnNode: {fileID: 11400000, guid: 0b557d8eef13bd14fa6a7bb05d3132e1, type: 2}
-  pnjZoneStress: {fileID: 8672044780784837292, guid: 83bb20cb68cea8a41868a02eed5123ee, type: 3}
+  pnjZoneStress: {fileID: 5163684902028768211}
 --- !u!135 &6555972539684260512
 SphereCollider:
   m_ObjectHideFlags: 0
