@@ -12,11 +12,13 @@ public class LockDoor : MonoBehaviour , IQteListen
 	[SerializeField] private SpriteRenderer hideRoom;
 	[SerializeField] private Transform doorPivot;
 	[SerializeField] private QTESysteme qteSysteme;
-	public ObjetBaseInteractable qteToSetFalse;
 	public Collider door;
+	
 	
 	public void OnQteStart()
 	{
+		if(door.enabled==false)
+			return;
 		qteSysteme.maxSequence = maxSequence;
 		qteSysteme.minSequence = minSequence;
 		qteSysteme.GenerateSequence();
@@ -26,7 +28,7 @@ public class LockDoor : MonoBehaviour , IQteListen
 	{
 		Debug.Log("PORTE DEVERROUILLEE");
 		door.enabled = false;
-		qteToSetFalse.enabled = false;
+		qteSysteme.enabled = false;
 		doorPivot.transform.rotation = Quaternion.Euler(0, 0, 0);
 		
 		

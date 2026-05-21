@@ -46,7 +46,7 @@ namespace Restaurants.QTESysteme
 		public void StartSequence(IQteListen listener)
 		{
 			if(isStarted || qteStart) return;
-			
+			Debug.Log(listener);
 			isStarted =  true;
 			currentQteListen = listener;
 			var currentInv = interactObj.playerInventory;
@@ -174,7 +174,6 @@ namespace Restaurants.QTESysteme
 			qteStart = false;
 			isStarted = false;
 			currentQteListen.OnQteFail();
-			interactObj.currentPlayer = null;
 			interactObj.playerInventory = null;
 			onLose?.Invoke();
 			

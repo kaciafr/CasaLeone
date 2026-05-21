@@ -28,7 +28,7 @@ public class UiToilette : MonoBehaviour
 
     private void CloseDoor()
     {
-        pivotPorte.transform.DOLocalRotate(new Vector3(0,0,0),1f).SetEase(Ease.OutBack);
+        pivotPorte.transform.DOLocalRotate(new Vector3(0,90,0),1f).SetEase(Ease.OutBack);
     }
 
     private void StreessIsFull()
@@ -36,7 +36,7 @@ public class UiToilette : MonoBehaviour
         foreach (Light l in lights)
         {
             l.color = Color.wheat;
-            pivotPorte.transform.DOLocalRotate(new Vector3(0,103,0),1f).SetEase(Ease.OutBack);
+            pivotPorte.transform.DOLocalRotate(new Vector3(0,190,0),1f).SetEase(Ease.OutBack);
         }
     }
     private void StreessIsEmpty()
