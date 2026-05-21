@@ -260,12 +260,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clients.ClientUi
   clientController: {fileID: 8099831171218216922}
   bubblePrefab: {fileID: 3703646816659954731, guid: ba0d102fcaead0142b46fd900539213b, type: 3}
-  bubbleOffset: {x: 1, y: 1, z: 0}
   clientrReflexion: {fileID: 8297792746439409208}
   clientrTimer: {fileID: 5882363400527345037}
   clientrCheck: {fileID: 3653262858257427135}
   bubbleAnchor: {fileID: 2458402313811254658}
-  zoom: 0.3
+  zoom: 0.8
 --- !u!95 &774118837490511728
 Animator:
   serializedVersion: 7
@@ -428,7 +427,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -696956577, guid: e12c0a324012fac419f20ee02077c598, type: 3}
+  m_Sprite: {fileID: 822231741, guid: 2d7233c4aecb50747a104efa59c68e24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

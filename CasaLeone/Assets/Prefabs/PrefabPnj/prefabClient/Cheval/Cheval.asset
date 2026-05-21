@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cheval
   m_EditorClassIdentifier: Assembly-CSharp::ClientTypeSO
   type: 2
-  clientSprite: {fileID: 21300000, guid: bd05c0566ed2a7240a2c02efe45c60d7, type: 3}
+  clientSprite: {fileID: 21300000, guid: c6a13ae4828b57b48bd496e040a683d8, type: 3}
   weight: 2
   personality: 0
   variants:

@@ -10,7 +10,6 @@ namespace Clients
         [Header("References")]
         [SerializeField] private ClientController clientController;
         [SerializeField] private GameObject bubblePrefab;
-        public Vector3 bubbleOffset = new Vector3(2f, 4f, 0f);
         private WorldSpaceBubble currentBubble;
         [Header("UISettings")]
         [SerializeField] private GameObject clientrReflexion;
