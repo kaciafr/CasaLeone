@@ -18,9 +18,8 @@ GameObject:
   - component: {fileID: 3364162368942498006}
   - component: {fileID: 7914347267982008128}
   - component: {fileID: 3909025239447745047}
-  - component: {fileID: 9044709203991149523}
   - component: {fileID: -7304544419607182060}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Enrico
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 8869287283351307003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.16, y: -1.23, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -146,8 +145,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9690952, y: 4.266718, z: 24.216501}
-  m_Center: {x: 0.032719612, y: 0.01602745, z: -0.7143669}
+  m_Size: {x: 2, y: 4, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &6207026298338518217
 Animator:
   serializedVersion: 7
@@ -236,27 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
   activateOnNode: {fileID: 11400000, guid: 9d87696de3bfb0746a602ffd88ff0ffd, type: 2}
   pnjZoneStress: {fileID: -7304544419607182060}
---- !u!135 &9044709203991149523
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8869287283351307003}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.093161
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-7304544419607182060
 MonoBehaviour:
   m_ObjectHideFlags: 0

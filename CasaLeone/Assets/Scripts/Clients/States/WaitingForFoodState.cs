@@ -53,11 +53,11 @@ namespace Clients.States
 
 		public void Interact(ClientController controller, GlobalPlayer globalPlayer)
 		{
-			Inventory inventory = globalPlayer.Inventory;
+			PlayersInventory playersInventory = globalPlayer.PlayersInventory;
 			
-			if (inventory.Contains(dish))
+			if (playersInventory.Contains(dish))
 			{
-				inventory.RemoveDish(dish);
+				playersInventory.RemoveDish(dish);
 				Restaurant.Instance.RemoveCommand(commanded);
 				EatingState eatingState = new EatingState(15);
 				controller.GoTo(eatingState);

@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class QuestUI : MonoBehaviour
 {
@@ -9,7 +6,7 @@ public class QuestUI : MonoBehaviour
     public GameObject  questPanel;
     public Transform   questListContainer; // le Content du ScrollView
     public GameObject  questEntryPrefab;   // prefab d'une entrée de quête
-
+    private bool active = true;
     void OnEnable()
     {
         QuestManager.onQuestAdded     += RefreshUI;
@@ -24,12 +21,15 @@ public class QuestUI : MonoBehaviour
 
     public void OpenPanel()
     {
-        questPanel.SetActive(true);
+	    active = !active;
+	    if (active==false) questPanel.SetActive(true);
+        else ClosePanel();
         RefreshUI(null);
     }
 
     public void ClosePanel()
     {
+	    active = true;
         questPanel.SetActive(false);
     }
 

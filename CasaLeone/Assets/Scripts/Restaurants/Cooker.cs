@@ -29,7 +29,7 @@ public class Cooker : MonoBehaviour,IQteListen
 		if (winGift != null)
 		{
 			Debug.Log("ZEUBi");
-			globalPlayer.Inventory.AddDish(winGift);
+			globalPlayer.PlayersInventory.AddDish(winGift);
 			winGift = null;
 		}
 	}

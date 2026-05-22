@@ -11,13 +11,13 @@ namespace Players
 	public class GlobalPlayer : MonoBehaviour
 	{
 		[field: SerializeField]
-		public Inventory Inventory { get; private set; }
+		public PlayersInventory PlayersInventory { get; private set; }
 		public PlayerInput playerMovement;
 		[SerializeField] private WaveSpawner waveSpawner;
 		public GameObject yellowBird;
 		private void Awake()
 		{
-			Inventory = new Inventory();
+			PlayersInventory = new PlayersInventory();
 		}
 
 		private void Start()
@@ -38,7 +38,7 @@ namespace Players
 
 		private void Clear(WaveSpawner obj)
 		{
-			Inventory.Clear();
+			PlayersInventory.Clear();
 		}
 	}
 }

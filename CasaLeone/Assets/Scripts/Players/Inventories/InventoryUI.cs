@@ -6,7 +6,7 @@ namespace Players.Inventories
 {
 	public class InventoryUI : MonoBehaviour
 	{
-		[SerializeField] private Inventory inventory;
+		[SerializeField] private PlayersInventory playersInventory;
 		[SerializeField] private GlobalPlayer player;
 		[SerializeField] private Transform itemContainer;
 		[SerializeField] private GameObject itemPrefab;
@@ -14,19 +14,19 @@ namespace Players.Inventories
 
 		private void Start()
 		{
-			inventory = player.Inventory; 
+			playersInventory = player.PlayersInventory; 
 			
-			inventory.OnDishAdded += AddUi;
-			inventory.OnDishRemoved += RemoveUi;
-			inventory.OnDishClear += Clear;
+			playersInventory.OnDishAdded += AddUi;
+			playersInventory.OnDishRemoved += RemoveUi;
+			playersInventory.OnDishClear += Clear;
 		}
 
 
 		private void OnDisable()
 		{
-			inventory.OnDishAdded -= AddUi;
-			inventory.OnDishRemoved -= RemoveUi;
-			inventory.OnDishClear -= Clear;
+			playersInventory.OnDishAdded -= AddUi;
+			playersInventory.OnDishRemoved -= RemoveUi;
+			playersInventory.OnDishClear -= Clear;
 		}
 		private void Clear(Dish obj)
 		{

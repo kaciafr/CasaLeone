@@ -18,9 +18,8 @@ GameObject:
   - component: {fileID: 4372002117243464394}
   - component: {fileID: 3949946561307864159}
   - component: {fileID: 7790145374883093225}
-  - component: {fileID: 5253864543257799814}
   - component: {fileID: 8672044780784837292}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Lorenzo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 8869287283351307003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.16, y: -1.23, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -146,8 +145,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1650944, y: 4.0053926, z: 24.216501}
-  m_Center: {x: 0.01582241, y: -0.007328987, z: -0.7143669}
+  m_Size: {x: 2, y: 4, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &6207026298338518217
 Animator:
   serializedVersion: 7
@@ -236,27 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
   activateOnNode: {fileID: 11400000, guid: 3945ef4961846c740823ad9648fe7654, type: 2}
   pnjZoneStress: {fileID: 8672044780784837292}
---- !u!135 &5253864543257799814
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8869287283351307003}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.9530833
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8672044780784837292
 MonoBehaviour:
   m_ObjectHideFlags: 0

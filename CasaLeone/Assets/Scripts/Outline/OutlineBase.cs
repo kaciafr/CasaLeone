@@ -13,8 +13,13 @@ namespace Outline
 			if (objectRenderer != null)
 			{
 				Material[] mats = objectRenderer.materials;
-				outlineMaterial = mats[1];
+				 
+				if (mats != null && mats.Length > 1)
+				{
+					outlineMaterial = mats[1];
+				}
 			}
+   
 			SetOutline(false);
 		}
 

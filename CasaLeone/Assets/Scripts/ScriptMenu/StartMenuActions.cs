@@ -11,21 +11,31 @@ public class StartMenuActions : MonoBehaviour
     [Header("Fade")]
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 0.6f;
+    private bool active = true;
 
     private void Start()
     {
-        optionsPanel.SetActive(false);
+        optionsPanel.SetActive(true);
         StartCoroutine(Fade(1f, 0f, fadeDuration, null));
     }
 
     public void OnOptionsButton()
     {
-        optionsPanel.SetActive(true);
+	    active = !active;
+	    Debug.Log(active);
+	    if (active == false)
+	    {
+			optionsPanel.SetActive(true);
+		    
+	    }
+	    else
+		    OnOptionsCloseButton();
     }
 
     public void OnOptionsCloseButton()
     {
         optionsPanel.SetActive(false);
+        active = true;
     }
 
 
