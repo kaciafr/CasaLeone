@@ -282,7 +282,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_PotFleur1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3451118302482216456, guid: 12297736a0609844c98a90b14a1e91a3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 12297736a0609844c98a90b14a1e91a3, type: 3}
