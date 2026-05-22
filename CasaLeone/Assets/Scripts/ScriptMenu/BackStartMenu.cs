@@ -7,6 +7,6 @@ public class BackStartMenu : MonoBehaviour
 {
     public void LoadSceneByName(string sceneName)
     {
-        SceneManager.LoadScene("FinalScene");
+        SceneManager.LoadScene("TutoScene");
     }
 }
