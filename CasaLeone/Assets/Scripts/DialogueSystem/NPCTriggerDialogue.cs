@@ -36,14 +36,7 @@ namespace DialogueSystem
 
             StartDialogue(conv);
         }
-
-        public void TriggerDialogue(DialogueConversation conversation)
-        {
-            if (conversation == null) return;
-            if (DialogueManager.Instance.IsInConversation) return;
-            StartDialogue(conversation);
-        }
-
+        
         public void TriggerDialogue(DialogueConversation conversation, System.Action onEnded)
         {
             if (conversation == null) return;
