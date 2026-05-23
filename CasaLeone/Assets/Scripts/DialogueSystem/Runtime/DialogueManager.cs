@@ -30,7 +30,11 @@ namespace DialogueSystem.Runtime
         void Start()
         {
             foreach (var conv in conversationsToReset)
-                if (conv != null) conv.conditionReachedNode = null;
+            {
+                if (conv == null) continue;
+                conv.conditionReachedNode = null;
+                conv.itemCollected = false;
+            }
         }
 
         public void StartConversation(DialogueConversation conversation, Transform npcTransform,
@@ -52,9 +56,7 @@ namespace DialogueSystem.Runtime
 
         public void Next()
         {
-            // Si on vient de jouer nodeAfterCondition (le merci) →
-            // on mémorise nodeAfterConditionPlayed comme nouvelle starting node
-            // pour que le merci ne se rejoue plus jamais
+
             if (_currentNode == _currentConversation.nodeAfterCondition &&
                 _currentConversation.nodeAfterConditionPlayed != null)
             {
@@ -65,7 +67,6 @@ namespace DialogueSystem.Runtime
 
             if (nextNode != null)
             {
-                // Si branche conditionnelle → mémorise comme nouvelle entry node
                 if (IsConditionalBranch(_currentNode, nextNode))
                     _currentConversation.conditionReachedNode = nextNode;
 
@@ -80,7 +81,6 @@ namespace DialogueSystem.Runtime
 
         public bool IsInConversation => worldSpaceUI.IsActive;
 
-        // ── Privé ──────────────────────────────────────────────────────────────
 
         void DisplayNode(DialogueNode node)
         {
@@ -98,8 +98,7 @@ namespace DialogueSystem.Runtime
 
         void EndConversation()
         {
-            // Si la conversation se termine sur nodeAfterCondition (merci joué jusqu'à la fin)
-            // → mémorise nodeAfterConditionPlayed
+           
             if (_currentConversation.nodeAfterCondition != null &&
                 _currentConversation.nodeAfterConditionPlayed != null &&
                 _currentConversation.conditionReachedNode == null)

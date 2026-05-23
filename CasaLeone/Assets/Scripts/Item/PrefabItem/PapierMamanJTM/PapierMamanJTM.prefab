@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3593239462022087165}
   - component: {fileID: 6178954855271563804}
   - component: {fileID: 5774490380739038840}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PapierMamanJTM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
-  conditionID: 
+  linkedConversation: {fileID: 0}
 --- !u!212 &6178954855271563804
 SpriteRenderer:
   serializedVersion: 2

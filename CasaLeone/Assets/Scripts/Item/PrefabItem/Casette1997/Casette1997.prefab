@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1659883818932701518}
   - component: {fileID: 2454968006165015622}
   - component: {fileID: 6449372771593361754}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Casette1997
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
-  conditionID: 
+  linkedConversation: {fileID: 0}
 --- !u!212 &2454968006165015622
 SpriteRenderer:
   serializedVersion: 2

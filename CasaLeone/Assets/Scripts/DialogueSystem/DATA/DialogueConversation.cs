@@ -10,37 +10,38 @@ namespace DialogueSystem.DATA
         public bool         canRepeat = true;
 
         [Header("Condition de redépart")]
-        [Tooltip("ID de la condition qui change le point de départ (ex: 'Lunettes')")]
+        [Tooltip("ID de la condition validée quand le joueur rend l'objet (ex: 'Lunettes')")]
         public string conditionID;
 
-        [Tooltip("Node jouée UNE SEULE FOIS quand la condition est validée (ex: 'Merci pour les lunettes')")]
+        [Tooltip("Node jouée UNE SEULE FOIS quand l'objet est rendu (remerciement)")]
         public DialogueNode nodeAfterCondition;
 
-        [Tooltip("Node de redépart APRES que nodeAfterCondition ait été jouée une fois")]
+        [Tooltip("Node de redépart APRES que le remerciement ait été joué une fois")]
         public DialogueNode nodeAfterConditionPlayed;
 
-        /// <summary>
-        /// Mémorisée automatiquement quand une branche conditionnelle est suivie
-        /// ou quand nodeAfterCondition a été jouée.
-        /// Remise à null au démarrage via DialogueManager.conversationsToReset.
-        /// </summary>
+        [HideInInspector]
+        public bool itemCollected = false;
+
+       
         [HideInInspector]
         public DialogueNode conditionReachedNode;
 
         public DialogueNode GetEntryNode()
         {
-            // 1. nodeAfterCondition déjà jouée → repart de conditionReachedNode
+            Debug.Log($"{name} — conditionReachedNode={conditionReachedNode?.name ?? "null"}, itemCollected={itemCollected}");
+    
             if (conditionReachedNode != null)
                 return conditionReachedNode;
 
-            // 2. Condition validée → joue nodeAfterCondition une seule fois
-            if (!string.IsNullOrEmpty(conditionID) &&
-                ConditionManager.CheckCondition(conditionID) &&
-                nodeAfterCondition != null)
+            if (itemCollected && nodeAfterCondition != null)
                 return nodeAfterCondition;
 
-            // 3. Début normal
             return startingNode;
+        }
+
+        public void ResetItemCollected()
+        {
+            itemCollected = false;
         }
     }
 }

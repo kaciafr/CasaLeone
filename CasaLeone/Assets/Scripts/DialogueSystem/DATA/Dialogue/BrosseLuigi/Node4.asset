@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: Node4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Je veux juste finir la journ\xE9e\u2026"
-  autoAdvanceDelay: 7
+  autoAdvanceDelay: 5
   nextNode: {fileID: 0}
   conditionalBranches:
   - conditionID: Brosse
     branchNode: {fileID: 11400000, guid: 37b9f4424040dad43aa352a612fc6432, type: 2}
-  onNodeEnd:
-    m_PersistentCalls:
-      m_Calls: []

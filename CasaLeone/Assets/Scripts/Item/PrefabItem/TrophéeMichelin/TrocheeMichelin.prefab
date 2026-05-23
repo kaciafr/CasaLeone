@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1653662230516007854}
   - component: {fileID: 1473565321823987120}
   - component: {fileID: 6466185108387694578}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TrocheeMichelin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2026816900948774238}
   - component: {fileID: 7951212040353088626}
   - component: {fileID: 3940319561989803509}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VisualCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,4 +206,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
-  conditionID: Trophee
+  linkedConversation: {fileID: 11400000, guid: 2e7ae71aeb0560649ae48ce23bdae517, type: 2}

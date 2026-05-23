@@ -4,8 +4,8 @@ public class QuestUI : MonoBehaviour
 {
     [Header("Références")]
     public GameObject  questPanel;
-    public Transform   questListContainer; // le Content du ScrollView
-    public GameObject  questEntryPrefab;   // prefab d'une entrée de quête
+    public Transform   questListContainer;
+    public GameObject  questEntryPrefab;
     private bool active = true;
     void OnEnable()
     {
@@ -35,13 +35,11 @@ public class QuestUI : MonoBehaviour
 
     void RefreshUI(DialogueSystem.DATA.DialogueCondition _)
     {
-        // Vide la liste
         foreach (Transform child in questListContainer)
             Destroy(child.gameObject);
 
         if (QuestManager.Instance == null) return;
-
-        // Recrée une entrée par quête
+        
         foreach (var quest in QuestManager.Instance.activeQuests)
         {
             GameObject entry = Instantiate(questEntryPrefab, questListContainer);

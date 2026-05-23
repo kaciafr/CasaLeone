@@ -16,6 +16,7 @@ MonoBehaviour:
   startingNode: {fileID: 11400000, guid: 65a4cc580c2aace4a9a950a0ead1e2d2, type: 2}
   canRepeat: 1
   conditionID: Tablette
-  nodeAfterCondition: {fileID: 11400000, guid: cb826c2c038f31447a148f3fa58ce9d8, type: 2}
+  nodeAfterCondition: {fileID: 11400000, guid: 5386cc445cfc68040a9368324dad5b01, type: 2}
   nodeAfterConditionPlayed: {fileID: 11400000, guid: cb826c2c038f31447a148f3fa58ce9d8, type: 2}
+  itemCollected: 0
   conditionReachedNode: {fileID: 0}

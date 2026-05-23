@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f70fc6f535856142ac231421006e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.NPCTriggerDialogue
-  triggerConditionOnEnd: 
+  triggerConditionOnEnd: Brosse
 --- !u!65 &7244343308823472714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0f6243a9bf4e54491c1021935cb0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
-  activateOnNode: {fileID: 11400000, guid: 0ca65f36a486db8468facd2658a79569, type: 2}
+  activateOnNode: {fileID: 0}
   pnjZoneStress: {fileID: -3504195256913286476}
 --- !u!114 &-3504195256913286476
 MonoBehaviour:

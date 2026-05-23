@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Node3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: J'ai peur qu'elle fasse pire.
-  autoAdvanceDelay: 7
+  autoAdvanceDelay: 4
   nextNode: {fileID: 11400000, guid: d447ecb41bdd3d4468d33036665aebc2, type: 2}
   conditionalBranches: []

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ending.EndScript
   fireEnd: 0
   burnOutEnd: 0
-  changedEnd: 0
+  changedEnd: 1
   perroquetEnd: 0

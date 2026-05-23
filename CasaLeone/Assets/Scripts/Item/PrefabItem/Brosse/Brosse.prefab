@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1371112784509466877}
   - component: {fileID: 1869403890723419484}
   - component: {fileID: 5504079898870443074}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Brosse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4923958377237218953}
   - component: {fileID: 8402614276583489260}
   - component: {fileID: 9174182490980501746}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VisuelCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,4 +206,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
-  conditionID: Brosse
+  linkedConversation: {fileID: 11400000, guid: aadc57a22ed12f94c96678a03046052e, type: 2}

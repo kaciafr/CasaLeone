@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6487178652028776997}
   - component: {fileID: 4256449737609579850}
   - component: {fileID: 8383242869007674188}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: MP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5033278758712647313}
   - component: {fileID: 9022728498414263642}
   - component: {fileID: 5185362514748172098}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VisualCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,4 +206,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
-  conditionID: MP3
+  linkedConversation: {fileID: 11400000, guid: fdf32fde3278199488b6400ea60eb69a, type: 2}

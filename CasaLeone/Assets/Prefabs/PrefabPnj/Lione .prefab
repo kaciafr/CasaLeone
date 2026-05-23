@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f70fc6f535856142ac231421006e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.NPCTriggerDialogue
-  triggerConditionOnEnd: 
+  triggerConditionOnEnd: Tablette
 --- !u!114 &8513260588092444517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0f6243a9bf4e54491c1021935cb0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateScriptOnNode
-  activateOnNode: {fileID: 11400000, guid: b4c39c64119496b4db4d43b4d5376529, type: 2}
+  activateOnNode: {fileID: 0}
   pnjZoneStress: {fileID: 1449698144585386545}
 --- !u!114 &1449698144585386545
 MonoBehaviour:

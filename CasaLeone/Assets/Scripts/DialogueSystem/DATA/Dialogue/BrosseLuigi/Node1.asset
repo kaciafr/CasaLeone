@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Node1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Ils regardent\u2026 Fais pas d\u2019erreur\u2026"
-  autoAdvanceDelay: 7
+  autoAdvanceDelay: 5
   nextNode: {fileID: 11400000, guid: 56d60bcbaf0155d43a96993e31303ab8, type: 2}
   conditionalBranches: []

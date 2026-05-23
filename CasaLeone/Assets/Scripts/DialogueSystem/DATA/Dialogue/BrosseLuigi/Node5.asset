@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "MAIS !! C'est ma pr\xE9sieuse brosse \xE0 crin ! Merci ! "
   autoAdvanceDelay: 7
-  nextNode: {fileID: 11400000, guid: 0ca65f36a486db8468facd2658a79569, type: 2}
+  nextNode: {fileID: 11400000, guid: 8ad06a5192294d348a8df061c65aac85, type: 2}
   conditionalBranches: []

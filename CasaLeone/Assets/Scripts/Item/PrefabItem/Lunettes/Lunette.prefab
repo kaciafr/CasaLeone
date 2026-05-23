@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 540125141255593607}
   - component: {fileID: 1211685870701382295}
   - component: {fileID: 1617178766154117838}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: VisualCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   icon: {fileID: 0}
   description: {fileID: 0}
-  conditionID: Lunettes
+  linkedConversation: {fileID: 11400000, guid: 310b810ea74a0df4b902037cf536a80a, type: 2}
 --- !u!1 &8479932160821300940
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 3371952440854965214}
   - component: {fileID: 8699137141485599157}
   - component: {fileID: 1711111689236944783}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Lunette
   m_TagString: Untagged
   m_Icon: {fileID: 0}

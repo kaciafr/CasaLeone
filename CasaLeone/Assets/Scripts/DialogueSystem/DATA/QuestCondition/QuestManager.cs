@@ -4,11 +4,6 @@ using DialogueSystem.DATA;
 using DialogueSystem.Runtime;
 using UnityEngine;
 
-/// <summary>
-/// Gère le carnet de quêtes.
-/// Écoute onNodeDisplayed pour ajouter une quête quand la bonne node se joue.
-/// Vérifie chaque frame si les quêtes en cours sont validées.
-/// </summary>
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
@@ -23,15 +18,11 @@ public class QuestManager : MonoBehaviour
         public bool              isCompleted;
     }
 
-    // Liste des quêtes actives (en cours + terminées)
     public List<QuestEntry> activeQuests = new List<QuestEntry>();
 
-    // Event déclenché quand une quête est ajoutée
     public static event Action<DialogueCondition> onQuestAdded;
-    // Event déclenché quand une quête est complétée
     public static event Action<DialogueCondition> onQuestCompleted;
 
-    // Associe une node à une conditionID pour savoir quelle quête ajouter
     [System.Serializable]
     public class NodeQuestLink
     {
@@ -47,25 +38,29 @@ public class QuestManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null) Instance = this;
+        activeQuests.Clear();
     }
 
     void OnEnable()
     {
-        DialogueManager.onNodeDisplayed += OnNodeDisplayed;
+        DialogueManager.onNodeDisplayed     += OnNodeDisplayed;
+        ConditionManager.onConditionChanged += OnConditionChanged;
     }
 
     void OnDisable()
     {
-        DialogueManager.onNodeDisplayed -= OnNodeDisplayed;
+        DialogueManager.onNodeDisplayed     -= OnNodeDisplayed;
+        ConditionManager.onConditionChanged -= OnConditionChanged;
     }
 
-    void Update()
+    void OnConditionChanged(string conditionID, bool value)
     {
-        // Vérifie si des quêtes en cours viennent d'être complétées
+        if (!value) return;
+
         foreach (var quest in activeQuests)
         {
             if (quest.isCompleted) continue;
-            if (!ConditionManager.CheckCondition(quest.condition.conditionID)) continue;
+            if (quest.condition.conditionID != conditionID) continue;
 
             quest.isCompleted = true;
             onQuestCompleted?.Invoke(quest.condition);
@@ -78,14 +73,11 @@ public class QuestManager : MonoBehaviour
         {
             if (link.node != node) continue;
 
-            // Cherche la condition dans la database
             DialogueCondition condition = FindCondition(link.conditionID);
             if (condition == null) continue;
 
-            // Vérifie qu'elle n'est pas déjà dans le carnet
             if (IsQuestActive(link.conditionID)) continue;
 
-            // Ajoute la quête
             activeQuests.Add(new QuestEntry { condition = condition, isCompleted = false });
             onQuestAdded?.Invoke(condition);
         }

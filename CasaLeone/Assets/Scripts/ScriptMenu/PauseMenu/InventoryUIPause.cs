@@ -27,8 +27,8 @@ public class InventoryUIPause : MonoBehaviour
         {
             PauseMenu.SetActive(true);
             PanelButton.SetActive(true);
-           ///TODO
-           // Time.timeScale = 0;
+           //TODO
+            Time.timeScale = 0;
 
             PauseMenuRect.DOKill();
         }

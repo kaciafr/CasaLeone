@@ -9,16 +9,16 @@ namespace DialogueSystem
     public class NPCTriggerDialogue : MonoBehaviour, IInteractable
     {
         public int Priority => 2;
+
         private DialogueTrigger _dialogueTrigger;
 
-        [Header("Condition déclenchée à la fin (optionnel)")]
+        [Header("Condition validée à la fin du remerciement (optionnel)")]
         public string triggerConditionOnEnd = "";
 
         void Start()
         {
             _dialogueTrigger = GetComponent<DialogueTrigger>();
         }
-
 
         public void Interact(GlobalPlayer globalPlayer)
         {
@@ -37,8 +37,6 @@ namespace DialogueSystem
             StartDialogue(conv);
         }
 
-
-
         public void TriggerDialogue(DialogueConversation conversation)
         {
             if (conversation == null) return;
@@ -53,7 +51,6 @@ namespace DialogueSystem
             DialogueManager.Instance.StartConversation(conversation, transform, "", onEnded);
         }
 
-
         void StartDialogue(DialogueConversation conversation)
         {
             DialogueManager.Instance.StartConversation(conversation, transform, "", OnConversationEnded);
@@ -61,8 +58,13 @@ namespace DialogueSystem
 
         void OnConversationEnded()
         {
-            if (!string.IsNullOrEmpty(triggerConditionOnEnd))
+            if (string.IsNullOrEmpty(triggerConditionOnEnd)) return;
+            DialogueConversation conv = _dialogueTrigger?.conversation;
+            if (conv != null && conv.itemCollected)
+            {
                 ConditionManager.SetCondition(triggerConditionOnEnd, true);
+                conv.ResetItemCollected();
+            }
         }
     }
 }
