@@ -5,7 +5,7 @@ namespace Clients.States
 {
 	public class CheckingState : IInteractableClientState
 	{
-		private float maxBoredTimed = 20;
+		private float maxBoredTimed = 30;
 		
 		private float currentBoredTime;
 		private bool IsBored => currentBoredTime > maxBoredTimed;
