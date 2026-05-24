@@ -7,9 +7,9 @@ using UnityEngine;
 namespace Players.Inventories
 {
     [Serializable]
-    public class PlayersInventory
+    public class GlobalInventory
     {
-        private const int MaxDish = 3;
+        private const int MaxDish = 4;
         public Action<Dish> OnDishAdded;
         public Action<Dish> OnDishRemoved;
         public Action<Dish> OnDishClear;

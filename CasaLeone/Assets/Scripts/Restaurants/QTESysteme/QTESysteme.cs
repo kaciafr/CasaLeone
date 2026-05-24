@@ -49,8 +49,7 @@ namespace Restaurants.QTESysteme
 			Debug.Log(listener);
 			isStarted =  true;
 			currentQteListen = listener;
-			var currentInv = interactObj.playerInventory;
-			currentInv = interactObj.currentPlayer;
+			var currentInv = interactObj.currentPlayer;
 
 			PlayerInput playersInputs = currentInv.playerMovement;
 			currentInput = playersInputs;
@@ -162,7 +161,7 @@ namespace Restaurants.QTESysteme
 			isStarted = false;
 			qteStart = false;
 			interactObj.currentPlayer = null;
-			interactObj.playerInventory = null; 
+			//interactObj.playerInventory = null; 
 			onSuccess?.Invoke();
 
 		}
@@ -174,7 +173,7 @@ namespace Restaurants.QTESysteme
 			qteStart = false;
 			isStarted = false;
 			currentQteListen.OnQteFail();
-			interactObj.playerInventory = null;
+			//interactObj.playerInventory = null;
 			onLose?.Invoke();
 			
 		}

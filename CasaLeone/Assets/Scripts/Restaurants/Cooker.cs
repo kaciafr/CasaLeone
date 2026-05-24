@@ -1,5 +1,6 @@
 using System;
 using Players;
+using Players.Inventories;
 using Restaurants;
 using Restaurants.QTESysteme;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class Cooker : MonoBehaviour,IQteListen
 	public QTESysteme qteSysteme;
 	public Dish winGift;
 	public event Action<Dish> showFood;
+	
+	[SerializeField] private InventoryManager inventoryManager;
 	public void OnQteStart()
 	{
 		showFood?.Invoke(winGift);
@@ -29,7 +32,7 @@ public class Cooker : MonoBehaviour,IQteListen
 		if (winGift != null)
 		{
 			Debug.Log("ZEUBi");
-			globalPlayer.PlayersInventory.AddDish(winGift);
+			inventoryManager.GlobalInventory.AddDish(winGift);
 			winGift = null;
 		}
 	}

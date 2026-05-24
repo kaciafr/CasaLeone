@@ -19,17 +19,20 @@ namespace Restaurants
 		[SerializeField] private GameObject startPosition;
 		
 		
-		protected void Awake()
+		protected override void Awake()
 		{
 			base.Awake();
 		}
 
 		private void Start()
 		{
-			pressE.transform.position = startPosition.transform.position;
-			SetOutline(false );
-
-			
+			if (pressE != null && startPosition != null)
+			{
+				pressE.transform.DOKill(); 
+				pressE.transform.position = startPosition.transform.position;
+			}
+			SetOutline(false); 
+			if(pressE != null) pressE.SetActive(false); 
 		}
 		public int currentIdGroupe { get; set; } = -1;
 		

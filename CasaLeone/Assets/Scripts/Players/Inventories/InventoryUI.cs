@@ -6,27 +6,27 @@ namespace Players.Inventories
 {
 	public class InventoryUI : MonoBehaviour
 	{
-		[SerializeField] private PlayersInventory playersInventory;
-		[SerializeField] private GlobalPlayer player;
+		[SerializeField] private GlobalInventory globalInventory;
+		[SerializeField] private InventoryManager player;
 		[SerializeField] private Transform itemContainer;
 		[SerializeField] private GameObject itemPrefab;
 		[SerializeField] private List<ItemUI> items;
 
 		private void Start()
 		{
-			playersInventory = player.PlayersInventory; 
+			globalInventory = player.GlobalInventory; 
 			
-			playersInventory.OnDishAdded += AddUi;
-			playersInventory.OnDishRemoved += RemoveUi;
-			playersInventory.OnDishClear += Clear;
+			globalInventory.OnDishAdded += AddUi;
+			globalInventory.OnDishRemoved += RemoveUi;
+			globalInventory.OnDishClear += Clear;
 		}
 
 
 		private void OnDisable()
 		{
-			playersInventory.OnDishAdded -= AddUi;
-			playersInventory.OnDishRemoved -= RemoveUi;
-			playersInventory.OnDishClear -= Clear;
+			globalInventory.OnDishAdded -= AddUi;
+			globalInventory.OnDishRemoved -= RemoveUi;
+			globalInventory.OnDishClear -= Clear;
 		}
 		private void Clear(Dish obj)
 		{

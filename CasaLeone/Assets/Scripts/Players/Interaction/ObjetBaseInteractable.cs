@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Outline;
+using Players.Inventories;
 using Restaurants.QTESysteme;
 using Restaurants.QTESysteme.UiQte;
 using UnityEngine;
@@ -21,7 +22,6 @@ namespace Players.Interaction
         private IQteListen currentListener;
 
         [Header("References")]
-        public GlobalPlayer playerInventory; 
         public GlobalPlayer currentPlayer;
         protected void Awake()
         {
@@ -45,8 +45,7 @@ namespace Players.Interaction
         {
             
             if (qteSysteme.isStarted || qteSysteme.qteStart) return;
-
-            playerInventory = globalPlayer;
+            
             currentPlayer = globalPlayer;
 
            

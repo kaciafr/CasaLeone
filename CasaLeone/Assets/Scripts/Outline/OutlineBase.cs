@@ -12,12 +12,16 @@ namespace Outline
 		{
 			if (objectRenderer != null)
 			{
-				Material[] mats = objectRenderer.materials;
-				 
-				if (mats != null && mats.Length > 1)
+
+				Material[] uniqueMats = objectRenderer.materials; 
+      
+				if (uniqueMats != null && uniqueMats.Length > 1)
 				{
-					outlineMaterial = mats[1];
+
+					outlineMaterial = uniqueMats[1];
+					objectRenderer.sharedMaterials = uniqueMats;
 				}
+
 			}
    
 			SetOutline(false);
@@ -26,8 +30,8 @@ namespace Outline
 		public void SetOutline(bool active)
 		{
 			if (outlineMaterial == null) return;
-			outlineMaterial.SetFloat("OutlineThickness", active ? outlineThickness : 0f);
 			
+			outlineMaterial.SetFloat("OutlineThickness", active ? outlineThickness : 0f);
 		}
 	}
 }
