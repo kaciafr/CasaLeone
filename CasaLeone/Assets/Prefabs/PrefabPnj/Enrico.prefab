@@ -205,8 +205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LioneController
   LioneMovement: {fileID: 7914347267982008128}
   waitPoint: {fileID: 4076140121689103241}
-  patrolRadius: 1
-  waitTimeAtPoint: 20
+  patrolRadius: 8
+  waitTimeAtPoint: 10
 --- !u!114 &7914347267982008128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,4 +248,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PnjZoneStress
   addStress: 1
-  stress: 0.001
+  stress: 0.008

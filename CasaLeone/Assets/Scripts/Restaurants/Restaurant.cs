@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using Clients;
+using DG.Tweening;
 using Players;
 using PnjWaves;
 using Unity.Loading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace Restaurants
@@ -26,6 +28,7 @@ namespace Restaurants
 		
 		[SerializeField]
 		private ClientTable[] tablePlaces;
+		[SerializeField] private Image endGameSmooth;
 		
 		[field: SerializeField]
 		public Transform Exit  { get; private set; }
@@ -41,7 +44,7 @@ namespace Restaurants
 		public float Stress { get; private set; } = 0;
 		public event Action <IStressBar> OnStressStateChanged;
 		public IStressBar currentStressBar { get; private set; }
-		
+
 		public bool TryFindTable(int groupID,int groupSize, out ClientTable table)
 		{
 			for (var i = 0; i < tablePlaces.Length; i++)
@@ -100,6 +103,7 @@ namespace Restaurants
 
 		private void Start()
 		{
+			endGameSmooth.DOFade(0, 3f);
 			StressGoTo(new NormalState());
 		}
 
@@ -145,7 +149,11 @@ namespace Restaurants
 		private void GameOver()
 		{
 			endingGame.endScript.burnOutEnd =  true;
-			SceneManager.LoadScene("EndScene");
+			endGameSmooth.DOFade(1, 3f).SetEase(Ease.Linear).onComplete += () =>
+			{
+				SceneManager.LoadScene("EndScene");
+			};
+
 		}
 	}
 }

@@ -1,8 +1,10 @@
+using DG.Tweening;
 using DialogueSystem.DATA;
 using DialogueSystem.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BadWorldYellow : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class BadWorldYellow : MonoBehaviour
 	[SerializeField] private GameObject uiYellowBird;
 	[SerializeField] private YellowBird haveTheBird;
 	[SerializeField] private EndingGame endingGame;
+	[SerializeField] private Image endGameSmooth;
 	
 	[Header("Dialogue")]
 	
@@ -78,7 +81,10 @@ public class BadWorldYellow : MonoBehaviour
 	private void GameOver()
 	{
 		endingGame.endScript.perroquetEnd =  true;
-		SceneManager.LoadScene("EndScene");
+		endGameSmooth.DOFade(1, 3f).SetEase(Ease.Linear).onComplete += () =>
+		{
+			SceneManager.LoadScene("EndScene");
+		};
 	}
 
 	

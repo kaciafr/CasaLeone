@@ -161,7 +161,6 @@ namespace Restaurants.QTESysteme
 			isStarted = false;
 			qteStart = false;
 			interactObj.currentPlayer = null;
-			//interactObj.playerInventory = null; 
 			onSuccess?.Invoke();
 
 		}
@@ -173,7 +172,6 @@ namespace Restaurants.QTESysteme
 			qteStart = false;
 			isStarted = false;
 			currentQteListen.OnQteFail();
-			//interactObj.playerInventory = null;
 			onLose?.Invoke();
 			
 		}

@@ -2,6 +2,7 @@ using DG.Tweening;
 using Ending;
 using PnjWaves;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndingGame : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EndingGame : MonoBehaviour
 	[SerializeField] private GameObject fireEnd;
 	[SerializeField] private WaveSpawner waveSpawner;
 	public EndScript endScript;
+	
+	[SerializeField] private Image endGameSmooth;
 	private void Start()
 	{
 		fireEnd.transform.localScale = Vector3.zero;
