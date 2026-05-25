@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   ID: 1
   icon: {fileID: 1649417699, guid: 0b606a20b97d371469085c4c3ef11e93, type: 3}
-  name: Lunette
-  description: Voit pas de loin
+  name: Lunettes
+  description: "Des \xE9normes verres pour une si petite t\xEAte. Rhamona est vraiment
+    aveugle sans ses lunettes c'est fou."
   prefab: {fileID: 8479932160821300940, guid: 064ff1a889eed22489632ff2a6cf6c72, type: 3}
