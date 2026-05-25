@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 96abafc327f3af4419056b0766736ad4
   - enabled: 1
-    path: Assets/Scenes/FinalScene.unity
-    guid: 11d302436771cd04182cf413c1b5fee1
-  - enabled: 1
     path: Assets/Scenes/TutoScene.unity
     guid: 0710d8924504e3d45a10ac1b636f9764
+  - enabled: 1
+    path: Assets/Scenes/CutSceneIntro.unity
+    guid: 2d7745dc431c98640afbcc6ac7bb4ce2
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 11d302436771cd04182cf413c1b5fee1
   - enabled: 1
     path: Assets/Scenes/EndScene/EndScene.unity
     guid: 92d0f0dba0904634fbcfedce0235584a
