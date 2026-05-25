@@ -127,6 +127,7 @@ namespace Restaurants.QTESysteme
 
 			if (sequence[currentIndex] == input)
 			{
+				SoundManager.Instance.StopSFX();
 				SoundManager.Instance.PlaySFX(SoundType.Qte);
 				KeyPressed?.Invoke(currentIndex);
 				currentIndex++;

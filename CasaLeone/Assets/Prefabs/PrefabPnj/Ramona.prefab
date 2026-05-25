@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.NPCTriggerDialogue
   triggerConditionOnEnd: Lunettes
+  voiceType: 3
 --- !u!65 &7244343308823472714
 BoxCollider:
   m_ObjectHideFlags: 0

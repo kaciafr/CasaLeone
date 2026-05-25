@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.NPCTriggerDialogue
   triggerConditionOnEnd: Tablette
+  voiceType: 2
 --- !u!114 &8513260588092444517
 MonoBehaviour:
   m_ObjectHideFlags: 0
