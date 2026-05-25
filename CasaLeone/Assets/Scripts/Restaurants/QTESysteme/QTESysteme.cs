@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Players;
 using Players.Interaction;
 using Players.Inventories;
+using Sound;
 using TestCharacterMovement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -126,6 +127,7 @@ namespace Restaurants.QTESysteme
 
 			if (sequence[currentIndex] == input)
 			{
+				SoundManager.Instance.PlaySFX(SoundType.Qte);
 				KeyPressed?.Invoke(currentIndex);
 				currentIndex++;
 
@@ -154,6 +156,8 @@ namespace Restaurants.QTESysteme
 
 		void Success()
 		{
+			SoundManager.Instance.StopSFX();
+			SoundManager.Instance.PlaySFX(SoundType.QteSucces);
 			currentInput.SwitchCurrentActionMap("Player");
 
 			GlobalPlayer currentPlayer = interactObj.currentPlayer;
@@ -165,8 +169,11 @@ namespace Restaurants.QTESysteme
 
 		}
 
+		// ReSharper disable Unity.PerformanceAnalysis
 		void Lose()
 		{
+			SoundManager.Instance.StopSFX();
+			SoundManager.Instance.PlaySFX(SoundType.QteFail);
 			currentInput.SwitchCurrentActionMap("Player");
 			interactObj.currentPlayer = null;
 			qteStart = false;

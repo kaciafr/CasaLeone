@@ -1,6 +1,7 @@
 using Clients.States;
 using DG.Tweening;
 using DialogueSystem.Runtime;
+using Sound;
 using UnityEngine;
 
 namespace Clients
@@ -43,6 +44,7 @@ namespace Clients
         private WaitingForFoodState currentWaitingForFood;
         private LeavingState leavingStates;
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private void UiChanged(IClientState clientState)
         {
             if (currentReflexion != null)
@@ -69,6 +71,8 @@ namespace Clients
 
             if (clientState is CheckingState)
             {
+                SoundManager.Instance.StopSFX();
+                SoundManager.Instance.PlaySFX(SoundType.ReceiveMoney);
                 clientrCheck.SetActive(true);
                 clientrCheck.transform.localScale = Vector3.zero; 
                 clientrCheck.transform.DOScale(Vector3.one*zoom, 0.5f).SetEase(Ease.OutBack);

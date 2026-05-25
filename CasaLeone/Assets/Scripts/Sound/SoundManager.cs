@@ -198,5 +198,29 @@ namespace Sound
 
             StartCoroutine(FadeMusicOut(fadeDuration));
         }
+        
+        public void StopSFX()
+        {
+            sfxSource.Stop();
+            sfxSource.clip = null;
+        }
+        
+        public void PlayDialogueLoop(SoundType type)
+        {
+            if (!soundDict.ContainsKey(type)) return;
+            SoundItem sound = soundDict[type];
+            if (sound.clips == null || sound.clips.Length == 0) return;
+            AudioClip clip = sound.clips[Random.Range(0, sound.clips.Length)];
+            sfxSource.clip   = clip;
+            sfxSource.loop   = true;
+            sfxSource.volume = sound.volume * sfxVolume * masterVolume;
+            sfxSource.Play();
+        }
+
+        public void StopDialogueLoop()
+        {
+            sfxSource.loop = false;
+            sfxSource.Stop();
+        }
     }
 }

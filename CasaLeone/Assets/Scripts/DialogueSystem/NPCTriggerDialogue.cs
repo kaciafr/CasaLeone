@@ -2,6 +2,7 @@ using DialogueSystem.DATA;
 using DialogueSystem.Runtime;
 using Players;
 using Players.Interaction;
+using Sound;
 using UnityEngine;
 
 namespace DialogueSystem
@@ -14,6 +15,8 @@ namespace DialogueSystem
 
         [Header("Condition validée à la fin du remerciement (optionnel)")]
         public string triggerConditionOnEnd = "";
+        
+        [SerializeField ]private  SoundType voiceType ;
 
         void Start()
         {
@@ -46,11 +49,14 @@ namespace DialogueSystem
 
         void StartDialogue(DialogueConversation conversation)
         {
+            SoundManager.Instance.PlayDialogueLoop(voiceType);
             DialogueManager.Instance.StartConversation(conversation, transform, "", OnConversationEnded);
         }
 
         void OnConversationEnded()
         {
+            SoundManager.Instance.StopDialogueLoop(); 
+
             if (string.IsNullOrEmpty(triggerConditionOnEnd)) return;
             DialogueConversation conv = _dialogueTrigger?.conversation;
             if (conv != null && conv.itemCollected)

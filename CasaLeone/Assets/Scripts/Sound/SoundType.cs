@@ -2,13 +2,16 @@ namespace Sound
 {
     public enum  SoundType  
     {
-        // Bruit du personnnage 
-        FootStep, 
-        
-        // Object 
-        LotItem,
-        // UI 
-        Sfx,
+        DialogueElephant,
+        DialogueHyena,
+        DialogueLioness,
+        DialogueMole,
+        DialogueLion,
+        DialogueWarthog,
+        ReceiveMoney,
+        Qte, 
+        QteFail,
+        QteSucces,
     }
 
     public enum MusicType
