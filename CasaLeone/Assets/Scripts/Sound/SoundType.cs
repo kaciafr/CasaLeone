@@ -13,14 +13,14 @@ namespace Sound
         QteFail,
         QteSucces,
         Interact,
+        SoundButton, 
+        SoundButtonVegetable,
         
     }
 
     public enum MusicType
     {
-        Cook, 
-        Room, 
-        Basement,
+     
         HighStress,
         LitStress, 
         MadMaxStress, 

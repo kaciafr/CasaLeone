@@ -1,3 +1,4 @@
+using Sound;
 using UnityEngine;
 
 public class PauseMenuManager : MonoBehaviour
@@ -20,10 +21,33 @@ public class PauseMenuManager : MonoBehaviour
 
     // ── Boutons ────────────────────────────────────────────────────────────
 
-    public void OnInventoryClick() => Toggle(ActivePanel.Inventory);
-    public void OnQuestClick()     => Toggle(ActivePanel.Quest);
-    public void OnOptionsClick()   => Toggle(ActivePanel.Options);
-    public void Quitter()          => Application.Quit();
+    public void OnInventoryClick()
+    {
+        SoundManager.Instance.StopSFX();
+        SoundManager.Instance.PlaySFX(SoundType.SoundButton);
+        Toggle(ActivePanel.Inventory);
+    }
+
+    public void OnQuestClick()
+    {
+        SoundManager.Instance.StopSFX();
+        SoundManager.Instance.PlaySFX(SoundType.SoundButton);
+        Toggle(ActivePanel.Quest);   
+    }
+
+    public void OnOptionsClick()
+    {
+        SoundManager.Instance.StopSFX();
+        SoundManager.Instance.PlaySFX(SoundType.SoundButton);
+        Toggle(ActivePanel.Options);
+    }
+
+    public void Quit()
+    {
+        SoundManager.Instance.StopSFX();
+        SoundManager.Instance.PlaySFX(SoundType.SoundButton);
+        Application.Quit();
+    } 
 
     // ── Logique ────────────────────────────────────────────────────────────
 
