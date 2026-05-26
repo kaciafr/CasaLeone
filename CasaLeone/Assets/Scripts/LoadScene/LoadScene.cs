@@ -6,41 +6,20 @@ namespace LoadScene
     public class LoadScene : MonoBehaviour
     {
         public static LoadScene Instance;
-
-        private void EndResignation()
+        
+        public void StartScene()
         {
-            SceneManager.LoadScene("EndResignation");
-        }
-
-        private void EndParrot()
-        {
-            SceneManager.LoadScene("EndParrot");
+            SceneManager.LoadScene("StartMenu");
         }
 
+        public void TutoScene()
+        {
+            SceneManager.LoadScene("TutoScene");
+        }
 
-        private void EndChanged()
+        public void FinalScene()
         {
-            SceneManager.LoadScene("EndChanged");
-        }
-        
-        private void EndBurnout()
-        {
-            SceneManager.LoadScene("EndBurnout");
-        }
-        
-        private void PlayScene()
-        {
-            SceneManager.LoadScene("PlayScene");
-        }
-        
-        private void StartScene()
-        {
-            SceneManager.LoadScene("StartScene");
-        }
-        
-        private void CinematicsScene()
-        {
-            SceneManager.LoadScene("CinematicsScene");
+            SceneManager.LoadScene("FinalScene");
         }
     }
 }

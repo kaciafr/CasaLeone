@@ -12,19 +12,19 @@ public class StartMenuActions : MonoBehaviour
     private bool active = true;
 
     [Header("Panels")]
-    [SerializeField] private RectTransform mainPanel;      // panel qui sort vers le haut
-    [SerializeField] private RectTransform secondPanel;    // panel qui monte lentement
+    [SerializeField] private RectTransform mainPanel;      
+    [SerializeField] private RectTransform secondPanel;  
 
     [Header("Animation - Main Panel")]
-    [SerializeField] private float bounceDownAmount = 30f;   // recul avant l'élan
-    [SerializeField] private float bounceDuration   = 0.12f; // durée du recul
-    [SerializeField] private float exitDuration     = 0.45f; // durée de la sortie écran
+    [SerializeField] private float bounceDownAmount = 30f; 
+    [SerializeField] private float bounceDuration   = 0.12f; 
+    [SerializeField] private float exitDuration     = 0.45f;
 
     [Header("Animation - Second Panel")]
-    [SerializeField] private float secondPanelStartOffsetY = -200f; // position de départ sous sa pos finale
-    [SerializeField] private float secondPanelRiseDuration = 0.7f;  // plus lent
-    [SerializeField] private float secondPanelDelay        = 0.1f;  // léger décalage
-    [SerializeField] private float secondPanelExtraRiseY   = 80f;  // ← ajoute ça
+    [SerializeField] private float secondPanelStartOffsetY = -200f;
+    [SerializeField] private float secondPanelRiseDuration = 0.7f;  
+    [SerializeField] private float secondPanelDelay        = 0.1f;  
+    [SerializeField] private float secondPanelExtraRiseY   = 80f; 
 
 
     private Vector2 mainPanelOrigin;
@@ -35,7 +35,6 @@ public class StartMenuActions : MonoBehaviour
         mainPanelOrigin   = mainPanel.anchoredPosition;
         secondPanelOrigin = secondPanel.anchoredPosition;
 
-        // Second panel commence décalé vers le bas
         secondPanel.anchoredPosition = secondPanelOrigin + new Vector2(0f, secondPanelStartOffsetY);
 
         StartCoroutine(Fade(1f, 0f, fadeDuration, null));
@@ -45,13 +44,16 @@ public class StartMenuActions : MonoBehaviour
     {
         StartCoroutine(PlayStartSequence());
     }
+    public void OnOtherButton()
+    {
+        StartCoroutine(PlayAutreSequence());
+    }
 
     // ─── Séquence principale ───────────────────────────────────────────────────
 
     private IEnumerator PlayStartSequence()
     {
 	    
-        // Lance les deux animations en parallèle
         StartCoroutine(MainPanelExit());
         StartCoroutine(SecondPanelRise());
 
@@ -62,6 +64,22 @@ public class StartMenuActions : MonoBehaviour
         StartCoroutine(Fade(0f, 1f, fadeDuration, () =>
         {
             SceneManager.LoadScene("TutoScene");
+        }));
+    }
+    
+    private IEnumerator PlayAutreSequence()
+    {
+	    
+        StartCoroutine(MainPanelExit());
+        StartCoroutine(SecondPanelRise());
+
+        // Attend que tout soit fini puis fade → LoadScene
+        float totalDuration = bounceDuration + exitDuration + 0.05f;
+        yield return new WaitForSeconds(totalDuration);
+
+        StartCoroutine(Fade(0f, 1f, fadeDuration, () =>
+        {
+            SceneManager.LoadScene("CreditScene");
         }));
     }
 
