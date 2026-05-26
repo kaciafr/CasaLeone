@@ -1,12 +1,14 @@
+using DG.Tweening;
 using DialogueSystem.DATA;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChangeEndCondition : MonoBehaviour
 {
     [SerializeField] private EndingGame        endingGame;
     [SerializeField] private ConditionDatabase conditionDatabase;
-
+    [SerializeField] private Image endGameSmooth;
     void OnEnable()
     {
         ConditionManager.onConditionChanged += OnConditionChanged;
@@ -28,7 +30,10 @@ public class ChangeEndCondition : MonoBehaviour
         endingGame.endScript.fireEnd = false;
         endingGame.endScript.perroquetEnd = false;
 
-        SceneManager.LoadScene("EndScene");
+        endGameSmooth.DOFade(1, 3f).SetEase(Ease.Linear).onComplete += () =>
+        {
+	        SceneManager.LoadScene("EndScene");
+        };
     }
 
     bool AllConditionsCompleted()
