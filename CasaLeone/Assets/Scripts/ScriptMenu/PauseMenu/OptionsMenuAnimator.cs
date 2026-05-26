@@ -1,10 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class QuestMenuAnimator : MonoBehaviour
+public class OptionsMenuAnimator : MonoBehaviour
 {
-    [SerializeField] private GameObject      questMenu;
-    [SerializeField] private RectTransform   rectTransformQuest;
+    [SerializeField] private GameObject    optionsMenu;
+    [SerializeField] private RectTransform rectTransformOptions;
 
     [Header("Positions")]
     [SerializeField] private float hiddenX  = 800f;
@@ -15,18 +15,18 @@ public class QuestMenuAnimator : MonoBehaviour
 
     private void Start()
     {
-        questMenu.SetActive(false);
-        rectTransformQuest.anchoredPosition =
-            new Vector2(hiddenX, rectTransformQuest.anchoredPosition.y);
+        optionsMenu.SetActive(false);
+        rectTransformOptions.anchoredPosition =
+            new Vector2(hiddenX, rectTransformOptions.anchoredPosition.y);
     }
 
     public void Open()
     {
         if (isOpen) return;
         isOpen = true;
-        questMenu.SetActive(true);
-        rectTransformQuest.DOKill();
-        rectTransformQuest
+        optionsMenu.SetActive(true);
+        rectTransformOptions.DOKill();
+        rectTransformOptions
             .DOAnchorPosX(visibleX, duration)
             .SetEase(Ease.OutBack)
             .SetUpdate(true);
@@ -36,12 +36,12 @@ public class QuestMenuAnimator : MonoBehaviour
     {
         if (!isOpen) return;
         isOpen = false;
-        rectTransformQuest.DOKill();
-        rectTransformQuest
+        rectTransformOptions.DOKill();
+        rectTransformOptions
             .DOAnchorPosX(hiddenX, duration)
             .SetEase(Ease.InBack)
             .SetUpdate(true)
-            .OnComplete(() => questMenu.SetActive(false));
+            .OnComplete(() => optionsMenu.SetActive(false));
     }
 
     /// <summary>Ferme sans vérifier isOpen — pour PauseMenuManager.</summary>
@@ -49,11 +49,11 @@ public class QuestMenuAnimator : MonoBehaviour
     {
         if (!isOpen) return;
         isOpen = false;
-        rectTransformQuest.DOKill();
-        rectTransformQuest
+        rectTransformOptions.DOKill();
+        rectTransformOptions
             .DOAnchorPosX(hiddenX, duration)
             .SetEase(Ease.InBack)
             .SetUpdate(true)
-            .OnComplete(() => questMenu.SetActive(false));
+            .OnComplete(() => optionsMenu.SetActive(false));
     }
 }
