@@ -1,4 +1,5 @@
 using System.Collections;
+using Sound;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -49,6 +50,7 @@ public class StartMenuActions : MonoBehaviour
 
     private IEnumerator PlayStartSequence()
     {
+	    
         // Lance les deux animations en parallèle
         StartCoroutine(MainPanelExit());
         StartCoroutine(SecondPanelRise());

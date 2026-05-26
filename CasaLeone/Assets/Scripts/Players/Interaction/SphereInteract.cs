@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Clients;
 using Clients.States;
+using Sound;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,8 +22,15 @@ namespace Players.Interaction
 
              if (priorityTarget != null)
              {
+	             SoundManager.Instance.StopSFX();
+	             SoundManager.Instance.PlaySFX(SoundType.QteSucces);
                 priorityTarget.Interact(globalPlayer);
                 Debug.Log(priorityTarget);
+             }
+             else
+             {
+	             SoundManager.Instance.StopSFX();
+	             SoundManager.Instance.PlaySFX(SoundType.QteFail);
              }
           }
        }

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using PnjWaves;
 using Restaurants;
+using Sound;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,6 +39,9 @@ public class UiRound : MonoBehaviour
 
     private void ShowUi(WaveSpawner obj)
     {
+	    SoundManager.Instance.StopSFX();
+	    SoundManager.Instance.PlaySFX(SoundType.QteSucces);
+	    
         uiRound.transform.DOScale(Vector3.one, 0.5f);
         
         happyNbr.text = RoundEcran.Instance.happyScore.ToString();

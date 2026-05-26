@@ -1,3 +1,4 @@
+using Sound;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace Item
 
 		public void Interact()
 		{
+			
 			itemPrefab.SetActive(false);
 			Time.timeScale = 1;
 		}
