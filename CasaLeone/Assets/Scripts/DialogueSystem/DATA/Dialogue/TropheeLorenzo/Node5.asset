@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "...O\xF9 t\u2019as trouv\xE9 \xE7a ?"
   autoAdvanceDelay: 7
-  nextNode: {fileID: 11400000, guid: 3945ef4961846c740823ad9648fe7654, type: 2}
+  nextNode: {fileID: 11400000, guid: 1a08fbc35993f1146b3caecb74bc9864, type: 2}
   conditionalBranches: []

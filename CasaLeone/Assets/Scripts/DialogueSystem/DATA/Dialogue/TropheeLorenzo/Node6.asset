@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Je n'ai jamais eu d'\xE9toile Michelin moi..."
   autoAdvanceDelay: 7
-  nextNode: {fileID: 11400000, guid: b31e77b4003dc8d48bd59afe414fc9e9, type: 2}
+  nextNode: {fileID: 11400000, guid: d526191601451b94aa7a2dacea44d8f0, type: 2}
   conditionalBranches: []

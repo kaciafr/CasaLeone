@@ -15,5 +15,5 @@ MonoBehaviour:
   dialogueText: "C\u2019est pour moi ? \xC7a pourrait m\u2019aider \xE0 organiser
     tout \xE7a\u2026"
   autoAdvanceDelay: 4
-  nextNode: {fileID: 11400000, guid: cb826c2c038f31447a148f3fa58ce9d8, type: 2}
+  nextNode: {fileID: 11400000, guid: b4c39c64119496b4db4d43b4d5376529, type: 2}
   conditionalBranches: []
