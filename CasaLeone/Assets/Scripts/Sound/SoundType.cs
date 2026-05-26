@@ -12,6 +12,8 @@ namespace Sound
         Qte, 
         QteFail,
         QteSucces,
+        Interact,
+        
     }
 
     public enum MusicType

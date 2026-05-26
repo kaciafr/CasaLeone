@@ -23,7 +23,7 @@ namespace Players.Interaction
              if (priorityTarget != null)
              {
 	             SoundManager.Instance.StopSFX();
-	             SoundManager.Instance.PlaySFX(SoundType.QteSucces);
+	             SoundManager.Instance.PlaySFX(SoundType.Interact);
                 priorityTarget.Interact(globalPlayer);
                 Debug.Log(priorityTarget);
              }
