@@ -15,5 +15,9 @@ MonoBehaviour:
   ID: 2
   icon: {fileID: 578848720, guid: db200140f819c22498d85a194ca94f45, type: 3}
   name: Tablette
-  description: Un super outil d'organisation !
+  description: " Elle a tendance \xE0 effrayer et stresser les personnes qui lui
+    sont autour. Adrianna veut \xE0 tout prix faire revivre le restaurant car elle
+    veut prouver \xE0 elle-m\xEAme qu\u2019elle n'est pas inutile afin de ne pas
+    sombrer dans son complexe d\u2019inf\xE9riorit\xE9. Lui donner pourrait am\xE9liorer
+    son organisation et la d\xE9stresser."
   prefab: {fileID: 0}

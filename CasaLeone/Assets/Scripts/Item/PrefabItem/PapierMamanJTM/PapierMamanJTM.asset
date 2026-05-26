@@ -15,6 +15,8 @@ MonoBehaviour:
   ID: 3
   icon: {fileID: 535791108, guid: f9d83248b92164747b9cabdc8d749f1b, type: 3}
   name: Papier
-  description: "Papier avec un mot \xE9crit dessus \u201C T\u2019es la meilleur maman
-    ! On reconnait l'\xE9criture d'Andrianna."
+  description: "Papier appartenant \xE0 Adrianna la Lionne, on comprend pourquoi
+    elle se bat corps et \xE2me pour le restaurant afin qu\u2019il renaisse de ses
+    cendres. Elle a toujours l\u2019impression d\u2019avoir tout le poids du restaurant
+    sur ses \xE9paules, oubliant donc son humanit\xE9 contre le profit. "
   prefab: {fileID: 6173023919461977327, guid: 42538d99c81ebf34683518ad9e44d346, type: 3}

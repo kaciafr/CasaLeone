@@ -15,6 +15,11 @@ MonoBehaviour:
   ID: 6
   icon: {fileID: 2107215573, guid: c21eb335ff0ad594bb00c988a6047f06, type: 3}
   name: Photo de famille
-  description: "Une vielle photo de Leonne et Lorenzo. Lorenzo ne semble pas tr\xE8s
-    attentif aux t\xE9l\xE9phone."
+  description: "Lorenzo est le fils de Leone. Il a repris le restaurant apr\xE8s
+    que Leone soit partis \xE0 la retraite. Depuis le restaurant perd du prestige.
+    Lorenzo n\u2019est pas affect\xE9 par ce d\xE9clin. Il n\u2019a pas l\u2019intention
+    de mettre corps et \xE2me pour le restaurant vu que son p\xE8re \xE0 d\xE9j\xE0
+    tout fait il ne ressens point l\u2019envie de s\u2019impliquer plus car il est
+    persuad\xE9 qu\u2019en ayant repris le restaurant de son p\xE8re il a aussi r\xE9cup\xE9r\xE9
+    le talent et le prestige de son p\xE8re\u2026 "
   prefab: {fileID: 6493492490688041683, guid: baf53ae6f9af1214b98181dab650dd9d, type: 3}

@@ -15,6 +15,11 @@ MonoBehaviour:
   ID: 1
   icon: {fileID: 1649417699, guid: 0b606a20b97d371469085c4c3ef11e93, type: 3}
   name: Lunettes
-  description: "Des \xE9normes verres pour une si petite t\xEAte. Rhamona est vraiment
-    aveugle sans ses lunettes c'est fou."
+  description: " C\u2019est une Cubaine arriv\xE9e depuis un moment sur le territoire
+    Am\xE9ricain. On raconte que son \xE9pop\xE9e pour arriver \xE0 Chicago fut \xE9prouvante.
+    Leone l\u2019a prise sous son aile apr\xE8s qu\u2019elle ai toqu\xE9 \xE0 la
+    porte du restaurant un soir d\u2019hiver lui racontant toute son \xE9pop\xE9e
+    pour en arriv\xE9 ici et qu\u2019elle a nulle part o\xF9 aller. Elle a dormi
+    pendant un moment dans le grenier du restaurant tout en prenant des cours de
+    cuisine avec Leone lui m\xEAme. "
   prefab: {fileID: 8479932160821300940, guid: 064ff1a889eed22489632ff2a6cf6c72, type: 3}

@@ -15,5 +15,7 @@ MonoBehaviour:
   ID: 0
   icon: {fileID: 1046640696, guid: 07cb6f29637c7664a9cb7a83c5fa1bcc, type: 3}
   name: Brosse
-  description: Brosse de Luigi, elle pu un peu
+  description: "Elle d\xE9gage une tr\xE8s mauvaise odeur\u2026 Luigi est le dernier
+    arrivant avant nous. Il a eu le droit \xE0 un bizutage qui a fait pas mal rire
+    tout le monde en cuisine on dirait. "
   prefab: {fileID: 1604954719614330214, guid: 95be10edc83b4b549ae6fab06288aae7, type: 3}

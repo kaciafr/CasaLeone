@@ -9,7 +9,7 @@ namespace DialogueSystem
 {
     public class NPCTriggerDialogue : MonoBehaviour, IInteractable
     {
-        public int Priority => 2;
+        public int Priority => 3;
 
         private DialogueTrigger _dialogueTrigger;
 

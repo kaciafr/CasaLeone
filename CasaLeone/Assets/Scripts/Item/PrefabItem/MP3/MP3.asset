@@ -15,10 +15,10 @@ MonoBehaviour:
   ID: 7
   icon: {fileID: -1483597809, guid: 71251467fef98484fb2d1787f138412a, type: 3}
   name: MP3
-  description: "Enrico passe son temps \xE0 fumer \xE0 l\u2019ext\xE9rieur sans se
-    pr\xE9occuper de pourquoi il a \xE9t\xE9 engag\xE9 car il sait que le patron
-    et son meilleur pote. Il n\u2019a pas de r\xE9el objectif dans la vie et ne s'int\xE9resse
-    qu\u2019\xE0 sa propre personne. Il passe son temps \xE0 gratter de l\u2019argent
-    \xE0 Lorenzo car selon lui \u201C Alleeeeez mec on est pote depuis combien de
-    temps ? Tu sais tr\xE8s bien que je vais te rembourser\u201D."
+  description: "Enrico passe son temps \xE0 \xE9couter de la musique \xE0 l\u2019ext\xE9rieur
+    sans se pr\xE9occuper de pourquoi il a \xE9t\xE9 engag\xE9 car il sait que le
+    patron et son meilleur pote. Il n\u2019a pas de r\xE9el objectif dans la vie
+    et ne s'int\xE9resse qu\u2019\xE0 sa propre personne. Il passe son temps \xE0
+    gratter de l\u2019argent \xE0 Lorenzo car selon lui \u201C Alleeeeez mec on est
+    pote depuis combien de temps ? Tu sais tr\xE8s bien que je vais te rembourser\u201D."
   prefab: {fileID: 294549851346760214, guid: c84dbc5d4fc54b641b78e53d827a22d2, type: 3}
