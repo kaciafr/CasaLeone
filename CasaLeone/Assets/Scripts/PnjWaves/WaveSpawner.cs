@@ -88,7 +88,7 @@ namespace PnjWaves
 
         IEnumerator SpawnWave(WaveProfile profile)
         {
-            add += 1;
+            add += 4;
             Debug.Log(add);
             var profileMinGroups = profile.minGroups + add - 2;
             var currentMaxGroup = profile.maxGroups + add;
