@@ -36,10 +36,15 @@ public class TutoManager : MonoBehaviour
     {
         if (isTransitioning) return;
 
-        if (Input.GetKeyDown(KeyCode.Space)
-         || Input.GetKeyDown(KeyCode.RightArrow)
+        if (Input.GetKeyDown(KeyCode.RightArrow)
          || Input.GetKeyDown(KeyCode.Return))
             NextTuto();
+        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+	        SceneManager.LoadScene("CutSceneIntro");
+        }
+	        
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && currentIndex > 0)
             PrevTuto();
