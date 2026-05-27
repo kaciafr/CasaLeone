@@ -36,6 +36,14 @@ public class YellowBird : MonoBehaviour, IInteractable
 		}
 	}
 
+	public void OnPlayerEnter(GlobalPlayer player)
+	{
+	}
+	public void OnPlayerExit(GlobalPlayer player)
+	{
+	}
+
+
 
 	private void FinalizeBird(GlobalPlayer globalPlayer)
 	{

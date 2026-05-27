@@ -11,7 +11,7 @@ namespace Clients
 {
 	public class ClientController : MonoBehaviour,IInteractable
 	{
-		public int Priority { get; }
+		int IInteractable.Priority { get; }
 		public event Action<IClientState> OnStateChanged;
 		[SerializeField]
 		public float maxBoredTime = 1000f;
@@ -78,6 +78,13 @@ namespace Clients
 				interactableState.Interact(this, globalPlayer);
 		}
 
+		void IInteractable.OnPlayerEnter(GlobalPlayer player)
+		{
+		}
+
+		void IInteractable.OnPlayerExit(GlobalPlayer player)
+		{
+		}
 
 
 		public ClientSeat GetClientSeat()

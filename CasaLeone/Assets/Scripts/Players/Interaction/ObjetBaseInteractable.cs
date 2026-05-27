@@ -23,10 +23,6 @@ namespace Players.Interaction
 
         [Header("References")]
         public GlobalPlayer currentPlayer;
-        protected void Awake()
-        {
-	        base.Awake();
-        }
         
 
         private void Start()
@@ -57,29 +53,24 @@ namespace Players.Interaction
             qteSysteme.StartSequence(currentListener);
         }
 
-
-        private void OnTriggerEnter(Collider other)
+        void IInteractable.OnPlayerEnter(GlobalPlayer player)
         {
-            if (other.CompareTag("Player")) 
-            {
-	            SetOutline(true );
-                pressE.SetActive(true);
-                pressE.transform.DOKill();
-                pressE.transform.DOMove(endPosition.position, speedAnim).SetEase(Ease.OutBack);
-            }
+	        
+	        SetOutline(true );
+	        pressE.SetActive(true);
+	        pressE.transform.DOKill();
+	        pressE.transform.DOMove(endPosition.position, speedAnim).SetEase(Ease.OutBack);
         }
 
-        private void OnTriggerExit(Collider other)
+        void IInteractable.OnPlayerExit(GlobalPlayer player)
         {
-            if (other.CompareTag("Player"))
-            {
-	            SetOutline(false );
-                pressE.transform.DOKill(); 
-                pressE.transform.DOMove(startPosition.position, speedAnim).OnComplete(() => 
-                {
-                    pressE.SetActive(false);
-                });
-            }
+	        SetOutline(false );
+	        pressE.transform.DOKill(); 
+	        pressE.transform.DOMove(startPosition.position, speedAnim).OnComplete(() => 
+	        {
+		        pressE.SetActive(false);
+	        });
         }
+
     }
 }

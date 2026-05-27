@@ -10,7 +10,7 @@ namespace Item
 {
     public class Item : MonoBehaviour, IInteractable
     {
-        public int Priority => 4;
+	    int IInteractable.Priority => 4;
         [SerializeField] private ItemData itemData;
         [SerializeField] private ItemList itemList;
         [SerializeField] private float x;
@@ -32,36 +32,36 @@ namespace Item
             itemIcon.transform.localScale = Vector3.zero;
         }
 
-        private void OnTriggerEnter(Collider other)
+        void IInteractable.Interact(GlobalPlayer globalPlayer)
         {
-	        if (other.tag == "Player")
-	        {
-		        itemIcon.transform.DOScale(new Vector3(x, y, z), 0.3f).SetEase(Ease.OutBounce);
-	        }
+	        if (seeOneTime) 
+		        return;
+	        
+	        Time.timeScale = 0;
+	        icon.sprite = itemData.icon;
+	        description.text = itemData.description;
+	        itemPrefab.SetActive(true);
+	        itemList.UpdateList(itemData);
+	        gameObject.SetActive(false);
+	        seeOneTime = true;
+	        
+	        if (linkedConversation != null)
+		        linkedConversation.itemCollected = true;
         }
 
-        private void OnTriggerExit(Collider other)
+        void IInteractable.OnPlayerEnter(GlobalPlayer player)
         {
-	        if (other.tag == "Player")
-	        {
-		        itemIcon.transform.DOScale(Vector3.zero, 0.3f);
-	        }
+	        var iconTransform = itemIcon.transform;
+	        iconTransform.DOKill(true);
+	        iconTransform.DOScale(new Vector3(x, y, z), 0.3f).SetEase(Ease.OutBounce);
         }
 
-        public void Interact(GlobalPlayer globalPlayer)
+        void IInteractable.OnPlayerExit(GlobalPlayer player)
         {
-            if (!seeOneTime)
-            {
-                Time.timeScale = 0;
-                icon.sprite = itemData.icon;
-                description.text = itemData.description;
-                itemPrefab.SetActive(true);
-                itemList.UpdateList(itemData);
-                gameObject.SetActive(false);
-                seeOneTime = true;
-                if (linkedConversation != null)
-                    linkedConversation.itemCollected = true;
-            }
+	        var iconTransform = itemIcon.transform;
+	        iconTransform.DOKill(true);
+	        iconTransform.DOScale(Vector3.zero, 0.3f);
         }
+
     }
 }

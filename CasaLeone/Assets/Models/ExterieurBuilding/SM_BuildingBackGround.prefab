@@ -9,16 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 800.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1600.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2207.9998
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.383404
+      value: -79.6929
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.2
+      value: 16.01013
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.4988623
+      value: 5.4053
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48,13 +60,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 90bef26fb1211ea48ad1f6d3875acea4, type: 2}
+      objectReference: {fileID: 2100000, guid: 6e9c6b111a6194042b34ddc905f57eb3, type: 2}
     - target: {fileID: 919132149155446097, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
       propertyPath: m_Name
       value: SM_BuildingBackGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79fe30de56ae39440875c10dacd1c86f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

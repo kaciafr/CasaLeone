@@ -71,7 +71,7 @@ namespace Restaurants
 			return false;
 		}
 
-		public void Interact(GlobalPlayer globalPlayer)
+		void IInteractable.Interact(GlobalPlayer globalPlayer)
 		{
 			pressE.SetActive(false);
 			
@@ -81,6 +81,14 @@ namespace Restaurants
 				if (seat.Client)
 					seat.Client.Interact(globalPlayer);
 			}
+		}
+
+		void IInteractable.OnPlayerEnter(GlobalPlayer player)
+		{
+		}
+
+		void IInteractable.OnPlayerExit(GlobalPlayer player)
+		{
 		}
 
 

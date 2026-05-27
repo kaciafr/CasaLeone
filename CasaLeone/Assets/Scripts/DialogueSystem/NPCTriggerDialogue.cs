@@ -9,7 +9,7 @@ namespace DialogueSystem
 {
     public class NPCTriggerDialogue : MonoBehaviour, IInteractable
     {
-        public int Priority => 3;
+	    int IInteractable.Priority => 3;
 
         private DialogueTrigger _dialogueTrigger;
 
@@ -23,7 +23,7 @@ namespace DialogueSystem
             _dialogueTrigger = GetComponent<DialogueTrigger>();
         }
 
-        public void Interact(GlobalPlayer globalPlayer)
+        void IInteractable.Interact(GlobalPlayer globalPlayer)
         {
             if (DialogueManager.Instance.IsInConversation)
             {
@@ -39,7 +39,16 @@ namespace DialogueSystem
 
             StartDialogue(conv);
         }
-        
+
+        void IInteractable.OnPlayerEnter(GlobalPlayer player)
+        {
+	        
+        }
+
+        void IInteractable.OnPlayerExit(GlobalPlayer player)
+        {
+        }
+
         public void TriggerDialogue(DialogueConversation conversation, System.Action onEnded)
         {
             if (conversation == null) return;

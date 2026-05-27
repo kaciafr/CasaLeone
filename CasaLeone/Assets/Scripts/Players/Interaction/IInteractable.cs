@@ -2,7 +2,9 @@ namespace Players.Interaction
 {
     public interface IInteractable
     {
-        void Interact(GlobalPlayer globalPlayer);
         int Priority { get; }
+        void Interact(GlobalPlayer globalPlayer);
+        void OnPlayerEnter(GlobalPlayer player);
+        void OnPlayerExit(GlobalPlayer player);
     }
 }
