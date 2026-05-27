@@ -17,5 +17,10 @@ namespace Ending
 			}
         
 		}
+
+		public void Skip()
+		{
+			SceneManager.LoadScene(sceneName);
+		}
 	}
 }

@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e978798fad814ad4b110e4c5bd61d773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiPnj
-  maxBoredTime: 30
+  maxBoredTime: 100
   groupSize: 0
   <Movement>k__BackingField: {fileID: 2649967612647691563}
   <ClientData>k__BackingField: {fileID: 11400000, guid: 3dc5eb89fd97f9f44a4eb3e08612a165, type: 2}

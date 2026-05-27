@@ -88,13 +88,20 @@ namespace PnjWaves
 
         IEnumerator SpawnWave(WaveProfile profile)
         {
-            add += 5;
+            add += 1;
+            Debug.Log(add);
             var profileMinGroups = profile.minGroups + add - 2;
             var currentMaxGroup = profile.maxGroups + add;
             
-            int groupCount = Random.Range(profileMinGroups, currentMaxGroup + 1);
+            int groupCount = Random.Range(profileMinGroups, currentMaxGroup);
+            
             Debug.Log("Min groupp : " + profileMinGroups + "Max groupp : "+ currentMaxGroup);
-
+            
+            if (CurrentWave <= 1)
+            {
+	            groupCount = 2;
+            }
+            
             for (int g = 0; g < groupCount; g++)
             {
                 int idUniqueDuGroupe = prochainIdGroupe;
@@ -107,7 +114,7 @@ namespace PnjWaves
                     yield break;
                 }
 
-                clientsInGroup = Random.Range(profile.minClientsPerGroup, profile.maxClientsPerGroup + 1);
+                clientsInGroup = Random.Range(profile.minClientsPerGroup, profile.maxClientsPerGroup);
 
 
                 for (int c = 0; c < clientsInGroup; c++)

@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e978798fad814ad4b110e4c5bd61d773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clients.ClientController
-  maxBoredTime: 30
+  maxBoredTime: 100
   groupSize: 0
   <Movement>k__BackingField: {fileID: 3746525857779330564}
   <ClientData>k__BackingField: {fileID: 11400000, guid: 148673d33a751704a870feefe8388caa, type: 2}

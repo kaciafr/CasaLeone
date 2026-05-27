@@ -35,7 +35,7 @@ namespace Clients.States
 
           if (IsAngry)
           {
-             Restaurant.Instance.AddOrRemoveStress(8);
+             Restaurant.Instance.AddOrRemoveStress(3);
              RoundEcran.Instance.SadScore();
           }
           else
