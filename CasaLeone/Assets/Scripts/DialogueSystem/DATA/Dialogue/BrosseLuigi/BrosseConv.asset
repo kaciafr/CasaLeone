@@ -16,7 +16,7 @@ MonoBehaviour:
   startingNode: {fileID: 11400000, guid: cb0675ec9aab0054bb28c326abbed156, type: 2}
   canRepeat: 1
   conditionID: Brosse
-  nodeAfterCondition: {fileID: 11400000, guid: 0ca65f36a486db8468facd2658a79569, type: 2}
+  nodeAfterCondition: {fileID: 11400000, guid: 37b9f4424040dad43aa352a612fc6432, type: 2}
   nodeAfterConditionPlayed: {fileID: 11400000, guid: 8ad06a5192294d348a8df061c65aac85, type: 2}
   itemCollected: 0
-  conditionReachedNode: {fileID: 0}
+  conditionReachedNode: {fileID: 11400000, guid: 37b9f4424040dad43aa352a612fc6432, type: 2}

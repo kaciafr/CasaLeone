@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem.DATA.DialogueNode
   dialogueText: "Fais ton taf. Le reste, c\u2019est pas ton probl\xE8me."
   autoAdvanceDelay: 7
-  nextNode: {fileID: 11400000, guid: e630f45e01d51924e9699dcbe799befc, type: 2}
+  nextNode: {fileID: 11400000, guid: 363718f1af5174444abe2ec5bb556a0a, type: 2}
   conditionalBranches: []
