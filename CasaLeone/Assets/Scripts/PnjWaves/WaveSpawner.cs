@@ -32,6 +32,8 @@ namespace PnjWaves
         public event Action<WaveSpawner> UiRound;
         public event Action<WaveSpawner> UiOffRound;
         public event Action<WaveSpawner> CleanScore;
+        public event Action<WaveSpawner> Pause;
+        public event Action<WaveSpawner> EndPause;
         private int clientsInGroup;
         private int currentIdGroupe;
 
@@ -61,7 +63,7 @@ namespace PnjWaves
                 if(CurrentWave == 2)
                     FireEnd?.Invoke(3);
                 CurrentWave++;
-                
+                EndPause?.Invoke(this);
                 audioSource.Play();
                 if (CurrentWave > BestWave)
                 {
@@ -76,6 +78,7 @@ namespace PnjWaves
                 yield return StartCoroutine(SpawnWave(profile));
 
                 yield return new WaitUntil(() => AllClientsGone());
+                Pause?.Invoke(this);
                 audioSource.Play();
                 UiRound?.Invoke(this);
                 yield return new WaitForSeconds(waitBetweenWaves);
