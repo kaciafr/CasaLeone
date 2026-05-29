@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class BackStartMenu : MonoBehaviour
 {
-    public void LoadSceneByName(string sceneName)
+    public void LoadSceneByName()
     {
-        SceneManager.LoadScene("TutoScene");
+        SceneManager.LoadScene("StartMenu");
     }
 }

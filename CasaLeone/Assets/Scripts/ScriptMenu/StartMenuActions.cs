@@ -49,6 +49,11 @@ public class StartMenuActions : MonoBehaviour
         StartCoroutine(PlayAutreSequence());
     }
 
+    public void LeaveGame()
+    {
+	    Application.Quit();
+    }
+
     // ─── Séquence principale ───────────────────────────────────────────────────
 
     private IEnumerator PlayStartSequence()

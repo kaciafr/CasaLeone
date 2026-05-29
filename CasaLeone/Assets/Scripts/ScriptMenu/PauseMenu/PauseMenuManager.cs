@@ -1,5 +1,6 @@
 using Sound;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         SoundManager.Instance.StopSFX();
         SoundManager.Instance.PlaySFX(SoundType.SoundButton);
-        Application.Quit();
+        SceneManager.LoadScene("StartMenu");
     } 
 
     // ── Logique ────────────────────────────────────────────────────────────
